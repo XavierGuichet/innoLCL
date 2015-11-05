@@ -1,0 +1,3 @@
+services:
+    inno_lc_lback.serviceBack:
+        class: innoLCL\backBundle\Service\ServiceBack

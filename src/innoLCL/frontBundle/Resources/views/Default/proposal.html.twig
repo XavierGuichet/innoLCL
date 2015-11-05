@@ -1,0 +1,75 @@
+{# src/innoLCL/frontBundle/Resources/views/Default/index.html.twig #}
+
+{% extends "innoLCLfrontBundle::layout.html.twig" %}
+
+{% block body %}
+         <header>              
+             <div class="row">
+                 <div class="entete-generale">
+                     
+                    <div class="login__topbar">
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            <span class="login__user">Bonjour, {{ app.user.firstname|slice(0, 1)  }}. {{ app.user.lastname }}</span>
+                            <a href="{{ path('fos_user_security_logout') }}" class="login__logout">
+                                Se déconnecter
+                            </a>
+                        {% else %}
+                            <a href="{{ path('fos_user_security_login') }}">
+                                {{ 'layout.login'|trans({}, 'FOSUserBundle') }}
+                                </a>
+                        {% endif %}
+                    </div>
+                     <h1 class="title"><span class="title--subline">Participez au</span> challenge de l'innovation LCL</h1>
+                    <div class="small-3 columns">
+                            {% image '@innoLCLfrontBundle/Resources/assets/images/logo_LCL.png' %}
+                                <img src="{{ asset_url }}"  alt="Challenge de l'innovation LCL" />
+                            {% endimage %}
+                     </div>
+                    <div class="small-6 columns">
+                        <div class="row text-center">
+                            {% image '@innoLCLfrontBundle/Resources/assets/images/logo_challenge.png' %}
+                            <img src="{{ asset_url }}"  alt="Challenge de l'innovation LCL" class="entete-generale__logo levitate" />
+                        {% endimage %}
+                        </div>
+                        <div class="row text-center">
+                            {% image '@innoLCLfrontBundle/Resources/assets/images/play.png' %}
+                                <img src="{{ asset_url }}"  alt="Challenge de l'innovation LCL" class="js-launchvideo" />
+                            {% endimage %}                            
+                        </div>
+                        {% image '@innoLCLfrontBundle/Resources/assets/images/ombre_logo.png' %}
+                                <img src="{{ asset_url }}"  alt="Challenge de l'innovation LCL" class="entete-generale__ombre shadow"/>
+                        {% endimage %}
+                        </div>
+                    <div class="small-3 columns"></div>
+                    <div class="small-12 columns text-center">
+                            <p  class="js-launchvideo title entete-generale__videotext ">Avant de participer, découvrez le challenge en vidéo</p>
+                            {% if displayCTA %}
+                                <span data-reveal-id="formIdea" class="btn btn--main-cta  text-center">Proposer une idée</span>
+                            {% endif %}
+                        </div>
+                </div> 
+            </div> 
+        </div>
+                
+            </div>
+        </header>
+        
+        {% if idealist is not empty %}
+            {{ include("innoLCLfrontBundle:Default:idealist.html.twig")}}
+        {% endif %}
+        {{ include("innoLCLfrontBundle:Default:dotation.html.twig")}}
+        {% if displayForm %}
+            {{ render(controller("innoLCLbothIdeaBundle:Form:createFrontForm",
+                    {  'ideaID': FormIdeaID,
+                        'author': authorid}
+                        )) }}
+        {% endif %}
+        <div id="videoModal" class="reveal-modal full" data-reveal aria-labelledby="videoModalTitle" aria-hidden="true" role="dialog">
+          <video width="320" height="240" id="js-video">
+                    <source src="/video/challenge.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        {{ render(controller("innoLCLfrontBundle:Video:createForm")) }}
+{% endblock %}
+

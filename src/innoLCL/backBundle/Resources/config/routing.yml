@@ -1,0 +1,36 @@
+#Moderateur 
+innolcl_moderateur_list_idea:
+    path:    /admin/moderateur/list/{page}
+    defaults: { _controller: innoLCLbackBundle:Moderateur:list, page: 1 }
+    requirements:
+        page:  \d+
+    
+#Lecteur
+innolcl_lecteur_list_idea:
+    path:    /admin/lecteur/list/{statut}/{page}
+    defaults: { _controller: innoLCLbackBundle:Lecteur:list, statut: all, page: 1 }
+    requirements:
+        statut:  (all|maybe|refused|validated)+
+        page:  \d+
+ 
+#Validateur
+innolcl_validateur_list_idea:
+    path:    /admin/validateur/list/{statut}/{page}
+    defaults: { _controller: innoLCLbackBundle:Validateur:list, statut: all, page: 1 }
+    requirements:
+        statut:  (all|maybe|refused|validated)+
+        page:  \d+
+
+#Selectionneur
+innolcl_selectionneur_list_idea:
+    path:    /admin/selectionneur/list/{page}
+    defaults: { _controller: innoLCLbackBundle:Selectionneur:list, page: 1 }
+    requirements:
+        ideaid:  \d+
+        
+#Recuperateur de formulaire d'idée de l'admin
+innolcl_backbundle_get_idea:
+    path: /admin/get/idea/{ideaid}
+    defaults: { _controller: innoLCLbackBundle:Default:getidea}
+    requirements:
+        ideaid:  \d+

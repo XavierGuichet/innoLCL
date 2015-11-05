@@ -1,0 +1,11 @@
+<li class="idealist__idea">
+    <div class="idealist__icon idealist__icon--waiting"></div>
+    <div class="idealist__titlebox">
+    <p class="idealist__date">Postée le {{idea.postedon|date('d F Y')}}</p>
+    <h2 class="idealist__title">{{ idea.title|length > 35 ? idea.title|slice(0, 32) ~ '...' : idea.title  }}</h2>    
+    </div>
+    <p class="idealist__date idealist__date--status">
+        Idée en attente d'étude 
+    </p>
+    <p class="idealist__description">{{idea.description}}</p>
+</li>

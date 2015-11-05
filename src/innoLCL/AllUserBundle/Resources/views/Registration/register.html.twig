@@ -1,0 +1,90 @@
+<div class="register-bg">
+<div class="row">
+    <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+        <div class="columns register large-centered">
+            {{ form_start(form, { 'class': "register__form"}) }}
+            <div class="register__slider">
+                
+                <div class="register__slider__item">  
+                                      
+                            <div class="row">
+                                <div class="small-12 columns">
+                                    <p class="title">Afin de pouvoir accèder à la plateforme,<br/>
+                                    <span class="title--subline">veuillez renseigner les champs suivants</span></p>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="small-6 columns text-right">
+                                    {{ form_errors(form.firstname) }}
+                                    {{ form_widget(form.firstname, {attr: {'class': 'register__input', 'placeholder': "Prénom"}}) }}
+                                </div>
+                                <div class="small-6 columns text-left">
+                                    {{ form_errors(form.lastname) }}
+                                    {{ form_widget(form.lastname, {attr: {'class': 'register__input', 'placeholder': "Nom"}}) }}
+                                </div>
+                            </div>
+                    
+                            <div class="row">
+                                <div class="small-6 columns text-right">
+                                    {{ form_errors(form.email) }}
+                                    {{ form_widget(form.email, {attr: {'class': 'register__input', 'placeholder': "Adresse e-mail"}}) }}
+                                </div>
+                                <div class="small-6 columns text-left">
+                                    {{ form_errors(form.direction) }}
+                                    {{ form_widget(form.direction, {attr: {'class': 'register__select'}}) }}
+                                </div>
+                            </div>
+                    
+                        <div class="row">
+                            <div class="small-6 columns text-right">
+                                {{ form_errors(form.plainPassword.first) }}
+                                {{ form_widget(form.plainPassword.first, {attr: {'class': 'register__input', 'placeholder': "Mot de passe"}}) }}
+                            </div>
+                            <div class="small-6 columns text-left">
+                                {{ form_errors(form.plainPassword.second) }}
+                                {{ form_widget(form.plainPassword.second, {attr: {'class': 'register__input', 'placeholder': "Confirmer mot de passe"}}) }}
+                            </div>
+                        </div>     
+                        
+                        <div class="row">
+                                <div class="small-12 columns">
+                                    <input type="button" class="register__submit js-register-next" value="S'inscrire" />
+                                </div>
+                            </div>                   
+               </div>
+               <div class="register__slider__item">  
+                   
+                   <div class="row">
+                        <div class="small-12 columns">
+                            <p class="title title-adjust">Conditions de règlement du jeu</p>
+                        </div>
+                    </div>    
+                    
+                    <div class="row">
+                         <div class="small-12 columns register__reglement">
+                                <p>Maecenas ac velit id elit egestas lacinia sed et eros. Pellentesque vitae luctus arcu. Fusce suscipit bibendum libero, vel ultricies turpis. Nulla fringilla, ligula a dapibus varius, nunc mauris rutrum lacus, eget iaculis dui elit vitae turpis. Sed volutpat, libero facilisis tempus suscipit, ex ante convallis purus, consequat eleifend ipsum est non ante. Nunc a mattis augue. Nunc vel interdum nisi, ut vulputate enim. Donec a diam maximus, ultricies nunc sit amet, convallis ante. Vestibulum quis faucibus turpis. Suspendisse potenti. Ut ornare congue posuere. Morbi odio enim, fermentum a nibh sed, hendrerit volutpat urna. Sed eleifend id ante ut pretium. </p> 
+                                <p>Maecenas ac velit id elit egestas lacinia sed et eros. Pellentesque vitae luctus arcu. Fusce suscipit bibendum libero, vel ultricies turpis. Nulla fringilla, ligula a dapibus varius, nunc mauris rutrum lacus, eget iaculis dui elit vitae turpis. Sed volutpat, libero facilisis tempus suscipit, ex ante convallis purus, consequat eleifend ipsum est non ante. Nunc a mattis augue. Nunc vel interdum nisi, ut vulputate enim. Donec a diam maximus, ultricies nunc sit amet, convallis ante. Vestibulum quis faucibus turpis. Suspendisse potenti. Ut ornare congue posuere. Morbi odio enim, fermentum a nibh sed, hendrerit volutpat urna. Sed eleifend id ante ut pretium. </p> 
+                                <p>Maecenas ac velit id elit egestas lacinia sed et eros. Pellentesque vitae luctus arcu. Fusce suscipit bibendum libero, vel ultricies turpis. Nulla fringilla, ligula a dapibus varius, nunc mauris rutrum lacus, eget iaculis dui elit vitae turpis. Sed volutpat, libero facilisis tempus suscipit, ex ante convallis purus, consequat eleifend ipsum est non ante. Nunc a mattis augue. Nunc vel interdum nisi, ut vulputate enim. Donec a diam maximus, ultricies nunc sit amet, convallis ante. Vestibulum quis faucibus turpis. Suspendisse potenti. Ut ornare congue posuere. Morbi odio enim, fermentum a nibh sed, hendrerit volutpat urna. Sed eleifend id ante ut pretium. </p> 
+                                <p>Maecenas ac velit id elit egestas lacinia sed et eros. Pellentesque vitae luctus arcu. Fusce suscipit bibendum libero, vel ultricies turpis. Nulla fringilla, ligula a dapibus varius, nunc mauris rutrum lacus, eget iaculis dui elit vitae turpis. Sed volutpat, libero facilisis tempus suscipit, ex ante convallis purus, consequat eleifend ipsum est non ante. Nunc a mattis augue. Nunc vel interdum nisi, ut vulputate enim. Donec a diam maximus, ultricies nunc sit amet, convallis ante. Vestibulum quis faucibus turpis. Suspendisse potenti. Ut ornare congue posuere. Morbi odio enim, fermentum a nibh sed, hendrerit volutpat urna. Sed eleifend id ante ut pretium. </p>
+                        </div>
+                    </div>
+                    
+                     <div class="row"> 
+                         <div class="small-6 columns">
+                            {{ form_widget(form.cgvaccepted) }} <label for="fos_user_registration_form_cgvaccepted" class="required">J'ai lu les conditions de règlement du jeu</label><br/>
+                            {{ form_errors(form.cgvaccepted) }} 
+                        </div>
+                         <div class="small-6 columns">
+                                <input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}"  class="register__submit" />
+                        </div>
+                    </div>
+                        
+                    </div>
+                </div>
+        </div>
+            {{ form_end(form) }}
+        </div>
+    </form>
+</div>
+</div>

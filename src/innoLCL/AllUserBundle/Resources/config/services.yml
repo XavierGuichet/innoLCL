@@ -1,0 +1,5 @@
+services:
+    inno_lcl_all_user.form.registration:
+        class: innoLCL\AllUserBundle\Form\RegistrationType
+        tags:
+            - { name: form.type, alias: innoLCL_AllUserBundle_registrationType }

@@ -1,0 +1,165 @@
+.login {
+padding: 1em 1.5em 1.5em;
+background: rgba(255,255,255,0.25);
+max-width: 240px;
+border-radius: $radius;
+margin: 2em auto;
+    
+    &__title {
+        @include font-size(18);
+        color: $white-primary;
+        text-transform: uppercase;
+        text-align:center;
+        font-weight: $extrabold;
+        margin: 0.25em;
+    }
+    &__input {
+        @include font-size(16);
+        padding: 0.25em 0.5em;
+        margin: 0.5em 0;
+        border: none;
+        border-radius: $radius;
+        box-shadow: inset 0 1px 3px rgba(0,0,0,.4);
+        max-width: 100%;
+    }
+    
+    &__rememberme {
+        padding: 0.5em;
+    }
+    
+    &_remembercontainer {
+            margin-top: 0;
+            margin-bottom: 2em;
+        }
+    &__rememberme__label {
+        color: $white-primary;
+    }
+    &__connect {
+        background: #0677e6;
+        background: -moz-radial-gradient(center, ellipse cover, #0677e6 5%, #074390 100%);
+        background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(5%,#0677e6), color-stop(100%,#074390));
+        background: -webkit-radial-gradient(center, ellipse cover, #0677e6 5%,#074390 100%);
+        background: -o-radial-gradient(center, ellipse cover, #0677e6 5%,#074390 100%);
+        background: -ms-radial-gradient(center, ellipse cover, #0677e6 5%,#074390 100%);
+        background: radial-gradient(ellipse at center, #0677e6 5%,#074390 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0677e6', endColorstr='#074390',GradientType=1 );
+        border-radius: $radius;
+        border: none;
+        cursor: pointer;
+        display: block;
+        margin: 0 auto 0.5em;
+        text-decoration: none;
+        color: $white-primary;
+        line-height: 64px;
+        text-shadow: 2px 1px 4px $dark-blue;
+        font-weight: 700;
+        text-transform: uppercase;   
+        @include font-size(18);
+        padding: 0 1.25em;
+        border-radius: $radius;        
+        max-width: 90%;
+            &:hover {
+            text-shadow: 2px 1px 3px $dark-blue;            
+        }
+    }
+    &__inscription {
+        background: #fcd403;
+        background: -moz-radial-gradient(center, ellipse cover, #fcd403 0%, #f1da36 22%, #f1da36 34%, #f1da36 67%, #e1ae17 98%);
+        background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#fcd403), color-stop(22%,#f1da36), color-stop(34%,#f1da36), color-stop(67%,#f1da36), color-stop(98%,#e1ae17));
+        background: -webkit-radial-gradient(center, ellipse cover, #fcd403 0%,#f1da36 22%,#f1da36 34%,#f1da36 67%,#e1ae17 98%);
+        background: -o-radial-gradient(center, ellipse cover, #fcd403 0%,#f1da36 22%,#f1da36 34%,#f1da36 67%,#e1ae17 98%);
+        background: -ms-radial-gradient(center, ellipse cover, #fcd403 0%,#f1da36 22%,#f1da36 34%,#f1da36 67%,#e1ae17 98%);
+        background: radial-gradient(ellipse at center, #fcd403 0%,#f1da36 22%,#f1da36 34%,#f1da36 67%,#e1ae17 98%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcd403', endColorstr='#e1ae17',GradientType=1 );
+        @include font-size(16);
+        display: block;
+        margin: 0 auto;
+        font-weight: 700;
+        text-transform: uppercase;   
+        text-align: center;
+        border-radius: $radius;
+        line-height: 2em;
+        padding: 0 1.25em;
+        max-width: 90%;
+        cursor: pointer;
+            &:hover {
+            text-shadow: 2px 1px 3px $yellow;            
+        }    
+    }
+    &__topbar {
+    position: absolute;
+    width: 100%;
+    text-align: right;
+    @include font-size(14);
+    }
+    &__user {
+    display: inline-block;
+    color: $white-primary;
+    padding: 0.25em 1em;
+    }
+    &__logout {
+    display: inline-block;
+    background: $white-primary;
+    border-radius: 0 0 $radius $radius;
+    $color: $dark-grey !important;
+    line-height: 1.5em;
+    padding: 0.25em 1em;
+    text-decoration: none;
+        &:visited {
+         $color: $dark-grey;
+        }
+        &:after {
+            content: "x";
+            color: $red;
+        }
+    }
+}
+
+/* Aspect des checkboxes */
+/* :before sert à créer la case à cocher */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+    content: '';
+    position: absolute;
+    left:0; top: 1px;
+    width: 19px; height: 19px;
+    border: 1px solid #aaa;
+    background: #f8f8f8;
+    border-radius: $radius; 
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.3);
+}
+
+/* Cachons la case à cocher */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+ 
+/* on prépare le label */
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative; /* permet de positionner les pseudo-éléments */
+  padding-left: 25px; /* fait un peu d'espace pour notre case à venir */
+  cursor: pointer;    /* affiche un curseur adapté */
+} 
+/* Aspect général de la coche */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: '✔';
+  position: absolute;
+  top: 0; left: 4px;
+  font-size: 14px;
+  color: $dark-blue;
+  transition: all .2s; /* on prévoit une animation */
+}
+/* Aspect si "pas cochée" */
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0; /* coche invisible */
+  transform: scale(0); /* mise à l'échelle à 0 */
+}
+/* Aspect si "cochée" */
+[type="checkbox"]:checked + label:after {
+  opacity: 1; /* coche opaque */
+  transform: scale(1); /* mise à l'échelle 1:1 */
+}

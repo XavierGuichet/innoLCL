@@ -1,0 +1,4 @@
+services:
+     inno_lc_lboth_idea.serviceIdea:
+        class: innoLCL\bothIdeaBundle\serviceIdea
+#        arguments: [@service_id, "plain_value", %parameter%]

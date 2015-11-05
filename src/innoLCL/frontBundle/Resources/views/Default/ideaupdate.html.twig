@@ -1,0 +1,20 @@
+<li class="idealist__idea">
+    <div class="idealist__icon idealist__icon--{% if idea.statuts == "maybe" %}maybe{% elseif idea.statuts == "validated" %}valid{% endif %}"></div>
+    <div class="idealist__titlebox">
+    <p class="idealist__date">Postée le {{idea.postedon|date('d F Y')}}</p>
+    <h2 class="idealist__title">{{ idea.title|length > 25 ? idea.title|slice(0, 25) ~ '...' : idea.title  }}</h2>
+    {% if idea.statuts == "maybe" %}
+        <span class="idealist__btn idealist__btn--edit" data-reveal-id="formIdea">Editer</span>
+    {% elseif idea.statuts == "validated" %}
+        <span class="idealist__btn idealist__btn--improve" data-reveal-id="formIdea">Affiner</span>
+    {% endif %}
+    
+    </div>
+    <p class="idealist__date idealist__date--status">
+         {% if idea.statuts == "maybe" %}Demande de précision le 
+         {% elseif idea.statuts == "validated" %}Idée acceptée le {% endif %}
+         {{idea.validatedon|date('d F Y')}}
+    </p>
+    <p class="idealist__description">{{idea.description}}</p>
+    
+</li>

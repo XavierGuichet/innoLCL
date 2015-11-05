@@ -1,0 +1,77 @@
+{# src/innoLCL/backBundle/Resources/views/Selectionneur/list.html.twig #}
+
+{% extends "innoLCLbackBundle::layout.html.twig" %}
+
+{% block menu %}
+        <div class="row">
+                <div class="container">
+                    <div class="col-lg-3 col-md-6">                        
+                        <div class="panel panel-primary">
+                            <div class="panel-heading text-center">
+                                    <div class="huge"></div>
+                                    <div>Idées Proposées</div>
+                            </div>
+                                <div class="panel-footer">
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-yellow">
+                                <div class="panel-heading text-center">
+                                        <div class="huge"></div>
+                                        <div>Peut-être</div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-green">
+                            <a href="{{ path('innolcl_lecteur_list_idea', {'statut': 'validated'}) }}">
+                                <div class="panel-heading text-center">
+                                        <div class="huge"></div>
+                                        <div>Validées</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-red">
+                                <div class="panel-heading text-center">
+                                        <div class="huge"></div>
+                                        <div>Refusées</div>
+                                </div>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+{% endblock %}
+
+{% block enteteSelectionneur %}
+<em>Il reste {{ ideacountselected }} idées à sélectionner</em>
+{% endblock %}
+
+{% block body %}
+        <div class="row">
+            <div class="container">
+                <div class="col-lg-12 table-responsive">
+                    <table class="table table-hover" id="idealist">
+                        <tr class="panel-heading"><th>N°</th><th>Prénom</th><th>Nom</th><th>Idée</th><th>Descriptif</th><th>Contacter</th><th>Sélection</th></tr>
+                    {% for idea in idealist %}
+                        <tr data-action="{{ path('innolcl_backbundle_get_idea', {'ideaid': idea.id }) }}" class="js-getidea">
+                                <td>{{ idea.id }}</td>
+                                <td>{{ idea.author.firstname }}</td>
+                                <td>{{ idea.author.username }}</td>
+                                <td>{{ idea.title|length > 20 ? idea.title|slice(0, 20) ~ '...' : idea.title  }}</td>
+                                <td>{{ idea.description|length > 20 ? idea.description|slice(0, 20) ~ '...' : idea.description  }}</td>
+                                <td>{{ idea.author.email }}</td>
+                                <td>form.selected</td>
+                        </tr>
+                    {% else %}
+                        <tr><td colspan="7">Pas d'idée dans cette catégorie.</td>
+                    {% endfor %}                
+                </table>
+                </div>
+            </div>
+        </div>
+{% endblock %}

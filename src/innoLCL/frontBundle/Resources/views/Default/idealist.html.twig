@@ -1,0 +1,20 @@
+<div class="idealist clearfix">
+            <ul class="idealist__myideas">
+            {% for idea in idealist %}
+                {# % if loop.first % #}
+                    {% if idea.validated == 0 %}
+                        {{ include("innoLCLfrontBundle:Default:ideawaiting.html.twig")}}
+                    {% elseif idea.statuts == "maybe" or idea.statuts == "validated" %}
+                        {{ include("innoLCLfrontBundle:Default:ideaupdate.html.twig")}}
+                    {% elseif idea.statuts == "refused" %}
+                        {{ include("innoLCLfrontBundle:Default:idearefused.html.twig")}}
+                    {% endif %}
+                {# % else % #}
+                    {# { include("innoLCLfrontBundle:Default:idearefused.html.twig")} #}
+                {# % endif % #}
+            {% endfor %}
+            </ul>
+</div>
+<div class="list_scrollbar js_scrollbar clearfix">
+    <div class="list_scrollbar__cursor"></div>
+</div>

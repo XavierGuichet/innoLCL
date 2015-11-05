@@ -1,0 +1,42 @@
+#landing pre connexion
+innolcl_front_homepage:
+    path:     /
+    defaults: { _controller: innoLCLfrontBundle:Default:index }
+
+#landing phase 1
+innolcl_front_landing_proposal:
+    path:     /proposal
+    defaults: { _controller: innoLCLfrontBundle:Default:proposal }
+
+#landing phase 2
+#innolcl_front_landing_selection:
+#    path:     /selection
+#    defaults: { _controller: innoLCLfrontBundle:Default:selection }
+
+#landing phase 3
+#innolcl_front_landing_laureat:
+#    path:     /laureat
+#    defaults: { _controller: innoLCLfrontBundle:Default:laureat }
+    
+#landing phase 4
+#innolcl_front_landing_vote:
+#    path:     /vote
+#    defaults: { _controller: innoLCLfrontBundle:Default:vote }    
+    
+#landing phase 5
+#innolcl_front_landing_results:
+#    path:     /results
+#    defaults: { _controller: innoLCLfrontBundle:Default:results }
+
+    
+#soumission js set video as seen
+innolcl_frontbundle_videohandleFormAction:
+    path:     /videoseen
+    defaults: { _controller: innoLCLfrontBundle:Video:handleForm }
+    
+#requete js get newideaform /!\ Pas sur que cet route soit utilisé
+innolcl_front_landing_getnewideaform:
+    path:     /getnewideaform
+    defaults: { _controller: innoLCLfrontBundle:Default:getnewideaform }
+    
+    

@@ -1,0 +1,21 @@
+footer {
+border-top: 2px solid $white-primary;
+background: $black;
+}
+.main-footer {
+    text-transform: uppercase;
+    font-weight: $extrabold;
+    text-align: center;
+    line-height: 4em;
+    color: $white-primary;
+    
+    &__link, &__link:visited, &__link:active {
+        display: inline-block;
+        color: $white-primary;
+        padding: 0 1em;
+        text-decoration: none;
+    }
+    
+    
+
+}

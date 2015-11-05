@@ -1,0 +1,17 @@
+inno_lcl_all_user:
+    resource: "@innoLCLAllUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+inno_lc_lback:
+    resource: "@innoLCLbackBundle/Resources/config/routing.yml"
+    prefix:   /
+
+inno_lc_lboth_idea:
+    resource: "@innoLCLbothIdeaBundle/Resources/config/routing.yml"
+    prefix:   /
+
+inno_lc_lfront:
+    resource: "@innoLCLfrontBundle/Resources/config/routing.yml"
+    prefix:   /
+
+

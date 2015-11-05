@@ -1,0 +1,58 @@
+#fos_user_security:
+#    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+
+#fos_user_resetting:
+   # resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    #prefix: /resetting
+
+#fos_user_change_password:
+   # resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    #prefix: /profile
+
+# Route de connexion au FrontOffice
+fos_user_security_login:
+    path: /
+    defaults: { _controller: innoLCLfrontBundle:Default:index }
+
+# Route de vérification de connexion au FrontOffice
+fos_user_security_check:
+    path: /check
+    defaults: { _controller: FOSUserBundle:Security:check }
+    requirements:
+        _method: POST
+
+# Route de déconnexion du FrontOffice
+fos_user_security_logout:
+    path: /logout
+    defaults: { _controller: FOSUserBundle:Security:logout }
+
+
+
+
+
+
+# Route de redirection après le check
+innoLCL_alluserbundle_redirect:
+    path:  /redirectUser
+    defaults: { _controller: innoLCLAllUserBundle:Redirect:ByRoleRedirection }
+
+# Route de connexion au Backoffice
+fos_admin_user_security_login:
+    path:  /admin/
+    defaults: { _controller: FOSUserBundle:Security:login }
+
+# Route de vérification de connexion au Backoffice
+fos_admin_user_security_check:
+    path:  /admincheck
+    defaults: { _controller: FOSUserBundle:Security:check }
+    requirements:
+        _method: POST
+
+# Route de déconnexion du Backoffice
+fos_admin_user_security_logout:
+    path:  /admin/logout
+    defaults: { _controller: FOSUserBundle:Security:logout }

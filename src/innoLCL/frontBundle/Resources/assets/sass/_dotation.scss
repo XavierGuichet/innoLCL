@@ -1,0 +1,71 @@
+.dotation {
+    background: $black;
+    padding-bottom: 6.5em;
+
+    &__first {
+    overflow: hidden;
+    padding-bottom: 30%;
+    background-image: url('../../../images/san_francisco.jpg');
+    background-size:cover;
+    background-position: bottom left;
+    height:0;
+    
+        & .title {
+        margin-top: calc(25% - 90px);
+        }
+        
+    }
+    &__second {
+        
+        }
+    &__ten {
+    height:0;
+    width: 50%;
+    padding-bottom: 30%;
+    background-image: url('../../../images/macbook_laureats.jpg');
+    background-size:cover;
+    background-position: bottom left;
+    
+        & .title {
+        @include font-size(40);
+        margin-top: calc(25% - 120px);
+        
+            &--subline {
+            font-family: 'Lato-regular';
+            font-weight: 400;
+            }
+        }
+        
+    }
+    &__more {
+    height:0;
+    width: 50%;
+    padding-bottom: 30%;
+    background-image: url('../../../images/cadeaux.jpg');
+    background-size:cover;
+    background-position: bottom left;
+    
+        & .title {
+        color: $black-secondary;
+        @include font-size(40);
+        margin-top: calc(25% - 65px);
+        
+            & .firstline {
+                
+            }
+            
+            & .secondline {
+                font-weight: 400;
+                font-size: 1.85em;
+                line-height: 1.1em;
+            }
+            
+            & .thirdline {
+                font-weight: $light;
+                text-transform: none;
+                font-size: 1.2em;
+            }
+            
+        }
+    }
+}

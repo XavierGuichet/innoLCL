@@ -1,0 +1,27 @@
+#soumission js ajouter/modifier une idée | Utilisateur Front
+innolcl_bothIdea_handleFrontForm:
+    path:     /handleFrontForm/{ideaid}
+    defaults: { _controller: innoLCLbothIdeaBundle:Default:handleFrontForm }
+    requirements:
+        ideaid:  \d+
+        
+#soumission js modifier une idée | Moderateur
+innolcl_bothIdea_handleModerateurForm:
+    path:     /admin/handleModerateurForm/{ideaid}
+    defaults: { _controller: innoLCLbothIdeaBundle:Default:handleModerateurForm }
+    requirements:
+        ideaid:  \d+
+     
+#soumission js confirmer le statut d'une idée et envoyer un mail | Validateur
+innolcl_bothIdea_handleValidateurForm:
+    path:     /admin/handleValidateurForm/{ideaid}
+    defaults: { _controller: innoLCLbothIdeaBundle:Default:handleValidateurForm}
+    requirements:
+        ideaid:  \d+
+
+#soumission js (de)selectionner une idée | Selectionneur
+innolcl_bothIdea_handleSelectionneurForm:
+    path:    /admin/selectionneur/toggleselect/{ideaid}
+    defaults: { _controller: innoLCLbothIdeaBundle:Default:handleSelectionneurForm}
+    requirements:
+        ideaid:  \d+
