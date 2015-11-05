@@ -35,6 +35,9 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    globals:
+        app_front_url:  "%app_front_url%"
+        online_mail_dir:  "%online_mail_dir%"
 
 # Assetic Configuration
 assetic:

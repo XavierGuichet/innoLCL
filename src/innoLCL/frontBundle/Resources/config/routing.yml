@@ -38,5 +38,12 @@ innolcl_frontbundle_videohandleFormAction:
 innolcl_front_landing_getnewideaform:
     path:     /getnewideaform
     defaults: { _controller: innoLCLfrontBundle:Default:getnewideaform }
+
     
+    
+    
+#landing pre connexion
+front_online_version:
+    path:     /online/{type}/{hash}
+    defaults: { _controller: innoLCLfrontBundle:Online:index }    
     

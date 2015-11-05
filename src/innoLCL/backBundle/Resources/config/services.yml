@@ -1,3 +1,7 @@
 services:
     inno_lc_lback.serviceBack:
         class: innoLCL\backBundle\Service\ServiceBack
+      
+    mail_to_user:
+        class: innoLCL\backBundle\Service\MailToUser
+        arguments: [@mailer, @templating, @router, %app_front_url%, @kernel]  

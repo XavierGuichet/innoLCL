@@ -1405,3 +1405,14 @@ footer {
 .text-right {
   text-align: right;
 }
+
+
+
+
+/* AJOUT JULIEN */
+.entete-generale .small-6.columns{
+    z-index:101;
+}
+.entete-generale img.entete-generale__ombre{
+    top: 600px;
+}

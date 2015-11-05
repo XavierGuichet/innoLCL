@@ -57,18 +57,21 @@ class DefaultController extends Controller
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($idea);
-            if($idea->sanitize()) { //remove only html tag on varchar actually, named in case there's more to do but Doctrine should do all the work
+            if($idea->sanitize()) { //remove only html tag on varchar actually, named in case there's more to do but Doctrine should do all the work                
+                $typeMail = "newIdea";
                 if($idea->getStatuts() == "maybe" && $idea->getValidated() == 1) {//si l'idée est un rework, reset son statut de moderation actuel, de validation et la fait devenir un rework
                     $idea->setStatuts('notmoderated');
                     $idea->setReworked(1);
                     $idea->setValidated(0);
                     $titre = "Merci";
-                    $message_popup = "Votre modification a bien été prise en compte.";                 
+                    $message_popup = "Votre modification a bien été prise en compte."; 
+                    $typeMail = "modifyIdea";
                 }
                 elseif($idea->getStatuts() == "validated" && $idea->getValidated == 1) {  // SI l'on veut recup l'info de si une idée est un rework de validé, c'est içi qu'il faudra ajouter le setter
                     $titre = "Merci";
                     $message_popup = "Votre modification a bien été prise en compte.<br/>Vous serez informé rapidement de la suite à donner de votre idée.";
-                    }
+                    $typeMail = "improveIdea";
+                }
                 else {
                     $titre = "Merci";
                     $message_popup = "Votre participation au Challenge de l'innovation a bien été enregistrée.<br/>Vous serez informé rapidement de la suite à donner de votre idée.";
@@ -78,6 +81,12 @@ class DefaultController extends Controller
                                                             array('titre' => $titre,
                                                                     'texte' => $message_popup)));
                 $em->flush();
+                
+                $to = $idea->getAuthor()->getEmail();
+                if (!$this->get('mail_to_user')->sendEmailIdeeFront($to,$typeMail)) {
+                    throw $this->createNotFoundException('Unable to send Idea-front-'.$typeMail.' mail.');
+                }
+                
                 return new JsonResponse($reponse,200);
             }
             else {
@@ -169,7 +178,7 @@ class DefaultController extends Controller
 
     }
     
-    public function handleValidateurFormAction($ideaid = 0, Request $request) //SWIFT MAILER HERE
+    public function handleValidateurFormAction($ideaid = 0, Request $request)
     {
         $user = $this->get('security.context')->getToken()->getUser();
         
@@ -213,6 +222,26 @@ class DefaultController extends Controller
                 $em->flush();
                 
                 //send mail HERE
+                if($idea->getValidated()){
+                    $to = $idea->getAuthor()->getEmail();
+                    $motif = $idea->getRefusalreason();
+                    if($idea->getStatuts() == "validated"){
+                        if (!$this->get('mail_to_user')->sendEmailValider($to)) {
+                            throw $this->createNotFoundException('Unable to send Idea-valider mail.');
+                        }
+                    }
+                    elseif($idea->getStatuts() == "refused"){
+                        if (!$this->get('mail_to_user')->sendEmailRefuser($to, $motif)) {
+                            throw $this->createNotFoundException('Unable to send Idea-refuser mail.');
+                        }
+                    }
+                    elseif($idea->getStatuts() == "maybe"){
+                        if (!$this->get('mail_to_user')->sendEmailPeutEtre($to)) {
+                            throw $this->createNotFoundException('Unable to send Idea-peut-etre mail.');
+                        }
+                    }
+                }
+                
                 return new JsonResponse(array('message' => 'Success!'), 200);
             }
             else {

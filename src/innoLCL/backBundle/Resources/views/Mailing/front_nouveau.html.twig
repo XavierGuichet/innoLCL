@@ -1,0 +1,38 @@
+{% extends "::baseMail.html.twig" %}
+
+{% set titleMail = "Idée enregistrée" %}
+
+{% block title %} {{ parent() }} - {{ titleMail }}{% endblock %}
+
+
+{% block stylesheets %}                        
+    {{ parent() }}
+    {% include 'innoLCLbackBundle:Mailing:_stylesheet.html.twig' %} 
+{% endblock %}
+
+{% block body %}
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="BGtable" bgcolor="#ffffff" style="font-size:0;">
+	<tr>
+	  <td align="center">		
+                {% include 'innoLCLbackBundle:Mailing:_top_header.html.twig' with { 'titleMail' : titleMail }%}                 
+                {% include 'innoLCLbackBundle:Mailing:_header.html.twig' %} 
+		<table width="600" class="w600" align="center" border="0" cellspacing="0" cellpadding="0" style="margin: auto !important;">
+		  <tr>
+		    <td height="42"></td>
+		  </tr>
+		  <tr>
+		    <td>
+			  <font face="Arial, Helvetica, sans-serif" size="3" color="#740612" style="color: #740612; font: 24px/26px Arial, Helvetica, sans-serif; font-weight:bold;">
+			  Bonjour<br><br>Nous avons bien pris en compte votre idée.
+			  </font>
+		    </td>
+		  </tr>
+		   <tr>
+		    <td height="41"></td>
+		  </tr>
+		</table>                
+                {% include 'innoLCLbackBundle:Mailing:_footer.html.twig' %} 
+	  </td>
+	</tr>
+  </table>
+{% endblock %}

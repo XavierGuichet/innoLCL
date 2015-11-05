@@ -17,3 +17,6 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    app_front_url: "http://localhost:8888"
+    online_mail_dir: /online/mail/
