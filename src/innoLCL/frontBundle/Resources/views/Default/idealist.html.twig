@@ -1,5 +1,5 @@
 <div class="idealist clearfix">
-            <ul class="idealist__myideas">
+            <ul class="idealist__myideas" style="width:{{500+(510 * idealist|length)}}px;">
             {% for idea in idealist %}
                 {# % if loop.first % #}
                     {% if idea.validated == 0 %}

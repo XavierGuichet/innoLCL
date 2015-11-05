@@ -23,11 +23,11 @@
                                 <img src="{{ asset_url }}"  alt="Challenge de l'innovation LCL" />
                             {% endimage %}
                         </div>
-                    </div>
-                    <div class="small-3 columns">{{ render(controller('FOSUserBundle:Security:login')) }}</div>
-                    {% image '@innoLCLfrontBundle/Resources/assets/images/ombre_logo.png' %}
+                        {% image '@innoLCLfrontBundle/Resources/assets/images/ombre_logo.png' %}
                                 <img src="{{ asset_url }}"  alt="Challenge de l'innovation LCL" class="entete-generale__ombre shadow"/>
-                    {% endimage %}
+                        {% endimage %}
+                    </div>
+                    <div class="small-3 columns">{{ render(controller('FOSUserBundle:Security:login')) }}</div>                    
                 </div> 
             </div> 
         </div>

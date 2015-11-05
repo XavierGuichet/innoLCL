@@ -51,6 +51,12 @@ jQuery(document).ready( function($) {
         .done(function (data) {
             if (typeof data.message !== 'undefined') {
                 $("#suggest_idea_front").replaceWith(data.succespopup);
+                $("#formIdea").on('close.fndtn.reveal', function () {
+                    location.reload();
+                });
+                $('html,body').animate({
+                      scrollTop: $("#formIdea").offset().top
+                    }, 1000);
             }
         })
         .fail(function (jqXHR, textStatus, errorThrown) {

@@ -3,3 +3,105 @@
     color: #222;
     text-decoration:none;
 }
+
+/* FRONT : ANIM LOGO */
+.entete-generale img.entete-generale__ombre {
+    top:initial;
+    bottom:0px;
+}
+
+
+/* CORRECTION IDEE */
+.idealist__myideas {
+    width: auto;
+}
+
+@media screen and (max-width: 1220px) {   
+    .entete-generale {
+        height:initial;
+        padding-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 1090px) {   
+    .entete-generale__videotext.title{
+        font-size: 1.7rem;
+    }
+}
+
+@media screen and (max-width: 1068px) {
+    .dotation__first .small-6.columns{
+        width: 70%;  
+    }
+    .dotation__first .title {
+        margin-top: calc(17% - 90px);
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .dotation__more .title .secondline{
+        font-size: 1.7em;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .entete-generale .small-6.columns .row{
+        width: 80%;
+        margin: 0 auto;
+    } 
+    
+    .entete-generale__videotext.title{
+        font-size: 1.5rem;
+    }
+    
+    .login .login__title{
+        font-size: 0.8rem;
+    }
+    
+    .login .login__rememberme__label{
+        font-size: 12px;
+    }
+    
+    .login input[type="submit"]{
+        font-size: 12px;
+        line-height: 44px;
+        padding: 0 0.6em;
+    }
+    
+    .login a.login__inscription{
+        padding: 0 0;
+        font-size: 0.8rem;
+    }
+    .login span.login__inscription{
+        padding: 0 0;
+        font-size: 0.8rem;
+    }
+    
+    
+    
+    
+    
+    .dotation__first .small-6.columns{
+        width: 100%;            
+    }
+    .dotation__first .title{
+        margin-top: 0px;
+        font-size: 1rem;
+    }
+    
+    .dotation__second .dotation__ten .title{
+        font-size: 2rem;
+        margin-top: 0px;
+    }
+    .dotation__second .dotation__more .title{
+        font-size: 2rem;
+    }
+}
+@media screen and (max-width: 831px) {    
+    .dotation__second .dotation__more .title{
+        margin-top: 0px;
+    }
+    .dotation__more .title .secondline{
+        font-size: 1.5em;
+    }
+}

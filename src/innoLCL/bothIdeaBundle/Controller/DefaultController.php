@@ -67,7 +67,7 @@ class DefaultController extends Controller
                     $message_popup = "Votre modification a bien été prise en compte."; 
                     $typeMail = "modifyIdea";
                 }
-                elseif($idea->getStatuts() == "validated" && $idea->getValidated == 1) {  // SI l'on veut recup l'info de si une idée est un rework de validé, c'est içi qu'il faudra ajouter le setter
+                elseif($idea->getStatuts() == "validated" && $idea->getValidated() == 1) {  // SI l'on veut recup l'info de si une idée est un rework de validé, c'est içi qu'il faudra ajouter le setter
                     $titre = "Merci";
                     $message_popup = "Votre modification a bien été prise en compte.<br/>Vous serez informé rapidement de la suite à donner de votre idée.";
                     $typeMail = "improveIdea";
