@@ -1,7 +1,23 @@
 jQuery(document).ready( function($) {
     //Prepare la box de popin et celle de la video
     jQuery(document).foundation();
-        
+    
+    // initialise homepage scroll vers form Inscription
+    $('.login a.login__inscription').on('click', function(event){
+        event.preventDefault();
+        var target = $(this.hash);
+        if (target.length) {
+            $('html,body').animate({
+              scrollTop: target.offset().top
+            }, 1000);
+        }
+    });
+    // -------- fin
+    
+    // initialise popin de confirmation retour mail
+    $('#formRegisterConfirmed').foundation('reveal', 'open');
+    
+    
     
     //Trigger register form pour slide        /!\ Retour au step 1 à rajouter en cas d'erreur de validation par le client.
     $(".js-register-next").click( function(e) {

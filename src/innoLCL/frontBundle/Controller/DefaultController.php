@@ -8,6 +8,8 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+
 class DefaultController extends Controller
 {
     public function indexAction(Request $request) // /accueil
@@ -22,7 +24,30 @@ class DefaultController extends Controller
         return $this->render('innoLCLfrontBundle:Default:index.html.twig');
     }
     
+    
+    
+    
+    
+    /**
+     * Tell the user his account is now confirmed
+     */
+    public function confirmedAction(Request $request)
+    {
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        //if (!is_object($user) || !$user instanceof UserInterface) {
+        if (!is_object($user)) {
+            throw new AccessDeniedException('This user does not have access to this section.');
+        }
+        
+        return $this->homeConnected($request,true);
+    }
+    
     public function proposalAction(Request $request) // phase 1
+    {
+        return $this->homeConnected($request, false);
+    }
+    
+    private function homeConnected(Request $request, $registerConfirmed)
     {
         $repositoryIdea = $this->getDoctrine()->getManager()->getRepository('innoLCL\bothIdeaBundle\Entity\Idea');
         
@@ -62,9 +87,13 @@ class DefaultController extends Controller
             }
         }
         
+        $twig['registerConfirmed'] = $registerConfirmed;
         
           return $this->render('innoLCLfrontBundle:Default:proposal.html.twig',$twig);
     }
+    
+    
+    
     
     public function SelectionAction() // phase 2
     {

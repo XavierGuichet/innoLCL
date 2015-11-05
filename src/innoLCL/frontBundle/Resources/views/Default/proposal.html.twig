@@ -19,6 +19,26 @@
                                 </a>
                         {% endif %}
                     </div>
+                    
+                    {% if registerConfirmed is defined %}
+                        {% if registerConfirmed %}
+                            <div id="formRegisterConfirmed" class="reveal-modal suggestidea" data-reveal aria-labelledby="Confirmation de l'inscription" aria-hidden="false" role="dialog">
+                                <div class="popup">
+                                    <h1 class="popup__title">Confirmation de l'inscription</h1>
+                                    <p class="popup__content">Félicitations {{app.user.firstname}}, votre compte est maintenant activé.</p>
+
+                                    <div class="popup__footer">
+                                        <p class="popup__footer__signature">Le comité de pré-sélection.<br/>
+                                        <span>Challenge de l'innovation, 10ans LCL</span></p>
+                                    </div>
+                                </div>
+                                    <a class="close-reveal-modal suggestidea__close" aria-label="Close">&#215;</a>
+                                    <img src="{{ asset('images/popin_logo_bas.png') }}"  class="popin_img_bas" />
+                                    <img src="{{ asset('images/popin_logo_haut.png') }}"  class="popin_img_haut" />                                    
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                    
                      <h1 class="title"><span class="title--subline">Participez au</span> challenge de l'innovation LCL</h1>
                     <div class="small-3 columns">
                             {% image '@innoLCLfrontBundle/Resources/assets/images/logo_LCL.png' %}
