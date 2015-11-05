@@ -36,6 +36,9 @@ jQuery(document).ready( function($) {
             
         });
         */
+       
+       
+       
         // retour Ajax positif = slide charte sinon affichage erreurs
         $(".register__slider__item:eq(0)").css('margin-left','-100%');
     });
@@ -72,6 +75,11 @@ jQuery(document).ready( function($) {
         });
     });
     
+    // gestion longueur des textarea
+    // pour les 200 caractères
+    //gestionLimiteTextareaCaracteres();
+    // pour les 200 mots
+    gestionLimiteTextareaMots();
     
     if($('#js-video').length>0){
         var v = document.getElementById('js-video'); // /!\ A généré une erreur sur une page.
@@ -113,3 +121,82 @@ jQuery(document).ready( function($) {
         v.play();
     });
 });
+
+
+
+function gestionLimiteTextareaCaracteres(){
+    $(document).on('load change keyup', '#form_description', function () {
+        var len = $(this).val().length;
+        var targetCompteur = $('.compteurDesc');
+        targetCompteur.html(targetCompteur.data('maxchar') - len);
+    });        
+    $('#form_description').trigger('change');
+    
+    $(document).on('load change keyup', '#form_customerprofit', function () {
+        var len = $(this).val().length;
+        var targetCompteur = $('.compteurProfit');
+        targetCompteur.html(targetCompteur.data('maxchar') - len);
+    });        
+    $('#form_customerprofit').trigger('change');
+    
+    $(document).on('load change keyup', '#form_partnerprofit', function () {
+        var len = $(this).val().length;
+        var targetCompteur = $('.compteurPartner');
+        targetCompteur.html(targetCompteur.data('maxchar') - len);
+    });        
+    $('#form_partnerprofit').trigger('change');
+    
+    $(document).on('load change keyup', '#form_bonuscontent', function () {
+        var len = $(this).val().length;
+        var targetCompteur = $('.compteurBonus');
+        targetCompteur.html(targetCompteur.data('maxchar') - len);
+    });        
+    $('#form_bonuscontent').trigger('change');
+}
+
+function gestionLimiteTextareaMots(){
+    $(document).on('load keydown', '#form_description', function (e) {
+        var words = $.trim(this.value).length ? this.value.match(/\S+/g).length : 0;
+        var targetCompteur = $('.compteurDesc');
+        if (words <= targetCompteur.data('maxchar')) {
+            targetCompteur.html(targetCompteur.data('maxchar') - words);
+        }else{
+            if (e.which !== 8) e.preventDefault();
+        }
+    });        
+    $('#form_description').trigger('keydown');
+    
+    $(document).on('load keydown', '#form_customerprofit', function (e) {
+        var words = $.trim(this.value).length ? this.value.match(/\S+/g).length : 0;
+        var targetCompteur = $('.compteurProfit');
+        if (words <= targetCompteur.data('maxchar')) {
+            targetCompteur.html(targetCompteur.data('maxchar') - words);
+        }else{
+            if (e.which !== 8) e.preventDefault();
+        }
+    });        
+    $('#form_customerprofit').trigger('keydown');
+    
+    $(document).on('load keydown', '#form_partnerprofit', function (e) {
+        var words = $.trim(this.value).length ? this.value.match(/\S+/g).length : 0;
+        var targetCompteur = $('.compteurPartner');
+        if (words <= targetCompteur.data('maxchar')) {
+            targetCompteur.html(targetCompteur.data('maxchar') - words);
+        }else{
+            if (e.which !== 8) e.preventDefault();
+        }
+    });        
+    $('#form_partnerprofit').trigger('keydown');
+    
+    $(document).on('load keydown', '#form_bonuscontent', function (e) {
+        var words = $.trim(this.value).length ? this.value.match(/\S+/g).length : 0;
+        var targetCompteur = $('.compteurBonus');
+        if (words <= targetCompteur.data('maxchar')) {
+            targetCompteur.html(targetCompteur.data('maxchar') - words);
+        }else{
+            if (e.which !== 8) e.preventDefault();
+        }
+    });        
+    $('#form_bonuscontent').trigger('keydown');
+    
+}

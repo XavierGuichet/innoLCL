@@ -31,16 +31,16 @@ class FormController extends Controller
             ->add('title', 'text',array('label'  => 'Titre de votre idée',
                                                   'attr' => array('maxlength' => 125)))
             ->add('description', 'textarea',array('label'  => 'Descriptif synthétique de votre idée',
-                                                                                        'attr' => array('maxlength' => 200)))
+                                                                                        'attr' => array('maxlength' => 2000)))
             ->add('customerprofit', 'textarea',array('label'  => 'Descriptif du bénéfice de votre idée pour le client',
                                                                                         'required' => false,
-                                                                                        'attr' => array('maxlength' => 200)))
+                                                                                        'attr' => array('maxlength' => 2000)))
             ->add('partnerprofit', 'textarea',array('label'  => 'Descriptif du bénéfice de votre idée pour les collaborateurs',
                                                                                         'required' => false,
-                                                                                        'attr' => array('maxlength' => 200)))
+                                                                                        'attr' => array('maxlength' => 2000)))
             ->add('bonuscontent', 'textarea',array('label'  => 'Question bonus : si votre idée était sélectionnée,',
                                                                                     'required' => false,
-                                                                                        'attr' => array('maxlength' => 200)))
+                                                                                        'attr' => array('maxlength' => 2000)))
             ->add('save', 'submit', array('label' => 'Enregistrer'))
             ->getForm();
             

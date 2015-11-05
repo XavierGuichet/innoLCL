@@ -13,23 +13,24 @@
 
     {{ form_label(form.description,null, {'label_attr': {'class': 'suggestidea__label'}}) }}
     {{ form_errors(form.description, {'attr': {'class': 'suggestidea__errors'}}) }}
-    <p class="suggestidea__compteur">200 caractères max - <span>0</span> caractères restants</p>
+    <p class="suggestidea__compteur">200 mots max - <span class="compteurDesc" data-maxchar="200">0</span> mots restants</p>
     {{ form_widget(form.description, {'attr': {'class': 'suggestidea__textarea'}}) }}
 
     {{ form_label(form.customerprofit,null, {'label_attr': {'class': 'suggestidea__label'}}) }}
     {{ form_errors(form.customerprofit, {'attr': {'class': 'suggestidea__errors'}}) }}
-    <p class="suggestidea__compteur">200 caractères max - <span>0</span> caractères restants</p>
+    <p class="suggestidea__compteur">200 mots max - <span class="compteurProfit" data-maxchar="200">0</span> mots restants</p>
     {{ form_widget(form.customerprofit, {'attr': {'class': 'suggestidea__textarea'}}) }}
 
     {{ form_label(form.partnerprofit,null, {'label_attr': {'class': 'suggestidea__label'}}) }}
     {{ form_errors(form.partnerprofit, {'attr': {'class': 'suggestidea__errors'}}) }}
+    <p class="suggestidea__compteur">200 mots max - <span class="compteurPartner" data-maxchar="200">0</span> mots restants</p>
     {{ form_widget(form.partnerprofit, {'attr': {'class': 'suggestidea__textarea'}}) }}
 
     {{ form_label(form.bonuscontent,null, {'label_attr': {'class': 'suggestidea__label'}}) }}
     <p class="suggestidea__subline">quelle(s) démarche(s) de test engageriez-vous pour vérifier la faisabilité de sa mise en place ?<br/>
         (exemples de critères de tests : périmètre, cible, délais, budget, etc.)</p>
     {{ form_errors(form.bonuscontent, {'attr': {'class': 'suggestidea__errors'}}) }}
-    <p class="suggestidea__compteur">200 caractères max - <span>0</span> caractères restants</p>
+    <p class="suggestidea__compteur">200 mots max - <span class="compteurBonus" data-maxchar="200">0</span> mots restants</p>
     {{ form_widget(form.bonuscontent, {'attr': {'class': 'suggestidea__textarea'}}) }}
 
     {{ form_widget(form.save, {'attr': {'class': 'suggestidea__submit'}}) }}

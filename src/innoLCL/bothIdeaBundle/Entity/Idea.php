@@ -87,37 +87,37 @@ class Idea
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=200)
+     * @ORM\Column(name="description", type="string", length=2000)
      * 
      * @Assert\NotBlank(message = "Pensez à décrire votre idée.")
-     * @Assert\Length(max = 200, maxMessage = "Votre description doit faire moins de {{ limit }} caractères")
+     * @Assert\Length(max = 2000, maxMessage = "Votre description doit faire moins de {{ limit }} caractères")
      */
     private $description;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="customerprofit", type="string", length=200)
+     * @ORM\Column(name="customerprofit", type="string", length=2000)
      * 
-     * @Assert\Length(max = 200, maxMessage = "Votre description doit faire moins de {{ limit }} caractères")
+     * @Assert\Length(max = 2000, maxMessage = "Votre description doit faire moins de {{ limit }} caractères")
      */
     private $customerprofit;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="partnerprofit", type="string", length=200)
+     * @ORM\Column(name="partnerprofit", type="string", length=2000)
      * 
-     * @Assert\Length(max = 200, maxMessage = "Votre description doit faire moins de {{ limit }} caractères")
+     * @Assert\Length(max = 2000, maxMessage = "Votre description doit faire moins de {{ limit }} caractères")
      */
     private $partnerprofit;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="bonuscontent", type="string", length=200)
+     * @ORM\Column(name="bonuscontent", type="string", length=2000)
      * 
-     * @Assert\Length(max = 200)
+     * @Assert\Length(max = 2000)
      */
     private $bonuscontent;
 
