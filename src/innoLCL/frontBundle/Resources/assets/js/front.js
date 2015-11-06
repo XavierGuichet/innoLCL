@@ -16,6 +16,13 @@ jQuery(document).ready( function($) {
     
     // initialise popin de confirmation retour mail
     $('#formRegisterConfirmed').foundation('reveal', 'open');
+    $("#formRegisterConfirmed").on('close.fndtn.reveal', function () {
+        if($(this).data('reload')){
+            location.replace($(this).data('reload'));
+        }else{
+            location.reload();
+        }
+    });
     
     // activation des événements sur formulaire inscription
     activateRegisterForm();    
