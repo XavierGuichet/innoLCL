@@ -40,6 +40,11 @@ header{
     width: 300px;
     padding: 0.5em 0.5em 0.5em 1em;
     margin: 0em 2em;
+    display:none;
+}
+/* seulement 1 erreur affichée à la fois */
+.showErrors ul li:first-child {
+    display: block;
 }
 
 /* FRONT : Connexion */

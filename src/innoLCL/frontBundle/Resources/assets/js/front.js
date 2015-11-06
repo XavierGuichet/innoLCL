@@ -1,3 +1,11 @@
+var is_chrome = navigator.userAgent.indexOf('Chrome') > -1;
+var is_explorer = navigator.userAgent.indexOf('MSIE') > -1;
+var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
+var is_safari = navigator.userAgent.indexOf("Safari") > -1;
+var is_opera = navigator.userAgent.toLowerCase().indexOf("op") > -1;
+if ((is_chrome)&&(is_safari)) {is_safari=false;}
+if ((is_chrome)&&(is_opera)) {is_chrome=false;}
+
 jQuery(document).ready( function($) {
     //Prepare la box de popin et celle de la video
     jQuery(document).foundation();
@@ -218,23 +226,61 @@ function activateRegisterForm(){
         /*if (( typeof($theForm[0].checkValidity) == "function" ) && !$theForm[0].checkValidity()) {
             return;
         }*/
+        
+        $('.showErrors').each(function(){ $(this).addClass('hidden');});
+        
         var $theForm = $(this).closest('form');
-        if(!$("#fos_user_registration_form_firstname")[0].checkValidity()){
-            return true;
+        
+        if (!is_safari){
+            if(!$("#fos_user_registration_form_firstname")[0].checkValidity()){
+                return true;
+            }
+            if(!$("#fos_user_registration_form_lastname")[0].checkValidity()){
+                return true;
+            }
+            if(!$("#fos_user_registration_form_email")[0].checkValidity()){
+                return true;
+            }
+            if(!$("#fos_user_registration_form_plainPassword_first")[0].checkValidity()){
+                return true;
+            }
+            if(!$("#fos_user_registration_form_plainPassword_second")[0].checkValidity()){
+                return true;
+            }  
         }
-        if(!$("#fos_user_registration_form_lastname")[0].checkValidity()){
-            return true;
+        
+        // pour browser non compatible ou safari
+        if($("#fos_user_registration_form_firstname").val() ==''){
+            $("#fos_user_registration_form_firstname").focus();
+            $('.showErrors.firstname').removeClass('hidden');
+            $('.showErrors.firstname').html("Vous devez indiquer votre prénom.");
+            return false;
         }
-        if(!$("#fos_user_registration_form_email")[0].checkValidity()){
-            return true;
+        if($("#fos_user_registration_form_lastname").val() ==''){
+            $("#fos_user_registration_form_lastname").focus();
+            $('.showErrors.lastname').removeClass('hidden');
+            $('.showErrors.lastname').html("Vous devez indiquer votre nom.");
+            return false;
         }
-        if(!$("#fos_user_registration_form_plainPassword_first")[0].checkValidity()){
-            return true;
+        if($("#fos_user_registration_form_email").val() ==''){
+            $("#fos_user_registration_form_email").focus();
+            $('.showErrors.email').removeClass('hidden');
+            $('.showErrors.email').html("Vous devez indiquer une adresse mail.");
+            return false;
         }
-        if(!$("#fos_user_registration_form_plainPassword_second")[0].checkValidity()){
-            return true;
+        if($("#fos_user_registration_form_plainPassword_first").val() ==''){
+            $("#fos_user_registration_form_plainPassword_first").focus();
+            $('.showErrors.passwordFirst').removeClass('hidden');
+            $('.showErrors.passwordFirst').html("Vous devez indiquer un mot de passe.");
+            return false;
         }
-       
+        if($("#fos_user_registration_form_plainPassword_second").val() ==''){
+            $("#fos_user_registration_form_plainPassword_second").focus();
+            $('.showErrors.passwordSecond').removeClass('hidden');
+            $('.showErrors.passwordSecond').html("Vous devez confirmer le mot de passe.");
+            return false;
+        }
+        
        // sinon on bloque et on glisse vers la suite
         e.preventDefault();       
         // retour Ajax positif = slide charte sinon affichage erreurs
@@ -266,7 +312,7 @@ function activateRegisterForm(){
     */
     
     $('form.fos_user_registration_register').on('submit', function(event){
-       event.preventDefault();     
+        event.preventDefault();                
         $.ajax({
              type: $(this).attr('method'),
              url: $(this).attr('action'),
@@ -292,7 +338,7 @@ function activateRegisterForm(){
                            $(this).show(0);
                        }
                     });
-                    
+
                     activateRegisterForm();
                 }
             } 

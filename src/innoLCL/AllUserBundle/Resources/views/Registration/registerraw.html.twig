@@ -16,18 +16,18 @@
                         <div class="row">
                             <div class="small-6 columns text-right">
                                 {{ form_widget(form.firstname, {attr: {'class': 'register__input', 'placeholder': "Prénom"}}) }}
-                                <div class="showErrors hidden">{{ form_errors(form.firstname) }}</div>
+                                <div class="showErrors firstname hidden">{{ form_errors(form.firstname) }}</div>
                             </div>
                             <div class="small-6 columns text-left">                                
                                 {{ form_widget(form.lastname, {attr: {'class': 'register__input', 'placeholder': "Nom"}}) }}
-                                <div class="showErrors hidden">{{ form_errors(form.lastname) }}</div>
+                                <div class="showErrors lastname hidden">{{ form_errors(form.lastname) }}</div>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="small-6 columns text-right">
                                 {{ form_widget(form.email, {attr: {'class': 'register__input', 'placeholder': "Adresse e-mail"}}) }}
-                                <div class="showErrors hidden">{{ form_errors(form.email) }}</div>
+                                <div class="showErrors email hidden">{{ form_errors(form.email) }}</div>
                             </div>
                             <div class="small-6 columns text-left">
                                 {{ form_widget(form.direction, {attr: {'class': 'register__select'}}) }}
@@ -38,11 +38,11 @@
                     <div class="row">
                         <div class="small-6 columns text-right">
                             {{ form_widget(form.plainPassword.first, {attr: {'class': 'register__input', 'placeholder': "Mot de passe"}}) }}
-                            <div class="showErrors hidden">{{ form_errors(form.plainPassword.first) }}</div>
+                            <div class="showErrors passwordFirst hidden">{{ form_errors(form.plainPassword.first) }}</div>
                         </div>
                         <div class="small-6 columns text-left">
                             {{ form_widget(form.plainPassword.second, {attr: {'class': 'register__input', 'placeholder': "Confirmer mot de passe"}}) }}
-                            <div class="showErrors hidden">{{ form_errors(form.plainPassword.second) }}</div>
+                            <div class="showErrors passwordSecond hidden">{{ form_errors(form.plainPassword.second) }}</div>
                         </div>
                     </div>     
 
