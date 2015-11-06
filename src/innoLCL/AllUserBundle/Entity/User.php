@@ -52,6 +52,15 @@ class User extends BaseUser
      * @Assert\NotBlank()
      */
      protected $firstname;
+     
+     /**
+     * @Assert\Regex(
+     *     pattern="/@(freetouch\.fr|yopmail\.com|lcl\.fr)$/si",
+     *     match=true,
+     *     message="Votre email n'appartient pas à un domaine autorisé."
+     * )
+     */
+     protected $email;
 
     /**
      * @var string
