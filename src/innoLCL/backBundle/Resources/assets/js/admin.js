@@ -1,6 +1,18 @@
 $(document).ready( function () {
 var formtr;
 
+function loadingchangeStatut() {
+    val_statut = $("#form_statuts").val();
+    $("span.icone-validation").removeClass("choisi");
+    if(val_statut == "notset") {
+        console.log("do nothing");
+    }
+    else {
+        $("span.icone-validation[data-val='"+val_statut+"']").addClass("choisi");
+    }
+    console.log(val_statut);
+}
+
 function getAjax(url) {
     $.ajax({
             type: "POST",
@@ -10,6 +22,7 @@ function getAjax(url) {
             if (typeof data.message !== 'undefined') {
                 $("#formcontainer").html(data.HTMLcontent);
                 $("#trcontainer").slideDown();
+                loadingchangeStatut();
                 console.log(data.message);
             }
         })
@@ -29,24 +42,25 @@ function getAjax(url) {
         });    
 }
 
+       $("#idealist").on("click","span.icone-validation", function() {
+            val_statut = $(this).attr("data-val");
+            $("span.icone-validation").removeClass("choisi");
+            $(this).addClass("choisi");
+            $("#form_statuts").val(val_statut);
+        });
+
         $("#idealist").on("click","tr.js-getidea", function() {
-            $("#idealist tr.active").removeClass("active");
-            currenttr = $(this);
-            $(this).addClass("active");
-            action = currenttr.attr("data-action");
-            /*if($("#trcontainer").length > 0) {
-            $("#trcontainer").slideUp(500, function(action) {
-                $("#trcontainer").remove();
-                $("#idealist tr.active").after('<tr id="trcontainer"><td colspan="7" id="formcontainer"></td></tr>');
-                $("#trcontainer").hide();
-                getAjax(action);
-            });
-            }
-            else {*/
-                $("#idealist tr.active").after('<tr id="trcontainer"><td colspan="7" id="formcontainer"></td></tr>');
-                //$("#trcontainer").hide();
-                getAjax(action);                
-            //}       
+                $("tr.trcontainer").remove();            
+                if($(this).hasClass("active")) {
+                    $(this).removeClass("active");
+                }
+                else {
+                    currenttr = $(this);
+                    $(this).addClass("active");
+                    action = currenttr.attr("data-action");
+                    $("#idealist tr.active").after('<tr class="trcontainer"><td colspan="7" id="formcontainer"></td></tr>');
+                    getAjax(action);                
+                }
         });
         
         $("#idealist").on("submit","form", function(e) {
@@ -66,7 +80,8 @@ function getAjax(url) {
         })
         .done(function (data) {
             if (typeof data.message !== 'undefined') {
-                
+                $("tr.trcontainer").remove();
+                $("tr.active").remove();
             }
         })
         .fail(function (jqXHR, textStatus, errorThrown) {

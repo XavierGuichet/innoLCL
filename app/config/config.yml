@@ -43,7 +43,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: true
-    bundles:        [innoLCLbackBundle,innoLCLfrontBundle,innoLCLbothIdeaBundle]
+    bundles:        [innoLCLbackBundle,innoLCLfrontBundle,innoLCLbothIdeaBundle,innoLCLAllUserBundle]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~

@@ -36,11 +36,39 @@ jQuery(document).ready( function($) {
             
         });
         */
-       
+       if($("#fos_user_registration_form_firstname").val() ==''){
+           $("#fos_user_registration_form_firstname").focus();
+           return false;
+       }
+       if($("#fos_user_registration_form_lastname").val() ==''){
+           $("#fos_user_registration_form_lastname").focus();
+           return false;
+       }
+       if($("#fos_user_registration_form_email").val() ==''){
+           $("#fos_user_registration_form_email").focus();
+           return false;
+       }
+       if($("#fos_user_registration_form_plainPassword_first").val() ==''){
+           $("#fos_user_registration_form_plainPassword_first").focus();
+           return false;
+       }
+       if($("#fos_user_registration_form_plainPassword_second").val() ==''){
+           $("#fos_user_registration_form_plainPassword_second").focus();
+           return false;
+       }
        
        
         // retour Ajax positif = slide charte sinon affichage erreurs
         $(".register__slider__item:eq(0)").css('margin-left','-100%');
+    });
+    
+    $('.register__submit').click( function(e) {
+        e.preventDefault();
+        if($("#fos_user_registration_form_cgvaccepted").is(':checked') == false){
+           $("#fos_user_registration_form_cgvaccepted").focus();
+           return false;
+        }
+        $(this).closest("form").submit();
     });
     
     //Soumission des forms en ajax à transformer en function AjaxThisForm(form, callback)
@@ -109,7 +137,7 @@ jQuery(document).ready( function($) {
                 });
             }
             else {
-                alert("La videoest finie et pas de requete ajax.");
+                console.log("La videoest finie et pas de requete ajax.");
             }
             $('#videoModal').foundation('reveal', 'close');
         };

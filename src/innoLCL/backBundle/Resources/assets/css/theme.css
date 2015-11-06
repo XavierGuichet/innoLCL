@@ -1,0 +1,446 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 5, ../../../../../../../../lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../../lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../../lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../../lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../../lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../../lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../../lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../../lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../../lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+@font-face {
+  font-family: 'Lato-Regular';
+  src: url("/Lato-Light.eot");
+  src: url("/Lato-Light.ttf") format("truetype"), url("/Lato-Light.woff") format("woff"), url("/Lato-Light.eot?#iefix") format("embedded-opentype"), url("/Lato-Light.svg#/Lato-Light") format("svg");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Lato-Regular';
+  src: url("/Lato-Regular.eot");
+  src: url("/Lato-Regular.ttf") format("truetype"), url("/Lato-Regular.woff") format("woff"), url("/Lato-Regular.eot?#iefix") format("embedded-opentype"), url("/Lato-Regular.svg#/Lato-Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Lato-Regular';
+  src: url("/Lato-Bold.eot");
+  src: url("/Lato-Bold.ttf") format("truetype"), url("/Lato-Bold.woff") format("woff"), url("/Lato-Bold.eot?#iefix") format("embedded-opentype"), url("/Lato-Bold.svg#/Lato-Bold") format("svg");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Lato-Regular';
+  src: url("/Lato-Black.eot");
+  src: url("/Lato-Black.ttf") format("truetype"), url("/Lato-Black.woff") format("woff"), url("/Lato-Black.eot?#iefix") format("embedded-opentype"), url("/Lato-Black.svg#/Lato-Black") format("svg");
+  font-weight: 900;
+  font-style: normal;
+}
+/* line 1, ../sass/_generic.scss */
+body, html {
+  font-family: 'Lato-regular';
+  line-height: 1.4em;
+}
+
+/* line 6, ../sass/_generic.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+}
+
+/* line 1, ../sass/_navbar.scss */
+.navbar {
+  background: #15388c;
+  background: -moz-linear-gradient(top, #15388c 0%, #15388c 50%, #ffffff 51%, #ffffff 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #15388c), color-stop(50%, #15388c), color-stop(51%, #ffffff), color-stop(100%, #ffffff));
+  background: -webkit-linear-gradient(top, #15388c 0%, #15388c 50%, #ffffff 51%, #ffffff 100%);
+  background: -o-linear-gradient(top, #15388c 0%, #15388c 50%, #ffffff 51%, #ffffff 100%);
+  background: -ms-linear-gradient(top, #15388c 0%, #15388c 50%, #ffffff 51%, #ffffff 100%);
+  background: linear-gradient(to bottom, #15388c 0%, #15388c 50%, #ffffff 51%, #ffffff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#15388c', endColorstr='#ffffff',GradientType=0 );
+  height: 8.75em;
+  margin-bottom: 1.5em;
+  border: none;
+}
+
+/* line 14, ../sass/_navbar.scss */
+span.nav_challenge {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 4.375rem;
+  color: #f7f7f7;
+}
+
+/* line 20, ../sass/_navbar.scss */
+.logout {
+  background: white none repeat scroll 0% 0%;
+  padding: 0.5em;
+  margin-right: -1em;
+  margin-top: 1em;
+  vertical-align: middle;
+}
+
+/* line 1, ../sass/_navidea.scss */
+.navidea {
+  background: #ffffff;
+  padding-bottom: 1.5em;
+}
+
+/* line 5, ../sass/_navidea.scss */
+.panel-blue {
+  border-color: #1c7cb8;
+}
+/* line 7, ../sass/_navidea.scss */
+.panel-blue .panel-heading {
+  background-color: #1c7cb8;
+}
+
+/* line 11, ../sass/_navidea.scss */
+.panel-green {
+  border-color: #4bb85d;
+}
+/* line 13, ../sass/_navidea.scss */
+.panel-green .panel-heading {
+  background-color: #4bb85d;
+}
+
+/* line 17, ../sass/_navidea.scss */
+.panel-red {
+  border-color: #e3564d;
+}
+/* line 19, ../sass/_navidea.scss */
+.panel-red .panel-heading {
+  background-color: #e3564d;
+}
+
+/* line 23, ../sass/_navidea.scss */
+.panel-yellow {
+  border-color: #fbc914;
+}
+/* line 25, ../sass/_navidea.scss */
+.panel-yellow .panel-heading {
+  background-color: #fbc914;
+}
+
+/* line 30, ../sass/_navidea.scss */
+.panel-heading .huge {
+  font-size: 32px;
+  font-size: 2em;
+  height: 1.75em;
+  line-height: 1.75em;
+  padding-top: 0.125em;
+  padding-right: 0.125em;
+  background-size: contain;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+/* line 42, ../sass/_navidea.scss */
+.panel-heading .huge.all {
+  background-image: url("/images/picto-admin-blanc.png");
+  color: #1c7cb8;
+}
+/* line 46, ../sass/_navidea.scss */
+.panel-heading .huge.maybe {
+  background-image: url("/images/picto-admin-blanc.png");
+  color: #fbc914;
+}
+/* line 50, ../sass/_navidea.scss */
+.panel-heading .huge.valid {
+  background-image: url("/images/picto-admin-blanc.png");
+  color: #4bb85d;
+}
+/* line 54, ../sass/_navidea.scss */
+.panel-heading .huge.refus {
+  background-image: url("/images/picto-admin-blanc.png");
+  color: #e3564d;
+}
+/* line 59, ../sass/_navidea.scss */
+.panel-heading .cat_name {
+  color: #f7f7f7;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.125em;
+  line-height: 1.4em;
+  padding: 0.5em 0 0;
+}
+
+/* line 69, ../sass/_navidea.scss */
+.panel-footer {
+  background: #ffffff;
+  height: 2.5em;
+}
+
+/* line 1, ../sass/_main.scss */
+body {
+  background: #ffffff;
+}
+
+/* line 5, ../sass/_main.scss */
+.main-section {
+  min-height: 45em;
+}
+
+/* line 10, ../sass/_main.scss */
+.section-all {
+  background-color: #1c7cb8;
+}
+
+/* line 14, ../sass/_main.scss */
+.section-maybe {
+  background-color: #fbc914;
+}
+
+/* line 18, ../sass/_main.scss */
+.section-validated {
+  background-color: #4bb85d;
+}
+
+/* line 22, ../sass/_main.scss */
+.section-refused {
+  background-color: #e3564d;
+}
+
+/* line 26, ../sass/_main.scss */
+.table-responsive {
+  background: #fff;
+  padding: 0.5em;
+}
+
+/* line 30, ../sass/_main.scss */
+#idealist {
+  border-radius: 5px;
+  border: 1px solid #979797;
+  font-size: 14px;
+}
+/* line 34, ../sass/_main.scss */
+#idealist tr:nth-child(2n) {
+  background: #f7f7f7;
+}
+/* line 37, ../sass/_main.scss */
+#idealist tr.active td {
+  background: #a1cae8;
+}
+
+/* line 41, ../sass/_main.scss */
+.table-heading {
+  background: #f7f7f7;
+}
+/* line 44, ../sass/_main.scss */
+.table-heading th {
+  font-weight: 700;
+  text-align: left;
+}
+
+/* line 3, ../sass/_form.scss */
+.form-slide label {
+  font-weight: 700;
+  line-height: 2em;
+  margin-top: 0.25em;
+}
+/* line 8, ../sass/_form.scss */
+.form-slide .panel-default {
+  border-radius: 5px;
+  background: #ffffff;
+  color: #1c7cb8;
+  padding: 0.5em;
+}
+/* line 13, ../sass/_form.scss */
+.form-slide .panel-default .panel-body {
+  padding: 0;
+}
+/* line 17, ../sass/_form.scss */
+.form-slide textarea.commentary, .form-slide div.commentary {
+  background: #a1cae8;
+  color: #fff;
+  border: 1px solid #1c7cb8;
+  width: 100%;
+  padding: 1em 0.5em;
+  height: 8rem;
+}
+/* line 25, ../sass/_form.scss */
+.form-slide .button-box {
+  margin-top: 2em;
+}
+
+/* line 29, ../sass/_form.scss */
+#formcontainer {
+  paddingtop: 0;
+}
+
+/* line 32, ../sass/_form.scss */
+tr.trcontainer {
+  position: relative;
+}
+
+/* line 36, ../sass/_form.scss */
+.form-button {
+  position: absolute;
+  right: 0px;
+  top: -2.7em;
+  width: 33%;
+  height: 2.7em;
+  display: block;
+  padding: 0.15em;
+  background: #1c7cb8;
+  line-height: 2.4em;
+}
+/* line 47, ../sass/_form.scss */
+.form-button:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+/* line 53, ../sass/_form.scss */
+.form-button button {
+  test-transform: uppercase;
+  border-radius: 5px;
+  height: 2em;
+  padding: 0 1em;
+  line-height: 1.5em;
+  font-size: 1.125em;
+  font-weight: 700;
+}
+/* line 62, ../sass/_form.scss */
+.form-button button#form_save {
+  background: #f7f7f7;
+  color: #1c7cb8;
+  float: right;
+  border: none;
+  margin-right: 5px;
+}
+/* line 68, ../sass/_form.scss */
+.form-button button#form_save:hover {
+  background: #1c7cb8;
+  color: #f7f7f7;
+  border: 1px solid #f7f7f7;
+}
+/* line 74, ../sass/_form.scss */
+.form-button button#form_reset {
+  background: #1c7cb8;
+  color: #f7f7f7;
+  border: 1px solid #f7f7f7;
+  margin-left: 5px;
+}
+/* line 79, ../sass/_form.scss */
+.form-button button#form_reset:hover {
+  background: #f7f7f7;
+  color: #1c7cb8;
+  border: none;
+}
+
+/* line 88, ../sass/_form.scss */
+.button-box a.compare {
+  display: block;
+  padding: 0 0.75em;
+  height: 3.5rem;
+  line-height: 3.5rem;
+  border: 1px solid #1c7cb8;
+  border-radius: 5px;
+  color: #1c7cb8;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.25em;
+  margin-bottom: 0.5rem;
+}
+
+/* line 101, ../sass/_form.scss */
+div.box-icone-validation {
+  text-align: center;
+  margin-top: 1.5em;
+}
+
+/* line 105, ../sass/_form.scss */
+.button-box span.icone-validation {
+  display: inline-block;
+  width: 48px;
+  height: 45px;
+  margin: 0 1em;
+  background: url("/images/icone-validation-admin.png");
+}
+/* line 112, ../sass/_form.scss */
+.button-box span.icone-validation.maybe {
+  background-position: 0px 0px;
+}
+/* line 114, ../sass/_form.scss */
+.button-box span.icone-validation.maybe:hover, .button-box span.icone-validation.maybe.choisi {
+  background-position: 0px 45px;
+}
+/* line 118, ../sass/_form.scss */
+.button-box span.icone-validation.valid {
+  background-position: 98px 0px;
+}
+/* line 120, ../sass/_form.scss */
+.button-box span.icone-validation.valid:hover, .button-box span.icone-validation.valid.choisi {
+  background-position: 98px 45px;
+}
+/* line 124, ../sass/_form.scss */
+.button-box span.icone-validation.refus {
+  background-position: 47px 0px;
+}
+/* line 126, ../sass/_form.scss */
+.button-box span.icone-validation.refus:hover, .button-box span.icone-validation.refus.choisi {
+  background-position: 47px 45px;
+}
+
+/* line 131, ../sass/_form.scss */
+#form_statuts {
+  display: none;
+}

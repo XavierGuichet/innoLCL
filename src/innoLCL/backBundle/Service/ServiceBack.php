@@ -12,8 +12,8 @@ class ServiceBack {
     public function __construct()
     {
     $this->viewModerateur = array("all");
-    $this->viewLecteur = array("all","maybe","refused","validated");
-    $this->viewValidateur = array("all","maybe","refused","validated");
+    $this->viewLecteur = array("maybe","refused","validated");
+    $this->viewValidateur = array("maybe","refused","validated");
     $this->viewSelectionneur = array("validated"); 
     }
     
@@ -40,8 +40,8 @@ class ServiceBack {
     
     public function canRoleViewThisList($viewstatuts,$userAdminRole) {
         if($userAdminRole == "ROLE_MODERATEUR" && in_array($viewstatuts,$this->viewModerateur)) { return true;}
-        if($userAdminRole == "ROLE_LECTEUR") { return true;}
-        if($userAdminRole == "ROLE_VALIDATEUR") { return true;}
+        if($userAdminRole == "ROLE_LECTEUR" && in_array($viewstatuts,$this->viewModerateur)) { return true;}
+        if($userAdminRole == "ROLE_VALIDATEUR" && in_array($viewstatuts,$this->viewModerateur)) { return true;}
         if($userAdminRole == "ROLE_SELECTIONNEUR" && in_array($viewstatuts,$this->viewSelectionneur)) { return true;}
         return false;
     }
@@ -49,6 +49,8 @@ class ServiceBack {
     public function defaultViewOfRole($role) 
     {
         if($role == "ROLE_MODERATEUR") { return "all";}
+        if($role == "ROLE_LECTEUR") { return "maybe";}
+        if($role == "ROLE_VALIDATEUR") { return "maybe";}
         if($role == "ROLE_SELECTIONNEUR") { return "validated";}
     }
     

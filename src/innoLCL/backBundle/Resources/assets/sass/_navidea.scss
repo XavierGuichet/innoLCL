@@ -1,0 +1,72 @@
+.navidea {
+background: #ffffff;
+padding-bottom: 1.5em;
+}
+.panel-blue {
+    border-color: $blue;
+    & .panel-heading {
+    background-color: $blue;
+    }
+}
+.panel-green {
+    border-color: $green;
+    & .panel-heading {
+        background-color: $green;
+    }
+}
+.panel-red {
+    border-color: $red-admin;
+    & .panel-heading {
+        background-color: $red-admin;
+    }
+}
+.panel-yellow {
+    border-color: $yellow-admin;
+    & .panel-heading {
+        background-color: $yellow-admin;
+    }
+}
+.panel-heading {
+    & .huge {
+    font-size: 32px;
+    font-size: 2em;
+    height: 1.75em;
+    line-height: 1.75em;
+    padding-top:0.125em;
+    padding-right: 0.125em;
+    background-size: contain;
+    background-position: center top;
+    background-repeat: no-repeat;
+    }
+    
+    & .huge.all {
+        background-image: url('/images/picto-admin-blanc.png');
+        color: $blue;
+    }
+    & .huge.maybe {
+        background-image: url('/images/picto-admin-blanc.png');
+        color: $yellow-admin;
+    }
+    & .huge.valid {
+        background-image: url('/images/picto-admin-blanc.png');
+        color: $green;
+    }
+    & .huge.refus {
+        background-image: url('/images/picto-admin-blanc.png');
+        color: $red-admin;
+    }
+    
+    & .cat_name {
+    color: $white-primary;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.125em;
+    line-height: 1.4em;
+    padding: 0.5em 0 0;
+    }
+}
+
+.panel-footer {
+background: #ffffff;
+height: 2.5em;
+}

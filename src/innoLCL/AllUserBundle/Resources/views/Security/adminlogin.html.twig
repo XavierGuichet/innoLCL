@@ -38,28 +38,48 @@
                      {% endimage %} 
                 </div>
                 <div class="col-md-4  text-right" style="padding-top:1.5em;">
-                    <a href="{{ path('fos_user_security_logout') }}" class="logout">Déconnexion</a> 
+
                 </div>                     
             </div>
         </nav>
-        
-    {% block menu  %}
-    {% endblock %}
-    
-    {% block enteteSelectionneur  %}
-    {% endblock %}
-    
-    {% block body  %}
-    {% endblock %}
-    
-    <footer class="row">
-       
-    </footer>
-        {% javascripts
-        '@innoLCLbackBundle/Resources/assets/js/jquery-2.1.4.min.js'
-        '@innoLCLbackBundle/Resources/assets/js/admin.js'
-        output='js/compiled/app.js' %}
-        <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
+        <div>
+            
+ <div class="container">
+    <div class="col-md-2 col-md-offset-5">
+        {% for type, messages in app.session.flashBag.all %}
+            {% for message in messages %}
+                <div class="{{ type }}">
+                    {{ message|trans({}, 'FOSUserBundle') }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+        {% if error %}
+        <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
+        {% endif %}
+    </div>
+</div>
+<div class="container">
+    <div class="col-md-2 col-md-offset-5">
+        <form action="{{ path("fos_user_security_check") }}" method="post">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+            <div class="row">
+            <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+            <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+            </div>
+            <div class="row">
+                        <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+                        <input type="password" id="password" name="_password" required="required" />
+            </div>
+            <div class="row">
+            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+            <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+            </div>
+            <div class="row">
+            <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
+            </div>
+        </form>
+    </div>
+</div>
     </body>
 </html>
+

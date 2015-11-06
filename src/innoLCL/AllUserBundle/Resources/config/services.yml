@@ -3,3 +3,11 @@ services:
         class: innoLCL\AllUserBundle\Form\RegistrationType
         tags:
             - { name: form.type, alias: innoLCL_AllUserBundle_registrationType }
+            
+    redirect.after.login:
+        class: innoLCL\AllUserBundle\Redirection\AfterLoginRedirection
+        arguments: [@router]
+
+    redirect.after.logout:
+        class: innoLCL\AllUserBundle\Redirection\AfterLogoutRedirection
+        arguments: [@router, @security.context]

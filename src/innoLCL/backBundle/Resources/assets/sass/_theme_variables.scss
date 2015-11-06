@@ -1,0 +1,82 @@
+$base-font-size-raw : 16;
+
+$light:300;
+$bold: 700;
+$extrabold : 900;
+
+
+@font-face {
+font-family: 'Lato-Regular';
+src: url('/Lato-Light.eot');
+src: url('/Lato-Light.ttf') format('truetype'),
+     url('/Lato-Light.woff') format('woff'),
+     url('/Lato-Light.eot?#iefix') format('embedded-opentype'),
+     url('/Lato-Light.svg#/Lato-Light') format('svg');
+font-weight: $light;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'Lato-Regular';
+src: url('/Lato-Regular.eot');
+src: url('/Lato-Regular.ttf') format('truetype'),
+     url('/Lato-Regular.woff') format('woff'),
+     url('/Lato-Regular.eot?#iefix') format('embedded-opentype'),
+     url('/Lato-Regular.svg#/Lato-Regular') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'Lato-Regular';
+src: url('/Lato-Bold.eot');
+src: url('/Lato-Bold.ttf') format('truetype'),
+     url('/Lato-Bold.woff') format('woff'),
+     url('/Lato-Bold.eot?#iefix') format('embedded-opentype'),
+     url('/Lato-Bold.svg#/Lato-Bold') format('svg');
+font-weight: $bold;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'Lato-Regular';
+src: url('/Lato-Black.eot');
+src: url('/Lato-Black.ttf') format('truetype'),
+     url('/Lato-Black.woff') format('woff'),
+     url('/Lato-Black.eot?#iefix') format('embedded-opentype'),
+     url('/Lato-Black.svg#/Lato-Black') format('svg');
+font-weight: $extrabold;
+font-style: normal;
+}
+
+
+$white-primary : #f7f7f7;
+$white-secondary : #f6f6f6;
+
+$grey: #979797;
+$dark-grey: #1c1c1c;
+
+$black : #000000;
+$black-secondary: #050608;
+
+$dark-green: #106c01;
+$green: #4bb85d;
+$light-green: #55a646;
+
+$dark-yellow: #d69b00;
+$yellow: #fcd403;
+$yellow-admin: #fbc914;
+$light-yellow: #e1ae17;
+
+$light-blue: #0677e6;
+$dark-blue: #074390;
+$blue: #1c7cb8;
+$neon-blue: #64cbdf;
+$lcl-blue: #003b88;
+$admin-light-blue: #a1cae8;
+
+$red: #a50102;
+$red-admin: #e3564d;
+
+$special-form: #515d73;
+$radius: 5px;

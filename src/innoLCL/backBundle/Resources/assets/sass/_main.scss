@@ -1,0 +1,48 @@
+body {
+    background: #ffffff;
+}
+
+.main-section {
+    min-height: 45em;
+
+}
+
+.section-all {
+    background-color: $blue;
+}
+
+.section-maybe {
+    background-color: $yellow-admin;
+}
+
+.section-validated {
+    background-color:  $green;
+}
+
+.section-refused {
+    background-color:$red-admin;
+}
+
+.table-responsive {
+    background: #fff;
+    padding: 0.5em;
+}
+#idealist {
+border-radius: $radius;
+border: 1px solid $grey;
+font-size: 14px;
+    & tr:nth-child(2n) {
+    background: $white-primary;
+    }
+    & tr.active td {
+        background: $admin-light-blue;
+    }
+}
+.table-heading {
+background: $white-primary;
+
+    & th {
+    font-weight: $bold;
+    text-align: left;
+    }    
+}

@@ -1,0 +1,133 @@
+.form-slide {
+
+    & label {
+    font-weight: $bold;
+    line-height: 2em;
+    margin-top: 0.25em;
+    }
+    & .panel-default {
+    border-radius: $radius;
+    background: #ffffff;
+    color: $blue;
+    padding: 0.5em;
+        & .panel-body {
+        padding: 0;
+        }
+    }
+    & textarea.commentary, & div.commentary  {
+        background: $admin-light-blue;
+        color: #fff;
+        border: 1px solid $blue;
+        width: 100%;
+        padding: 1em 0.5em;
+        height:  8rem;        
+    }
+    & .button-box {
+    margin-top: 2em;
+    }
+}
+#formcontainer {
+paddingtop: 0;
+}
+tr.trcontainer {
+position: relative;
+}
+
+.form-button {
+    position: absolute;
+    right: 0px;
+    top: -2.7em;
+    width: 33%;
+    height: 2.7em;
+    display:block;
+    padding: 0.15em;
+    background: $blue;
+    line-height: 2.4em;
+    
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    
+    & button {
+        test-transform: uppercase;
+        border-radius: $radius;
+        height: 2em;
+        padding: 0 1em;
+        line-height:1.5em;
+        font-size: 1.125em;
+        font-weight: $bold;
+        
+        &#form_save {
+            background: $white-primary;
+            color: $blue;
+            float: right;
+            border: none;
+            margin-right: 5px;
+            &:hover {
+                        background: $blue;
+                color: $white-primary;
+                border: 1px solid $white-primary;
+            }
+        }
+        &#form_reset {
+            background: $blue;
+            color: $white-primary;
+            border: 1px solid $white-primary;
+            margin-left: 5px;
+            &:hover {
+                background: $white-primary;
+            color: $blue;
+            border: none;
+            }
+        }
+    }
+}
+
+.button-box a.compare {
+    display: block;
+    padding: 0 0.75em;
+    height: 3.5rem;
+    line-height: 3.5rem;
+    border: 1px solid $blue;
+    border-radius: $radius;
+    color:$blue;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.25em;
+    margin-bottom:0.5rem;
+}
+div.box-icone-validation {
+    text-align: center;
+    margin-top:1.5em;
+}
+.button-box span.icone-validation {
+    display: inline-block;
+    width: 48px;
+    height: 45px;
+    margin: 0 1em;
+    background: url('/images/icone-validation-admin.png');
+    
+    &.maybe {
+        background-position: 0px 0px;
+        &:hover, &.choisi {
+        background-position: 0px 45px;
+        }
+    }
+    &.valid {
+         background-position: 98px 0px;
+         &:hover, &.choisi {
+            background-position: 98px 45px;
+        }
+    }
+    &.refus {
+         background-position: 47px 0px;
+         &:hover, &.choisi {
+        background-position: 47px 45px;
+        }
+    }
+}
+#form_statuts {
+display: none;
+}

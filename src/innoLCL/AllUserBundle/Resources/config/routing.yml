@@ -47,7 +47,7 @@ innoLCL_alluserbundle_redirect:
 # Route de connexion au Backoffice
 fos_admin_user_security_login:
     path:  /admin/
-    defaults: { _controller: FOSUserBundle:Security:login }
+    defaults: { _controller: innoLCLAllUserBundle:Adminlog:login }
 
 # Route de vérification de connexion au Backoffice
 fos_admin_user_security_check:
@@ -59,4 +59,4 @@ fos_admin_user_security_check:
 # Route de déconnexion du Backoffice
 fos_admin_user_security_logout:
     path:  /admin/logout
-    defaults: { _controller: FOSUserBundle:Security:logout }
+    defaults: { _controller: innoLCLAllUserBundle:Adminlog:logout }

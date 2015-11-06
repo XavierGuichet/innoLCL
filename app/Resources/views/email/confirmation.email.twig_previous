@@ -1,0 +1,364 @@
+{# app/Resources/views/email/password_resetting.email.twig #}
+
+{% block subject %}Inscription prise en compte{% endblock %}
+
+{% block body_text %}
+{% autoescape false %}
+Challenge de l'innovation
+
+Votre inscription est bien prise en compte !
+
+Veuillez cliquez sur le lien pour valider définitivement votre inscription et pouvoir proposer une idée:
+{{ confirmationUrl }}
+
+Le comité de pré-sélection,
+Challenge de l'innocation, 10ans LCL
+{% endautoescape %}
+{% endblock %}
+
+{% block body_html %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <title>Inscription prise en compte</title>    
+        <meta name="description" content="Challenge de l'innovation LCL">
+        <meta name="author" content="Challenge de l'innovation LCL">
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
+        <style>
+body{
+        margin:0;
+        padding:0;
+        background:#ffffff;
+        -webkit-text-size-adjust:100%;
+        -ms-text-size-adjust:100%;
+        -webkit-font-smoothing:antialiased;
+        background-repeat:no-repeat;
+        background-position: center top;
+}
+.ReadMsgBody,.ExternalClass{
+        width:100%;
+}
+.ExternalClass *{
+        line-height:100% !important;
+}
+#outlook a{
+        padding:0;
+}
+.yshortcuts,.yshortcuts a,.yshortcuts a:link,.yshortcuts a:visited,.yshortcuts a:hover,.yshortcuts a span{
+        border-bottom:none !important;
+        text-decoration:none !important;
+        background:none !important;
+}
+table,table td{
+        border-collapse:collapse;
+}
+table[align=center]{
+        margin:auto !important;
+}
+table[align=left]{
+        border:0;
+        margin:0;
+        mso-table-lspace:0;
+        mso-table-rspace:0;
+}
+table[align=left] td{
+        border:0;
+}
+.BGtable{
+        margin:0 !important;
+        padding:0 !important;
+        width:100% !important;
+        background-repeat:no-repeat;
+        background-position: center top;
+}
+h1,h2,h3,h4,h5,h6,ul,p{
+        margin:0 !important;
+}
+h1,h2,h3,p{
+        padding-bottom:10px !important;
+}
+a{
+        text-decoration:none;
+}
+img{
+        -ms-interpolation-mode:bicubic;
+}
+iframe{
+        margin:auto;
+        padding-bottom:20px;
+}
+
+img[class=imageHover]{
+        margin-top: -70px;
+}
+
+@media screen and (max-width: 612px) {
+  td[class=column]{
+  	float:left;
+  	width:100%;
+  }
+  .w620, .w600, .w580 {
+    width: 100%;
+  }
+  .w600 {
+    width: 90%;
+  }
+  .w580 {
+    width: 90%;
+  }
+  img[class=image] {
+    width: 100%;
+    height: auto;
+  }
+  	.BGtable{
+  		background-color: white;
+  	}
+}
+
+
+
+</style>       
+    </head>
+    <body class="{% block bodyclass %}{% endblock %}" style="margin: 0;padding: 0;">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="BGtable" bgcolor="#ffffff" style="font-size:0;">
+	<tr>
+	  <td align="center">		
+            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0" style="margin: auto !important;" bg-color="#20368b" style="background-color:#20368b;">
+    <tr>
+          <td>
+                  <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0" style="margin: auto !important;">
+                          <tr bgcolor="#20368b">
+                          <td height="5"></td>
+                                  <td></td>
+                          <td></td>
+                          </tr>
+                          <tr bgcolor="#20368b">
+                          <td height="27" width="20"></td>
+                                  <td align="center">
+                                          <font face="Arial, Helvetica, sans-serif" size="3" color="#ffffff" style="color: #ffffff; font: 10px/12px Arial, Helvetica, sans-serif;">
+                                          Challenge de l'innovation LCL - Inscription prise en compte<br>
+                                          </font>
+                                          <font face="Arial, Helvetica, sans-serif" size="3" color="#343434" style="color: #fdfdfd; font: 10px/12px Arial, Helvetica, sans-serif;">
+                                          Si cet email ne s'affiche pas correctement, vous pouvez le visualiser <span style="text-decoration: underline"><a href="#LIEN_ONLINE#">gr&acirc;ce &agrave; ce lien</a>.</span>
+                                          </font>
+                                  </td>
+                          <td width="20"></td>
+                          </tr>
+                  </table>
+          </td>
+    </tr>
+</table>                 
+<table width="100%" align="center" border="0" cellspacing="0" cellpadding="0" style="margin: auto !important;" bgcolor="#DDDDDD">
+  <tr>
+        <td>
+            <table align="center" border="0" cellspacing="0" cellpadding="0" style="margin: auto !important;" bgcolor="#20368b">
+                <tr>
+                    <td height="66"></td>
+                </tr>
+                <tr  bgcolor="#ffffff">
+                    <td height="67">
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td height="132" width="640">
+          <table align="center" border="0" cellspacing="0" cellpadding="0" style="margin: auto !important;" width="640">
+                <tr>
+                    <td width="26" height="132">
+                        <table align="center" border="0" cellspacing="0" cellpadding="0" style="margin: auto !important;" width="26" >
+                            <tr bgcolor="#20368b">
+                                <td height="65" width="26"></td>
+                            </tr>
+                            <tr>
+                                <td  height="67" width="26">
+                                <table align="center" border="0" cellspacing="0" cellpadding="0" style="margin: auto !important;"  width="26">
+                                    <tr>
+                                        <td width="10" height="67" bgcolor="#DDDDDD">
+                                        </td>
+                                        <td width="16" height="67" bgcolor="#FFFFFF">
+                                        </td>
+                                    </tr>
+                                </table>
+                                </td>
+                            </tr>
+                        </table>
+                     </td>
+                     <td width="97" height="132">
+                        <table align="center" border="0" cellspacing="0" cellpadding="0" style="margin: auto !important;" width="97">
+                            <tr>
+                                 <td width="97" bgcolor="#20368b" height="68">
+                                    <img src="{{ absolute_url(asset('images/mailing/logo-challenge.png'))}}" alt=""> 
+                                 </td>
+                            </tr>
+                            <tr >
+                                <td width="97" height="63" bgcolor="#FFFFFF">
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="5" bgcolor="#FFFFFF" height="132">
+                        <table align="center" border="0" cellspacing="0" cellpadding="0" style="margin: auto !important;" bgcolor="#FFFFFF" width="5">
+                            <tr>
+                                <td height="65" width="5" bgcolor="#20368b"></td>
+                            </tr>
+                            <tr>
+                                <td height="67" width="5" bgcolor="#FFFFFF"></td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="250" height="132">
+                            <table align="center" border="0" cellspacing="0" cellpadding="0" style="margin: auto !important;" width="250">
+                                <tr>
+                                    <td height="65" bgcolor="#20368b" width="250">
+                                        <font face="Arial, Helvetica, sans-serif" size="3" color="#343434" style="color: #fdfdfd; font: 16px/14px Arial, Helvetica, sans-serif;font-weight: bold;">
+                                        CHALLENGE DE L'INNOVATION
+                                        </font>
+                                        </td>
+                                </tr>
+                                <tr height="67" width="250" bgcolor="#FFFFFF">
+                                    <td></td>
+                                </tr>
+                            </table>                                    
+                    </td>
+                    <td width="235" bgcolor="#ffffff" height="132">
+                       <img src="{{ absolute_url(asset('images/mailing/logo-challenge.png'))}}" alt="" width="235" height="132">
+                    </td>
+                    <td width="26" >
+                        <table width="26" align="center" border="0" cellspacing="0" cellpadding="0" style="margin: auto !important;">
+                            <tr bgcolor="#20368b">
+                                <td height="65" width="26"></td>
+                            </tr>
+                            <tr>
+                                <td height="67" width="26">
+                                <table align="center" border="0" cellspacing="0" cellpadding="0" style="margin: auto !important;" width="26">
+                                    <tr>
+                                        <td width="16" height="65" bgcolor="#FFFFFF">
+                                        </td>
+                                        <td width="10" height="67" bgcolor="#DDDDDD">
+                                        </td>
+                                    </tr>
+                                </table>
+                                </td>
+                            </tr>
+                            
+                        </table>
+                     </td>
+                </tr>
+            </table>
+        </td> 
+        <td>
+            <table align="center" border="0" cellspacing="0" cellpadding="0" style="margin: auto !important;" bgcolor="#e6e6e6">
+                <tr bgcolor="#ffffff">
+                <td height="65"></td>
+                </tr>
+                <tr bgcolor="#20368b">
+                    <td height="64"></td>
+                </tr>
+            </table>
+        </td>         
+  </tr>
+</table>
+<table width="100%" align="center" border="0" cellspacing="0" cellpadding="0" style="margin: auto !important;" bgcolor="#DDDDDD">
+  <tr>
+        <td>
+           <table align="center" border="0" cellspacing="0" cellpadding="0" style="margin: auto !important;" width="620" bgcolor="#FFFFFF">
+                <tr>
+                    <td height="200" width="620">  
+                        <table align="center" border="0" cellspacing="0" cellpadding="0" style="margin: auto !important;" width="620" bgcolor="#FFFFFF">
+                            <tr> 
+                                <td width="20">
+                                
+                                </td>        
+                                  <td width="580">
+                                    <h1 style="color: #20368b; font: 28px/24px Arial, Helvetica, sans-serif;font-weight: bold;">Votre inscription est bien prise en compte !</h1>
+                                    <p style="margin-bottom: 24px">Veuillez cliquez sur le lien pour valider définitivement votre inscription et pouvoir proposer une idée:</p>
+                                    <p>Vous pourrez, au moment d'apporter les précisions de votre d'idée, vous connecter avec vos identifiants sur la plateforme du Challenge de l'innovation:</p>
+                                    <p style="text-align:center"><center><a href="{{ confirmationUrl }}">{{ confirmationUrl }}</a></center></p>
+                                    
+                                </td>
+                                <td width="20">
+                                
+                                </td> 
+                            </tr>  
+                        </table>
+                    </td>
+                    
+            </table>
+        </td>        
+  </tr>
+</table> 		               
+<table width="100%" align="center" border="0" cellspacing="0" cellpadding="0" style="margin: auto !important;" bgcolor="#DDDDDD">
+  <tr>
+    <td height="40">
+           <table align="center" border="0" cellspacing="0" cellpadding="0" style="margin: auto !important;" width="620" bgcolor="#FFFFFF" height="40">
+                <tr>
+                    <td width="620" height="40">  
+                        <table align="center" border="0" cellspacing="0" cellpadding="0" style="margin: auto !important;" width="620" bgcolor="#FFFFFF" height="40">
+                            <tr> 
+                                <td width="20" height="40">
+                                
+                                </td>        
+                                  <td width="580" height="40">
+                                      
+                                    </td>
+                                <td width="20" height="40">
+                                
+                                </td> 
+                            </tr>  
+                        </table>
+                    </td>
+                    
+            </table>
+        </td>  
+  </tr>  
+  <tr>
+        <td>
+           <table align="center" border="0" cellspacing="0" cellpadding="0" style="margin: auto !important;" width="620" bgcolor="#FFFFFF">
+                <tr>
+                    <td width="620">  
+                        <table align="center" border="0" cellspacing="0" cellpadding="0" style="margin: auto !important;" width="620" bgcolor="#FFFFFF">
+                            <tr> 
+                                <td width="20">
+                                
+                                </td>        
+                                  <td width="580">
+                                      <p><font  style="color: #20368b; font: 16px/22px Arial, Helvetica, sans-serif;font-weight: bold; margin-bottom: 12px;">Le comité de pré-sélection</font><br>
+                                      <i>Challenge de l'innovation, 10 ans LCL</i></p>
+                                    </td>
+                                <td width="20">
+                                
+                                </td> 
+                            </tr>  
+                        </table>
+                    </td>
+                    
+            </table>
+        </td>        
+  </tr>
+   <tr>
+    <td height="80" bgcolor="#dddddd">
+           <table align="center" border="0" cellspacing="0" cellpadding="0" style="margin: auto !important;" width="620" height="80">
+                <tr>
+                    <td height="140" width="620">  
+                        
+                    </td>
+                    </tr>
+            </table>
+        </td>  
+  </tr>  
+</table> 
+<table width="100%" align="center" border="0" cellspacing="0" cellpadding="0" style="margin: auto !important;background-color:#20368b;" bgcolor="#20368b">
+            <tr>
+                  <td height="16">
+                          
+                  </td>
+            </tr>
+</table>
+	  </td>
+	</tr>
+  </table>
+    </body>
+</html>
+{% endblock %}

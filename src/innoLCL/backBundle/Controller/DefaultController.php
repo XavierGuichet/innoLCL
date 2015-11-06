@@ -30,9 +30,7 @@ class DefaultController extends Controller
         
         $userAdminRole = $serviceBack->getAdminRole($user->getRoles());
         $twig['userAdminRole'] = $userAdminRole;
-        
         if($serviceBack->canRoleViewThisList($viewstatuts,$userAdminRole) === false) {
-            dump("L'utilisateur n'a pas les droits sur cette liste");
             $defaultViewOfRole = $serviceBack->defaultViewOfRole($userAdminRole);
             $route = $this->container->get('router')->generate('innolcl_back_view', array('viewstatuts' => $defaultViewOfRole));
             $response = new RedirectResponse($route);
@@ -92,12 +90,11 @@ class DefaultController extends Controller
                                                                                             'required' => false,
                                                                                             'attr' => array('maxlength' => 255)))
                     ->add('statuts', 'choice', array(
-                                'choices'  => array('maybe' => 'Peut-etre', 'validated' => 'Valider', 'refused' => 'Refuser'),
+                                'choices'  => array('notset' => 'notset', 'maybe' => 'Peut-etre', 'validated' => 'Valider', 'refused' => 'Refuser'),
                                 'required' => true,
                     ))
                     ->add('save', 'submit', array('label' => 'Enregistrer'))
                     ->add('reset', 'reset', array('label' => 'Annuler'))
-                    ->add('compare', 'button', array('label' => 'Comparer'))
                     ->getForm();
                     
                     $form_view = $this->render('innoLCLbothIdeaBundle:Form:moderateur.html.twig', array(
@@ -120,7 +117,6 @@ class DefaultController extends Controller
                     ->add('refusalreason', 'hidden')
                     ->add('save', 'submit', array('label' => 'Enregistrer'))
                     ->add('reset', 'reset', array('label' => 'Annuler'))
-                    ->add('compare', 'button', array('label' => 'Comparer'))
                     ->getForm();
                     
                     $form_view = $this->render('innoLCLbothIdeaBundle:Form:validateur.html.twig', array(

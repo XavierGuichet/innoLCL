@@ -1,6 +1,6 @@
 {# src/innoLCL/bothIdeaBundle/Resources/views/Form/moderateur.html.twig#}
 
-<div>
+<div class="form-slide">
     <div class="row">
         <div class="col-lg-6">
                 <label>Titre de l'idée</label>
@@ -30,7 +30,7 @@
 
      <div class="row">
             <div class="col-lg-4">
-                <label>Déscriptif de l'idée</label>
+                <label>Descriptif de l'idée</label>
                 <div class="panel panel-default">
                     <div class="panel-body">
                         {{ idea.description }}
@@ -68,27 +68,36 @@
             
         </div>
     </div>
-    </div>
 
     <div class="row">
         <div class="col-lg-9">
             <label>Commentaire de pré-sélection</label>
-            <div class="panel panel-default">
-                    <div class="panel-body">
-                        {{ idea.commentary }}
-                    </div>
+            <div class="panel panel-default commentary panel-body">
+                 {{ idea.commentary }}
             </div>
         </div>
-        <div class="col-lg-3">            
-            <div class="panel panel-default">
-                    <div class="panel-body">
-                        
-                    </div>
+        <div class="col-lg-3 button-box">    
+              <a class="compare"  href="#{{ path('innolcl_backbundle_get_idea', {'ideaid': idea.id }) }}">Comparer</a>
+              <div class="box-icone-validation">
+                  {{ idea.statuts }} 
+                  {% if idea.statuts == 'maybe' %} 
+                    <span class="icone-validation maybe choisi" data-val="maybe"></span>
+                    {% else %}
+                   <span class="icone-validation maybe choisi" data-val="maybe"></span>
+                  {% endif %}
+                  {% if idea.statuts == 'validated' %} 
+                    <span class="icone-validation valid  choisi" data-val="validated"></span>
+                  {% else %}
+                    <span class="icone-validation valid " data-val="validated"></span>
+                   {% endif %}
+                   
+                  {% if idea.statuts ==  'refused' %} 
+                    <span class="icone-validation refus  choisi" data-val="refused"></span>                  
+                  {% else %}
+                    <span class="icone-validation refus " data-val="refused"></span>                  
+                   {% endif %}                    
+              </div>
         </div>
     </div>
-        
-        
-
-<div>
-    
 </div>
+

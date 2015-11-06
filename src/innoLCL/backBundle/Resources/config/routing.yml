@@ -16,9 +16,9 @@ innolcl_lecteur_list_idea:
 #Validateur
 innolcl_validateur_list_idea:
     path:    /admin/validateur/list/{statut}/{page}
-    defaults: { _controller: innoLCLbackBundle:Validateur:list, statut: all, page: 1 }
+    defaults: { _controller: innoLCLbackBundle:Validateur:list, statut: maybe, page: 1 }
     requirements:
-        statut:  (all|maybe|refused|validated)+
+        statut:  (maybe|refused|validated)+
         page:  \d+
 
 #Selectionneur

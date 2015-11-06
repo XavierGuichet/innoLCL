@@ -3,29 +3,21 @@
 {% extends "innoLCLbackBundle::layout.html.twig" %}
 
 {% block menu %}
-        <div class="row">
+        <div class="row navidea">
                 <div class="container">
-                    <div class="col-lg-3 col-md-6">                        
-                        <div class="panel panel-primary">
-                            <a href="{{ path('innolcl_validateur_list_idea', {'statut': 'all'}) }}">
-                            <div class="panel-heading text-center">
-                                    <div class="huge">{{ ideacount.all }}</div>
-                                    <div>Idées Proposées</div>
-                            </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-yellow">
+                            <a href="{{ path('innolcl_validateur_list_idea', {'statut': 'maybe'}) }}">
+                                <div class="panel-heading text-center">
+                                        <div class="huge maybe">{{ ideacount.maybe }}</div>
+                                        <p class="cat_name">Peut-être</p>
+                                </div>
+                                {% if currentview == 'maybe' %}
                                 <div class="panel-footer">
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                     <div class="clearfix"></div>
                                 </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-yellow ">
-                            <a href="{{ path('innolcl_validateur_list_idea', {'statut': 'maybe'}) }}">
-                                <div class="panel-heading text-center">
-                                        <div class="huge">{{ ideacount.maybe }}</div>
-                                        <div>Peut-être</div>
-                                </div>
+                            {% endif %}
                             </a>
                         </div>
                     </div>
@@ -33,19 +25,31 @@
                         <div class="panel panel-green">
                             <a href="{{ path('innolcl_validateur_list_idea', {'statut': 'validated'}) }}">
                                 <div class="panel-heading text-center">
-                                        <div class="huge">{{ ideacount.validated }}</div>
-                                        <div>Validées</div>
+                                        <div class="huge valid">{{ ideacount.validated }}</div>
+                                        <p class="cat_name">Validées</p>
                                 </div>
+                                {% if currentview == 'validated' %}
+                                <div class="panel-footer">
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                                {% endif %}
                             </a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-red">
+                        <div class="panel panel-red panel-primary">
                             <a href="{{ path('innolcl_validateur_list_idea', {'statut': 'refused'}) }}">
                                 <div class="panel-heading text-center">
-                                        <div class="huge">{{ ideacount.refused }}</div>
-                                        <div>Refusées</div>
+                                        <div class="huge refus">{{ ideacount.refused }}</div>
+                                        <p class="cat_name">Refusées</p>
                                 </div>
+                                {% if currentview == 'refused' %}
+                                <div class="panel-footer">
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                                {% endif %}
                             </a>
                         </div>
                     </div>
@@ -54,7 +58,7 @@
 {% endblock %}
 
 {% block body %}
-        <div class="row">
+        <div class="row main-section section-{{currentview}}">
             <div class="container">
                 <div class="col-lg-12 table-responsive">
                     <table class="table table-hover" id="idealist">
@@ -63,7 +67,7 @@
                         <tr data-action="{{ path('innolcl_backbundle_get_idea', {'ideaid': idea.id }) }}" class="js-getidea">
                                 <td>{{ idea.id }}</td>
                                 <td>{{ idea.author.firstname }}</td>
-                                <td>{{ idea.author.username }}</td>
+                                <td>{{ idea.author.lastname }}</td>
                                 <td>{{ idea.reworked }}</td>
                                 <td>{{ idea.title|length > 20 ? idea.title|slice(0, 20) ~ '...' : idea.title  }}</td>
                                 <td>{{ idea.description|length > 20 ? idea.description|slice(0, 20) ~ '...' : idea.description  }}</td>

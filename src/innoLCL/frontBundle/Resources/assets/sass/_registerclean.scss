@@ -1,0 +1,122 @@
+.register-bg {
+    position:relative;
+    background-color: $black;
+    background-image: url('/images/fond_sans_spots.jpg');
+    background-size: cover;
+    background-position: bottom center;
+    padding-bottom:5em;
+}
+.register {
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+
+    & .row {
+    margin: 0 0 1.5em;
+    }
+    
+    & .title {
+    font-weight: $extrabold;
+    margin-top: 0;
+    margin-bottom: 0;
+        &-adjust {
+            margin-top: 50px;
+        }
+    }
+    
+   &__slider {
+   position: relative;
+   width: 200%;
+   
+        &__item {
+        min-height: 100%;
+        float: left;
+        width: 50%;
+        transition: all ease 750ms;
+        }
+   }
+    & label {
+    color: $white-primary;
+    }
+   &__input {
+        width: 300px;
+        @include font-size(18);
+        padding: 0.5em 0.5em 0.5em 1em;
+        margin: 0em 2em;
+        border: none;
+        border-radius: $radius;
+        box-shadow: inset 1px 0px 1px $dark-grey;
+    }
+    
+    
+    
+    &__select {   
+        padding: 0.5em 0.5em 0.5em 1em;
+        margin: 0em 2em;
+        border: none;
+        @include font-size(18);
+        width: 300px;
+        border-radius: $radius;
+        box-shadow: inset 1px 0px 1px $dark-grey;
+        overflow: hidden;
+        background-color: $white-primary;
+        
+        & select {
+            width: 300px;
+            padding: 0.5em 0.5em 0.5em 1em;
+            border: none;
+            @include font-size(18);
+            box-shadow: none;
+            background-color: $white-primary;
+            background-image: none;
+            -webkit-appearance: none;
+               -moz-appearance: none;
+                    appearance: none;
+        }
+    }
+
+    &__submit, & submit {
+        @include font-size(22);
+        display: block;
+        width: 300px;
+        margin: 0 auto;
+        color: $dark-blue;
+        padding: 0.5em 1.25em;
+
+        font-weight: $bold;
+        text-transform: uppercase;   
+        text-align: center;
+
+        
+        background: $yellow;
+        background: -moz-radial-gradient(center, ellipse cover, #fcd403 0%, #f1da36 22%, #f1da36 34%, #f1da36 67%, #e1ae17 98%);
+        background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#fcd403), color-stop(22%,#f1da36), color-stop(34%,#f1da36), color-stop(67%,#f1da36), color-stop(98%,#e1ae17));
+        background: -webkit-radial-gradient(center, ellipse cover, #fcd403 0%,#f1da36 22%,#f1da36 34%,#f1da36 67%,#e1ae17 98%);
+        background: -o-radial-gradient(center, ellipse cover, #fcd403 0%,#f1da36 22%,#f1da36 34%,#f1da36 67%,#e1ae17 98%);
+        background: -ms-radial-gradient(center, ellipse cover, #fcd403 0%,#f1da36 22%,#f1da36 34%,#f1da36 67%,#e1ae17 98%);
+        background: radial-gradient(ellipse at center, #fcd403 0%,#f1da36 22%,#f1da36 34%,#f1da36 67%,#e1ae17 98%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcd403', endColorstr='#e1ae17',GradientType=1 );
+        
+        border: none;
+        border-radius: $radius;
+
+        cursor: pointer;
+            &:hover {
+            text-shadow: 2px 1px 3px $yellow;            
+        }
+    }
+   
+   &__reglement {
+        max-height: 17.5em;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        padding: 1em;
+        background: $white-primary;
+        border-radius: $radius;
+   }
+}
+#js-videoform {
+    display: none !important;
+    visibility: hidden !important;
+}

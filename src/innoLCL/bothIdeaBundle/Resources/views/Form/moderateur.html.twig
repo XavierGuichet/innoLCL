@@ -1,8 +1,11 @@
 {# src/innoLCL/bothIdeaBundle/Resources/views/Form/moderateur.html.twig#}
 
 {{ form_start(form) }}
-<div>
+<div class="form-slide">
+    <div class="form-button">
+        {{ form_widget(form.reset) }}
         {{ form_widget(form.save) }}
+    </div>
     <div class="row">
         <div class="col-lg-6">
                 <label>Titre de l'idée</label>
@@ -32,7 +35,7 @@
 
         <div class="row">
             <div class="col-lg-4">
-                <label>Déscriptif de l'idée</label>
+                <label>Descriptif de l'idée</label>
                 <div class="panel panel-default">
                     <div class="panel-body">
                         {{ idea.description }}
@@ -48,7 +51,7 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <label>Descriptif du bénéfice de votre idée pour les collaborateurs</label>
+                <label>Descriptif du bénéfice pour les collaborateurs</label>
                 <div class="panel panel-default">
                     <div class="panel-body">
                        {{ idea.customerprofit }}
@@ -74,17 +77,17 @@
     <div class="row">
         <div class="col-lg-9">
             <label>Commentaire de pré-sélection</label>
-            <div class="panel panel-default">
-                    <div class="panel-body">
-                        {{ form_row(form.commentary) }}
-                    </div>
+                {{ form_widget(form.commentary, {'attr': {'class': 'panel panel-default commentary panel-body'}}) }}
         </div>
-        <div class="col-lg-3">            
-            <div class="panel panel-default">
-                    <div class="panel-body">
-                        {{ idea.commentary }}
-                    </div>
-            </div>
+        <div class="col-lg-3 button-box">    
+              <a class="compare"  href="#{{ path('innolcl_backbundle_get_idea', {'ideaid': idea.id }) }}">Comparer</a>
+              <div class="box-icone-validation">
+                    <span class="icone-validation maybe js-icone-validation" data-val="maybe"></span>
+                    <span class="icone-validation valid js-icone-validation" data-val="validated"></span>
+                    <span class="icone-validation refus js-icone-validation" data-val="refused"></span>
+              </div>
+                        {{ form_widget(form.statuts) }}
+        </div>
     </div>
         
 
