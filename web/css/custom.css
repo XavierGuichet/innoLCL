@@ -11,10 +11,35 @@ header{
     background-color: #000000;
     background-image: url("../images/fond_halo.jpg");
     background-size: cover;
+    background-position: center center;
 }
 .entete-generale{
     background-color: transparent;
     background-image: none;
+}
+
+/* FRONT : inscription */
+.showErrors{
+    display:block;
+    color:#ff0000;
+    /*position:absolute;
+    left:0;
+    top:0;*/
+}
+.showErrors.hidden{
+    display:none;
+}
+.showErrors ul{
+    list-style-type: none;
+    width: 300px;
+    padding: 0.5em 0.5em 0.5em 1em;
+    margin: 0em 2em;
+}
+.showErrors ul li{
+    list-style-type: none;
+    width: 300px;
+    padding: 0.5em 0.5em 0.5em 1em;
+    margin: 0em 2em;
 }
 
 /* FRONT : Connexion */
@@ -26,9 +51,12 @@ header{
 /* FRONT : ANIM LOGO */
 .entete-generale img.entete-generale__ombre {
     top:initial;
-    bottom:0px;
 }
-
+@media (max-width: 78.75){
+    .entete-generale img.entete-generale__ombre {
+    bottom:0px;
+    }
+}
 /* BOUTON PLAY */
 .containerBTVideo{
     z-index: 102;

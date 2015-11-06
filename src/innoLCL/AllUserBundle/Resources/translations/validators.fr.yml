@@ -4,6 +4,14 @@ fos_user:
         blank: Entrez un nom d'utilisateur s'il vous plait
         short: "[-Inf,Inf]Le nom d'utilisateur est trop court"
         long: "[-Inf,Inf]Le nom d'utilisateur est trop long"
+    firstname:
+        blank: Entrez un prénom s'il vous plait
+        short: "[-Inf,Inf]Le prénom est trop court"
+        long: "[-Inf,Inf]Le prénom est trop long"
+    lastname:
+        blank: Entrez un nom s'il vous plait
+        short: "[-Inf,Inf]Le nom est trop court"
+        long: "[-Inf,Inf]Le nom est trop long"
     email:
         already_used: L'adresse e-mail est déjà utilisée
         blank: Entrez une adresse e-mail s'il vous plait

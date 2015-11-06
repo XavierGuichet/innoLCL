@@ -47,6 +47,7 @@ function getAjax(url) {
             $("span.icone-validation").removeClass("choisi");
             $(this).addClass("choisi");
             $("#form_statuts").val(val_statut);
+            $("#idealist").find("#form_save").trigger("click");
         });
 
         $("#idealist").on("click","tr.js-getidea", function() {

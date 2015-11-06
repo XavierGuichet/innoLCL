@@ -10,9 +10,12 @@ class RegistrationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('cgvaccepted');
-        $builder->add('firstname');
-        $builder->add('lastname');
+        $builder->add('cgvaccepted', 'checkbox',[
+              'label'=>'J\'ai lu les conditions de règlement du jeu' ,
+              'required'=>true,
+            ]);
+        $builder->add('firstname', 'text', array('required' => true));
+        $builder->add('lastname', 'text', array('required' => true));
         $builder->remove('username');
         $builder->add('direction', 'choice', array(
                         'choices'  => array('Ressource Humaine' => 'Ressource Humaine', 'Suivi clients' => 'Suivi clients', 'Autre' => 'Autre'),

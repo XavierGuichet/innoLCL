@@ -1,0 +1,25 @@
+<div id="formRegisterConfirmed" class="reveal-modal suggestidea" data-reveal aria-labelledby="Confirmation de l'inscription" aria-hidden="false" role="dialog">
+    <div class="popup">
+        <h1 class="popup__title">Confirmation de l'inscription</h1>
+        <p class="popup__content">Félicitations {{user.firstname}}, votre compte est enregistré.</p>
+        <p class="popup__content">Vous allez recevoir un mail contenant un lien de confirmation à activer pour pouvoir vous connecter et participer.</p>
+
+        <div class="popup__footer">
+            <p class="popup__footer__signature">Le comité de pré-sélection.<br/>
+            <span>Challenge de l'innovation, 10ans LCL</span></p>
+        </div>
+    </div>
+        <a class="close-reveal-modal suggestidea__close" aria-label="Close">&#215;</a>
+        <img src="{{ asset('images/popin_logo_bas.png') }}"  class="popin_img_bas" />
+        <img src="{{ asset('images/popin_logo_haut.png') }}"  class="popin_img_haut" /> 
+    {# on vide le flash bag #}
+    <div class="hidden">
+        {% for type, messages in app.session.flashBag.all %}
+            {% for message in messages %}
+                <div class="{{ type }}">
+                    {{ message|trans({}, 'FOSUserBundle') }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+</div>

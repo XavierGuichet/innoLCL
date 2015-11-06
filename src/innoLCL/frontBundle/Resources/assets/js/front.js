@@ -17,59 +17,8 @@ jQuery(document).ready( function($) {
     // initialise popin de confirmation retour mail
     $('#formRegisterConfirmed').foundation('reveal', 'open');
     
-    
-    
-    //Trigger register form pour slide        /!\ Retour au step 1 à rajouter en cas d'erreur de validation par le client.
-    $(".js-register-next").click( function(e) {
-        e.preventDefault();
-        /*
-        // prevalidation du formulaire
-        $.ajax({
-            type: $(this).attr('method'),
-            url: $(this).attr('action'),
-            data: $(this).serialize()
-        })
-        .done(function (data) {
-            
-        })
-        .fail(function (jqXHR, textStatus, errorThrown) {
-            
-        });
-        */
-       if($("#fos_user_registration_form_firstname").val() ==''){
-           $("#fos_user_registration_form_firstname").focus();
-           return false;
-       }
-       if($("#fos_user_registration_form_lastname").val() ==''){
-           $("#fos_user_registration_form_lastname").focus();
-           return false;
-       }
-       if($("#fos_user_registration_form_email").val() ==''){
-           $("#fos_user_registration_form_email").focus();
-           return false;
-       }
-       if($("#fos_user_registration_form_plainPassword_first").val() ==''){
-           $("#fos_user_registration_form_plainPassword_first").focus();
-           return false;
-       }
-       if($("#fos_user_registration_form_plainPassword_second").val() ==''){
-           $("#fos_user_registration_form_plainPassword_second").focus();
-           return false;
-       }
-       
-       
-        // retour Ajax positif = slide charte sinon affichage erreurs
-        $(".register__slider__item:eq(0)").css('margin-left','-100%');
-    });
-    
-    $('.register__submit').click( function(e) {
-        e.preventDefault();
-        if($("#fos_user_registration_form_cgvaccepted").is(':checked') == false){
-           $("#fos_user_registration_form_cgvaccepted").focus();
-           return false;
-        }
-        $(this).closest("form").submit();
-    });
+    // activation des événements sur formulaire inscription
+    activateRegisterForm();    
     
     //Soumission des forms en ajax à transformer en function AjaxThisForm(form, callback)
     $("#formIdea").on("submit","form", function(e) {
@@ -227,4 +176,109 @@ function gestionLimiteTextareaMots(){
     });        
     $('#form_bonuscontent').trigger('keydown');
     
+}
+
+
+function activateRegisterForm(){
+    //Trigger register form pour slide        /!\ Retour au step 1 à rajouter en cas d'erreur de validation par le client.
+    $(".js-register-next").click( function(e) {
+        e.preventDefault();
+        /*
+        // prevalidation du formulaire
+        $.ajax({
+            type: $(this).attr('method'),
+            url: $(this).attr('action'),
+            data: $(this).serialize()
+        })
+        .done(function (data) {
+            
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            
+        });
+        */
+       
+       if($("#fos_user_registration_form_firstname").val() ==''){
+           $("#fos_user_registration_form_firstname").focus();
+           return false;
+       }
+       if($("#fos_user_registration_form_lastname").val() ==''){
+           $("#fos_user_registration_form_lastname").focus();
+           return false;
+       }
+       if($("#fos_user_registration_form_email").val() ==''){
+           $("#fos_user_registration_form_email").focus();
+           return false;
+       }
+       if($("#fos_user_registration_form_plainPassword_first").val() ==''){
+           $("#fos_user_registration_form_plainPassword_first").focus();
+           return false;
+       }
+       if($("#fos_user_registration_form_plainPassword_second").val() ==''){
+           $("#fos_user_registration_form_plainPassword_second").focus();
+           return false;
+       }
+        
+        /*var $theForm = $(this).closest('form');
+        $theForm[0].checkValidity();*/
+        /*if (( typeof($theForm[0].checkValidity) == "function" ) && !$theForm[0].checkValidity()) {
+            return;
+        }*/
+        
+        /*if(!$("#fos_user_registration_form_lastname")[0].checkValidity()){
+            $('form.fos_user_registration_register').find(':submit').click();
+            //return false;
+        }*/
+       
+       
+        // retour Ajax positif = slide charte sinon affichage erreurs
+        $(".register__slider__item:eq(0)").css('margin-left','-100%');
+    });
+    
+    $('.register__submit').click( function(e) {
+        e.preventDefault();
+        if($("#fos_user_registration_form_cgvaccepted").is(':checked') == false){
+           $("#fos_user_registration_form_cgvaccepted").focus();
+           return false;
+        }
+        $(this).closest("form").submit();
+    });
+    
+    
+    $('form.fos_user_registration_register').on('submit', function(event){
+       event.preventDefault();     
+        $.ajax({
+             type: $(this).attr('method'),
+             url: $(this).attr('action'),
+             data: $(this).serialize()
+        })
+        .done(function (data) {
+            $('form.fos_user_registration_register').css('visibility','hidden');
+            $('body').append(data.popin);
+            $('#formRegisterConfirmed').foundation('reveal', 'open');
+            $("#formRegisterConfirmed").on('close.fndtn.reveal', function () {
+                location.reload();
+            });
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) { 
+            $(".register__slider__item:eq(0)").css('margin-left','0%');            
+            if (typeof jqXHR.responseJSON !== 'undefined') {                
+                if (jqXHR.responseJSON.hasOwnProperty('form')) {                    
+                    //console.log(jqXHR.responseJSON.message);
+                    $('form.fos_user_registration_register').replaceWith(jqXHR.responseJSON.form);
+                    $('form.fos_user_registration_register').find('.showErrors').each(function(){
+                       if($(this).html() != '') {
+                           $(this).removeClass('hidden');
+                           $(this).show(0);
+                       }
+                    });
+                    
+                    activateRegisterForm();
+                }
+            } 
+            else {
+                console.log(errorThrown);
+            } 
+        });
+    });
 }
