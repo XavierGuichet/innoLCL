@@ -1,3 +1,12 @@
+.col-md-4 {
+    width: 33.33333333%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
 /* FRONT : Connexion */
 .login a.login__inscription{
     color: #222;
@@ -15,6 +24,96 @@
 .idealist__myideas {
     width: auto;
 }
+
+
+/* PAGES */
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+.navbar-static-top {
+    z-index: 1000;
+    border-width: 0 0 1px;
+}
+@media (min-width: 768px){
+    .navbar-static-top {
+        border-radius: 0;
+    }
+}
+.navbar:after, .navbar:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.navbar:before {
+    display: table;
+    content: " ";
+}
+.navbar:after {
+    clear: both;
+}
+span.nav_challenge {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 4.375rem;
+    color: #f7f7f7;
+}
+@media (min-width: 768px){
+    .navbar {
+        border-radius: 4px;
+    }
+}
+
+
+.navbar-default {
+    background-color: #f8f8f8;
+    border-color: #e7e7e7;
+}
+.navbar {
+    background: #15388c;
+    background: -moz-linear-gradient(top, #15388c 0%, #15388c 50%, #ffffff 51%, #ffffff 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #15388c), color-stop(50%, #15388c), color-stop(51%, #ffffff), color-stop(100%, #ffffff));
+    background: -webkit-linear-gradient(top, #15388c 0%, #15388c 50%, #ffffff 51%, #ffffff 100%);
+    background: -o-linear-gradient(top, #15388c 0%, #15388c 50%, #ffffff 51%, #ffffff 100%);
+    background: -ms-linear-gradient(top, #15388c 0%, #15388c 50%, #ffffff 51%, #ffffff 100%);
+    background: linear-gradient(to bottom, #15388c 0%, #15388c 50%, #ffffff 51%, #ffffff 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#15388c', endColorstr='#ffffff',GradientType=0 );
+    height: 8.75em;
+    margin-bottom: 1.5em;
+    border: none;
+}
+.navbar .navLink{
+    text-decoration: none;
+}
+.navbar .navContent{
+    max-width:1280px;
+    width:100%;
+    margin:0 auto;
+}
+
+
+body.mentions {
+    background-color: #ffffff;
+}
+body.mentions .row .small-10{
+    background-color: #ffffff;
+}
+
+body.reglement {
+    background-color: #ffffff;
+}
+body.reglement .row .small-10{
+    background-color: #ffffff;
+}
+
+
+
+
+
+
+
 
 @media screen and (max-width: 1220px) {   
     .entete-generale {

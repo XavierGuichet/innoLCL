@@ -45,5 +45,16 @@ innolcl_front_landing_getnewideaform:
 #landing pre connexion
 front_online_version:
     path:     /online/{type}/{hash}
-    defaults: { _controller: innoLCLfrontBundle:Online:index }    
+    defaults: { _controller: innoLCLfrontBundle:Online:index }   
+    
+    
+#mentions-legales
+innolcl_front_page_mentions:
+    path:     /mentions-legales
+    defaults: { _controller: innoLCLfrontBundle:Pages:mentions }
+    
+#reglement
+innolcl_front_page_reglement:
+    path:     /reglement
+    defaults: { _controller: innoLCLfrontBundle:Pages:reglement }
     

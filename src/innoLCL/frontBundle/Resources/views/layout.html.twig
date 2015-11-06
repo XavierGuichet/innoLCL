@@ -27,7 +27,7 @@
             <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
         {% endstylesheets %}
     </head>
-    <body>
+    <body class="{% block bodyclass %}{% endblock %}">
     
     {% block body  %}
     {% endblock %}
@@ -37,8 +37,8 @@
         <div class="row">
             <div class="main-footer small-12 columns">
                 <a href="#" class="main-footer__link">LCL</a> -
-                <a href="#" class="main-footer__link">Mentions légales</a> -
-                <a href="#" class="main-footer__link">Conditions de règlement du jeu</a>
+                <a href="{{path('innolcl_front_page_mentions')}}" class="main-footer__link">Mentions légales</a> -
+                <a href="{{path('innolcl_front_page_reglement')}}" class="main-footer__link">Conditions de règlement du jeu</a>
             </div>
     </footer>
     

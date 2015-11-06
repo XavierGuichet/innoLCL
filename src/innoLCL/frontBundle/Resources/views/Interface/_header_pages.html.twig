@@ -1,0 +1,27 @@
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="navContent">
+        <div class="col-md-4 text-right">
+            <a href="{{path('innolcl_front_homepage')}}" class="navLink"><img src="{{asset('images/516747b.png')}}" alt="LCL" style="vertical-align: middle;">
+            <span class="nav_challenge">Le Challenge des idées</span>
+            </a>
+        </div>
+        <div class="col-md-4  text-center">
+            <img src="{{asset('images/8bbf6ff.png')}}" alt="logo challenge">
+        </div>
+        <div class="col-md-4  text-right">
+            <div class="login__topbar">
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <span class="login__user">Bonjour, {{ app.user.firstname|slice(0, 1)  }}. {{ app.user.lastname }}</span>
+                    <a href="{{ path('fos_user_security_logout') }}" class="login__logout">
+                        Se déconnecter
+                    </a>
+                {% else %}
+                    <a href="{{ path('fos_user_security_login') }}">
+                        {{ 'layout.login'|trans({}, 'FOSUserBundle') }}
+                        </a>
+                {% endif %}
+            </div> 
+        </div>                     
+    </div>
+    <div class="clear"></div>
+</nav>
