@@ -498,6 +498,7 @@ footer {
   background-size: cover;
   background-position: bottom center;
   padding-bottom: 5em;
+  padding-top: 6.5em;
 }
 
 /* line 9, ../sass/_register.scss */
@@ -622,7 +623,6 @@ footer {
 /* line 1, ../sass/_dotation.scss */
 .dotation {
   background: #000000;
-  padding-bottom: 6.5em;
 }
 /* line 5, ../sass/_dotation.scss */
 .dotation__first {
@@ -692,7 +692,6 @@ footer {
   width: 100%;
   overflow-x: scroll;
   overflow-y: hidden;
-  border-top: 2em solid #000000;
 }
 /* line 8, ../sass/_idealist.scss */
 .idealist:before {
