@@ -20,3 +20,5 @@ parameters:
 
     app_front_url: "http://localhost:8888"
     online_mail_dir: /online/mail/
+
+    server_name: localhost_dev

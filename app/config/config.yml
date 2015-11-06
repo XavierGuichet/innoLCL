@@ -38,6 +38,7 @@ twig:
     globals:
         app_front_url:  "%app_front_url%"
         online_mail_dir:  "%online_mail_dir%"
+        server_name: "%server_name%"
 
 # Assetic Configuration
 assetic:
