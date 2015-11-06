@@ -48,7 +48,8 @@
 
                     <div class="row">
                             <div class="small-12 columns">
-                                <input type="button" class="register__submit js-register-next" value="S'inscrire" />
+                                <input type="submit" class="register__submit js-register-next" value="S'inscrire" />
+                                <div class="showErrors js-register-error hidden"></div>
                             </div>
                         </div>                   
            </div>
@@ -72,10 +73,10 @@
                  <div class="row"> 
                      <div class="small-6 columns">
                         {{ form_widget(form.cgvaccepted) }} <label for="fos_user_registration_form_cgvaccepted" class="required">J'ai lu les conditions de règlement du jeu</label><br/>
-                        <div class="showErrors hidden">{{ form_errors(form.cgvaccepted) }}</div>
+                        <div class="showErrors cgvaccepted hidden">{{ form_errors(form.cgvaccepted) }}</div>
                     </div>
                      <div class="small-6 columns">
-                            <input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}"  class="register__submit" />
+                            <input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}"  class="register__submit submit_global" />
                     </div>
                 </div>
 

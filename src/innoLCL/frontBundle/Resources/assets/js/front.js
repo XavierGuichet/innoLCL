@@ -189,22 +189,9 @@ function gestionLimiteTextareaMots(){
 function activateRegisterForm(){
     //Trigger register form pour slide        /!\ Retour au step 1 à rajouter en cas d'erreur de validation par le client.
     $(".js-register-next").click( function(e) {
-        e.preventDefault();
-        /*
-        // prevalidation du formulaire
-        $.ajax({
-            type: $(this).attr('method'),
-            url: $(this).attr('action'),
-            data: $(this).serialize()
-        })
-        .done(function (data) {
-            
-        })
-        .fail(function (jqXHR, textStatus, errorThrown) {
-            
-        });
-        */
+        
        
+       /*
        if($("#fos_user_registration_form_firstname").val() ==''){
            $("#fos_user_registration_form_firstname").focus();
            return false;
@@ -225,23 +212,49 @@ function activateRegisterForm(){
            $("#fos_user_registration_form_plainPassword_second").focus();
            return false;
        }
-        
+        */
         /*var $theForm = $(this).closest('form');
         $theForm[0].checkValidity();*/
         /*if (( typeof($theForm[0].checkValidity) == "function" ) && !$theForm[0].checkValidity()) {
             return;
         }*/
-        
-        /*if(!$("#fos_user_registration_form_lastname")[0].checkValidity()){
-            $('form.fos_user_registration_register').find(':submit').click();
-            //return false;
-        }*/
+        var $theForm = $(this).closest('form');
+        if(!$("#fos_user_registration_form_firstname")[0].checkValidity()){
+            return true;
+        }
+        if(!$("#fos_user_registration_form_lastname")[0].checkValidity()){
+            return true;
+        }
+        if(!$("#fos_user_registration_form_email")[0].checkValidity()){
+            return true;
+        }
+        if(!$("#fos_user_registration_form_plainPassword_first")[0].checkValidity()){
+            return true;
+        }
+        if(!$("#fos_user_registration_form_plainPassword_second")[0].checkValidity()){
+            return true;
+        }
        
-       
+       // sinon on bloque et on glisse vers la suite
+        e.preventDefault();       
         // retour Ajax positif = slide charte sinon affichage erreurs
         $(".register__slider__item:eq(0)").css('margin-left','-100%');
     });
     
+    $('.submit_global').click( function(e) {        
+        e.preventDefault();
+        $('.showErrors.cgvaccepted').addClass('hidden');
+        $('.showErrors.cgvaccepted').html("");
+           
+        if($("#fos_user_registration_form_cgvaccepted").is(':checked') == false){
+           $("#fos_user_registration_form_cgvaccepted").focus();
+           $('.showErrors.cgvaccepted').removeClass('hidden');
+           $('.showErrors.cgvaccepted').html("Vous devez accepter les conditions de règlement du jeu.");
+           return false;
+        }
+        $(this).closest("form").submit();
+    });
+    /*
     $('.register__submit').click( function(e) {
         e.preventDefault();
         if($("#fos_user_registration_form_cgvaccepted").is(':checked') == false){
@@ -250,7 +263,7 @@ function activateRegisterForm(){
         }
         $(this).closest("form").submit();
     });
-    
+    */
     
     $('form.fos_user_registration_register').on('submit', function(event){
        event.preventDefault();     
