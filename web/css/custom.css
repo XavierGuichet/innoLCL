@@ -7,6 +7,16 @@
     padding-left: 15px;
 }
 
+header{
+    background-color: #000000;
+    background-image: url("../images/fond_halo.jpg");
+    background-size: cover;
+}
+.entete-generale{
+    background-color: transparent;
+    background-image: none;
+}
+
 /* FRONT : Connexion */
 .login a.login__inscription{
     color: #222;
@@ -19,6 +29,19 @@
     bottom:0px;
 }
 
+/* BOUTON PLAY */
+.containerBTVideo{
+    z-index: 102;
+    position: relative;
+    height: 123px;
+}
+.js-launchvideo {
+    cursor: pointer;
+    z-index: 102;
+    position: absolute;
+    left: 50%;
+    margin-left: -61px;
+}
 
 /* CORRECTION IDEE */
 .idealist__myideas {
