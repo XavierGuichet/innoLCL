@@ -15,7 +15,7 @@ class RedirectController extends Controller
        $userAdminRole = null;
        
        if($serviceBack->isUserWithTooManyRole($user->getRoles())) {
-            dump("L'utilisateur à trop de role d'administration");
+            //dump("L'utilisateur à trop de role d'administration");
             $route ='fos_admin_user_security_login';
         }
         else {

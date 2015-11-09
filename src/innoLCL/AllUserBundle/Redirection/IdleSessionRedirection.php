@@ -42,7 +42,7 @@ class IdleSessionRedirection
             $lapse = time() - $this->session->getMetadataBag()->getLastUsed();
 
             if ($lapse > $this->maxIdleTime) {
-                dump("You have been logged out due to inactivity.");
+                //dump("You have been logged out due to inactivity.");
                 $roles = $this->securityContext->getToken()->getRoles();
                 // Tranform this list in array
                 $rolesTab = array_map(function($role){ 

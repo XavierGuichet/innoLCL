@@ -309,7 +309,7 @@ class DefaultController extends Controller
         if($repositoryIdea->getSelectedIdeaCount() == 10) {
             $em = $this->getDoctrine()->getManager();
             foreach ($repositoryIdea->findBySelected(1) as $idee) {
-                dump("true");
+                //dump("true");
                 $idee->setSelected(2);
                 $em->persist($idee);
             }

@@ -22,7 +22,7 @@ class DefaultController extends Controller
         
         // BLOCK DE REDIRECTION DES ANOMALIES
         if($serviceBack->isUserWithTooManyRole($user->getRoles())) {
-            dump("L'utilisateur à trop de role d'administration");
+            //dump("L'utilisateur à trop de role d'administration");
             $route = $this->container->get('router')->generate('fos_admin_user_security_login');
             $response = new RedirectResponse($route);
             return $response;
