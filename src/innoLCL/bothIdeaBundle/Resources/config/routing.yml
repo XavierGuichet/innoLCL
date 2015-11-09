@@ -2,6 +2,7 @@
 innolcl_bothIdea_handleFrontForm:
     path:     /handleFrontForm/{ideaid}
     defaults: { _controller: innoLCLbothIdeaBundle:Default:handleFrontForm }
+    methods:  [POST]
     requirements:
         ideaid:  \d+
         
@@ -9,6 +10,7 @@ innolcl_bothIdea_handleFrontForm:
 innolcl_bothIdea_handleModerateurForm:
     path:     /admin/handleModerateurForm/{ideaid}
     defaults: { _controller: innoLCLbothIdeaBundle:Default:handleModerateurForm }
+    methods:  [POST]
     requirements:
         ideaid:  \d+
      
@@ -16,6 +18,7 @@ innolcl_bothIdea_handleModerateurForm:
 innolcl_bothIdea_handleValidateurForm:
     path:     /admin/handleValidateurForm/{ideaid}
     defaults: { _controller: innoLCLbothIdeaBundle:Default:handleValidateurForm}
+    methods:  [POST]
     requirements:
         ideaid:  \d+
 
@@ -23,6 +26,7 @@ innolcl_bothIdea_handleValidateurForm:
 innolcl_bothIdea_handleSelectionneurForm:
     path:    /admin/selectionneur/toggleselect/{ideaid}
     defaults: { _controller: innoLCLbothIdeaBundle:Default:handleSelectionneurForm}
+    methods:  [POST]
     requirements:
         ideaid:  \d+
         
@@ -30,4 +34,5 @@ innolcl_bothIdea_handleSelectionneurForm:
 innolcl_bothIdea_handleSelectionneurFinaliseForm:
     path:    /admin/selectionneur/finalise
     defaults: { _controller: innoLCLbothIdeaBundle:Default:handleSelectionneurFinaliseForm}
+    methods:  [POST]
 

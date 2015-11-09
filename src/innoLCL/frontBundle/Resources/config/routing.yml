@@ -33,11 +33,13 @@ innolcl_front_landing_proposal:
 innolcl_frontbundle_videohandleFormAction:
     path:     /videoseen
     defaults: { _controller: innoLCLfrontBundle:Video:handleForm }
+    methods:  [POST]
     
 #requete js get newideaform /!\ Pas sur que cet route soit utilisé
 innolcl_front_landing_getnewideaform:
     path:     /getnewideaform
     defaults: { _controller: innoLCLfrontBundle:Default:getnewideaform }
+    methods:  [POST]
     
     
     

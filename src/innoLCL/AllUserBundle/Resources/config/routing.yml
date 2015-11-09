@@ -1,62 +1,44 @@
-#fos_user_security:
-#    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
-
-fos_user_register:
-    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
-    prefix: /register
+#Moderateur 
+innolcl_moderateur_list_idea:
+    path:    /admin/moderateur/list/{page}
+    defaults: { _controller: innoLCLbackBundle:Moderateur:list, page: 1 }
+    requirements:
+        page:  \d+
     
-fos_user_registration_confirmed: 
-    path: /register/confirmed
-    defaults: { _controller: innoLCLfrontBundle:Default:confirmed }  
-
-#fos_user_resetting:
-   # resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
-    #prefix: /resetting
-
-#fos_user_change_password:
-   # resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
-    #prefix: /profile
-
-# Route de connexion au FrontOffice
-fos_user_security_login:
-    path: /
-    defaults: { _controller: innoLCLfrontBundle:Default:index }
-
-# Route de vérification de connexion au FrontOffice
-fos_user_security_check:
-    path: /check
-    defaults: { _controller: FOSUserBundle:Security:check }
+#Lecteur
+innolcl_lecteur_list_idea:
+    path:    /admin/lecteur/list/{statut}/{page}
+    defaults: { _controller: innoLCLbackBundle:Lecteur:list, statut: maybe, page: 1 }
     requirements:
-        _method: POST
-
-# Route de déconnexion du FrontOffice
-fos_user_security_logout:
-    path: /logout
-    defaults: { _controller: FOSUserBundle:Security:logout }
-
-
-
-
-
-
-# Route de redirection après le check
-innoLCL_alluserbundle_redirect:
-    path:  /redirectUser
-    defaults: { _controller: innoLCLAllUserBundle:Redirect:ByRoleRedirection }
-
-# Route de connexion au Backoffice
-fos_admin_user_security_login:
-    path:  /admin/
-    defaults: { _controller: innoLCLAllUserBundle:Adminlog:login }
-
-# Route de vérification de connexion au Backoffice
-fos_admin_user_security_check:
-    path:  /admincheck
-    defaults: { _controller: FOSUserBundle:Security:check }
+        statut:  (maybe|refused|validated)+
+        page:  \d+
+ 
+#Validateur
+innolcl_validateur_list_idea:
+    path:    /admin/validateur/list/{statut}/{page}
+    defaults: { _controller: innoLCLbackBundle:Validateur:list, statut: maybe, page: 1 }
     requirements:
-        _method: POST
+        statut:  (maybe|refused|validated)+
+        page:  \d+
 
-# Route de déconnexion du Backoffice
-fos_admin_user_security_logout:
-    path:  /admin/logout
-    defaults: { _controller: innoLCLAllUserBundle:Adminlog:logout }
+#Selectionneur
+innolcl_selectionneur_list_idea:
+    path:    /admin/selectionneur/list/{page}
+    defaults: { _controller: innoLCLbackBundle:Selectionneur:list, page: 1 }
+    requirements:
+        ideaid:  \d+
+        
+#Comparateur d'idée
+innolcl_backbundle_compare:
+    path: /admin/compare/{ideaid}
+    defaults: { _controller: innoLCLbackBundle:Compare:display}
+    requirements:
+        ideaid:  \d+
+        
+#Recuperateur de formulaire d'idée de l'admin
+innolcl_backbundle_get_idea:
+    path: /admin/get/idea/{ideaid}
+    defaults: { _controller: innoLCLbackBundle:Default:getidea}
+    methods:  [POST]
+    requirements:
+        ideaid:  \d+

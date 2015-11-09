@@ -49,15 +49,31 @@ security:
        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
        
+       - { path: ^/register/, role: IS_AUTHENTICATED_ANONYMOUSLY }
+       - { path: ^/register/check-email, role: IS_AUTHENTICATED_ANONYMOUSLY }
+       - { path: ^/register/confirm, role: IS_AUTHENTICATED_ANONYMOUSLY }               
+       - { path: ^/register/confirmed, role: IS_AUTHENTICATED_ANONYMOUSLY }                                                         
+       - { path: ^/check, role: IS_AUTHENTICATED_ANONYMOUSLY }
+       - { path: ^/logout, role: IS_AUTHENTICATED_ANONYMOUSLY }
+       - { path: ^/redirectUser, role: IS_AUTHENTICATED_ANONYMOUSLY }
+       - { path: ^/proposal, role: ROLE_USER }
+       - { path: ^/videoseen, role: ROLE_USER }
+       - { path: ^/getnewideaform, role: ROLE_USER }       
+       - { path: ^/handleFrontForm, role: ROLE_USER }    
        
+       - { path: ^/admincheck, role: IS_AUTHENTICATED_ANONYMOUSLY }
+       - { path: ^/admin/logout, role: IS_AUTHENTICATED_ANONYMOUSLY }
        
-       #- { path: ^/admin/, role: ROLE_ADMIN }
-       - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-       - { path: ^/admin/moderateur, role: ROLE_MODERATEUR }
-       - { path: ^/admin/lecteur, role: ROLE_LECTEUR }
-       - { path: ^/admin/validateur, role: ROLE_VALIDATEUR }
-       - { path: ^/admin/selectionneur, role: ROLE_SELECTIONNEUR }
-       
-       - { path: ^/proposal$, role: ROLE_USER }
-       - { path: ^/handleFrontForm, role: ROLE_USER }
+       - { path: ^/admin/moderateur/list, role: ROLE_MODERATEUR }     
+       - { path: ^/admin/lecteur/list, role: ROLE_LECTEUR }
+       - { path: ^/admin/validateur/list, role: ROLE_VALIDATEUR }
+       - { path: ^/admin/selectionneur/list, role: ROLE_SELECTIONNEUR }    
+       - { path: ^/admin/compare, role: [ROLE_MODERATEUR,ROLE_LECTEUR,ROLE_VALIDATEUR,ROLE_SELECTIONNEUR] }      
+       - { path: ^/admin/get/idea, role: [ROLE_MODERATEUR,ROLE_LECTEUR,ROLE_VALIDATEUR,ROLE_SELECTIONNEUR] }             
+       - { path: ^/admin/handleModerateurForm, role: ROLE_MODERATEUR }     
+       - { path: ^/admin/handleValidateurForm, role: ROLE_VALIDATEUR }    
+       - { path: ^/admin/selectionneur/toggleselect, role: ROLE_SELECTIONNEUR }
+       - { path: ^/admin/selectionneur/finalise, role: ROLE_SELECTIONNEUR }                                                 
+
+
 
