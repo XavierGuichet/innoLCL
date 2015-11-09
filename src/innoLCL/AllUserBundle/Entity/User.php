@@ -65,11 +65,20 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="direction", type="string", columnDefinition="enum('Ressource Humaine', 'Suivi clients', 'Autre')")
+     * @ORM\Column(name="direction", type="string", columnDefinition="enum('Réseaux (Part, Pros, BP, BEGF)', 'Fonctions supports', 'Traitement (DSBA) et Informatiques (ITP)')")
      * 
-     * @Assert\Choice(choices = {"Ressource Humaine","Suivi clients", "Autre"})
+     * @Assert\Choice(choices = {"Réseaux (Part, Pros, BP, BEGF)","Fonctions supports", "Traitement (DSBA) et Informatiques (ITP)"})
      */
     private $direction;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="region", type="string", columnDefinition="enum('SIEGE','IDF OUEST','IDF NORD','IDF SUD','MEDITERANNEE','MIDI','NORD OUEST','OUEST','SUD OUEST','ANTILLES GUYANE','EST','RHONE ALPES AUVERGNE')")
+     * 
+     * @Assert\Choice(choices = {"SIEGE","IDF OUEST","IDF NORD","IDF SUD","MEDITERANNEE","MIDI","NORD OUEST","OUEST","SUD OUEST","ANTILLES GUYANE","EST","RHONE ALPES AUVERGNE"})
+     */
+    private $region;
 
 
     /**
@@ -309,5 +318,29 @@ class User extends BaseUser
     public function getLastname()
     {
         return $this->lastname;
+    }
+
+    /**
+     * Set region
+     *
+     * @param string $region
+     *
+     * @return User
+     */
+    public function setRegion($region)
+    {
+        $this->region = $region;
+
+        return $this;
+    }
+
+    /**
+     * Get region
+     *
+     * @return string
+     */
+    public function getRegion()
+    {
+        return $this->region;
     }
 }

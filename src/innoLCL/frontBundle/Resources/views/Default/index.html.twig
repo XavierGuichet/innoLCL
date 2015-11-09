@@ -3,7 +3,7 @@
 {% extends "innoLCLfrontBundle::layout.html.twig" %}
 
 {% block body %}
-<header>              
+	<header>              
              <div class="row">
                  <div class="entete-generale">
                      <h1 class="title"><span class="title--subline">Participez au</span> challenge de l'innovation LCL</h1>
@@ -29,12 +29,10 @@
                                 <img src="{{ asset_url }}"  alt="Challenge de l'innovation LCL" class="entete-generale__ombre shadow"/>
                         {% endimage %}               
                 </div> 
-            </div> 
-        </div>
-                
             </div>
-        </header>
-        {{ include("innoLCLfrontBundle:Default:dotation.html.twig") }}
-          
-        {{ render(controller('innoLCLAllUserBundle:Registration:register')) }}
+    </header>
+
+    {{ include("innoLCLfrontBundle:Default:dotation.html.twig") }}
+              
+    {{ render(controller('innoLCLAllUserBundle:Registration:register')) }}
 {% endblock %}

@@ -19,4 +19,9 @@ class PagesController extends Controller
     {
         return $this->render('innoLCLfrontBundle:Pages:reglement.html.twig');
     }
+    
+    public function manualAction(Request $request) // /mode d'emploi
+    {
+        return $this->render('innoLCLfrontBundle:Pages:manual.html.twig');
+    }
 }

@@ -1,11 +1,8 @@
-
-<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register register__form">
     <div class="columns register large-centered">
-        {{ form_start(form, { 'class': "register__form"}) }}
         <div class="register__slider">
-
-            <div class="register__slider__item">  
-
+            <div class="register__slider__item">
+                  
                         <div class="row">
                             <div class="small-12 columns">
                                 <p class="title">Afin de pouvoir accèder à la plateforme,<br/>
@@ -25,13 +22,20 @@
                         </div>
 
                         <div class="row">
-                            <div class="small-6 columns text-right">
-                                {{ form_widget(form.email, {attr: {'class': 'register__input', 'placeholder': "Adresse e-mail"}}) }}
+                            <div class="small-12 columns text-center">
+                                {{ form_widget(form.email, {attr: {'class': 'register__input register__input--mail', 'placeholder': "Adresse e-mail"}}) }}
                                 <div class="showErrors email hidden">{{ form_errors(form.email) }}</div>
                             </div>
-                            <div class="small-6 columns text-left">
+                        </div>
+
+                        <div class="row">
+                            <div class="small-6 columns text-right">
                                 {{ form_widget(form.direction, {attr: {'class': 'register__select'}}) }}
                                 <div class="showErrors hidden">{{ form_errors(form.direction) }}</div>
+                            </div>
+                            <div class="small-6 columns text-left">
+                                {{ form_widget(form.region, {attr: {'class': 'register__select'}}) }}
+                                <div class="showErrors hidden">{{ form_errors(form.region) }}</div>
                             </div>
                         </div>
 
@@ -47,11 +51,11 @@
                     </div>     
 
                     <div class="row">
-                            <div class="small-12 columns">
-                                <input type="submit" class="register__submit js-register-next" value="S'inscrire" />
-                                <div class="showErrors js-register-error hidden"></div>
-                            </div>
-                        </div>                   
+                        <div class="small-12 columns">
+                            <input type="submit" class="register__submit js-register-next" value="S'inscrire" />
+                            <div class="showErrors js-register-error hidden"></div>
+                        </div>
+                    </div>                   
            </div>
            <div class="register__slider__item">  
 
@@ -76,10 +80,8 @@
                             <input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}"  class="register__submit submit_global" />
                     </div>
                 </div>
-
-                </div>
             </div>
     </div>
-        {{ form_end(form) }}
+       
     </div>
-</form>
+ {{ form_end(form) }}

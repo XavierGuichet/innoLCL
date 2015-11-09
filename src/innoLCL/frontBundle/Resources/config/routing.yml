@@ -59,3 +59,8 @@ innolcl_front_page_mentions:
 innolcl_front_page_reglement:
     path:     /reglement
     defaults: { _controller: innoLCLfrontBundle:Pages:reglement }
+    
+#modedemploi
+innolcl_front_page_manual:
+    path:     /modedemploi
+    defaults: { _controller: innoLCLfrontBundle:Pages:manual }
