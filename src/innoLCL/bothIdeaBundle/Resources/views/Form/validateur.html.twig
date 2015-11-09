@@ -81,7 +81,7 @@
             </div>
         </div>
         <div class="col-lg-3 button-box">    
-              <a class="compare"  href="#{{ path('innolcl_backbundle_get_idea', {'ideaid': idea.id }) }}">Comparer</a>
+              <a class="compare" target="_blank"   href="{{ path('innolcl_backbundle_compare', {'ideaid': idea.id }) }}">Comparer</a>
               <div class="box-icone-validation">
                     <span class="icone-validation maybe js-icone-validation" data-val="maybe"></span>
                     <span class="icone-validation valid js-icone-validation" data-val="validated"></span>

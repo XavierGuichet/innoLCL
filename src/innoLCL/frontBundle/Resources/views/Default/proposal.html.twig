@@ -22,7 +22,7 @@
                     
                     {% if registerConfirmed is defined %}
                         {% if registerConfirmed %}
-                            <div id="formRegisterConfirmed" class="reveal-modal suggestidea" data-reveal data-reload="{{path('innolcl_front_landing_proposal')}}" aria-labelledby="Confirmation de l'inscription" aria-hidden="false" role="dialog">
+                            <div id="formRegisterConfirmed" class="reveal-modal suggestidea" data-reveal aria-labelledby="Confirmation de l'inscription" aria-hidden="false" role="dialog">
                                 <div class="popup">
                                     <h1 class="popup__title">Confirmation de l'inscription</h1>
                                     <p class="popup__content">Félicitations {{app.user.firstname}}, votre compte est maintenant activé.</p>
@@ -56,9 +56,6 @@
                                 <img src="{{ asset_url }}"  alt="Challenge de l'innovation LCL" class="js-launchvideo" />
                             {% endimage %}                            
                         </div>
-                        {% image '@innoLCLfrontBundle/Resources/assets/images/ombre_logo.png' %}
-                                <img src="{{ asset_url }}"  alt="Challenge de l'innovation LCL" class="entete-generale__ombre shadow"/>
-                        {% endimage %}
                         </div>
                     <div class="small-3 columns"></div>
                     <div class="small-12 columns text-center">
@@ -67,6 +64,10 @@
                                 <span data-reveal-id="formIdea" class="btn btn--main-cta  text-center">Proposer une idée</span>
                             {% endif %}
                         </div>
+                
+                         {% image '@innoLCLfrontBundle/Resources/assets/images/ombre_logo.png' %}
+                                <img src="{{ asset_url }}"  alt="Challenge de l'innovation LCL" class="entete-generale__ombre shadow"/>
+                        {% endimage %}
                 </div> 
             </div> 
         </div>

@@ -52,6 +52,22 @@ class IdeaRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getQuery()->getSingleScalarResult();
     }
     
+    /**
+    * Donne le nombre d'idée selectionnée
+    *
+    * @param none
+    * @return int
+    */
+    public function getSelectedIdeaBlockedCount() 
+    {
+        $qb = $this->createQueryBuilder('a');
+        $qb
+            ->select('COUNT(a)')
+            ->where('a.selected = :selected')
+            ->setParameter('selected', 2);
+        return $qb->getQuery()->getSingleScalarResult();
+    }
+    
     
     /**
     * Dit si la derniere idée est validé

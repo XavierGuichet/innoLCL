@@ -154,9 +154,9 @@ class Idea
     private $reworked;
 
     /**
-     * @var boolean
+     * @var integer
      *
-     * @ORM\Column(name="selected", type="boolean")
+     * @ORM\Column(name="selected", type="integer")
      */
     private $selected;
 

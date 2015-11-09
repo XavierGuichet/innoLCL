@@ -11,3 +11,9 @@ services:
     redirect.after.logout:
         class: innoLCL\AllUserBundle\Redirection\AfterLogoutRedirection
         arguments: [@router, @security.context]
+
+    inno_lcl_all_user.idleredirect:
+        class: innoLCL\AllUserBundle\Redirection\IdleSessionRedirection
+        arguments: ["@session", "@security.context", "@router", %session_max_idle_time%]
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }

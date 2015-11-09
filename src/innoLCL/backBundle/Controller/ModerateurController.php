@@ -17,7 +17,7 @@ class ModerateurController extends Controller
         $ideaList = $repositoryIdea->getListIdeaByStatut('notmoderated',0);
         $twig['idealist'] = $ideaList;
         
-        $ideacount['notmoderated']  = $repositoryIdea->getIdeaCountByStatut("moderated",0);
+        $ideacount['notmoderated']  = $repositoryIdea->getIdeaCountByStatut("notmoderated",0);
         $twig['ideacount'] = $ideacount;
         
         

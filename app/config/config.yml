@@ -7,6 +7,8 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
+    #temps avant considéré comme inactif: 15min
+    session_max_idle_time: 900
 
 framework:
     #esi:             ~
@@ -27,6 +29,7 @@ framework:
     trusted_proxies: ~
     session:
         # handler_id set to null will use default session handler from php.ini
+        cookie_lifetime: 0
         handler_id:  ~
     fragments:       ~
     http_method_override: true

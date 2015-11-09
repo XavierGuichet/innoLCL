@@ -13,8 +13,8 @@
                                         <p class="cat_name">Peut-être</p>
                                 </div>
                                 {% if currentview == 'maybe' %}
-                                <div class="panel-footer">
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="panel-footer text-center">
+                                    <i class="glyphicon glyphicon-menu-down "></i>
                                     <div class="clearfix"></div>
                                 </div>
                             {% endif %}
@@ -29,8 +29,8 @@
                                         <p class="cat_name">Validées</p>
                                 </div>
                                 {% if currentview == 'validated' %}
-                                <div class="panel-footer">
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="panel-footer text-center">
+                                     <i class="glyphicon glyphicon-menu-down "></i>
                                     <div class="clearfix"></div>
                                 </div>
                                 {% endif %}
@@ -45,8 +45,8 @@
                                         <p class="cat_name">Refusées</p>
                                 </div>
                                 {% if currentview == 'refused' %}
-                                <div class="panel-footer">
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="panel-footer text-center">
+                                     <i class="glyphicon glyphicon-menu-down "></i>
                                     <div class="clearfix"></div>
                                 </div>
                                 {% endif %}
@@ -71,7 +71,7 @@
                                 <td>{{ idea.reworked }}</td>
                                 <td>{{ idea.title|length > 20 ? idea.title|slice(0, 20) ~ '...' : idea.title  }}</td>
                                 <td>{{ idea.description|length > 20 ? idea.description|slice(0, 20) ~ '...' : idea.description  }}</td>
-                                <td>{{ idea.author.email }}</td>
+                                <td><a href="mailto:{{ idea.author.email }}"><i  class="glyphicon glyphicon-envelope"></i></a></td>
                         </tr>
                     {% else %}
                         <tr><td colspan="7">Pas d'idée dans cette catégorie.</td>

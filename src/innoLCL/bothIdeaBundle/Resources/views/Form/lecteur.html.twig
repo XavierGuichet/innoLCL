@@ -77,25 +77,27 @@
             </div>
         </div>
         <div class="col-lg-3 button-box">    
-              <a class="compare"  href="#{{ path('innolcl_backbundle_get_idea', {'ideaid': idea.id }) }}">Comparer</a>
+              <a class="compare"  target="_blank" href="{{ path('innolcl_backbundle_compare', {'ideaid': idea.id }) }}">Comparer</a>
               <div class="box-icone-validation">
-                  {{ idea.statuts }} 
+                  
                   {% if idea.statuts == 'maybe' %} 
-                    <span class="icone-validation maybe choisi" data-val="maybe"></span>
+                    <span class="icone-validation lecteur maybe choisi" data-val="maybe"></span>
                     {% else %}
-                   <span class="icone-validation maybe choisi" data-val="maybe"></span>
+                   <span class="icone-validation lecteur maybe" data-val="maybe"></span>
                   {% endif %}
+                  
                   {% if idea.statuts == 'validated' %} 
-                    <span class="icone-validation valid  choisi" data-val="validated"></span>
+                    <span class="icone-validation lecteur valid  choisi" data-val="validated"></span>
                   {% else %}
-                    <span class="icone-validation valid " data-val="validated"></span>
+                    <span class="icone-validation lecteur valid " data-val="validated"></span>
                    {% endif %}
                    
                   {% if idea.statuts ==  'refused' %} 
-                    <span class="icone-validation refus  choisi" data-val="refused"></span>                  
+                    <span class="icone-validation lecteur refus  choisi" data-val="refused"></span>                  
                   {% else %}
-                    <span class="icone-validation refus " data-val="refused"></span>                  
-                   {% endif %}                    
+                    <span class="icone-validation lecteur  refus " data-val="refused"></span>                  
+                   {% endif %}       
+                                
               </div>
         </div>
     </div>

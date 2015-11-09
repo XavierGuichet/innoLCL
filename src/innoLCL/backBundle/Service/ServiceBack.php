@@ -66,8 +66,8 @@ class ServiceBack {
      
      public function canUserEditThisIdea($role,$ideastatut,$ideavalidated) {
          if($role == "ROLE_MODERATEUR" && $ideastatut != "notmoderated") { return false;}
-         if($role == "ROLE_LECTEUR") { return true;} //Peux voir toute les idées, il n'affiche pas de formulaire
-         if($role == "ROLE_VALIDATEUR" && $ideastatut == "notmoderated") { return false;}
+         if($role == "ROLE_LECTEUR"  && ($ideastatut == "notmoderated" || $ideavalidated)) { return false;} //Peux voir toute les idées, il n'affiche pas de formulaire
+         if($role == "ROLE_VALIDATEUR" && ($ideastatut == "notmoderated" || $ideavalidated)) { return false;}
          if($role == "ROLE_SELECTIONNEUR" && $ideavalidated == false) { return false;}
          return true;
      }

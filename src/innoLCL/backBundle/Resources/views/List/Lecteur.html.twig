@@ -5,14 +5,6 @@
 {% block menu %}
         <div class="row navidea">
                 <div class="container">
-                    <div class="col-lg-3 col-md-6">           
-                        <div class="panel panel-blue">
-                            <div class="panel-heading text-center">
-                                    <div class="huge all">{{ ideacount.all }}</div>
-                                    <p class="cat_name">Idées Proposées</p>
-                            </div>
-                        </div>
-                    </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="panel panel-yellow">
                             <a href="{{ path('innolcl_lecteur_list_idea', {'statut': 'maybe'}) }}">
@@ -21,8 +13,8 @@
                                         <p class="cat_name">Peut-être</p>
                                 </div>
                                 {% if currentview == 'maybe' %}
-                                <div class="panel-footer">
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="panel-footer text-center">
+                                     <i class="glyphicon glyphicon-menu-down "></i>
                                     <div class="clearfix"></div>
                                 </div>
                             {% endif %}
@@ -37,8 +29,8 @@
                                         <p class="cat_name">Validées</p>
                                 </div>
                                 {% if currentview == 'validated' %}
-                                <div class="panel-footer">
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="panel-footer text-center">
+                                     <i class="glyphicon glyphicon-menu-down "></i>
                                     <div class="clearfix"></div>
                                 </div>
                                 {% endif %}
@@ -53,8 +45,8 @@
                                         <p class="cat_name">Refusées</p>
                                 </div>
                                 {% if currentview == 'refused' %}
-                                <div class="panel-footer">
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="panel-footer text-center">
+                                     <i class="glyphicon glyphicon-menu-down "></i>
                                     <div class="clearfix"></div>
                                 </div>
                                 {% endif %}

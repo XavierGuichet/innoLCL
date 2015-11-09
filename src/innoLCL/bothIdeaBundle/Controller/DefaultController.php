@@ -125,18 +125,18 @@ class DefaultController extends Controller
         $repositoryIdea = $this->getDoctrine()->getManager()->getRepository('innoLCL\bothIdeaBundle\Entity\Idea');
         $serviceBack = $this->container->get('inno_lc_lback.serviceBack');  
         
-        //if (!$request->isXmlHttpRequest()) {
-        //    return new JsonResponse(array('message' => 'You can access this only using Ajax!'), 400);
-        //}
+        if (!$request->isXmlHttpRequest()) {
+            return new JsonResponse(array('message' => 'You can access this only using Ajax!'), 400);
+        }
         
         if($ideaid != 0) {
             $idea = $repositoryIdea->find($ideaid);              
         }        
         
-        if($idea === null) {return new JsonResponse(array('message' => 'Cette idée n\'existe pas.'), 400);}
+        if($idea === null) {return new JsonResponse(array('error' => 1,'message' => 'Cette idée n\'existe pas.'), 200);}
         
         if(!$serviceBack->canUserEditThisIdea("ROLE_MODERATEUR",$idea->getStatuts(),$idea->getValidated())) { 
-            return new JsonResponse(array('message' => 'Cette idée est déjà modérée. Réactualisez votre page.'), 400); 
+            return new JsonResponse(array('error' => 1,'message' => 'Cette idée est déjà modérée.'), 200); 
         }
         
         $form = $this->createFormBuilder($idea)
@@ -162,7 +162,7 @@ class DefaultController extends Controller
             $em->persist($idea);
             if($idea->sanitize()) { //remove only html tag on varchar actually, named in case there's more to do but Doctrine should do all the work               
                 $em->flush();
-                return new JsonResponse(array('message' => 'Success!'), 200);
+                return new JsonResponse(array('error' => 0,'message' => 'Success!'), 200);
             }
             else {
                 return new JsonResponse(array('message' => 'Erreur de sanitization!'), 400);
@@ -187,18 +187,18 @@ class DefaultController extends Controller
         $repositoryIdea = $this->getDoctrine()->getManager()->getRepository('innoLCL\bothIdeaBundle\Entity\Idea');
         $serviceBack = $this->container->get('inno_lc_lback.serviceBack');  
         
-        //if (!$request->isXmlHttpRequest()) {
-        //    return new JsonResponse(array('message' => 'You can access this only using Ajax!'), 400);
-        //}
+        if (!$request->isXmlHttpRequest()) {
+            return new JsonResponse(array('message' => 'You can access this only using Ajax!'), 400);
+        }
         
         if($ideaid != 0) {
             $idea = $repositoryIdea->find($ideaid);              
         }        
         
-        if($idea === null) {return new JsonResponse(array('message' => 'Cette idée n\'existe pas.'), 400);}
+        if($idea === null) {return new JsonResponse(array('error' => 1,'message' => 'Cette idée n\'existe pas.'), 200);}
         
         if(!$serviceBack->canUserEditThisIdea("ROLE_VALIDATEUR",$idea->getStatuts(),$idea->getValidated())) { 
-            return new JsonResponse(array('message' => 'Cette idée est déjà modérée. Réactualisez votre page.'), 400); 
+            return new JsonResponse(array('error' => 1,'message' => 'Cette idée est déjà modérée.'), 200); 
         }
         
         $form = $this->createFormBuilder($idea)
@@ -244,7 +244,7 @@ class DefaultController extends Controller
                     }
                 }
                 
-                return new JsonResponse(array('message' => 'Success!'), 200);
+                return new JsonResponse(array('error' => 0,'message' => 'Success!'), 200);
             }
             else {
                 return new JsonResponse(array('message' => 'Erreur de sanitization!'), 400);
@@ -258,5 +258,69 @@ class DefaultController extends Controller
                                                         'form' => $form->createView(),
                                                     ))), 400);
         }
+    }
+    
+    public function handleSelectionneurFormAction($ideaid = 0, Request $request)
+    {
+        $user = $this->get('security.context')->getToken()->getUser();
+        
+        $repositoryIdea = $this->getDoctrine()->getManager()->getRepository('innoLCL\bothIdeaBundle\Entity\Idea');
+        $serviceBack = $this->container->get('inno_lc_lback.serviceBack');  
+        
+        if (!$request->isXmlHttpRequest()) {
+            return new JsonResponse(array('message' => 'You can access this only using Ajax!'), 400);
+        }
+        
+        if($ideaid != 0) {
+            $idea = $repositoryIdea->find($ideaid);              
+        }        
+        
+        if($idea === null) {return new JsonResponse(array('error' => 1,'message' => 'Cette idée n\'existe pas.'), 200);}
+        
+        if(!$serviceBack->canUserEditThisIdea("ROLE_SELECTIONNEUR",$idea->getStatuts(),$idea->getValidated())) { 
+            return new JsonResponse(array('error' => 1,'message' => 'Cette idée est déjà modérée.'), 200); 
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        
+        if($idea->getSelected() == 1) {
+            $idea->setSelected(0);
+        }
+        elseif($idea->getSelected() == 0) {
+            $idea->setSelected(1);
+        }
+        $em->persist($idea);
+        $em->flush();
+        return new JsonResponse(array('error' => 0,'message' => 'Success!'), 200);
+
+    }
+    
+    public function handleSelectionneurFinaliseFormAction(Request $request)
+    {
+        $user = $this->get('security.context')->getToken()->getUser();
+        
+        $repositoryIdea = $this->getDoctrine()->getManager()->getRepository('innoLCL\bothIdeaBundle\Entity\Idea');
+        $serviceBack = $this->container->get('inno_lc_lback.serviceBack');  
+        
+        if (!$request->isXmlHttpRequest()) {
+            return new JsonResponse(array('message' => 'You can access this only using Ajax!'), 400);
+        }
+        
+        if($repositoryIdea->getSelectedIdeaCount() == 10) {
+            $em = $this->getDoctrine()->getManager();
+            foreach ($repositoryIdea->findBySelected(1) as $idee) {
+                dump("true");
+                $idee->setSelected(2);
+                $em->persist($idee);
+            }
+            $em->flush();
+            
+            
+            return new JsonResponse(array('error' => 0,'message' => 'C\'est validée'), 200); 
+        }
+        else {
+            return new JsonResponse(array('error' => 1,'message' => 'La base de donnée ne contient pas 10 idées sélectionnées. Veuillez recharger la page.'), 200); 
+        }
+
     }
 }

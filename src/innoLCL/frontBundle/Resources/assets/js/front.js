@@ -31,6 +31,10 @@ jQuery(document).ready( function($) {
             location.reload();
         }
     });
+    $(function()
+    {
+        $('.js-custom-scroll').jScrollPane();
+    });
     
     // activation des événements sur formulaire inscription
     activateRegisterForm();    

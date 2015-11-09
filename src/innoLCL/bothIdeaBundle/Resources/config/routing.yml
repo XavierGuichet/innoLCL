@@ -25,3 +25,9 @@ innolcl_bothIdea_handleSelectionneurForm:
     defaults: { _controller: innoLCLbothIdeaBundle:Default:handleSelectionneurForm}
     requirements:
         ideaid:  \d+
+        
+#soumission js (de)selectionner une idée | Selectionneur
+innolcl_bothIdea_handleSelectionneurFinaliseForm:
+    path:    /admin/selectionneur/finalise
+    defaults: { _controller: innoLCLbothIdeaBundle:Default:handleSelectionneurFinaliseForm}
+

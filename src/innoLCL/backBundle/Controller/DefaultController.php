@@ -126,7 +126,8 @@ class DefaultController extends Controller
                  return new JsonResponse(array( 'message' => '','HTMLcontent' => $form_view->getContent()), 200);
             break;
             case "ROLE_SELECTIONNEUR" :
-            
+                $view = $this->render('innoLCLbothIdeaBundle:Form:lecteur.html.twig', array('idea' => $idea));
+                return new JsonResponse(array( 'message' => '','HTMLcontent' => $view->getContent()), 200);
             break;    
         }
         

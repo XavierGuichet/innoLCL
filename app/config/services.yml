@@ -7,3 +7,14 @@ parameters:
 #    nomduservice:
 #        class: innoLCL\bothMailBundle\Service\CuteMailMailer
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+services:
+    redirect.idle.session:
+            class: innoLCL\AllUserBundle\Redirection\IdleSessionRedirection
+            argguments: [@router, @security.context]
+            tag:
+                -  { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
+services:
+    app.exception_listener:
+        class: AppBundle\EventListener\ExceptionListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception }

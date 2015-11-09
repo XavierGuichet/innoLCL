@@ -9,7 +9,7 @@
                         <div class="panel panel-green">
                             <a href="{{ path('innolcl_lecteur_list_idea', {'statut': 'validated'}) }}">
                                 <div class="panel-heading text-center">
-                                        <div class="huge valid"></div>
+                                        <div class="huge valid">{{ ideacountvalidated }}</div>
                                         <p class="cat_name">Validées</p>
                                 </div>
                             </a>
@@ -20,7 +20,21 @@
 {% endblock %}
 
 {% block enteteSelectionneur %}
-<em>Il reste {{ ideacountselected }} idées à sélectionner</em>
+<div class="row section-{{currentview}}">
+    <div class="container ribbon-container">
+        <div class="col-lg-6 ribbonl">
+            <div class="ribbon-left">{% if selectedconfirmed == 0 %}
+                        Il reste <span id="ideacount">{{ ideacountselected }}</span> idées à sélectionner
+                        {% else %}
+                        La sélection est finalisée.
+                        {% endif %}
+                        </div>
+        </div>
+        <div class="col-lg-6 ribbonr">
+            <div class="ribbon-right">&nbsp;{% if selectedconfirmed == 0 %}<button class="validateselection" id="validateselection" data-action="{{ path('innolcl_bothIdea_handleSelectionneurFinaliseForm') }}">Validation définitive</button>{% endif %}</div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block body %}
@@ -36,8 +50,22 @@
                                 <td>{{ idea.author.lastname }}</td>
                                 <td>{{ idea.title|length > 20 ? idea.title|slice(0, 20) ~ '...' : idea.title  }}</td>
                                 <td>{{ idea.description|length > 20 ? idea.description|slice(0, 20) ~ '...' : idea.description  }}</td>
-                                <td>{{ idea.author.email }}</td>
-                                <td>form.selected</td>
+                                <td><a href="mailto:{{ idea.author.email }}"><i  class="glyphicon glyphicon-envelope"></i></a></td>
+                                <td class="nopadding">
+                                    {% if selectedconfirmed == 1 %}
+                                        {% if idea.selected %}
+                                            <button class="selecteur isselect" />
+                                        {% else %}
+                                            <button class="selecteur" />
+                                        {% endif %}  
+                                    {% else %}
+                                        {% if idea.selected %}
+                                            <button class="selecteur isselect js-selected" data-action="{{ path('innolcl_bothIdea_handleSelectionneurForm', {'ideaid': idea.id }) }}"/>
+                                        {% else %}
+                                            <button class="selecteur js-selected" data-action="{{ path('innolcl_bothIdea_handleSelectionneurForm', {'ideaid': idea.id }) }}" />
+                                        {% endif %} 
+                                    {% endif %}    
+                                </td>
                         </tr>
                     {% else %}
                         <tr><td colspan="7">Pas d'idée dans cette catégorie.</td>

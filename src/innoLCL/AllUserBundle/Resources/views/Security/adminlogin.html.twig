@@ -24,62 +24,65 @@
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>-->
     </head>
     <body>
-        <nav class="navbar navbar-default navbar-static-top" role="navigation">
+        <nav class="navbar navbar-default navbar-static-top admin-auth-nav" role="navigation">
             <div class="">
-                <div class="col-md-4 text-right">
+                <div class="col-md-8 text-center">
                     {% image '@innoLCLbackBundle/Resources/assets/images/logo_LCL.png' %}
                                 <img src="{{ asset_url }}"  alt="LCL" style="vertical-align: middle;" />
                      {% endimage %} 
                      <span class="nav_challenge">Le Challenge des idées</span>
                 </div>
-                <div class="col-md-4  text-center">
-                    {% image '@innoLCLbackBundle/Resources/assets/images/logo-challenge-bo.png' %}
-                                <img src="{{ asset_url }}"  alt="logo challenge" />
-                     {% endimage %} 
-                </div>
-                <div class="col-md-4  text-right" style="padding-top:1.5em;">
+                <div class="col-md-4">
 
                 </div>                     
             </div>
         </nav>
         <div>
             
- <div class="container">
-    <div class="col-md-2 col-md-offset-5">
-        {% for type, messages in app.session.flashBag.all %}
-            {% for message in messages %}
-                <div class="{{ type }}">
-                    {{ message|trans({}, 'FOSUserBundle') }}
+<div class="admin-auth">
+     <div class="col-md-7">
+     
+     
+     </div>
+     <div class="col-md-4 col-lg-3">
+         <div class="row">
+                {% for type, messages in app.session.flashBag.all %}
+                {% for message in messages %}
+                <div class="{{ type }} erreur-connexion">
+                {{ message|trans({}, 'FOSUserBundle') }}
                 </div>
-            {% endfor %}
-        {% endfor %}
-        {% if error %}
-        <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
-        {% endif %}
+                {% endfor %}
+                {% endfor %}
+                {% if error %}
+                <div class="erreur-connexion">{{ error|trans({}, 'FOSUserBundle') }}</div>
+                {% endif %}
+            </div>
+            <div class="row admin-auth-form">
+                <h1 class="admin-auth-title">Identifiez-vous</h1>
+                <form action="{{ path("fos_user_security_check") }}" method="post">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                    <div class="row">
+                    <label for="username">Login :</label>
+                    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+                    </div>
+                    <div class="row">
+                                <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+                                <input type="password" id="password" name="_password" required="required" />
+                    </div>
+                    <div class="row">
+                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                    <label for="remember_me" class="remember">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+                    </div>
+                    <div class="row">
+                    <input type="submit" id="_submit" name="_submit" value="Se connecter" />
+                    </div>
+                </form>
+            </div>
+             
     </div>
+    
 </div>
-<div class="container">
-    <div class="col-md-2 col-md-offset-5">
-        <form action="{{ path("fos_user_security_check") }}" method="post">
-            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-            <div class="row">
-            <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
-            <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
-            </div>
-            <div class="row">
-                        <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
-                        <input type="password" id="password" name="_password" required="required" />
-            </div>
-            <div class="row">
-            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-            <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
-            </div>
-            <div class="row">
-            <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
-            </div>
-        </form>
-    </div>
-</div>
+
     </body>
 </html>
 

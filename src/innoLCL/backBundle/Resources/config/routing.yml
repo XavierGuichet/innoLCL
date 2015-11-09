@@ -8,9 +8,9 @@ innolcl_moderateur_list_idea:
 #Lecteur
 innolcl_lecteur_list_idea:
     path:    /admin/lecteur/list/{statut}/{page}
-    defaults: { _controller: innoLCLbackBundle:Lecteur:list, statut: all, page: 1 }
+    defaults: { _controller: innoLCLbackBundle:Lecteur:list, statut: maybe, page: 1 }
     requirements:
-        statut:  (all|maybe|refused|validated)+
+        statut:  (maybe|refused|validated)+
         page:  \d+
  
 #Validateur
@@ -25,6 +25,13 @@ innolcl_validateur_list_idea:
 innolcl_selectionneur_list_idea:
     path:    /admin/selectionneur/list/{page}
     defaults: { _controller: innoLCLbackBundle:Selectionneur:list, page: 1 }
+    requirements:
+        ideaid:  \d+
+        
+#Comparateur d'idée
+innolcl_backbundle_compare:
+    path: /admin/compare/{ideaid}
+    defaults: { _controller: innoLCLbackBundle:Compare:display}
     requirements:
         ideaid:  \d+
         
