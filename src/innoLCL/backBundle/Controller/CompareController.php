@@ -43,7 +43,6 @@ class CompareController extends Controller
         $idea = $repositoryIdea->find($ideaid);
 
 
-         dump($serviceBack->canUserEditThisIdea($userAdminRole,$idea->getStatuts(),$idea->getValidated()));
          if(!$serviceBack->canUserEditThisIdea($userAdminRole,$idea->getStatuts(),$idea->getValidated())) {
                 return $this->render('innoLCLbackBundle:List:CantCompare.html.twig');
          }
