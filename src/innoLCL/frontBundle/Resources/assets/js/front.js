@@ -7,6 +7,8 @@ var is_opera = navigator.userAgent.toLowerCase().indexOf("op") > -1;
 if ((is_chrome)&&(is_safari)) {is_safari=false;}
 if ((is_chrome)&&(is_opera)) {is_chrome=false;}
 
+var timeOutId;
+
 jQuery(document).ready( function($) {
     //Prepare la box de popin et celle de la video
     jQuery(document).foundation();
@@ -95,7 +97,7 @@ jQuery(document).ready( function($) {
         
         if((is_explorer)&&($('html').hasClass('lt-ie10'))){
             // timer lance fin de lecture
-            setTimeout(function(){appelAjaxFinVideo();}, 68*1000);
+            timeOutId = setTimeout(function(){appelAjaxFinVideo();}, 68*1000);
         }else{        
             v.play();
         }
@@ -147,6 +149,7 @@ jQuery(document).ready( function($) {
 });
 
 function appelAjaxFinVideo() {
+    clearInterval(timeOutId);
     //le formulaire est présent, le formulaire n'est présent que quand la personne n'a pas vu la vidéo en entier.
     if($('#js-videoform').length == 1) {
         $("#form_videoseenon").val(true);
