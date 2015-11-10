@@ -1,36 +1,8 @@
 @charset "UTF-8";
 @font-face {
   font-family: 'ThirstyScript';
-  src: url("../../../fonts/thirstyscriptregular-webfont.eot");
-  src: url("../../../fonts/thirstyscriptregular-webfont.ttf") format("truetype"), url("../../../fonts/thirstyscriptregular-webfont.woff") format("woff"), url("../../../fonts/thirstyscriptregular-webfont.eot?#iefix") format("embedded-opentype"), url("../../../fonts/thirstyscriptregular-webfont.svg#../../../fonts/thirstyscriptregular-webfont") format("svg");
-  font-weight: 900;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Lato-Regular';
-  src: url("../../../fonts/Lato-Light.eot");
-  src: url("../../../fonts/Lato-Light.ttf") format("truetype"), url("../../../fonts/Lato-Light.woff") format("woff"), url("../../../fonts/Lato-Light.eot?#iefix") format("embedded-opentype"), url("../../../fonts/Lato-Light.svg#../../../fonts/Lato-Light") format("svg");
-  font-weight: 300;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Lato-Regular';
-  src: url("../../../fonts/Lato-Regular.eot");
-  src: url("../../../fonts/Lato-Regular.ttf") format("truetype"), url("../../../fonts/Lato-Regular.woff") format("woff"), url("../../../fonts/Lato-Regular.eot?#iefix") format("embedded-opentype"), url("../../../fonts/Lato-Regular.svg#../../../fonts/Lato-Regular") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Lato-Regular';
-  src: url("../../../fonts/Lato-Bold.eot");
-  src: url("../../../fonts/Lato-Bold.ttf") format("truetype"), url("../../../fonts/Lato-Bold.woff") format("woff"), url("../../../fonts/Lato-Bold.eot?#iefix") format("embedded-opentype"), url("../../../fonts/Lato-Bold.svg#../../../fonts/Lato-Bold") format("svg");
-  font-weight: 700;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Lato-Regular';
-  src: url("../../../fonts/Lato-Black.eot");
-  src: url("../../../fonts/Lato-Black.ttf") format("truetype"), url("../../../fonts/Lato-Black.woff") format("woff"), url("../../../fonts/Lato-Black.eot?#iefix") format("embedded-opentype"), url("../../../fonts/Lato-Black.svg#../../../fonts/Lato-Black") format("svg");
+  src: url("/fonts/thirstyscriptregular-webfont.eot");
+  src: url("/fonts/thirstyscriptregular-webfont.ttf") format("truetype"), url("/fonts/thirstyscriptregular-webfont.woff") format("woff"), url("/fonts/thirstyscriptregular-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/thirstyscriptregular-webfont.svg#/fonts/thirstyscriptregular-webfont") format("svg");
   font-weight: 900;
   font-style: normal;
 }
@@ -61,7 +33,7 @@
 
 /* line 1, ../../../../../../../Compass_front/sass/_generic.scss */
 body, html {
-  font-family: 'Lato-regular';
+  font-family: 'Lato',"Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
   line-height: 1.4em;
 }
 
@@ -110,7 +82,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* line 35, ../../../../../../../Compass_front/sass/theme.scss */
 .txtstd-weight {
-  font-family: 'Lato-regular';
+  font-family: 'Lato';
   font-weight: 400;
 }
 
@@ -293,7 +265,7 @@ header {
   text-shadow: 2px 1px 4px #050608;
   font-weight: 700;
   text-transform: uppercase;
-  background-image: url("../../../images/fond_crayon.png");
+  background-image: url("/images/fond_crayon.png");
   background-size: cover;
   position: relative;
   z-index: 750;
@@ -633,7 +605,7 @@ footer {
 .register-bg {
   position: relative;
   background-color: #000000;
-  background-image: url("../../../images/fond_sans_spots.jpg");
+  background-image: url("/images/fond_sans_spots.jpg");
   background-size: cover;
   background-position: bottom center;
   padding-bottom: 5em;
@@ -803,7 +775,7 @@ option[value=''] {
 .dotation__first {
   overflow: hidden;
   padding-bottom: 30%;
-  background-image: url("../../../images/san_francisco.jpg");
+  background-image: url("/images/san_francisco.jpg");
   background-size: cover;
   background-position: bottom left;
   height: 0;
@@ -817,7 +789,7 @@ option[value=''] {
   height: 0;
   width: 50%;
   padding-bottom: 30%;
-  background-image: url("../../../images/macbook_laureats.jpg");
+  background-image: url("/images/macbook_laureats.jpg");
   background-size: cover;
   background-position: bottom left;
 }
@@ -829,7 +801,7 @@ option[value=''] {
 }
 /* line 32, ../../../../../../../Compass_front/sass/_dotation.scss */
 .dotation__ten .title--subline {
-  font-family: 'Lato-regular';
+  font-family: 'Lato';
   font-weight: 400;
 }
 /* line 39, ../../../../../../../Compass_front/sass/_dotation.scss */
@@ -837,7 +809,7 @@ option[value=''] {
   height: 0;
   width: 50%;
   padding-bottom: 30%;
-  background-image: url("../../../images/cadeaux.jpg");
+  background-image: url("/images/cadeaux.jpg");
   background-size: cover;
   background-position: bottom left;
 }
@@ -870,7 +842,7 @@ option[value=''] {
 .idealist:before {
   display: block;
   height: 390px;
-  background-image: url("../../../images/myidea.png");
+  background-image: url("/images/myidea.png");
   width: 456px;
   float: left;
   margin-right: 2.25em;
@@ -898,19 +870,19 @@ option[value=''] {
 }
 /* line 34, ../../../../../../../Compass_front/sass/_idealist.scss */
 .idealist__icon--waiting {
-  background-image: url("../../../images/picto_idee_bleu.png");
+  background-image: url("/images/picto_idee_bleu.png");
 }
 /* line 38, ../../../../../../../Compass_front/sass/_idealist.scss */
 .idealist__icon--maybe {
-  background-image: url("../../../images/pictos_jaune_avec_crayon.png");
+  background-image: url("/images/pictos_jaune_avec_crayon.png");
 }
 /* line 42, ../../../../../../../Compass_front/sass/_idealist.scss */
 .idealist__icon--refused {
-  background-image: url("../../../images/picto_rouge_avec_croix.png");
+  background-image: url("/images/picto_rouge_avec_croix.png");
 }
 /* line 46, ../../../../../../../Compass_front/sass/_idealist.scss */
 .idealist__icon--valid {
-  background-image: url("../../../images/picto_idees_vert.png");
+  background-image: url("/images/picto_idees_vert.png");
 }
 /* line 51, ../../../../../../../Compass_front/sass/_idealist.scss */
 .idealist__titlebox {
@@ -1196,7 +1168,7 @@ body.manual ul.sublist > li:before {
 /* line 55, ../../../../../../../Compass_front/sass/_manual.scss */
 body.manual ul.tps_fort {
   listy-style: none;
-  background-image: url("../../../images/modedemploi/fond-tps-forts.png");
+  background-image: url("/images/modedemploi/fond-tps-forts.png");
   background-repeat: repeat-x;
   text-align: center;
 }
