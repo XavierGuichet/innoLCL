@@ -121,7 +121,7 @@ jQuery(document).ready( function($) {
 
 
     // Si le navigateur ne prend pas en charge le placeholder
-    if(document.createElement('input').placeholder == undefined ) {
+    if(document.createElement('input').placeholder == undefined ) {        
         // Au focus on clean si sa valeur équivaut à celle du placeholder
         $('[placeholder]').focus(function() {
             if ( $(this).val() == $(this).attr('placeholder') ) {
@@ -131,7 +131,10 @@ jQuery(document).ready( function($) {
         // Au blur on remet le placeholder si le champ est laissé vide
         $('[placeholder]').blur(function() {
             if ( $(this).val() == '' ) {
-                    $(this).val( $(this).attr('placeholder') ); }
+                if($(this).attr("type") != "password") {
+                    $(this).val( $(this).attr('placeholder') );
+                }
+            }
         });
 
         // On déclenche un blur afin d'initialiser le champ
