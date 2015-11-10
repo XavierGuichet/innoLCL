@@ -19,6 +19,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         
+        <!--[if lte IE 8]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
         <!-- <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900' rel='stylesheet' type='text/css'>-->
         {% stylesheets '/css/*' filter='cssrewrite' output='css/main.min.css'
             '@innoLCLfrontBundle/Resources/assets/css/normalize.css' 
@@ -28,6 +31,11 @@
             %}
             <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
         {% endstylesheets %}
+        
+        <!--[if lt IE 9]>
+        <link rel="stylesheet" type="text/css" media="all" href="{{asset('css/style-ie.css')}}"/>
+        <![endif]-->
+        
     </head>
     <body class="{% block bodyclass %}{% endblock %}">
     

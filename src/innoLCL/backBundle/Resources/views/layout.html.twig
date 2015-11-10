@@ -18,6 +18,11 @@
         <meta name="author" content="Challenge de l'innovation LCL">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        
+        <!--[if lte IE 8]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        
 <!--filter='cssrewrite'-->
         {% stylesheets 
             '@innoLCLbackBundle/Resources/assets/css/bootstrap.min.css' 
@@ -26,6 +31,11 @@
             %}
             <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
         {% endstylesheets %}
+        
+        <!--[if lt IE 9]>
+        <link rel="stylesheet" type="text/css" media="all" href="{{asset('css/style-ie-bo.css')}}.css"/>
+        <![endif]-->
+        
         <!--<link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/main.css">
 
