@@ -85,9 +85,8 @@
                         'author': authorid}
                         )) }}
         {% endif %}
-        {# http://v4e.thewikies.com/ #}
         <div id="videoModal" class="reveal-modal full" data-reveal aria-labelledby="videoModalTitle" aria-hidden="true" role="dialog">
-          <video width="320" height="240" id="js-video">
+            <video width="320" height="240" id="js-video">
                     <source src="{{asset('video/challenge.mp4')}}" type="video/mp4">
                     <object type="application/x-shockwave-flash" data="{{asset('video/flashfox.swf')}}" width="100%" height="100%">
                             <param name="movie" value="{{asset('video/flashfox.swf')}}" />

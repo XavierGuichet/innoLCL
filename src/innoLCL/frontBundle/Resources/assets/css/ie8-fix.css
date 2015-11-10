@@ -1,0 +1,62 @@
+/* line 1, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.dotation__ten, .dotation__more {
+  padding-bottom: 25%;
+}
+
+/* line 5, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.dotation__ten p.title, .doration__more p.title {
+  margin-top: 0.5em;
+  margin-bottom: 0.25em;
+}
+
+/* line 9, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+#player_flash-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 90%;
+  width: 100%;
+}
+
+/* line 17, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+#videoflash {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 21, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.reveal-modal.suggestidea {
+  margin: 0 50px;
+  width: 80%;
+  padding: 0 10px;
+}
+
+/* line 26, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.suggestidea__submit {
+  margin: 16px auto;
+}
+
+/* line 29, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.close-reveal-modal {
+  font-size: 36px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* line 35, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.register__input--mail {
+  width: 674px;
+}
+
+/* line 38, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.ie-small-10-fix {
+  width: 80%;
+  margin: 0 10%;
+}
+
+/* line 42, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+div.popup__footer {
+  margin-left: -10px;
+  margin-bottom: 16px;
+}

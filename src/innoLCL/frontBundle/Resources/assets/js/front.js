@@ -1,5 +1,6 @@
 var is_chrome = navigator.userAgent.indexOf('Chrome') > -1;
 var is_explorer = navigator.userAgent.indexOf('MSIE') > -1;
+var is_old_explorer = $("html").hasClass('lt-ie9');
 var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
 var is_safari = navigator.userAgent.indexOf("Safari") > -1;
 var is_opera = navigator.userAgent.toLowerCase().indexOf("op") > -1;
@@ -90,11 +91,39 @@ jQuery(document).ready( function($) {
         
         if((is_explorer)&&($('html').hasClass('lt-ie10'))){
             // timer lance fin de lecture
-            setTimeout(function(){appelAjaxFinVideo();}, 10*1000);
+            setTimeout(function(){appelAjaxFinVideo();}, 68*1000);
         }else{        
             v.play();
         }
     });
+    
+
+		// Si le navigateur ne prend pas en charge le placeholder
+		if(document.createElement('input').placeholder == undefined ) {
+            // Au focus on clean si sa valeur équivaut à celle du placeholder
+			$('[placeholder]').focus(function() {
+					if ( $(this).val() == $(this).attr('placeholder') ) {
+						$(this).val(''); }
+				});
+                
+			// Au blur on remet le placeholder si le champ est laissé vide
+			$('[placeholder]').blur(function() {
+					if ( $(this).val() == '' ) {
+						$(this).val( $(this).attr('placeholder') ); }
+				});
+                
+            // On déclenche un blur afin d'initialiser le champ
+			$('[placeholder]').blur();
+            
+            // Au submit on clean pour éviter d'envoyer la valeur du placeholder
+			$('[placeholder]').parents('form').submit(function() {
+					$(this).find('[placeholder]').each(function() {
+						if ( $(this).val() == $(this).attr('placeholder') ) {
+							$(this).val(''); }
+					});
+				});
+		}	
+    
 });
 
 function appelAjaxFinVideo() {
@@ -243,7 +272,7 @@ function activateRegisterForm(){
         
         var $theForm = $(this).closest('form');
         
-        if (!is_safari){
+        if (!is_safari && !is_old_explorer){
             if(!$("#fos_user_registration_form_firstname")[0].checkValidity()){
                 return true;
             }

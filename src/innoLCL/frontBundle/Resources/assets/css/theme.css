@@ -1,8 +1,8 @@
 @charset "UTF-8";
 @font-face {
   font-family: 'ThirstyScript';
-  src: url("../../../fonts/ThirstyScriptRegular.eot");
-  src: url("../../../fonts/ThirstyScriptRegular.otf") format("truetype"), url("../../../fonts/ThirstyScriptRegular.woff") format("woff"), url("../../../fonts/ThirstyScriptRegular.eot?#iefix") format("embedded-opentype"), url("../../../fonts/ThirstyScriptRegular.svg#../../../fonts/ThirstyScriptRegular") format("svg");
+  src: url("../../../fonts/thirstyscriptregular-webfont.eot");
+  src: url("../../../fonts/thirstyscriptregular-webfont.ttf") format("truetype"), url("../../../fonts/thirstyscriptregular-webfont.woff") format("woff"), url("../../../fonts/thirstyscriptregular-webfont.eot?#iefix") format("embedded-opentype"), url("../../../fonts/thirstyscriptregular-webfont.svg#../../../fonts/thirstyscriptregular-webfont") format("svg");
   font-weight: 900;
   font-style: normal;
 }
@@ -246,20 +246,22 @@ header > .row {
   background-color: #000000;
   overflow: hidden;
   padding-bottom: 73%;
+  background: #000000;
   background-image: url("../../../images/fond_halo.jpg");
   background-size: cover;
+  background-position: bottom left;
 }
-/* line 17, ../../../../../../../Compass_front/sass/_header.scss */
+/* line 19, ../../../../../../../Compass_front/sass/_header.scss */
 .entete-generale .title {
   margin: 0.5em 0 0;
   padding-bottom: 8.5%;
 }
-/* line 21, ../../../../../../../Compass_front/sass/_header.scss */
+/* line 23, ../../../../../../../Compass_front/sass/_header.scss */
 .entete-generale__logo {
   position: relative;
   z-index: 500;
 }
-/* line 26, ../../../../../../../Compass_front/sass/_header.scss */
+/* line 28, ../../../../../../../Compass_front/sass/_header.scss */
 .entete-generale__videotext.title {
   position: relative;
   margin: 0.5em 0px;
@@ -267,7 +269,7 @@ header > .row {
   cursor: pointer;
   z-index: 1000;
 }
-/* line 36, ../../../../../../../Compass_front/sass/_header.scss */
+/* line 38, ../../../../../../../Compass_front/sass/_header.scss */
 .entete-generale__ombre {
   left: 50%;
   position: absolute;
@@ -277,7 +279,7 @@ header > .row {
   bottom: 15% !important;
 }
 
-/* line 46, ../../../../../../../Compass_front/sass/_header.scss */
+/* line 48, ../../../../../../../Compass_front/sass/_header.scss */
 .btn--main-cta {
   cursor: pointer;
   display: block;
@@ -294,21 +296,21 @@ header > .row {
   background-image: url("../../../images/fond_crayon.png");
   background-size: cover;
 }
-/* line 60, ../../../../../../../Compass_front/sass/_header.scss */
+/* line 62, ../../../../../../../Compass_front/sass/_header.scss */
 .btn--main-cta:visited {
   color: #f7f7f7;
 }
-/* line 63, ../../../../../../../Compass_front/sass/_header.scss */
+/* line 65, ../../../../../../../Compass_front/sass/_header.scss */
 .btn--main-cta:hover {
   text-shadow: 3px 2px 6px #050608;
 }
 
-/* line 68, ../../../../../../../Compass_front/sass/_header.scss */
+/* line 70, ../../../../../../../Compass_front/sass/_header.scss */
 .js-launchvideo {
   cursor: pointer;
 }
 
-/* line 71, ../../../../../../../Compass_front/sass/_header.scss */
+/* line 73, ../../../../../../../Compass_front/sass/_header.scss */
 #videoModal {
   position: fixed;
   top: 0 !important;
@@ -319,7 +321,7 @@ header > .row {
   padding: 0;
   background: #000000;
 }
-/* line 81, ../../../../../../../Compass_front/sass/_header.scss */
+/* line 83, ../../../../../../../Compass_front/sass/_header.scss */
 #videoModal video {
   width: 100% !important;
   height: 100% !important;
@@ -327,7 +329,7 @@ header > .row {
   max-height: 100%;
 }
 
-/* line 95, ../../../../../../../Compass_front/sass/_header.scss */
+/* line 97, ../../../../../../../Compass_front/sass/_header.scss */
 .levitate {
   -webkit-animation: levitate 3s infinite;
   -moz-animation: levitate 3s infinite;
@@ -355,7 +357,7 @@ header > .row {
     -moz-transform: translateY(-4px);
   }
 }
-/* line 137, ../../../../../../../Compass_front/sass/_header.scss */
+/* line 139, ../../../../../../../Compass_front/sass/_header.scss */
 .shadow {
   -webkit-animation: shadow 3s infinite;
   -moz-animation: shadow 3s infinite;
@@ -1125,6 +1127,12 @@ footer {
   z-index: 999;
 }
 
+/* line 128, ../../../../../../../Compass_front/sass/_suggestidea.scss */
+.reveal-modal form {
+  position: relative;
+  z-index: 1000;
+}
+
 /* line 50, ../../../../../../../Compass_front/sass/theme.scss */
 .text-center {
   text-align: center;
@@ -1149,4 +1157,14 @@ footer {
 .popup {
   position: relative;
   z-index: 1000;
+}
+
+/* line 69, ../../../../../../../Compass_front/sass/theme.scss */
+.small-3 {
+  width: 25%;
+}
+
+/* line 72, ../../../../../../../Compass_front/sass/theme.scss */
+.small-6 {
+  width: 50%;
 }

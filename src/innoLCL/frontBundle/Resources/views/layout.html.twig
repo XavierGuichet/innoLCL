@@ -18,10 +18,14 @@
         <meta name="author" content="Challenge de l'innovation LCL">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!--[if lte IE 8]>  
+          <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+          <script src="//s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script>
+          <script src="//html5base.googlecode.com/svn-history/r38/trunk/js/selectivizr-1.0.3b.js"></script>
+          <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script> 
+          <script src="{{ asset('js/rem.min.js') }}"></script>
+        <![endif]--> 
         
-        <!--[if lte IE 8]>
-        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
         <!-- <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900' rel='stylesheet' type='text/css'>-->
         {% stylesheets '/css/*' filter='cssrewrite' output='css/main.min.css'
             '@innoLCLfrontBundle/Resources/assets/css/normalize.css' 
@@ -31,17 +35,18 @@
             %}
             <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
         {% endstylesheets %}
-        
-        <!--[if lt IE 9]>
-        <link rel="stylesheet" type="text/css" media="all" href="{{asset('css/style-ie.css')}}"/>
-        <![endif]-->
-        
+        <!--[if lte IE 8]>  
+        {% stylesheets '/css/*' filter='cssrewrite'      
+            '@innoLCLfrontBundle/Resources/assets/css/ie8-fix.css'   
+            %}
+            <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+        {% endstylesheets %}
+         <![endif]--> 
     </head>
     <body class="{% block bodyclass %}{% endblock %}">
     
     {% block body  %}
     {% endblock %}
-    
     
     <footer>
         <div class="row">
@@ -53,9 +58,8 @@
             </div>
         </div>
     </footer>
-    
-    {% javascripts
-        '@innoLCLfrontBundle/Resources/assets/js/jquery.js'
+    {% javascripts 
+        '@innoLCLfrontBundle/Resources/assets/js/jquery-1.11.3.min.js'
         '@innoLCLfrontBundle/Resources/assets/js/foundation.min.js'
         '@innoLCLfrontBundle/Resources/assets/js/jquery.mousewheel.js'
         '@innoLCLfrontBundle/Resources/assets/js/jquery.jscrollpane.min.js'

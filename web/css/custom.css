@@ -16,6 +16,7 @@ header{
 .entete-generale{
     background-color: transparent;
     background-image: none;
+    height:initial;
 }
 
 /* FRONT : inscription */
