@@ -102,7 +102,16 @@ body.mentions .navContent .col-md-4.text-center img, body.reglement .navContent 
   top: 3px;
 }
 
-/* line 72, ../../../../../../../Compass_front/sass/ie8-fix.scss */
-a.login__inscription {
-  max-width: 172px !important;
+/* line 74, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+label.iedisplay {
+  display: inline-block !important;
+  width: 300px;
+  font-size: 18px;
+  margin: 0.5em 2em 0em;
+  text-align: center;
+}
+
+/* line 82, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+div.login input.login__input, div.login input.login__connect {
+  width: 100%;
 }
