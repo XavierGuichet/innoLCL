@@ -1,8 +1,8 @@
 @charset "UTF-8";
 @font-face {
   font-family: 'ThirstyScript';
-  src: url("/fonts/thirstyscriptregular-webfont.eot");
-  src: url("/fonts/thirstyscriptregular-webfont.ttf") format("truetype"), url("/fonts/thirstyscriptregular-webfont.woff") format("woff"), url("/fonts/thirstyscriptregular-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/thirstyscriptregular-webfont.svg#/fonts/thirstyscriptregular-webfont") format("svg");
+  src: url("../../../fonts/thirstyscriptregular-webfont.eot?#iefix") format("embedded-opentype");
+  src: url("../../../fonts/thirstyscriptregular-webfont.ttf") format("truetype"), url("../../../fonts/thirstyscriptregular-webfont.woff") format("woff"), url("../../../fonts/thirstyscriptregular-webfont.eot?#iefix") format("embedded-opentype"), url("../../../fonts/thirstyscriptregular-webfont.svg#../../../fonts/thirstyscriptregular-webfont") format("svg");
   font-weight: 900;
   font-style: normal;
 }
@@ -775,7 +775,7 @@ option[value=''] {
 .dotation__first {
   overflow: hidden;
   padding-bottom: 30%;
-  background-image: url("../../../images/san_francisco.jpg");
+  background-image: url("../../../images/premierprix.png");
   background-size: cover;
   background-position: bottom left;
   height: 0;
@@ -789,9 +789,9 @@ option[value=''] {
   height: 0;
   width: 50%;
   padding-bottom: 30%;
-  background-image: url("../../../images/macbook_laureats.jpg");
+  background-image: url("../../../images/macbook.jpg");
   background-size: cover;
-  background-position: bottom left;
+  background-position: center center;
 }
 /* line 28, ../../../../../../../Compass_front/sass/_dotation.scss */
 .dotation__ten .title {
@@ -1167,7 +1167,7 @@ body.manual ul.sublist > li:before {
 }
 /* line 55, ../../../../../../../Compass_front/sass/_manual.scss */
 body.manual ul.tps_fort {
-  list-style: none;
+  listy-style: none;
   background-image: url("../../../images/modedemploi/fond-tps-forts.png");
   background-repeat: repeat-x;
   text-align: center;

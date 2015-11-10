@@ -7,7 +7,7 @@
     <h1 class="suggestidea__title">Proposez une idée</h1>
 
     {{ form_label(form.title,null, {'label_attr': {'class': 'suggestidea__label'}}) }}
-    <p class="suggestidea__subline">(avec au moins 1 mot clé &ndash; exemples : nouveau, service, produit, outil, client, accueil, etc.)</p>
+    <p class="suggestidea__subline">(comprenant au moins 1 mot clé &ndash; exemples : nouveau, service, produit, outil, client, accueil, etc.)</p>
     {{ form_errors(form.title, {'attr': {'class': 'suggestidea__errors'}}) }}
     {{ form_widget(form.title, {'attr': {'class': 'suggestidea__input'}}) }}
 
