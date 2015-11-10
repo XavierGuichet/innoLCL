@@ -83,11 +83,12 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: gmail
+    transport: "%mailer_transport%"
     host:      "%mailer_host%"
-    username:  x.guichet@gmail.com
-    password:  cx6H@|{5
-    spool:     { type: memory }
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
+    #spool:     { type: memory }
+    port:      "%mailer_port%"    
 
 # FOS configuration
 fos_user:
