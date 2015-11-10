@@ -47,7 +47,7 @@ class AfterLogoutRedirection implements LogoutSuccessHandlerInterface
             $roles = $this->security->getToken()->getUser()->getRoles();
             // Tranform this list in array
             $rolesTab = array_map(function($role){ 
-                if($role){
+                if(is_object($role)){
                     return $role->getRole(); 
                 }else{
                     return null;
