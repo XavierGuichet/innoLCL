@@ -80,45 +80,53 @@ jQuery(document).ready( function($) {
     if($('#js-video').length>0){
         var v = document.getElementById('js-video'); // /!\ A généré une erreur sur une page.
         v.onended = function() { //event de fin de lecture de la vidéo
-            //le formulaire est présent, le formulaire n'est présent que quand la personne n'a pas vu la vidéo en entier.
-            if($('#js-videoform').length == 1) {
-                $("#form_videoseenon").val(true);
-                $.ajax({
-                    type: $('#js-videoform').attr('method'),
-                    url: $('#js-videoform').attr('action'),
-                    data: $('#js-videoform').serialize()
-                })
-                .done(function (data) {
-                if (typeof data.message !== 'undefined') {
-                    location.reload();
-                }
-                })
-                .fail(function (jqXHR, textStatus, errorThrown) {
-                    if (typeof jqXHR.responseJSON !== 'undefined') {
-                        if (jqXHR.responseJSON.hasOwnProperty('message')) {
-                            console.log(jqXHR.responseJSON.message);
-                        }
-                    } 
-                    else {
-                        console.log(errorThrown);
-                    }
-                });
-            }
-            else {
-                console.log("La videoest finie et pas de requete ajax.");
-            }
-            $('#videoModal').foundation('reveal', 'close');
+            appelAjaxFinVideo();            
         };
     }
     
-    $('.js-launchvideo').on('click', function() {
+    $('.js-launchvideo').on('click', function() {        
         $('#videoModal').foundation('reveal', 'open');
         $('#videoModal').css('top','0px'); // Test d'ajustement du dialog modal
-        v.play();
+        
+        if((is_explorer)&&($('html').hasClass('lt-ie10'))){
+            // timer lance fin de lecture
+            setTimeout(function(){appelAjaxFinVideo();}, 10*1000);
+        }else{        
+            v.play();
+        }
     });
 });
 
-
+function appelAjaxFinVideo() {
+    //le formulaire est présent, le formulaire n'est présent que quand la personne n'a pas vu la vidéo en entier.
+    if($('#js-videoform').length == 1) {
+        $("#form_videoseenon").val(true);
+        $.ajax({
+            type: $('#js-videoform').attr('method'),
+            url: $('#js-videoform').attr('action'),
+            data: $('#js-videoform').serialize()
+        })
+        .done(function (data) {
+            if (typeof data.message !== 'undefined') {
+                location.reload();
+            }
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            if (typeof jqXHR.responseJSON !== 'undefined') {
+                if (jqXHR.responseJSON.hasOwnProperty('message')) {
+                    console.log(jqXHR.responseJSON.message);
+                }
+            } 
+            else {
+                console.log(errorThrown);
+            }
+        });
+    }
+    else {
+        console.log("La videoest finie et pas de requete ajax.");
+    }
+    $('#videoModal').foundation('reveal', 'close');
+}
 
 function gestionLimiteTextareaCaracteres(){
     $(document).on('load change keyup', '#form_description', function () {
