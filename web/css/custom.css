@@ -76,6 +76,65 @@ header{
     margin-left: -61px;
 }
 
+
+#videoModal {
+  position: fixed;
+  top: 0 !important;
+  left: 0;
+  width: 100vw;
+  max-width: 100vw;
+  height: 100vh;
+  padding: 0;
+  background: #000000;
+  text-align:center;
+}
+
+#videoModal video {
+  width: 90% !important;
+  height: 90% !important;
+  max-width: 90%;
+  max-height: 90%;
+  margin:0 auto;
+  position:relative;
+}
+
+#videoModal #js-video-flash {
+  width: 90% !important;
+  height: 90% !important;
+  max-width: 90%;
+  max-height: 90%;
+  margin:0 auto;
+  position:relative;
+}
+
+.popin__video_fermer {
+  background: #fcd403;
+  background: -moz-radial-gradient(center, ellipse cover, #fcd403 0%, #f1da36 22%, #f1da36 34%, #f1da36 67%, #e1ae17 98%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #fcd403), color-stop(22%, #f1da36), color-stop(34%, #f1da36), color-stop(67%, #f1da36), color-stop(98%, #e1ae17));
+  background: -webkit-radial-gradient(center, ellipse cover, #fcd403 0%, #f1da36 22%, #f1da36 34%, #f1da36 67%, #e1ae17 98%);
+  background: -o-radial-gradient(center, ellipse cover, #fcd403 0%, #f1da36 22%, #f1da36 34%, #f1da36 67%, #e1ae17 98%);
+  background: -ms-radial-gradient(center, ellipse cover, #fcd403 0%, #f1da36 22%, #f1da36 34%, #f1da36 67%, #e1ae17 98%);
+  background: radial-gradient(ellipse at center, #fcd403 0%, #f1da36 22%, #f1da36 34%, #f1da36 67%, #e1ae17 98%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcd403', endColorstr='#e1ae17',GradientType=1 );
+  font-size: 16px;
+  font-size: 1rem;
+  display: block;
+  margin: 0 auto;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 5px;
+  line-height: 2em;
+  padding: 0 1.25em;
+  max-width: 40%;
+  cursor: pointer;
+  color: #222;
+  text-decoration: none;
+}
+.popin__video_fermer:hover {
+  text-shadow: 2px 1px 3px #fcd403;
+}
+
 /* CORRECTION IDEE */
 .idealist__myideas {
     width: auto;

@@ -265,7 +265,7 @@ header {
   text-shadow: 2px 1px 4px #050608;
   font-weight: 700;
   text-transform: uppercase;
-  background-image: url("/images/fond_crayon.png");
+  background-image: url("../../../images/fond_crayon.png");
   background-size: cover;
   position: relative;
   z-index: 750;
@@ -605,7 +605,7 @@ footer {
 .register-bg {
   position: relative;
   background-color: #000000;
-  background-image: url("/images/fond_sans_spots.jpg");
+  background-image: url("../../../images/fond_sans_spots.jpg");
   background-size: cover;
   background-position: bottom center;
   padding-bottom: 5em;
@@ -775,7 +775,7 @@ option[value=''] {
 .dotation__first {
   overflow: hidden;
   padding-bottom: 30%;
-  background-image: url("/images/san_francisco.jpg");
+  background-image: url("../../../images/san_francisco.jpg");
   background-size: cover;
   background-position: bottom left;
   height: 0;
@@ -789,7 +789,7 @@ option[value=''] {
   height: 0;
   width: 50%;
   padding-bottom: 30%;
-  background-image: url("/images/macbook_laureats.jpg");
+  background-image: url("../../../images/macbook_laureats.jpg");
   background-size: cover;
   background-position: bottom left;
 }
@@ -809,7 +809,7 @@ option[value=''] {
   height: 0;
   width: 50%;
   padding-bottom: 30%;
-  background-image: url("/images/cadeaux.jpg");
+  background-image: url("../../../images/cadeaux.jpg");
   background-size: cover;
   background-position: bottom left;
 }
@@ -842,7 +842,7 @@ option[value=''] {
 .idealist:before {
   display: block;
   height: 390px;
-  background-image: url("/images/myidea.png");
+  background-image: url("../../../images/myidea.png");
   width: 456px;
   float: left;
   margin-right: 2.25em;
@@ -870,19 +870,19 @@ option[value=''] {
 }
 /* line 34, ../../../../../../../Compass_front/sass/_idealist.scss */
 .idealist__icon--waiting {
-  background-image: url("/images/picto_idee_bleu.png");
+  background-image: url("../../../images/picto_idee_bleu.png");
 }
 /* line 38, ../../../../../../../Compass_front/sass/_idealist.scss */
 .idealist__icon--maybe {
-  background-image: url("/images/pictos_jaune_avec_crayon.png");
+  background-image: url("../../../images/pictos_jaune_avec_crayon.png");
 }
 /* line 42, ../../../../../../../Compass_front/sass/_idealist.scss */
 .idealist__icon--refused {
-  background-image: url("/images/picto_rouge_avec_croix.png");
+  background-image: url("../../../images/picto_rouge_avec_croix.png");
 }
 /* line 46, ../../../../../../../Compass_front/sass/_idealist.scss */
 .idealist__icon--valid {
-  background-image: url("/images/picto_idees_vert.png");
+  background-image: url("../../../images/picto_idees_vert.png");
 }
 /* line 51, ../../../../../../../Compass_front/sass/_idealist.scss */
 .idealist__titlebox {
@@ -1167,8 +1167,8 @@ body.manual ul.sublist > li:before {
 }
 /* line 55, ../../../../../../../Compass_front/sass/_manual.scss */
 body.manual ul.tps_fort {
-  listy-style: none;
-  background-image: url("/images/modedemploi/fond-tps-forts.png");
+  list-style: none;
+  background-image: url("../../../images/modedemploi/fond-tps-forts.png");
   background-repeat: repeat-x;
   text-align: center;
 }

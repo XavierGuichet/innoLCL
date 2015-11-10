@@ -100,37 +100,49 @@ jQuery(document).ready( function($) {
             v.play();
         }
     });
+    
+    $('.popin__video_fermer').on('click', function(event) {  
+        event.preventDefault();
+        if((is_explorer)&&($('html').hasClass('lt-ie10'))){
+            
+        }else{
+            v.pause();
+            v.currentTime = 0;
+        }
+        appelAjaxFinVideo();
+    });
+    
 
     $("span.btn--main-cta").on('click', function() {
       $('#formIdea').foundation('reveal','open');
     });
 
 
-		// Si le navigateur ne prend pas en charge le placeholder
-		if(document.createElement('input').placeholder == undefined ) {
-            // Au focus on clean si sa valeur équivaut à celle du placeholder
-			$('[placeholder]').focus(function() {
-					if ( $(this).val() == $(this).attr('placeholder') ) {
-						$(this).val(''); }
-				});
-                
-			// Au blur on remet le placeholder si le champ est laissé vide
-			$('[placeholder]').blur(function() {
-					if ( $(this).val() == '' ) {
-						$(this).val( $(this).attr('placeholder') ); }
-				});
-                
-            // On déclenche un blur afin d'initialiser le champ
-			$('[placeholder]').blur();
-            
-            // Au submit on clean pour éviter d'envoyer la valeur du placeholder
-			$('[placeholder]').parents('form').submit(function() {
-					$(this).find('[placeholder]').each(function() {
-						if ( $(this).val() == $(this).attr('placeholder') ) {
-							$(this).val(''); }
-					});
-				});
-		}	
+    // Si le navigateur ne prend pas en charge le placeholder
+    if(document.createElement('input').placeholder == undefined ) {
+        // Au focus on clean si sa valeur équivaut à celle du placeholder
+        $('[placeholder]').focus(function() {
+            if ( $(this).val() == $(this).attr('placeholder') ) {
+                                $(this).val(''); }
+        });
+
+        // Au blur on remet le placeholder si le champ est laissé vide
+        $('[placeholder]').blur(function() {
+            if ( $(this).val() == '' ) {
+                    $(this).val( $(this).attr('placeholder') ); }
+        });
+
+        // On déclenche un blur afin d'initialiser le champ
+        $('[placeholder]').blur();
+
+        // Au submit on clean pour éviter d'envoyer la valeur du placeholder
+        $('[placeholder]').parents('form').submit(function() {
+            $(this).find('[placeholder]').each(function() {
+                    if ( $(this).val() == $(this).attr('placeholder') ) {
+                            $(this).val(''); }
+            });
+        });
+    }	
     
 });
 
