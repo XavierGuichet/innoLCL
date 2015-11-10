@@ -12,7 +12,10 @@ group:
         deleted: Le groupe a été supprimé
 
 # Security
-"Bad credentials": Nom d'utilisateur ou mot de passe incorrect
+"Bad credentials.": Nom d'utilisateur ou mot de passe incorrect
+"The presented password is invalid.": Le mot de passe donné n'est pas correct
+"Your session has timed-out, or you have disabled cookies.": La session a expiré, ou vous avez désactivé les cookies
+
 
 security:
     login:

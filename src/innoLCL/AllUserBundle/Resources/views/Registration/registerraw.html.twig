@@ -5,7 +5,7 @@
                   
                         <div class="row">
                             <div class="small-12 columns">
-                                <p class="title">Afin de pouvoir accèder à la plateforme,<br/>
+                                <p class="title">Afin de pouvoir accéder à la plateforme,<br/>
                                 <span class="title--subline">veuillez renseigner les champs suivants</span></p>
                             </div>
                         </div>
@@ -41,10 +41,12 @@
 
                     <div class="row">
                         <div class="small-6 columns text-right">
+                            <label class="iedisplay hidden">Entrez un mot de passe:</label>
                             {{ form_widget(form.plainPassword.first, {attr: {'class': 'register__input', 'placeholder': "Mot de passe"}}) }}
                             <div class="showErrors passwordFirst hidden">{{ form_errors(form.plainPassword.first) }}</div>
                         </div>
                         <div class="small-6 columns text-left">
+                            <label class="iedisplay hidden">Confirmer votre mot de passe:</label>
                             {{ form_widget(form.plainPassword.second, {attr: {'class': 'register__input', 'placeholder': "Confirmer mot de passe"}}) }}
                             <div class="showErrors passwordSecond hidden">{{ form_errors(form.plainPassword.second) }}</div>
                         </div>

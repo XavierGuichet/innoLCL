@@ -30,11 +30,11 @@ class TaskResendMailCommand extends ContainerAwareCommand
             $em = $this->getContainer()->get('doctrine.orm.entity_manager');
             
             //$users = $this->getDoctrine()->getManager()->getRepository('innoLCL\AllUserBundle\Entity\User')->getAllWithToken;
-            /*
-            $users = $this->getDoctrine()->getManager()->getRepository('innoLCL\AllUserBundle\Entity\User')->byId(7);
-            if($users){
-                foreach($users as $key =>$user){
-                    $url = $this->generateUrl('fos_user_registration_confirm', array('token' => $user->getConfirmationToken()), true);
+            
+            //$users = $this->getDoctrine()->getManager()->getRepository('innoLCL\AllUserBundle\Entity\User')->byId(7);
+            //if($users){
+            //    foreach($users as $key =>$user){
+                    /*$url = $this->generateUrl('fos_user_registration_confirm', array('token' => $user->getConfirmationToken()), true);
 
                     $message = \Swift_Message::newInstance()
                             ->setSubject('Registration confirmation')
@@ -48,10 +48,11 @@ class TaskResendMailCommand extends ContainerAwareCommand
                                 'confirmationUrl' => $url))
                             )
                     ;
-                    $sent = $this->get('mailer')->send($message);
-                }
-            }
-            */
+                    $sent = $this->get('mailer')->send($message);*/
+                    //$this->getContainer()->get('session')->set('fos_user_send_confirmation_email/email', $user->getEmail());
+            //    }
+            //}
+            
             
         } catch (\Exception $e) {
             $output->writeln('<error>ERROR</error>'.$e->getMessage());
