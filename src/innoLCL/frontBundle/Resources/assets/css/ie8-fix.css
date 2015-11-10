@@ -103,7 +103,6 @@ body.mentions .navContent .col-md-4.text-center img, body.reglement .navContent 
 }
 
 /* line 72, ../../../../../../../Compass_front/sass/ie8-fix.scss */
-a.login_inscription {
-  width: 172px  !important;
+a.login__inscription {
   max-width: 172px !important;
 }
