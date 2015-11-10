@@ -17,13 +17,19 @@ class RegistrationType extends AbstractType
         $builder->add('firstname', 'text', array('required' => true));
         $builder->add('lastname', 'text', array('required' => true));
         $builder->remove('username');
-        $builder->add('direction', 'choice', array(
-                        'choices'  => array("Réseaux (Part, Pros, BP, BEGF)" => "Réseaux (Part, Pros, BP, BEGF)" ,"Fonctions supports" => "Fonctions supports", "Traitement (DSBA) et Informatiques (ITP)" => "Traitement (DSBA) et Informatiques (ITP)"),
-                        'required' => true,
+
+        $direction_choices = array("Réseaux (Part, Pros, BP, BEGF)" => "Réseaux (Part, Pros, BP, BEGF)" ,"Fonctions supports" => "Fonctions supports", "Traitement (DSBA) et Informatiques (ITP)" => "Traitement (DSBA) et Informatiques (ITP)"); 
+            
+        $region_choices = array("SIEGE" => "SIEGE","IDF OUEST" => "IDF OUEST","IDF NORD" => "IDF NORD","IDF SUD" => "IDF SUD" ,"MEDITERANNEE" => "MEDITERANNEE","MIDI" => "MIDI","NORD OUEST" => "NORD OUEST","OUEST" => "OUEST","SUD OUEST" => "SUD OUEST","ANTILLES GUYANE" => "ANTILLES GUYANE","EST" => "EST","RHONE ALPES AUVERGNE" => "RHONE ALPES AUVERGNE"); 
+            
+        
+        $builder->add('direction', 'choice', array( 'choices' => $direction_choices,
+                        'placeholder' => 'Direction',
+                        'required' => true
         ));
-        $builder->add('region', 'choice', array(
-                        'choices'  => array("SIEGE" => "SIEGE","IDF OUEST" => "IDF OUEST","IDF NORD" => "IDF NORD","IDF SUD" => "IDF SUD" ,"MEDITERANNEE" => "MEDITERANNEE","MIDI" => "MIDI","NORD OUEST" => "NORD OUEST","OUEST" => "OUEST","SUD OUEST" => "SUD OUEST","ANTILLES GUYANE" => "ANTILLES GUYANE","EST" => "EST","RHONE ALPES AUVERGNE" => "RHONE ALPES AUVERGNE"),
-                        'required' => true,
+        $builder->add('region', 'choice', array( 'choices' => $region_choices,
+                        'placeholder' => 'Région',
+                        'required' => true
         ));
         
         

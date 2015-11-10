@@ -239,29 +239,29 @@ header > .row {
   max-width: 80em;
 }
 
-/* line 8, ../../../../../../../Compass_front/sass/_header.scss */
+/* line 7, ../../../../../../../Compass_front/sass/_header.scss */
+header {
+  background-repeat: no-repeat;
+}
+
+/* line 10, ../../../../../../../Compass_front/sass/_header.scss */
 .entete-generale {
   position: relative;
-  height: 0;
   background-color: #000000;
   overflow: hidden;
-  padding-bottom: 73%;
-  background: #000000;
-  background-image: url("../../../images/fond_halo.jpg");
-  background-size: cover;
-  background-position: bottom left;
+  padding-bottom: 175px;
 }
-/* line 19, ../../../../../../../Compass_front/sass/_header.scss */
+/* line 16, ../../../../../../../Compass_front/sass/_header.scss */
 .entete-generale .title {
   margin: 0.5em 0 0;
   padding-bottom: 8.5%;
 }
-/* line 23, ../../../../../../../Compass_front/sass/_header.scss */
+/* line 20, ../../../../../../../Compass_front/sass/_header.scss */
 .entete-generale__logo {
   position: relative;
   z-index: 500;
 }
-/* line 28, ../../../../../../../Compass_front/sass/_header.scss */
+/* line 25, ../../../../../../../Compass_front/sass/_header.scss */
 .entete-generale__videotext.title {
   position: relative;
   margin: 0.5em 0px;
@@ -269,7 +269,7 @@ header > .row {
   cursor: pointer;
   z-index: 1000;
 }
-/* line 38, ../../../../../../../Compass_front/sass/_header.scss */
+/* line 35, ../../../../../../../Compass_front/sass/_header.scss */
 .entete-generale__ombre {
   left: 50%;
   position: absolute;
@@ -279,7 +279,7 @@ header > .row {
   bottom: 15% !important;
 }
 
-/* line 48, ../../../../../../../Compass_front/sass/_header.scss */
+/* line 45, ../../../../../../../Compass_front/sass/_header.scss */
 .btn--main-cta {
   cursor: pointer;
   display: block;
@@ -295,22 +295,24 @@ header > .row {
   text-transform: uppercase;
   background-image: url("../../../images/fond_crayon.png");
   background-size: cover;
+  position: relative;
+  z-index: 750;
 }
-/* line 62, ../../../../../../../Compass_front/sass/_header.scss */
+/* line 61, ../../../../../../../Compass_front/sass/_header.scss */
 .btn--main-cta:visited {
   color: #f7f7f7;
 }
-/* line 65, ../../../../../../../Compass_front/sass/_header.scss */
+/* line 64, ../../../../../../../Compass_front/sass/_header.scss */
 .btn--main-cta:hover {
   text-shadow: 3px 2px 6px #050608;
 }
 
-/* line 70, ../../../../../../../Compass_front/sass/_header.scss */
+/* line 69, ../../../../../../../Compass_front/sass/_header.scss */
 .js-launchvideo {
   cursor: pointer;
 }
 
-/* line 73, ../../../../../../../Compass_front/sass/_header.scss */
+/* line 72, ../../../../../../../Compass_front/sass/_header.scss */
 #videoModal {
   position: fixed;
   top: 0 !important;
@@ -321,7 +323,7 @@ header > .row {
   padding: 0;
   background: #000000;
 }
-/* line 83, ../../../../../../../Compass_front/sass/_header.scss */
+/* line 82, ../../../../../../../Compass_front/sass/_header.scss */
 #videoModal video {
   width: 100% !important;
   height: 100% !important;
@@ -329,7 +331,7 @@ header > .row {
   max-height: 100%;
 }
 
-/* line 97, ../../../../../../../Compass_front/sass/_header.scss */
+/* line 96, ../../../../../../../Compass_front/sass/_header.scss */
 .levitate {
   -webkit-animation: levitate 3s infinite;
   -moz-animation: levitate 3s infinite;
@@ -357,7 +359,7 @@ header > .row {
     -moz-transform: translateY(-4px);
   }
 }
-/* line 139, ../../../../../../../Compass_front/sass/_header.scss */
+/* line 138, ../../../../../../../Compass_front/sass/_header.scss */
 .shadow {
   -webkit-animation: shadow 3s infinite;
   -moz-animation: shadow 3s infinite;
@@ -788,6 +790,11 @@ footer {
   visibility: hidden !important;
 }
 
+/* line 151, ../../../../../../../Compass_front/sass/_register.scss */
+option[value=''] {
+  color: #979797;
+}
+
 /* line 1, ../../../../../../../Compass_front/sass/_dotation.scss */
 .dotation {
   background: #000000;
@@ -858,10 +865,8 @@ footer {
 .idealist {
   height: 390px;
   width: 100%;
-  overflow-x: scroll;
-  overflow-y: hidden;
 }
-/* line 7, ../../../../../../../Compass_front/sass/_idealist.scss */
+/* line 5, ../../../../../../../Compass_front/sass/_idealist.scss */
 .idealist:before {
   display: block;
   height: 390px;
@@ -870,20 +875,20 @@ footer {
   float: left;
   margin-right: 2.25em;
 }
-/* line 16, ../../../../../../../Compass_front/sass/_idealist.scss */
+/* line 14, ../../../../../../../Compass_front/sass/_idealist.scss */
 .idealist__myideas {
   width: 500%;
   list-style: none;
   margin: 0;
 }
-/* line 22, ../../../../../../../Compass_front/sass/_idealist.scss */
+/* line 20, ../../../../../../../Compass_front/sass/_idealist.scss */
 .idealist__idea {
   width: 400px;
   float: left;
   margin: 4.5em 3.4em 4em;
   background-size: cover;
 }
-/* line 29, ../../../../../../../Compass_front/sass/_idealist.scss */
+/* line 27, ../../../../../../../Compass_front/sass/_idealist.scss */
 .idealist__icon {
   display: inline-block;
   width: 3em;
@@ -891,37 +896,38 @@ footer {
   margin-left: -0.25em;
   background-size: cover;
 }
-/* line 36, ../../../../../../../Compass_front/sass/_idealist.scss */
+/* line 34, ../../../../../../../Compass_front/sass/_idealist.scss */
 .idealist__icon--waiting {
   background-image: url("../../../images/picto_idee_bleu.png");
 }
-/* line 40, ../../../../../../../Compass_front/sass/_idealist.scss */
+/* line 38, ../../../../../../../Compass_front/sass/_idealist.scss */
 .idealist__icon--maybe {
   background-image: url("../../../images/pictos_jaune_avec_crayon.png");
 }
-/* line 44, ../../../../../../../Compass_front/sass/_idealist.scss */
+/* line 42, ../../../../../../../Compass_front/sass/_idealist.scss */
 .idealist__icon--refused {
   background-image: url("../../../images/picto_rouge_avec_croix.png");
 }
-/* line 48, ../../../../../../../Compass_front/sass/_idealist.scss */
+/* line 46, ../../../../../../../Compass_front/sass/_idealist.scss */
 .idealist__icon--valid {
   background-image: url("../../../images/picto_idees_vert.png");
 }
-/* line 53, ../../../../../../../Compass_front/sass/_idealist.scss */
+/* line 51, ../../../../../../../Compass_front/sass/_idealist.scss */
 .idealist__titlebox {
   position: relative;
   display: inline-block;
+  width: 350px;
   width: calc(100% - 48px);
   padding-left: 8px;
 }
-/* line 60, ../../../../../../../Compass_front/sass/_idealist.scss */
+/* line 59, ../../../../../../../Compass_front/sass/_idealist.scss */
 .idealist__date {
   font-size: 13px;
   font-size: 0.8125rem;
   margin: 0;
   color: #979797;
 }
-/* line 65, ../../../../../../../Compass_front/sass/_idealist.scss */
+/* line 64, ../../../../../../../Compass_front/sass/_idealist.scss */
 .idealist__date--status {
   font-size: 14px;
   font-size: 0.875rem;
@@ -931,7 +937,7 @@ footer {
   border-bottom: 1px solid #000000;
   color: #979797;
 }
-/* line 75, ../../../../../../../Compass_front/sass/_idealist.scss */
+/* line 74, ../../../../../../../Compass_front/sass/_idealist.scss */
 .idealist__btn {
   position: absolute;
   right: 0;
@@ -942,30 +948,30 @@ footer {
   background: #074390;
   line-height: 2em;
 }
-/* line 85, ../../../../../../../Compass_front/sass/_idealist.scss */
+/* line 84, ../../../../../../../Compass_front/sass/_idealist.scss */
 .idealist__btn--improve {
   background: #55a646;
 }
-/* line 87, ../../../../../../../Compass_front/sass/_idealist.scss */
+/* line 86, ../../../../../../../Compass_front/sass/_idealist.scss */
 .idealist__btn--improve:hover {
   background: #106c01;
 }
-/* line 92, ../../../../../../../Compass_front/sass/_idealist.scss */
+/* line 91, ../../../../../../../Compass_front/sass/_idealist.scss */
 .idealist__btn--edit {
   background: #e1ae17;
 }
-/* line 94, ../../../../../../../Compass_front/sass/_idealist.scss */
+/* line 93, ../../../../../../../Compass_front/sass/_idealist.scss */
 .idealist__btn--edit:hover {
   background: #d69b00;
 }
-/* line 100, ../../../../../../../Compass_front/sass/_idealist.scss */
+/* line 99, ../../../../../../../Compass_front/sass/_idealist.scss */
 .idealist__title {
   margin: 0;
   padding-bottom: 0.25em;
   font-size: 22px;
   font-size: 1.375rem;
 }
-/* line 106, ../../../../../../../Compass_front/sass/_idealist.scss */
+/* line 105, ../../../../../../../Compass_front/sass/_idealist.scss */
 .idealist__description {
   font-size: 14px;
   font-size: 0.875rem;
@@ -974,16 +980,16 @@ footer {
   text-align: justify;
 }
 
-/* line 116, ../../../../../../../Compass_front/sass/_idealist.scss */
+/* line 115, ../../../../../../../Compass_front/sass/_idealist.scss */
 .jspHorizontalBar {
   height: 1.2em;
   background: #1c1c1c;
 }
-/* line 120, ../../../../../../../Compass_front/sass/_idealist.scss */
+/* line 119, ../../../../../../../Compass_front/sass/_idealist.scss */
 .jspHorizontalBar .jspTrack {
   background: none;
 }
-/* line 123, ../../../../../../../Compass_front/sass/_idealist.scss */
+/* line 122, ../../../../../../../Compass_front/sass/_idealist.scss */
 .jspHorizontalBar .jspDrag {
   background: #64cbdf;
 }
@@ -1133,38 +1139,116 @@ footer {
   z-index: 1000;
 }
 
-/* line 50, ../../../../../../../Compass_front/sass/theme.scss */
+/* line 2, ../../../../../../../Compass_front/sass/_manual.scss */
+body.manual h1 {
+  text-align: center;
+  margin-top: 1.5em;
+}
+/* line 7, ../../../../../../../Compass_front/sass/_manual.scss */
+body.manual h2 {
+  vertical-align: middle;
+  text-align: center;
+  font-size: 1.33em;
+}
+/* line 12, ../../../../../../../Compass_front/sass/_manual.scss */
+body.manual h2.tps_fort {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 0.5em;
+  font-size: 28px;
+}
+/* line 20, ../../../../../../../Compass_front/sass/_manual.scss */
+body.manual hr.blueline {
+  display: inline-block;
+  margin: 2em 0 1em;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  width: 140px;
+  border-bottom: 3px solid #5ebdde;
+  text-align: center;
+}
+/* line 31, ../../../../../../../Compass_front/sass/_manual.scss */
+body.manual ul.blue {
+  list-style: none outside;
+}
+/* line 34, ../../../../../../../Compass_front/sass/_manual.scss */
+body.manual ul.blue > li {
+  margin-bottom: 1.5em;
+}
+/* line 37, ../../../../../../../Compass_front/sass/_manual.scss */
+body.manual ul.blue > li:before {
+  content: "• ";
+  color: #5ebdde;
+}
+/* line 43, ../../../../../../../Compass_front/sass/_manual.scss */
+body.manual ul.sublist {
+  list-style: none outside;
+}
+/* line 45, ../../../../../../../Compass_front/sass/_manual.scss */
+body.manual ul.sublist > li {
+  margin-bottom: 0.5em;
+}
+/* line 48, ../../../../../../../Compass_front/sass/_manual.scss */
+body.manual ul.sublist > li:before {
+  content: "- ";
+}
+/* line 55, ../../../../../../../Compass_front/sass/_manual.scss */
+body.manual ul.tps_fort {
+  listy-style: none;
+  background-image: url("../../../images/modedemploi/fond-tps-forts.png");
+  background-repeat: repeat-x;
+  text-align: center;
+}
+/* line 61, ../../../../../../../Compass_front/sass/_manual.scss */
+body.manual ul.tps_fort li {
+  display: inline-block;
+  text-align: center;
+  min-width: 150px;
+  line-height: 1.5em;
+}
+/* line 67, ../../../../../../../Compass_front/sass/_manual.scss */
+body.manual ul.tps_fort li img:after {
+  display: block;
+  content: " ";
+}
+/* line 71, ../../../../../../../Compass_front/sass/_manual.scss */
+body.manual ul.tps_fort li span {
+  text-transform: uppercase;
+}
+
+/* line 51, ../../../../../../../Compass_front/sass/theme.scss */
 .text-center {
   text-align: center;
 }
 
-/* line 54, ../../../../../../../Compass_front/sass/theme.scss */
+/* line 55, ../../../../../../../Compass_front/sass/theme.scss */
 .text-left {
   text-align: left;
 }
 
-/* line 58, ../../../../../../../Compass_front/sass/theme.scss */
+/* line 59, ../../../../../../../Compass_front/sass/theme.scss */
 .text-right {
   text-align: right;
 }
 
-/* line 61, ../../../../../../../Compass_front/sass/theme.scss */
+/* line 62, ../../../../../../../Compass_front/sass/theme.scss */
 .hidden {
   display: none !important;
 }
 
-/* line 64, ../../../../../../../Compass_front/sass/theme.scss */
+/* line 65, ../../../../../../../Compass_front/sass/theme.scss */
 .popup {
   position: relative;
   z-index: 1000;
 }
 
-/* line 69, ../../../../../../../Compass_front/sass/theme.scss */
+/* line 70, ../../../../../../../Compass_front/sass/theme.scss */
 .small-3 {
   width: 25%;
 }
 
-/* line 72, ../../../../../../../Compass_front/sass/theme.scss */
+/* line 73, ../../../../../../../Compass_front/sass/theme.scss */
 .small-6 {
   width: 50%;
 }

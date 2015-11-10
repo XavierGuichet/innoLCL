@@ -10,6 +10,10 @@ if ((is_chrome)&&(is_opera)) {is_chrome=false;}
 jQuery(document).ready( function($) {
     //Prepare la box de popin et celle de la video
     jQuery(document).foundation();
+    Foundation.libs.reveal.settings.close_on_background_click = false;
+    $("body").on("click","div.reveal-modal-bg", function() {
+        $('.reveal-modal').foundation('reveal', 'close');
+    });
     
     // initialise homepage scroll vers form Inscription
     $('.login a.login__inscription').on('click', function(event){
@@ -96,7 +100,11 @@ jQuery(document).ready( function($) {
             v.play();
         }
     });
-    
+
+    $("span.btn--main-cta").on('click', function() {
+      $('#formIdea').foundation('reveal','open');
+    });
+
 
 		// Si le navigateur ne prend pas en charge le placeholder
 		if(document.createElement('input').placeholder == undefined ) {

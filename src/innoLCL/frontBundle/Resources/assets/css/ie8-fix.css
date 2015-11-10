@@ -26,7 +26,7 @@
 
 /* line 21, ../../../../../../../Compass_front/sass/ie8-fix.scss */
 .reveal-modal.suggestidea {
-  margin: 0 50px;
+  margin: 0 10%;
   width: 80%;
   padding: 0 10px;
 }
@@ -61,7 +61,31 @@ div.popup__footer {
   margin-bottom: 16px;
 }
 
+/* line 46, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+#formRegisterConfirmed {
+  top: 150px;
+}
 
-.entete-generale{
-    height:initial;
+/* line 49, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.reveal-modal-bg {
+  background: url("../../../images/modalbg.png") repeat transparent;
+}
+
+/* line 52, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.row {
+  max-width: 960px;
+}
+
+/* line 55, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+body.mentions .navbar .col-md-4, body.reglement .navbar .col-md-4, body.manual .navbar .col-md-4, body.mentions .navContent .col-md-4, body.reglement .navContent .col-md-4, body.manual .navContent .col-md-4 {
+  height: 75px;
+  background: #15388C;
+}
+
+/* line 59, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+body.mentions .navContent .col-md-4.text-center img, body.reglement .navContent .col-md-4.text-center img, body.manual .navContent .col-md-4.text-center img {
+  margin-left: -125px;
+  left: 50%;
+  position: absolute;
+  top: 3px;
 }

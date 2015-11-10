@@ -1,6 +1,6 @@
 {% extends "innoLCLfrontBundle::layout.html.twig" %}
 
-{% block bodyclass %} reglement{% endblock %}
+{% block bodyclass %} manual{% endblock %}
 
 {% block body %}
     {% include 'innoLCLfrontBundle:Interface:_header_pages.html.twig' %} 
@@ -14,15 +14,29 @@
         </div>
     </div> 
     
+    <div class="text-center">      
+        <hr class="blueline" /><br/>
+        <h2 class="tps_fort">5 Temps Forts</h2>
+        <ul class="tps_fort">
+            <li><img src="{{asset('/images/modedemploi/1.png')}}"  alt="étape 1" /><br/><span>Propositions</span><br/> d'idées</li>
+            <li><img src="{{asset('/images/modedemploi/2.png')}}"  alt="étape 2" /><br/><span>Sélection</span><br/> des 10 Lauréats</li>
+            <li><img src="{{asset('/images/modedemploi/3.png')}}"  alt="étape 3" /><br/><span>Valorisation</span><br/> des idées retenues</li>
+            <li><img src="{{asset('/images/modedemploi/4.png')}}"  alt="étape 4" /><br/><span>Vote</span><br/> final</li>
+            <li><img src="{{asset('/images/modedemploi/5.png')}}"  alt="étape 5" /><br/><span>Une idée finale</span><br/> à mettre en oeuvre</li>
+        </ul>
+    </div>
     <!-- ETAPE 1 -->
-    <div class="row"> 
-        <img alt="étape 1" />
-        <h2><span class="title__date">Du <img alt="10 novembre" /> au <img alt="04 décembre" /></span> Proposez votre meilleure idée</h2>
+    <div class="row">
+        <div class="text-center">
+            <hr class="blueline" /><br/>
+            <img src="{{asset('/images/modedemploi/Premiere_ETAPE_LOGO.png')}}"  alt="étape 1" />
+            <h2><img src="{{asset('/images/modedemploi/CALENDRIER1.png')}}" alt="du 10 novembre au 04 décembre" /> Proposez votre meilleure idée</h2>
+        </div>
         <ul class="blue">
             <li><b>Inscrivez-vous</b> sur le site du challenge de l'innovation</li>
             <li><b>Proposez votre meilleure idée à l'aide du bulletin de participation</b><br/>
                           en remplissant l'ensemble des champs mentionnés</li>
-            <li><b>Votre idée doit : 
+            <li><b>Votre idée doit : </b>
                    <ul class="sublist">
                         <li>Être inédite et innovante</li>
                         <li>Améliorer la qualité de service LCL<br/>
@@ -38,15 +52,18 @@
                         <li><b>Peut être recevable mais doit être approfondie : </b> vous serez contacté par un memebre du comité de pré-sélection qui vous indiquera les précisions nécessaires à apporter à votre idée</li>
                 </ul>
                 </li>
-            <li><b>1 seule idée validée sera retenue par participant</b>/li>
-            <li><b>Dès que votre idée est validée, vous pourrez su vous le souhaitez faire appel à LCL Factory et vous entourer de maximum 10 accompagnants pour enrichir votre idée. Si celle-ci est retenue parmi les 10 lauréats, vos accompagnants seront également récompensés :</li>
+            <li><b>1 seule idée validée sera retenue par participant</b></li>
+            <li><b>Dès que votre idée est validée</b>, vous pourrez su vous le souhaitez faire appel à LCL Factory et vous entourer de maximum 10 accompagnants pour enrichir votre idée. Si celle-ci est retenue parmi les 10 lauréats, vos accompagnants seront également récompensés :</li>
         </ul>
     </div>           
     
     <!-- ETAPE 2 -->
     <div class="row"> 
-        <img alt="étape 2" />
-        <h2><span class="title__date"><img alt="15 décembre" /></span> Découvrez les lauréats</h2>
+        <div class="text-center">
+            <hr class="blueline" /><br/>
+            <img src="{{asset('/images/modedemploi/Deuxieme_ETAPE_LOGO.png')}}"  alt="étape 2" />
+            <h2><img src="{{asset('/images/modedemploi/CALENDRIER2.png')}}" alt="Le 15 décembre" />  Découvrez les lauréats</h2>
+        </div>
         <ul class="blue">
             <li><b>Découvrez les 10 lauréats et le titre de leurs idées qui ont été sélectionnés par le jury</b></li>
             <li>Le jury s'engage à mettre en œuvre l'idée qui sera désignée gagnante</li>
@@ -55,8 +72,11 @@
     
     <!-- ETAPE 3 -->
     <div class="row"> 
-        <img alt="étape 3" />
-        <h2><span class="title__date">Du <img alt="15 décembre" /> au <img alt="11 janvier" /></span>Soyez patients</h2>
+        <div class="text-center">
+            <hr class="blueline" /><br/>
+            <img src="{{asset('/images/modedemploi/Troisieme_ETAPE_LOGO.png')}}"  alt="étape 3" />
+            <h2><img src="{{asset('/images/modedemploi/CALENDRIER3.png')}}" alt="Du 15 décembre au 11 janvier" /> Soyez patients</h2>
+        </div>
         <ul class="blue">
             <li>Pendant cette période, <b>les 10 lauréats et leurs accompagnants seront coachés par LCL pour valoriser leurs idées en vidéo</b></li>
             <li>En attendant, vous pourrez en apprendre plus sur le <b>comité de pré-sélection et le jury de sélection</b></li>
@@ -66,10 +86,13 @@
     
     <!-- ETAPE 4 -->
     <div class="row"> 
-        <img alt="étape 4" />
-        <h2><span class="title__date">Du <img alt="12 janvier" /> au <img alt="22 janvier" /></span>Votez pour votre idée préférée</h2>
+        <div class="text-center">
+            <hr class="blueline" /><br/>
+            <img src="{{asset('/images/modedemploi/Quatrieme_ETAPE_LOGO.png')}}"  alt="étape 4" />
+            <h2><img src="{{asset('/images/modedemploi/CALENDRIER4.png')}}" alt="Du 12 janvier au22 janvier" /><img alt="" /></span>Votez pour votre idée préférée</h2>
+        </div>
         <ul class="blue">
-            <li>Dès le 12 janvier, <b>vous découvrirez les 10 idées en vidéo de quelques minutes &hellip;<br/>
+            <li>Dès le 12 janvier, <b>vous découvrirez les 10 idées en vidéo de quelques minutes &hellip;</b><br/>
                 et vous pourrez votez pour votre idée préférée !</li>
             <li>A la fin de la période de vote, <b>un tirage au sort</b> parmi l'ensemble des votants permettra à 100 d'entre eux d'être récompensés !</li>
         </ul>            
@@ -77,10 +100,13 @@
     
     <!-- ETAPE 5 -->
     <div class="row"> 
-        <img alt="étape 5" />
-        <h2><span class="title__date"><img alt="26 janvier" /></span>Découvrez le grand gagnant</h2>
+        <div class="text-center">
+            <hr class="blueline" /><br/>
+            <img src="{{asset('/images/modedemploi/Cinquieme_ETAPE_LOGO.png')}}"  alt="étape 5" />
+            <h2><img src="{{asset('/images/modedemploi/CALENDRIER4.png')}}" alt="Le 26 janvier" /></span>Découvrez le grand gagnant</h2>
+        </div>
         <ul class="blue">
-            <li><b>Le 26 janvier 2016, le grand gagnant sera dévoilé !</li>
+            <li><b>Le 26 janvier 2016, le grand gagnant sera dévoilé !</b></li>
             <li><b>Une cérémonie de remise des prix</b> aura lieu début février au "19 LCL"<br/>
                 afin de récompenser les 10 lauréats et leurs accompagnants.</li>
             <li><b>Un tirage au sort</b> parmi les votants qui auront voté pour le grand gagnant récompensera 50 d'entre eux!</li>
