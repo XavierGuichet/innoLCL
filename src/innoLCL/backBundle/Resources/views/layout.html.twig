@@ -19,9 +19,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         
-        <!--[if lte IE 8]>
-        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
+        <!--[if lte IE 8]>  
+          <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+          <script src="//s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script>
+          <script src="//html5base.googlecode.com/svn-history/r38/trunk/js/selectivizr-1.0.3b.js"></script>
+          <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script> 
+          <script src="{{ asset('js/rem.min.js') }}"></script>
+        <![endif]--> 
         
 <!--filter='cssrewrite'-->
         {% stylesheets 
@@ -31,30 +35,34 @@
             %}
             <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
         {% endstylesheets %}
-        <!--<link rel="stylesheet" href="css/normalize.min.css">
-        <link rel="stylesheet" href="css/main.css">
+        
+        <!--[if lte IE 8]>  
+        {% stylesheets '/css/*' filter='cssrewrite'      
+            '@innoLCLbackBundle/Resources/assets/css/back-ie8-fix.css'   
+            %}
+            <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+        {% endstylesheets %}
+         <![endif]-->         
 
-        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>-->
+
     </head>
     <body>
         <nav class="navbar navbar-default navbar-static-top" role="navigation">
-            <div class="">
-                <div class="col-md-4 text-right">
-                    {% image '@innoLCLbackBundle/Resources/assets/images/logo_LCL.png' %}
-                                <img src="{{ asset_url }}"  alt="LCL" style="vertical-align: middle;" />
-                     {% endimage %} 
-                     <span class="nav_challenge">Le Challenge des idées</span>
-                </div>
-                <div class="col-md-4  text-center">
-                    {% image '@innoLCLbackBundle/Resources/assets/images/logo-challenge-bo.png' %}
-                                <img src="{{ asset_url }}"  alt="logo challenge" />
-                     {% endimage %} 
-                </div>
-                <div class="col-md-4  text-right" style="padding-top:1.5em;">
-                    <a href="{{ path('fos_user_security_logout') }}" class="logout"><i class="glyphicon glyphicon-log-out "></i>Déconnexion</a> 
+			<div class="navContent">
+				<div class="col-md-4 text-right">
+					<a href="{{path('innolcl_front_homepage')}}" class="navLink"><img src="{{asset('images/516747b.png')}}" alt="LCL" style="vertical-align: middle;">
+					<span class="nav_challenge">Le Challenge des idées</span>
+					</a>
+				</div>
+				<div class="col-md-4  text-center">
+					<img src="{{asset('images/8bbf6ff.png')}}" alt="logo challenge">
+				</div>
+				<div class="col-md-4  text-right" style="padding-top:1.5em;">
+                    <a href="{{ path('fos_user_security_logout') }}" class="logout"><i class="glyphicon glyphicon-log-out"></i>Déconnexion</a> 
                 </div>                     
-            </div>
-        </nav>
+			</div>
+			<div class="clear"></div>
+		</nav>
         
     {% block menu  %}
     {% endblock %}
@@ -69,7 +77,7 @@
        
     </footer>
         {% javascripts
-        '@innoLCLbackBundle/Resources/assets/js/jquery-2.1.4.min.js'
+        '@innoLCLbackBundle/Resources/assets/js/jquery-1.11.3.min.js'
         '@innoLCLbackBundle/Resources/assets/js/admin.js'
         output='js/compiled/app.js' %}
         <script src="{{ asset_url }}"></script>

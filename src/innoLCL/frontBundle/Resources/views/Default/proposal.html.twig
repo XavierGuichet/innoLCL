@@ -38,7 +38,11 @@
                         {% endif %}
                     {% endif %}                    
                     
-                     <h1 class="title"><span class="title--subline">Participez au</span> challenge de l'innovation LCL</h1>
+                     <h1 class="title">
+					{% image '@innoLCLfrontBundle/Resources/assets/images/partipez.png' %}
+                            <img src="{{ asset_url }}"  alt="Participez au" class="" />
+                    {% endimage %}<br/>
+						 challenge de l'innovation LCL</h1>
                     <div class="small-3 columns">
                             {% image '@innoLCLfrontBundle/Resources/assets/images/logo_LCL.png' %}
                                 <img src="{{ asset_url }}"  alt="Challenge de l'innovation LCL" />
@@ -68,9 +72,6 @@
                                 <img src="{{ asset_url }}"  alt="Challenge de l'innovation LCL" class="entete-generale__ombre shadow"/>
                         {% endimage %}
                 </div> 
-            </div> 
-        </div>
-                
             </div>
         </header>
         
@@ -85,15 +86,15 @@
                         )) }}
         {% endif %}
         <div id="videoModal" class="reveal-modal full" data-reveal aria-labelledby="videoModalTitle" aria-hidden="true" role="dialog">
-            <!--<video width="320" height="240" id="js-video">
-                    <source src="{{asset('video/challenge.mp4')}}" type="video/mp4">-->
+            <video width="320" height="240" id="js-video">
+                    <source src="{{asset('video/challenge.mp4')}}" type="video/mp4">
                     <object id="js-video-flash" type="application/x-shockwave-flash" data="{{asset('video/flashfox.swf')}}" width="90%" height="90%">
                             <param name="movie" value="{{asset('video/flashfox.swf')}}" />
                             <param name="allowFullScreen" value="true" />
                             <param name="wmode" value="transparent" />
                             <param name="flashVars" value="autoplay=true&amp;controls=true&amp;src={{asset('video/challenge.mp4')}}" />                            
                     </object>
-            <!--</video>--><br>
+            </video><br>
             <a href="#fermer" class="popin__video_fermer">FERMER</a>
         </div>
         

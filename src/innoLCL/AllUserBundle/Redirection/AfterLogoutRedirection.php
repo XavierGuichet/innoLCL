@@ -7,7 +7,6 @@
 
 namespace innoLCL\AllUserBundle\Redirection;
 
-
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
@@ -41,28 +40,23 @@ class AfterLogoutRedirection implements LogoutSuccessHandlerInterface
      */
     public function onLogoutSuccess(Request $request)
     {
-        $user = $this->security->getToken()->getUser();
-        if($user){
-            // Get list of roles for current user
-            $roles = $this->security->getToken()->getUser()->getRoles();
-            // Tranform this list in array
-            $rolesTab = array_map(function($role){ 
-                if(is_object($role)){
-                    return $role->getRole(); 
-                }else{
-                    return null;
-                }
-            }, $roles);
-
-            if (in_array('ROLE_MODERATEUR', $rolesTab, true) || in_array('ROLE_VALIDATEUR', $rolesTab, true) || in_array('ROLE_LECTEUR', $rolesTab, true) || in_array('ROLE_SELECTIONNEUR', $rolesTab, true))
-                $response = new RedirectResponse($this->router->generate('fos_admin_user_security_login'));
-            // otherwise we redirect user to the homepage of website
-            else
-                $response = new RedirectResponse($this->router->generate('innolcl_front_homepage'));
-        }else{
-            $response = new RedirectResponse($this->router->generate('innolcl_front_homepage'));
-        }
-        
+		//definition d'une route par défaut pour supprimer les else
+		$response = new RedirectResponse($this->router->generate('innolcl_front_homepage'));
+		
+		//GetToken retourne null si inexistant
+		$token = $this->security->getToken();
+		if($token !== null) {
+			$user = $this->security->getToken()->getUser();
+			if($user){
+				// Get list of roles for current user
+				$roles = $user->getRoles();
+				//Si admin retourne a l'auth admin
+				if (in_array('ROLE_MODERATEUR', $roles, true) || in_array('ROLE_VALIDATEUR', $roles, true) || in_array('ROLE_LECTEUR', $roles, true) || in_array('ROLE_SELECTIONNEUR', $roles, true))
+				{
+					$response = new RedirectResponse($this->router->generate('fos_admin_user_security_login'));
+				}
+			}
+		}
         return $response;
     }
 } 

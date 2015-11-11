@@ -24,14 +24,19 @@
     <div class="container ribbon-container">
         <div class="col-lg-6 ribbonl">
             <div class="ribbon-left">{% if selectedconfirmed == 0 %}
-                        Il reste <span id="ideacount">{{ ideacountselected }}</span> idées à sélectionner
+							Il reste <span id="ideacount">{{ ideacountselected }}</span> idées à sélectionner
                         {% else %}
-                        La sélection est finalisée.
-                        {% endif %}
+							Vous ne pouvez plus modifier la sélection.
+						{% endif %}
                         </div>
         </div>
         <div class="col-lg-6 ribbonr">
-            <div class="ribbon-right">&nbsp;{% if selectedconfirmed == 0 %}<button class="validateselection" id="validateselection" data-action="{{ path('innolcl_bothIdea_handleSelectionneurFinaliseForm') }}">Validation définitive</button>{% endif %}</div>
+            <div class="ribbon-right">
+				{% if selectedconfirmed == 0 %}
+				<button class="validateselection" id="validateselection" data-action="{{ path('innolcl_bothIdea_handleSelectionneurFinaliseForm') }}">Validation définitive</button>
+				{% else %}
+					<span class="warn-final">La sélection est finalisée.</span>
+				{% endif %}</div>
         </div>
     </div>
 </div>

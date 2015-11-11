@@ -42,7 +42,7 @@ class DefaultController extends Controller
             ->add('partnerprofit', 'textarea',array('label'  => 'Descriptif du bénéfice de votre idée pour les collaborateurs',
                                                                                         'required' => false,
                                                                                         'attr' => array('maxlength' => 200)))
-            ->add('bonuscontent', 'textarea',array('label'  => 'Question bonus : si votre idée était sélectionnée,',
+            ->add('bonuscontent', 'textarea',array('label'  => 'Question facultative : si votre idée était sélectionnée,',
                                                                                     'required' => false,
                                                                                         'attr' => array('maxlength' => 200)))
             ->add('save', 'submit', array('label' => 'Enregistrer'))
@@ -209,7 +209,6 @@ class DefaultController extends Controller
                     ))
                     ->add('refusalreason', 'hidden')
                     ->add('save', 'submit', array('label' => 'Enregistrer'))
-                    ->add('reset', 'reset', array('label' => 'Annuler'))
                     ->add('compare', 'button', array('label' => 'Comparer'))
                     ->getForm();
         
@@ -224,6 +223,7 @@ class DefaultController extends Controller
                 $em->flush();
                 
                 //send mail HERE
+                
                 if($idea->getValidated()){
                     $to = $idea->getAuthor()->getEmail();
                     $motif = $idea->getRefusalreason();
@@ -316,7 +316,7 @@ class DefaultController extends Controller
             $em->flush();
             
             
-            return new JsonResponse(array('error' => 0,'message' => 'C\'est validée'), 200); 
+            return new JsonResponse(array('error' => 0,'message' => 'C\'est validé'), 200); 
         }
         else {
             return new JsonResponse(array('error' => 1,'message' => 'La base de donnée ne contient pas 10 idées sélectionnées. Veuillez recharger la page.'), 200); 

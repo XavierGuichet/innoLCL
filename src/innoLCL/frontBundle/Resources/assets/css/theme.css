@@ -968,12 +968,10 @@ option[value=''] {
 
 /* line 2, ../../../../../../../Compass_front/sass/_suggestidea.scss */
 .suggestidea__title {
-  font-family: ThirstyScript, script;
   display: block;
-  text-align: center;
-  color: #003b88;
+  margin: 1em auto;
 }
-/* line 9, ../../../../../../../Compass_front/sass/_suggestidea.scss */
+/* line 7, ../../../../../../../Compass_front/sass/_suggestidea.scss */
 .suggestidea ul {
   list-style: none;
   margin: 0;
@@ -981,7 +979,7 @@ option[value=''] {
   font-style: italic;
   color: #a50102;
 }
-/* line 16, ../../../../../../../Compass_front/sass/_suggestidea.scss */
+/* line 14, ../../../../../../../Compass_front/sass/_suggestidea.scss */
 .suggestidea__label {
   display: block;
   font-size: 14px;
@@ -992,7 +990,7 @@ option[value=''] {
   text-transform: uppercase;
   font-weight: 700;
 }
-/* line 25, ../../../../../../../Compass_front/sass/_suggestidea.scss */
+/* line 23, ../../../../../../../Compass_front/sass/_suggestidea.scss */
 .suggestidea__subline {
   display: block;
   font-size: 14px;
@@ -1002,7 +1000,7 @@ option[value=''] {
   margin: 0 0 0.5em;
   font-weight: 700;
 }
-/* line 33, ../../../../../../../Compass_front/sass/_suggestidea.scss */
+/* line 31, ../../../../../../../Compass_front/sass/_suggestidea.scss */
 .suggestidea__input {
   display: block;
   padding: 0.25em 0.5em;
@@ -1013,7 +1011,7 @@ option[value=''] {
   padding: 0.5em;
   margin-bottom: 1.5em;
 }
-/* line 43, ../../../../../../../Compass_front/sass/_suggestidea.scss */
+/* line 41, ../../../../../../../Compass_front/sass/_suggestidea.scss */
 .suggestidea__textarea {
   display: block;
   color: #64cbdf;
@@ -1023,7 +1021,7 @@ option[value=''] {
   padding: 2.5em 0.5em 2em;
   margin-bottom: 1.5em;
 }
-/* line 53, ../../../../../../../Compass_front/sass/_suggestidea.scss */
+/* line 51, ../../../../../../../Compass_front/sass/_suggestidea.scss */
 .suggestidea__compteur {
   font-size: 14px;
   font-size: 0.875rem;
@@ -1031,7 +1029,7 @@ option[value=''] {
   position: absolute;
   margin: 0.25em 0.5em;
 }
-/* line 59, ../../../../../../../Compass_front/sass/_suggestidea.scss */
+/* line 57, ../../../../../../../Compass_front/sass/_suggestidea.scss */
 .suggestidea__submit {
   display: block;
   font-size: 18px;
@@ -1047,14 +1045,14 @@ option[value=''] {
   border: none;
 }
 
-/* line 76, ../../../../../../../Compass_front/sass/_suggestidea.scss */
+/* line 74, ../../../../../../../Compass_front/sass/_suggestidea.scss */
 .popup__title {
   font-family: ThirstyScript, script;
   display: block;
   text-align: center;
   color: #003b88;
 }
-/* line 82, ../../../../../../../Compass_front/sass/_suggestidea.scss */
+/* line 80, ../../../../../../../Compass_front/sass/_suggestidea.scss */
 .popup__content {
   display: block;
   font-size: 22px;
@@ -1066,7 +1064,7 @@ option[value=''] {
   text-align: center;
   margin-top: 2em 0;
 }
-/* line 93, ../../../../../../../Compass_front/sass/_suggestidea.scss */
+/* line 91, ../../../../../../../Compass_front/sass/_suggestidea.scss */
 .popup__footer {
   margin-left: -30px;
   border-bottom: 1px solid grey;
@@ -1074,7 +1072,7 @@ option[value=''] {
   padding-right: 10px;
   display: inline-block;
 }
-/* line 99, ../../../../../../../Compass_front/sass/_suggestidea.scss */
+/* line 97, ../../../../../../../Compass_front/sass/_suggestidea.scss */
 .popup__footer__signature {
   font-style: italic;
   font-weight: 700;
@@ -1084,12 +1082,12 @@ option[value=''] {
   margin-bottom: 0;
   color: #515d73;
 }
-/* line 107, ../../../../../../../Compass_front/sass/_suggestidea.scss */
+/* line 105, ../../../../../../../Compass_front/sass/_suggestidea.scss */
 .popup__footer__signature span {
   font-weight: 400;
 }
 
-/* line 116, ../../../../../../../Compass_front/sass/_suggestidea.scss */
+/* line 114, ../../../../../../../Compass_front/sass/_suggestidea.scss */
 .popin_img_haut {
   position: absolute;
   top: -40px;
@@ -1097,7 +1095,7 @@ option[value=''] {
   z-index: 999;
 }
 
-/* line 122, ../../../../../../../Compass_front/sass/_suggestidea.scss */
+/* line 120, ../../../../../../../Compass_front/sass/_suggestidea.scss */
 .popin_img_bas {
   position: absolute;
   bottom: -40px;
@@ -1105,7 +1103,7 @@ option[value=''] {
   z-index: 999;
 }
 
-/* line 128, ../../../../../../../Compass_front/sass/_suggestidea.scss */
+/* line 126, ../../../../../../../Compass_front/sass/_suggestidea.scss */
 .reveal-modal form {
   position: relative;
   z-index: 1000;

@@ -14,8 +14,8 @@ group:
 # Security
 "Bad credentials.": Nom d'utilisateur ou mot de passe incorrect
 "The presented password is invalid.": Le mot de passe donné n'est pas correct
-"Your session has timed-out, or you have disabled cookies.": La session a expiré, ou vous avez désactivé les cookies
-
+"Your session has timed-out, or you have disabled cookies.": La session a expirée, ou vous avez désactivé les cookies
+"Invalid CSRF token.": Session invalide, veuillez réessayer.
 
 security:
     login:

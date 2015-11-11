@@ -31,7 +31,7 @@
      <div class="row">
             <div class="col-lg-4">
                 <label>Descriptif de l'idée</label>
-                <div class="panel panel-default">
+                <div class="panel panel-default  panel-body-big">
                     <div class="panel-body">
                         {{ idea.description }}
                     </div>
@@ -39,15 +39,15 @@
             </div>
             <div class="col-lg-4">
                 <label>Descriptif du bénéfice de votre idée pour le client</label>
-                <div class="panel panel-default">
+                <div class="panel panel-default  panel-body-big">
                     <div class="panel-body">
                        {{ idea.partnerprofit }}                        
                     </div>
                 </div>
             </div>
             <div class="col-lg-4">
-                <label>Descriptif du bénéfice de votre idée pour les collaborateurs</label>
-                <div class="panel panel-default">
+                <label>Descriptif du bénéfice pour les collaborateurs</label>
+                <div class="panel panel-default  panel-body-big">
                     <div class="panel-body">
                        {{ idea.customerprofit }}
                     </div>
@@ -57,8 +57,8 @@
     
     <div class="row">
         <div class="col-lg-12">
-                <label>Question bonus : Si l'idée était sélectionnée, quelle(s) démarche(s) de test engageriez-vous pour vérifier la faisabilité de sa mise en place</label>
-                <div class="panel panel-default">
+                <label>Question facultative : Si l'idée était sélectionnée, quelle(s) démarche(s) de test engageriez-vous pour vérifier la faisabilité de sa mise en place</label>
+                <div class="panel panel-default  panel-body-big">
                     <div class="panel-body">
                         {{ idea.bonuscontent }}
                     </div>

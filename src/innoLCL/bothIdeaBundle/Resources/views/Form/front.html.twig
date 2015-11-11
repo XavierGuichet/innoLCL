@@ -4,7 +4,9 @@
     
     
 {{ form_start(form) }}
-    <h1 class="suggestidea__title">Proposez une idée</h1>
+	 {% image '@innoLCLbothIdeaBundle/Resources/assets/images/proposez.png' %}
+		<img src="{{ asset_url }}"  alt="Proposez une idée" class="suggestidea__title"/>
+	{% endimage %}
 
     {{ form_label(form.title,null, {'label_attr': {'class': 'suggestidea__label'}}) }}
     <p class="suggestidea__subline">(comprenant au moins 1 mot clé &ndash; exemples : nouveau, service, produit, outil, client, accueil, etc.)</p>
