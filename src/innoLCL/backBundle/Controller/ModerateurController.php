@@ -14,11 +14,13 @@ class ModerateurController extends Controller
         $repositoryIdea = $this->getDoctrine()->getManager()->getRepository('innoLCL\bothIdeaBundle\Entity\Idea');
         
         
-        $ideaList = $repositoryIdea->getListIdeaByStatut('notmoderated',0);
+        $ideaList = $repositoryIdea->getListIdeaByStatut('notmoderated',0,false,$page);
         $twig['idealist'] = $ideaList;
         
         $ideacount['notmoderated']  = $repositoryIdea->getIdeaCountByStatut("notmoderated",0);
         $twig['ideacount'] = $ideacount;
+        $twig['nb_page'] = ceil($ideacount['notmoderated'] / 15);
+        $twig['current_page'] = $page;
         
         
         return $this->render('innoLCLbackBundle:List:Moderateur.html.twig',$twig);

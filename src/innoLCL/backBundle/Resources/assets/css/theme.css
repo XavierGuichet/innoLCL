@@ -265,61 +265,65 @@ body {
 /* line 19, ../../../../../../../Compass_back/sass/_main.scss */
 .section-validated {
   background-color: #4bb85d;
-  padding-top: 0;
 }
 
-/* line 24, ../../../../../../../Compass_back/sass/_main.scss */
+/* line 23, ../../../../../../../Compass_back/sass/_main.scss */
 .section-refused {
   background-color: #e3564d;
 }
 
-/* line 28, ../../../../../../../Compass_back/sass/_main.scss */
+/* line 26, ../../../../../../../Compass_back/sass/_main.scss */
+.section-selectionneur {
+  padding-top: 0;
+}
+
+/* line 29, ../../../../../../../Compass_back/sass/_main.scss */
 .table-responsive {
   background: #fff;
   padding: 0.5em;
 }
 
-/* line 32, ../../../../../../../Compass_back/sass/_main.scss */
+/* line 33, ../../../../../../../Compass_back/sass/_main.scss */
 #idealist {
   border-radius: 5px;
   border: 1px solid #979797;
   font-size: 14px;
 }
-/* line 36, ../../../../../../../Compass_back/sass/_main.scss */
+/* line 37, ../../../../../../../Compass_back/sass/_main.scss */
 #idealist tr:nth-child(2n) {
   background: #f7f7f7;
 }
-/* line 39, ../../../../../../../Compass_back/sass/_main.scss */
+/* line 40, ../../../../../../../Compass_back/sass/_main.scss */
 #idealist tr.active td {
   background: #a1cae8;
 }
 
-/* line 43, ../../../../../../../Compass_back/sass/_main.scss */
+/* line 44, ../../../../../../../Compass_back/sass/_main.scss */
 .table-heading {
   background: #f7f7f7;
 }
-/* line 46, ../../../../../../../Compass_back/sass/_main.scss */
+/* line 47, ../../../../../../../Compass_back/sass/_main.scss */
 .table-heading th {
   font-weight: 700;
   text-align: left;
 }
 
-/* line 53, ../../../../../../../Compass_back/sass/_main.scss */
+/* line 54, ../../../../../../../Compass_back/sass/_main.scss */
 .ribbon-container {
   background-color: #ffd217;
 }
 
-/* line 58, ../../../../../../../Compass_back/sass/_main.scss */
+/* line 59, ../../../../../../../Compass_back/sass/_main.scss */
 .ribbonl {
   padding-left: 50px;
 }
 
-/* line 61, ../../../../../../../Compass_back/sass/_main.scss */
+/* line 62, ../../../../../../../Compass_back/sass/_main.scss */
 .ribbonr {
   padding-right: 50px;
 }
 
-/* line 65, ../../../../../../../Compass_back/sass/_main.scss */
+/* line 66, ../../../../../../../Compass_back/sass/_main.scss */
 .ribbon-left {
   position: relative;
   font-weight: bold;
@@ -329,7 +333,7 @@ body {
   background-color: #ffd217;
 }
 
-/* line 73, ../../../../../../../Compass_back/sass/_main.scss */
+/* line 74, ../../../../../../../Compass_back/sass/_main.scss */
 .ribbon-left:before, .ribbon-left:after {
   content: ' ';
   position: absolute;
@@ -337,7 +341,7 @@ body {
   height: 0;
 }
 
-/* line 76, ../../../../../../../Compass_back/sass/_main.scss */
+/* line 77, ../../../../../../../Compass_back/sass/_main.scss */
 .ribbon-left:before {
   width: 40px;
   left: -19px;
@@ -347,7 +351,7 @@ body {
   border-color: #ffd217 #ffd217 #ffd217 transparent;
 }
 
-/* line 84, ../../../../../../../Compass_back/sass/_main.scss */
+/* line 85, ../../../../../../../Compass_back/sass/_main.scss */
 .ribbon-left:after {
   left: 0px;
   top: 100%;
@@ -356,7 +360,7 @@ body {
   border-color: #efa40d #efa40d transparent transparent;
 }
 
-/* line 86, ../../../../../../../Compass_back/sass/_main.scss */
+/* line 87, ../../../../../../../Compass_back/sass/_main.scss */
 .ribbon-right {
   position: relative;
   font-weight: bold;
@@ -367,7 +371,7 @@ body {
   text-align: right;
 }
 
-/* line 95, ../../../../../../../Compass_back/sass/_main.scss */
+/* line 96, ../../../../../../../Compass_back/sass/_main.scss */
 .ribbon-right:before, .ribbon-right:after {
   content: ' ';
   position: absolute;
@@ -375,7 +379,7 @@ body {
   height: 0;
 }
 
-/* line 98, ../../../../../../../Compass_back/sass/_main.scss */
+/* line 99, ../../../../../../../Compass_back/sass/_main.scss */
 .ribbon-right:before {
   width: 40px;
   right: -19px;
@@ -385,7 +389,7 @@ body {
   border-color: #ffd217 transparent #ffd217 #ffd217;
 }
 
-/* line 106, ../../../../../../../Compass_back/sass/_main.scss */
+/* line 107, ../../../../../../../Compass_back/sass/_main.scss */
 .ribbon-right:after {
   right: 0px;
   top: 100%;
@@ -394,7 +398,7 @@ body {
   border-color: #efa40d transparent transparent #efa40d;
 }
 
-/* line 114, ../../../../../../../Compass_back/sass/_main.scss */
+/* line 115, ../../../../../../../Compass_back/sass/_main.scss */
 .selecteur {
   background: url("../../images/selected.png");
   width: 80px;
@@ -402,33 +406,81 @@ body {
   background-position: 0 38px;
   border: none;
 }
-/* line 121, ../../../../../../../Compass_back/sass/_main.scss */
+/* line 122, ../../../../../../../Compass_back/sass/_main.scss */
 .selecteur.js-selected:hover, .selecteur.isselect {
   background-position: 0 0px;
 }
 
-/* line 125, ../../../../../../../Compass_back/sass/_main.scss */
+/* line 126, ../../../../../../../Compass_back/sass/_main.scss */
 .validateselection {
   background: #f7f7f7;
   border: 1px solid #efa40d;
   border-radius: 5px;
   font-size: 14px;
 }
-/* line 130, ../../../../../../../Compass_back/sass/_main.scss */
+/* line 131, ../../../../../../../Compass_back/sass/_main.scss */
 .validateselection:hover {
   background: #efa40d;
   border: 1px solid #f7f7f7;
   color: #f7f7f7;
 }
 
-/* line 136, ../../../../../../../Compass_back/sass/_main.scss */
+/* line 137, ../../../../../../../Compass_back/sass/_main.scss */
 .table > tbody > tr > td.nopadding {
   padding: 0;
 }
 
-/* line 139, ../../../../../../../Compass_back/sass/_main.scss */
+/* line 140, ../../../../../../../Compass_back/sass/_main.scss */
 .warn-final {
   font-size: 1.5em;
+}
+
+/* line 143, ../../../../../../../Compass_back/sass/_main.scss */
+.white-bg {
+  background: #ffffff;
+}
+
+/* line 147, ../../../../../../../Compass_back/sass/_main.scss */
+.rework {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background: #fbc914;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+/* line 156, ../../../../../../../Compass_back/sass/_main.scss */
+.pagination_block {
+  display: inline-block;
+  float: right;
+  background: #f7f7f7;
+  list-style: none outside;
+  margin-bottom: 1.5em;
+  margin-right: 0.5em;
+  border: 1px solid #979797;
+  border-right: none;
+}
+
+/* line 166, ../../../../../../../Compass_back/sass/_main.scss */
+.pagination__item {
+  display: block;
+  float: left;
+  border-right: 1px solid #979797;
+  margin: 0;
+  text-align: center;
+  font-weight: 700;
+  width: 2em;
+  line-height: 2em;
+}
+/* line 176, ../../../../../../../Compass_back/sass/_main.scss */
+.pagination__item_current {
+  background: #1c7cb8;
+  color: #f7f7f7;
+}
+/* line 180, ../../../../../../../Compass_back/sass/_main.scss */
+.pagination__item a {
+  display: block;
 }
 
 /* line 3, ../../../../../../../Compass_back/sass/_form.scss */

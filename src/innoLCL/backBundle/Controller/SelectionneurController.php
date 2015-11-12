@@ -13,7 +13,7 @@ class SelectionneurController extends Controller
             $repositoryIdea = $this->getDoctrine()->getManager()->getRepository('innoLCL\bothIdeaBundle\Entity\Idea');
             
             
-            $ideaList = $repositoryIdea->getListIdeaByStatut("validated",1);
+            $ideaList = $repositoryIdea->getListIdeaByStatut("validated",1,false,0);
             $twig['idealist'] = $ideaList;
             
             $twig['ideacountvalidated']  = $repositoryIdea->getIdeaCountByStatut("validated",1);

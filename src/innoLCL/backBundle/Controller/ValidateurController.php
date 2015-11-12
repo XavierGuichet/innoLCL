@@ -25,6 +25,9 @@ class ValidateurController extends Controller
             $ideacount['validated']  =  $repositoryIdea->getIdeaCountByStatut('validated',0);
             $twig['ideacount'] = $ideacount;
             
+			$twig['nb_page'] = ceil($ideacount[$statut] / 15);
+			$twig['current_page'] = $page;
+        
             
             return $this->render('innoLCLbackBundle:List:Validateur.html.twig',$twig);
         }

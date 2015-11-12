@@ -16,7 +16,7 @@ class LecteurController extends Controller
         
         if($statut == "all") { $statut = 'notmoderated';$not = true;}
         else{$not = false;}
-        $ideaList = $repositoryIdea->getListIdeaByStatut($statut,0,$not);
+        $ideaList = $repositoryIdea->getListIdeaByStatut($statut,0,$not,$page);
         $twig['idealist'] = $ideaList;
         
         $ideacount['all']  = $repositoryIdea->getIdeaCountByStatut('notmoderated',0,true);
@@ -24,6 +24,9 @@ class LecteurController extends Controller
         $ideacount['refused']  =  $repositoryIdea->getIdeaCountByStatut('refused',0);
         $ideacount['validated']  =  $repositoryIdea->getIdeaCountByStatut('validated',0);
         $twig['ideacount'] = $ideacount;
+        
+        $twig['nb_page'] = ceil($ideacount[$statut] / 15);
+        $twig['current_page'] = $page;
         
         
         return $this->render('innoLCLbackBundle:List:Lecteur.html.twig',$twig);

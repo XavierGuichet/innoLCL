@@ -68,7 +68,7 @@
                                 <td>{{ idea.id }}</td>
                                 <td>{{ idea.author.firstname }}</td>
                                 <td>{{ idea.author.lastname }}</td>
-                                <td>{{ idea.reworked }}</td>
+                                <td>{{ idea.reworked ? '<span class="rework"></span>' }}</td>
                                 <td>{{ idea.title|length > 20 ? idea.title|slice(0, 20) ~ '...' : idea.title  }}</td>
                                 <td>{{ idea.description|length > 20 ? idea.description|slice(0, 20) ~ '...' : idea.description  }}</td>
                                 <td>{{ idea.author.email }}</td>
@@ -78,6 +78,28 @@
                     {% endfor %}                
                 </table>
                 </div>
+                
+                <div class="row white-bg">
+					<div class="col-lg-12 text-right">
+						{% if nb_page != 0 %}
+							<ul class="pagination_block">
+							{% for i in 1..nb_page %}
+								{% if i == current_page %}
+								<li class="pagination__item pagination__item_current">
+									{{ i }}
+								</li>
+								{% else %}
+								<li class="pagination__item">
+									<a href="{{ path('innolcl_lecteur_list_idea', {'statut' : currentview, 'page': i }) }}">
+										{{ i }}
+									</a>
+								</li>
+								{% endif %}
+							{% endfor %}
+							</ul>
+						{% endif %}
+					</div>
+				</div>
             </div>
         </div>
 {% endblock %}
