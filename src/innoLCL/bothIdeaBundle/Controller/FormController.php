@@ -46,6 +46,7 @@ class FormController extends Controller
             
         return $this->render('innoLCLbothIdeaBundle:Form:front.html.twig', array(
             'form' => $form->createView(),
+            'idea' => $newidea
         ));   
     }
 }

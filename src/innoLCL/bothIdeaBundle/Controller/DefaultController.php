@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Form\FormError;
 
 class DefaultController extends Controller
 {
@@ -28,6 +29,7 @@ class DefaultController extends Controller
         }
         else {
             $idea = new Idea();
+            $idea->setAuthor($user);
         }
         
         $form = $this->createFormBuilder($idea, ['attr' => ['id' => 'suggest_idea_front', 'autocomplete' => "off" ]])
@@ -49,7 +51,27 @@ class DefaultController extends Controller
             ->getForm();
         
         $form->handleRequest($request);
-        $idea->setAuthor($user);
+        
+        if($ideaid == 0){
+            // on vérifie que ce n'est pas un envoi multiple
+            
+            $ideas = $repositoryIdea->findAllNotRefusedFor($user->getId());
+            
+            if(count($ideas)>0){
+                
+               $form->get('title')->addError(new FormError("Vous ne pouvez pas envoyer de nouvelle idée. Vous en avez déjà une en attente de validation."));
+                
+                // erreur pas le droit d'écrire une nouvelle si une idée a été trouvée en peut-être/validée ou non modérée
+                return new JsonResponse( array('message' => 'Une idée est déjà en attente de validation!',
+                                                'form' => $this->renderView('innoLCLbothIdeaBundle:Form:frontraw.html.twig',
+                                                array(
+                                            'idea' => $idea,
+                                            'form' => $form->createView(),
+                                        ))), 400);
+            }
+            
+        }
+        
         
         
         

@@ -2,47 +2,6 @@
 
 <div id="formIdea" class="reveal-modal suggestidea" data-reveal aria-labelledby="Proposez une idée" aria-hidden="true" role="dialog">
     
-    
-{{ form_start(form) }}
-	 {% image '@innoLCLbothIdeaBundle/Resources/assets/images/proposez.png' %}
-		<img src="{{ asset_url }}"  alt="Proposez une idée" class="suggestidea__title"/>
-	{% endimage %}
+    {{ include("innoLCLbothIdeaBundle:Form:frontraw.html.twig")}}
 
-    {{ form_label(form.title,null, {'label_attr': {'class': 'suggestidea__label'}}) }}
-    <p class="suggestidea__subline">(comprenant au moins 1 mot clé &ndash; exemples : nouveau, service, produit, outil, client, accueil, etc.)</p>
-    {{ form_errors(form.title, {'attr': {'class': 'suggestidea__errors'}}) }}
-    {{ form_widget(form.title, {'attr': {'class': 'suggestidea__input'}}) }}
-
-    {{ form_label(form.description,null, {'label_attr': {'class': 'suggestidea__label'}}) }}
-    {{ form_errors(form.description, {'attr': {'class': 'suggestidea__errors'}}) }}
-    <p class="suggestidea__compteur">200 mots max - <span class="compteurDesc" data-maxchar="200">0</span> mots restants</p>
-    {{ form_widget(form.description, {'attr': {'class': 'suggestidea__textarea'}}) }}
-
-    {{ form_label(form.customerprofit,null, {'label_attr': {'class': 'suggestidea__label'}}) }}
-    {{ form_errors(form.customerprofit, {'attr': {'class': 'suggestidea__errors'}}) }}
-    <p class="suggestidea__compteur">200 mots max - <span class="compteurProfit" data-maxchar="200">0</span> mots restants</p>
-    {{ form_widget(form.customerprofit, {'attr': {'class': 'suggestidea__textarea'}}) }}
-
-    {{ form_label(form.partnerprofit,null, {'label_attr': {'class': 'suggestidea__label'}}) }}
-    {{ form_errors(form.partnerprofit, {'attr': {'class': 'suggestidea__errors'}}) }}
-    <p class="suggestidea__compteur">200 mots max - <span class="compteurPartner" data-maxchar="200">0</span> mots restants</p>
-    {{ form_widget(form.partnerprofit, {'attr': {'class': 'suggestidea__textarea'}}) }}
-
-    {{ form_label(form.bonuscontent,null, {'label_attr': {'class': 'suggestidea__label'}}) }}
-    <p class="suggestidea__subline">quelle(s) démarche(s) de test engageriez-vous pour vérifier la faisabilité de sa mise en place ?<br/>
-        (exemples de critères de tests : périmètre, cible, délais, budget, etc.)</p>
-    {{ form_errors(form.bonuscontent, {'attr': {'class': 'suggestidea__errors'}}) }}
-    <p class="suggestidea__compteur">200 mots max - <span class="compteurBonus" data-maxchar="200">0</span> mots restants</p>
-    {{ form_widget(form.bonuscontent, {'attr': {'class': 'suggestidea__textarea'}}) }}
-
-    {{ form_widget(form.save, {'attr': {'class': 'suggestidea__submit'}}) }}
-    
-    {{ form_end(form) }}
-<a class="close-reveal-modal suggestidea__close" aria-label="Close">&#215;</a>
-{% image '@innoLCLfrontBundle/Resources/assets/images/popin_logo_bas.png' %}
-                                <img src="{{ asset_url }}"  class="popin_img_bas" />
-{% endimage %}
-{% image '@innoLCLfrontBundle/Resources/assets/images/popin_logo_haut.png' %}
-                                <img src="{{ asset_url }}"  class="popin_img_haut" />
-{% endimage %}
 </div>

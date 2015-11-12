@@ -200,4 +200,16 @@ class IdeaRepository extends \Doctrine\ORM\EntityRepository
                             
         return $qb->getQuery()->getResult();
     }
+    
+    
+    function findAllNotRefusedFor($idUser) 
+    {
+        $query = $this->createQueryBuilder('i')
+                ->where('i.author = :author')
+                ->setParameter('author', $idUser)
+                ->andWhere('i.statuts != :statut')
+                ->setParameter('statut', "refused");
+        
+        return $query->getQuery()->getResult();
+    }
 }

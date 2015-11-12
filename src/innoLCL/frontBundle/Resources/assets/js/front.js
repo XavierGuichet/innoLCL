@@ -48,6 +48,9 @@ jQuery(document).ready( function($) {
     
     //Soumission des forms en ajax à transformer en function AjaxThisForm(form, callback)
     $("#formIdea").on("submit","form", function(e) {
+        
+        $('#formIdea #form_save').hide();
+        
             e.preventDefault();
             $.ajax({
             type: $(this).attr('method'),
@@ -66,10 +69,14 @@ jQuery(document).ready( function($) {
             }
         })
         .fail(function (jqXHR, textStatus, errorThrown) {
+            $('#formIdea #form_save').show();
             if (typeof jqXHR.responseJSON !== 'undefined') {
                 if (jqXHR.responseJSON.hasOwnProperty('form')) {
                     $("#suggest_idea_front").replaceWith(jqXHR.responseJSON.form);
                     console.log(jqXHR.responseJSON.message);
+                    $('html,body').animate({
+                      scrollTop: $("#formIdea").offset().top
+                    }, 1000);
                 }
             } 
             else {
