@@ -1,3 +1,7 @@
+header{
+    background-position-y: top;
+}
+
 /* line 1, ../../../../../../../Compass_front/sass/ie8-fix.scss */
 .dotation__ten, .dotation__more {
   padding-bottom: 25%;
