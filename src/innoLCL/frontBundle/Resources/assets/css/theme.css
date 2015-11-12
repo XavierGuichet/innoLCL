@@ -1,8 +1,8 @@
 @charset "UTF-8";
 @font-face {
   font-family: 'ThirstyScript';
-  src: url("../../../fonts/thirstyscriptregular-webfont.eot?#iefix") format("embedded-opentype");
-  src: url("../../../fonts/thirstyscriptregular-webfont.ttf") format("truetype"), url("../../../fonts/thirstyscriptregular-webfont.woff") format("woff"), url("../../../fonts/thirstyscriptregular-webfont.eot?#iefix") format("embedded-opentype"), url("../../../fonts/thirstyscriptregular-webfont.svg#../../../fonts/thirstyscriptregular-webfont") format("svg");
+  src: url("/fonts/thirstyscriptregular-webfont.eot?#iefix") format("embedded-opentype");
+  src: url("/fonts/thirstyscriptregular-webfont.ttf") format("truetype"), url("/fonts/thirstyscriptregular-webfont.woff") format("woff"), url("/fonts/thirstyscriptregular-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/thirstyscriptregular-webfont.svg#/fonts/thirstyscriptregular-webfont") format("svg");
   font-weight: 900;
   font-style: normal;
 }
