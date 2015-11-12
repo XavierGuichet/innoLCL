@@ -2,6 +2,11 @@ header{
     background-position-y: top;
 }
 
+body.proposal .entete-generale {
+    padding-bottom: 0px;
+}
+
+
 /* line 1, ../../../../../../../Compass_front/sass/ie8-fix.scss */
 .dotation__ten, .dotation__more {
   padding-bottom: 25%;
