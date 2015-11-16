@@ -1,33 +1,40 @@
 <div class="login">
+  <form action="{{ path('fos_user_security_check') }}" method="post">
+    <p class="login__title">
+      Identifiez-vous
+    </p>
     
-    <form action="{{ path("fos_user_security_check") }}" method="post">
-        <p class="login__title">Identifiez-vous</p>
-                {% if error %}
-            <div class="erreur-connexion">{{ error|trans({}, 'FOSUserBundle') }}</div>
-        {% endif %}
-        {% for type, messages in app.session.flashBag.all %}
-            {% for message in messages %}
-                <div class="{{ type }} erreur-connexion">
-                    {{ message|trans({}, 'FOSUserBundle') }}
-                </div>
-            {% endfor %}
-        {% endfor %}
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-
-        <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" class="login__input" placeholder="exemple@mail.fr" />
-
-        <input type="password" id="password" name="_password" required="required"  class="login__input" />
-
-        <p class="login_remembercontainer"><input type="checkbox" id="remember_me" name="_remember_me" value="on" class="login__rememberme" />
-        <label for="remember_me" class="login__rememberme__label">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label></p>
-
-        <input type="submit" id="_submit" name="_submit" value="Se connecter"  class="login__connect" />
-        
-        <a href="#sectionRegister"  class="login__inscription">S'inscrire</a>
-        
-
-    </form>
+    {% if error %}
+    <div class="erreur-connexion">
+      {{ error|trans({}, 'FOSUserBundle') }}
+    </div>
+    {% endif %}
+    
+    {% for type, messages in app.session.flashBag.all %}
+		{% for message in messages %}
+			<div class="{{ type }} erreur-connexion">
+			  {{ message|trans({}, 'FOSUserBundle') }}
+			</div>
+		{% endfor %}
+    {% endfor %}
+    
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" class="login__input" placeholder="exemple@mail.fr" />
+    <input type="password" id="password" name="_password" required="required" class="login__input" />
+    <p class="login_remembercontainer">
+      <input type="checkbox" id="remember_me" name="_remember_me" value="on" class="login__rememberme" />
+      <label for="remember_me" class="login__rememberme__label">
+        {{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}
+      </label>
+    </p>
+    <div class="change-password">
+      <a href="{{ path('innoLCL_alluserbundle_resetting_request') }}" class="js-modal">
+        Mot de passe oublié ?
+      </a>
+    </div>    
+    <input type="submit" id="_submit" name="_submit" value="Se connecter" class="login__connect" />
+    <a href="#sectionRegister" class="login__inscription" >
+      S'inscrire
+    </a>
+  </form>
 </div>
-
-
-

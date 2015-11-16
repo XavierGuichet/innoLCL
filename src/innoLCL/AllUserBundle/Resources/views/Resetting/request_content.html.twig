@@ -1,0 +1,12 @@
+<form action="{{ path('innoLCL_alluserbundle_resetting_send_email') }}" method="POST" class="fos_user_resetting_request js-modal">
+    <div>
+        {% if invalid_username is defined %}
+            <p>L'adresse e-mail "{{ invalid_username }}" n'existe pas.</p>
+        {% endif %}
+        <label for="username" class="modalform__label">Entrez votre adresse mail pour recevoir, un lien pour réinitialiser votre mot de passe.</label>
+        <input type="text" id="username" name="username" required="required" class="modalform__input" />
+    </div>
+    <div>
+        <input type="submit" value="{{ 'resetting.request.submit'|trans({}, 'FOSUserBundle') }}" class="modalform__submit" />
+    </div>
+</form>

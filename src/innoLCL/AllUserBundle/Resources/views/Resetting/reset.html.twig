@@ -1,0 +1,20 @@
+{% extends "innoLCLfrontBundle::layout.html.twig" %}
+
+{% block bodyclass %} reset_pwd{% endblock %}
+
+{% block body %}
+    {% include 'innoLCLfrontBundle:Interface:_header_pages.html.twig' %} 
+	<div class="content">
+	<div class="row"> 
+        <div class="small-10 small-centered columns text-center">
+            <h1>&laquo; Challenge de l'innovation &raquo;</h1>
+            <h2>Définir un nouveau mot de passe</h2>
+        </div>
+    </div> 
+    <div class="row">
+		<div class="small-6 small-centered columns">
+			{% include "innoLCLAllUserBundle:Resetting:reset_content.html.twig" %}
+		</div>
+	</div>
+	</div>
+{% endblock body %}

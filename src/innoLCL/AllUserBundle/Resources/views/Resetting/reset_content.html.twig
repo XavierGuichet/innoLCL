@@ -1,0 +1,19 @@
+<form action="{{ path('fos_user_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="POST" class="fos_user_resetting_reset">
+	
+	<div class="modalform__errors">
+		{{ form_errors(form, {'attr': {'class': 'modalform__errors'}}) }}
+		{{ form_errors(form.new.first, {'attr': {'class': 'modalform__errors'}}) }}
+	</div>
+	
+    {{ form_label(form.new.first,null, {'label_attr': {'class': 'modalform__label'}}) }}
+    {{ form_widget(form.new.first, {attr: {'class': 'modalform__input'}}) }}
+    
+    {{ form_label(form.new.second,null, {'label_attr': {'class': 'modalform__label'}}) }}
+    {{ form_widget(form.new.second, {attr: {'class': 'modalform__input'}}) }}
+    
+    {{ form_widget(form) }}
+    <div class="showErrors hidden">{{ form_errors(form.new.first) }}</div>
+    <div>
+        <input type="submit" value="{{ 'resetting.reset.submit'|trans({}, 'FOSUserBundle') }}" class="modalform__submit"  />
+    </div>
+</form>

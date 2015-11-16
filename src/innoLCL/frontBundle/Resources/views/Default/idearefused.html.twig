@@ -7,5 +7,5 @@
     <p class="idealist__date idealist__date--status">
         Refusée le {{idea.validatedon|date('d F Y')}}
     </p>
-    <p class="idealist__description">{{idea.description}}</p>
+    <p class="idealist__description">{{ idea.description|length > 200 ? idea.description|slice(0, 197) ~ '...' : idea.description  }}</p>
 </li>

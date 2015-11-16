@@ -407,7 +407,7 @@ header {
 /* line 30, ../../../../../../../Compass_front/sass/_login.scss */
 .login_remembercontainer {
   margin-top: 0;
-  margin-bottom: 2em;
+  margin-bottom: 0em;
 }
 /* line 34, ../../../../../../../Compass_front/sass/_login.scss */
 .login__rememberme__label {
@@ -577,6 +577,18 @@ header {
   /* coche opaque */
   transform: scale(1);
   /* mise à l'échelle 1:1 */
+}
+
+/* line 176, ../../../../../../../Compass_front/sass/_login.scss */
+.change-password {
+  text-align: center;
+  margin-bottom: 1.5em;
+  font-size: 0.875em;
+}
+/* line 180, ../../../../../../../Compass_front/sass/_login.scss */
+.change-password a {
+  text-decoration: none;
+  color: #f7f7f7;
 }
 
 /* line 1, ../../../../../../../Compass_front/sass/_footer.scss */
@@ -1109,6 +1121,51 @@ option[value=''] {
   z-index: 1000;
 }
 
+/* line 132, ../../../../../../../Compass_front/sass/_suggestidea.scss */
+.modalform__label {
+  display: block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.3em;
+  color: #515d73;
+  padding-left: 0.5em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+/* line 141, ../../../../../../../Compass_front/sass/_suggestidea.scss */
+.modalform__input {
+  display: block;
+  padding: 0.25em 0.5em;
+  color: #64cbdf;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #1c1c1c;
+  padding: 0.5em;
+  margin-bottom: 1.5em;
+}
+/* line 151, ../../../../../../../Compass_front/sass/_suggestidea.scss */
+.modalform__submit {
+  display: block;
+  font-size: 18px;
+  font-size: 1.125rem;
+  color: #f7f7f7;
+  margin: 2.5rem auto 1.5em;
+  padding: 0.5em 2em;
+  background: #64cbdf;
+  border-radius: 5px;
+  transition: all 100ms;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: none;
+}
+/* line 165, ../../../../../../../Compass_front/sass/_suggestidea.scss */
+.modalform__errors, .modalform__errors ul {
+  color: #a50102;
+  margin: 0.5em 0;
+  text-align: left;
+  padding: 0.5em;
+}
+
 /* line 2, ../../../../../../../Compass_front/sass/_manual.scss */
 body.manual h1 {
   text-align: center;
@@ -1185,6 +1242,11 @@ body.manual ul.tps_fort li img:after {
 /* line 71, ../../../../../../../Compass_front/sass/_manual.scss */
 body.manual ul.tps_fort li span {
   text-transform: uppercase;
+}
+
+/* line 78, ../../../../../../../Compass_front/sass/_manual.scss */
+.reset_pwd .content {
+  min-height: 700px;
 }
 
 /* line 51, ../../../../../../../Compass_front/sass/theme.scss */

@@ -43,14 +43,17 @@ jQuery(document).ready( function($) {
         $('.js-custom-scroll').jScrollPane();
     });
     
+    //Listener générique js-modal (form et a) #utilisation généralisable
+    $('body').on('submit','form.js-modal', function(event) { modalajax(event, $(this)) });
+    $('body').on('click','a.js-modal', function(event) { modalajax(event, $(this)) });
+    
     // activation des événements sur formulaire inscription
     activateRegisterForm();    
     
     //Soumission des forms en ajax à transformer en function AjaxThisForm(form, callback)
     $("#formIdea").on("submit","form", function(e) {
         
-        $('#formIdea #form_save').hide();
-        
+        $('#formIdea #form_save').hide();        
             e.preventDefault();
             $.ajax({
             type: $(this).attr('method'),
@@ -73,15 +76,11 @@ jQuery(document).ready( function($) {
             if (typeof jqXHR.responseJSON !== 'undefined') {
                 if (jqXHR.responseJSON.hasOwnProperty('form')) {
                     $("#suggest_idea_front").replaceWith(jqXHR.responseJSON.form);
-                    console.log(jqXHR.responseJSON.message);
                     $('html,body').animate({
                       scrollTop: $("#formIdea").offset().top
                     }, 1000);
                 }
-            } 
-            else {
-                console.log(errorThrown);
-            } 
+            }
         });
     });
     
@@ -176,16 +175,16 @@ function appelAjaxFinVideo() {
         .fail(function (jqXHR, textStatus, errorThrown) {
             if (typeof jqXHR.responseJSON !== 'undefined') {
                 if (jqXHR.responseJSON.hasOwnProperty('message')) {
-                    console.log(jqXHR.responseJSON.message);
+
                 }
             } 
             else {
-                console.log(errorThrown);
+
             }
         });
     }
     else {
-        console.log("La videoest finie et pas de requete ajax.");
+
     }
     $('#videoModal').foundation('reveal', 'close');
 }
@@ -404,7 +403,7 @@ function activateRegisterForm(){
             $(".register__slider__item:eq(0)").css('margin-left','0%');            
             if (typeof jqXHR.responseJSON !== 'undefined') {                
                 if (jqXHR.responseJSON.hasOwnProperty('form')) {                    
-                    //console.log(jqXHR.responseJSON.message);
+
                     $('form.fos_user_registration_register').replaceWith(jqXHR.responseJSON.form);
                     $('form.fos_user_registration_register').find('.showErrors').each(function(){
                        if($(this).html() != '') {
@@ -417,8 +416,45 @@ function activateRegisterForm(){
                 }
             } 
             else {
-                console.log(errorThrown);
+
             } 
         });
     });
 }
+
+function modalajax(event, t) {
+	event.preventDefault();
+	var eventTarget = event.target;
+	var method,url,serializeData;
+	if(t.is('a')) {
+		method = "GET";
+		url = t.attr("href");
+		serializeData = "";
+	}
+	else {
+		if(t.is('form')) {
+		method = t.attr('method');
+		url = t.attr('action');
+		serializeData = t.serialize();				
+		}
+		else {
+			location.href(eventTarget);
+		}
+	}
+	
+	$.ajax({
+             type: method,
+             url: url,
+             data: serializeData
+        })
+        .done(function (data) {
+			$('#modal_empty .popup__title').html(data.title);
+			$('#modal_empty .popup__content').html(data.content);
+            $('#modal_empty').foundation('reveal', 'open');
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) { 
+
+        });
+		
+}
+

@@ -1,6 +1,3 @@
-#fos_user_security:
-#    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
-
 fos_user_register:
     resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
     prefix: /register
@@ -9,13 +6,8 @@ fos_user_registration_confirmed:
     path: /register/confirmed
     defaults: { _controller: innoLCLfrontBundle:Default:confirmed }  
 
-#fos_user_resetting:
-   # resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
-    #prefix: /resetting
 
-#fos_user_change_password:
-   # resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
-    #prefix: /profile
+
 
 # Route de connexion au FrontOffice
 fos_user_security_login:
@@ -34,8 +26,24 @@ fos_user_security_logout:
     path: /logout
     defaults: { _controller: FOSUserBundle:Security:logout }
 
+# Affichage formulaire étape 1 recup mdp : 'indiquer votre mail'
+innoLCL_alluserbundle_resetting_request:
+    path: /resetting/request_pwd
+    defaults: { _controller: innoLCLAllUserBundle:Resetting:request }
 
+# Affichage formulaire étape 2 gestion formulaire pour envoi du lien de recup par mail
+innoLCL_alluserbundle_resetting_send_email:
+    path:  /resetting/send-email
+    defaults: { _controller: innoLCLAllUserBundle:Resetting:sendEmail }
+    requirements:
+        _method: POST
 
+# Affichage page étape 3 : entrer nouveau mot de passe
+fos_user_resetting_reset:
+    path: /resetting/reset/{token}
+    defaults: { _controller: innoLCLAllUserBundle:Resetting:reset }
+    requirements:
+        _method: GET|POST
 
 
 
@@ -43,6 +51,9 @@ fos_user_security_logout:
 innoLCL_alluserbundle_redirect:
     path:  /redirectUser
     defaults: { _controller: innoLCLAllUserBundle:Redirect:ByRoleRedirection }
+
+
+
 
 # Route de connexion au Backoffice
 fos_admin_user_security_login:
