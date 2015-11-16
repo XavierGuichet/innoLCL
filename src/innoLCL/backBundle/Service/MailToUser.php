@@ -14,8 +14,8 @@ class MailToUser {
     protected $templating;
     protected $app_front_url;
     protected $kernel;
-    private $from = "sfmailer@freetouch.fr";
-    private $reply = "sfmailer@freetouch.fr";
+    private $from = "support_lcl_challenge@freetouch.fr";
+    private $reply = "support_lcl_challenge@freetouch.fr";
     private $name = "Challenge de l'innovation LCL";
 
     public function __construct($mailer, EngineInterface $templating, RouterInterface $router, $app_front_url, $kernel) {
