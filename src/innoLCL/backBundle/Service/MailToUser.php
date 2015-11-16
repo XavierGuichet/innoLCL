@@ -14,8 +14,8 @@ class MailToUser {
     protected $templating;
     protected $app_front_url;
     protected $kernel;
-    private $from = "x.guichet@gmail.com";
-    private $reply = "x.guichet@gmail.com";
+    private $from = "sfmailer@freetouch.fr";
+    private $reply = "sfmailer@freetouch.fr";
     private $name = "Challenge de l'innovation LCL";
 
     public function __construct($mailer, EngineInterface $templating, RouterInterface $router, $app_front_url, $kernel) {
@@ -77,6 +77,11 @@ class MailToUser {
     
 
     private function sendMail($subject, $view, $to){
+        
+        // on substitue lcl.fr par lcl.com pour les adresses concernées afin de passer par les boites externes.                
+        if(strpos($to, '@lcl.fr') !== false){
+            $to = str_replace('@lcl.fr', '@lcl.com', $to);
+        }
         
         $view = $this->createOnlineVersion($view);
         

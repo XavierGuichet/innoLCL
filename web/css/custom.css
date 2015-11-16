@@ -47,6 +47,13 @@ header{
     display: block;
 }
 
+.register__slider .infoEmailReseau{
+    width: 700px;
+    color: #ffffff;
+    margin: 0 auto;
+    text-align: left;
+}
+
 /* FRONT : Connexion */
 .login a.login__inscription{
     color: #222;

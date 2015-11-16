@@ -55,7 +55,7 @@ class User extends BaseUser
      
      /**
      * @Assert\Regex(
-     *     pattern="/@(freetouch\.fr|yopmail\.com|lcl\.fr|themisbanque\.com|interfimo\.fr|angle-neuf\.fr)$/si",
+     *     pattern="/@(freetouch\.fr|yopmail\.com|lcl\.fr|lcl\.com|themisbanque\.com|interfimo\.fr|angle-neuf\.fr)$/si",
      *     match=true,
      *     message="Votre email n'appartient pas à un domaine autorisé."
      * )
