@@ -2,6 +2,11 @@ fos_user_register:
     resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
     prefix: /register
     
+#redefinition des routes FOSUser personnalisées  
+fos_user_registration_confirm: 
+    path: /confirm/{token}
+    defaults: { _controller: innoLCLAllUserBundle:Registration:confirm }  
+    
 fos_user_registration_confirmed: 
     path: /register/confirmed
     defaults: { _controller: innoLCLfrontBundle:Default:confirmed }  
