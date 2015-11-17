@@ -35,11 +35,17 @@ class DefaultController extends Controller
     {
         $user = $this->container->get('security.context')->getToken()->getUser();
         //if (!is_object($user) || !$user instanceof UserInterface) {
-        if (!is_object($user)) {
+        /*if (!is_object($user)) {
             throw new AccessDeniedException('This user does not have access to this section.');
+        }*/
+        if (is_object($user)) {
+            return $this->homeConnected($request,true);
+        }else{
+            // pas d'utilisateur ayant ce token
+            // ou token déjà validé et utilisateur abusant du lien de confirmation pour revenir à chaque fois.
+            $route = $this->container->get('router')->generate('innolcl_front_homepage');
+            return new RedirectResponse($route);
         }
-        
-        return $this->homeConnected($request,true);
     }
     
     public function proposalAction(Request $request) // phase 1
