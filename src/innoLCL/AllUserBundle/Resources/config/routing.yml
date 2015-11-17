@@ -3,9 +3,9 @@ fos_user_register:
     prefix: /register
     
 #redefinition des routes FOSUser personnalisées  
-fos_user_registration_confirm: 
-    path: /confirm/{token}
-    defaults: { _controller: innoLCLAllUserBundle:Registration:confirm }  
+#fos_user_registration_confirm: 
+#    path: /confirm/{token}
+#    defaults: { _controller: innoLCLAllUserBundle:Registration:confirm }  
     
 fos_user_registration_confirmed: 
     path: /register/confirmed
