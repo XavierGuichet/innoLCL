@@ -69,6 +69,8 @@ jQuery(document).ready( function($) {
                 $('html,body').animate({
                       scrollTop: $("#formIdea").offset().top
                     }, 1000);
+            }else{
+                alert(data);
             }
         })
         .fail(function (jqXHR, textStatus, errorThrown) {
@@ -80,6 +82,8 @@ jQuery(document).ready( function($) {
                       scrollTop: $("#formIdea").offset().top
                     }, 1000);
                 }
+            }else{
+                alert('Erreur de soumission : '+errorThrown);
             }
         });
     });
