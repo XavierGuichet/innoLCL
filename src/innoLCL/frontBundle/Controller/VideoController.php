@@ -44,6 +44,6 @@ class VideoController extends Controller
             $em->flush();
             return new JsonResponse(array('message' => 'ok'),200);
         }
-        else { return new JsonResponse(array('message' => 'erreur de validation de la video'),400);}
+        else { return new JsonResponse(array('message' => 'erreur de validation de la video'),200);}
     }
 }

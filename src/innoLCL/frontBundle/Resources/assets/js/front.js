@@ -173,17 +173,21 @@ function appelAjaxFinVideo() {
         })
         .done(function (data) {
             if (typeof data.message !== 'undefined') {
-                location.reload();
+                if(data.message == "ok"){
+                    location.reload();
+                }else{
+                    alert(data.message);
+                }
             }
         })
         .fail(function (jqXHR, textStatus, errorThrown) {
             if (typeof jqXHR.responseJSON !== 'undefined') {
                 if (jqXHR.responseJSON.hasOwnProperty('message')) {
-
+                    alert(jqXHR.responseJSON.message);
                 }
             } 
             else {
-
+                alert(jqXHR.responseJSON.message);
             }
         });
     }
