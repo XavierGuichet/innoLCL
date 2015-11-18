@@ -12,10 +12,11 @@ group:
         deleted: Le groupe a été supprimé
 
 # Security
-"Bad credentials.": Nom d'utilisateur ou mot de passe incorrect
-"The presented password is invalid.": Le mot de passe donné n'est pas correct
-"Your session has timed-out, or you have disabled cookies.": La session a expirée, ou vous avez désactivé les cookies
+"Bad credentials.": Nom d'utilisateur ou mot de passe incorrect.
+"The presented password is invalid.": Le mot de passe donné n'est pas correct.
+"Your session has timed-out, or you have disabled cookies.": La session a expirée, ou vous avez désactivé les cookies.
 "Invalid CSRF token.": Session invalide, veuillez réessayer.
+"User account is disabled.": Vous devez activer votre compte en cliquant sur le lien reçu par mail confirmant votre inscription.
 
 security:
     login:
