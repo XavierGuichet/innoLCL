@@ -86,9 +86,9 @@
                                 <td>{{ idea.author.firstname }}</td>
                                 <td>{{ idea.author.lastname }}</td>
                                 <td>
-									{% if idea.version > 1 %}
-										<span class="rework">{{idea.version}}</span>
-									{% endif %}                                
+                                    {% if idea.version > 1 %}
+                                            <span class="rework">{{idea.version}}</span>
+                                    {% endif %}                                
                                 </td>
                                 <td>({{idea.author.nbideaposted}}) {{ idea.title|length > 20 ? idea.title|slice(0, 20) ~ '...' : idea.title  }}</td>
                                 <td>{{ idea.description|length > 20 ? idea.description|slice(0, 20) ~ '...' : idea.description  }}</td>
