@@ -69,17 +69,57 @@
         </div>
     </div>
 
+	<div class="row">
+		{% for review in Reviews %}
+		<div class="col-lg-6 pastreview">
+			<div class="panel 
+			{% if review.avis == 'maybe' %}
+							panel-yellow
+						{% endif %}
+						{% if review.avis == 'validated' %}
+							panel-green
+						{% endif %}
+						{% if review.avis == 'refused' %}
+							panel-red
+			{% endif %}
+			">
+				<div class="panel-heading">
+						<h2>Avis donné lors de la version {{ review.versionIdea }}</h2>
+					</div>
+				<div class="row">
+					<div class="col-lg-2 button-box panel-footer">
+					
+					<div class="box-icone-validation">
+						{% if review.avis == 'maybe' %}
+							<span class="icone-validation maybe"></span>
+						{% endif %}
+						{% if review.avis == 'validated' %}
+							<span class="icone-validation valid"></span>
+						{% endif %}
+						{% if review.avis == 'refused' %}
+							<span class="icone-validation refus"></span>
+						{% endif %}
+					</div>
+				</div>
+				<div class="col-lg-10">
+					{{ review.commentaire }}
+				</div>
+				</div>
+			</div>
+		</div>
+        {% endfor %}
+    </div>
+	
+	{% if currentview != "compare" %}
     <div class="row">
         <div class="col-lg-9">
-            <label>Commentaire de pré-sélection</label>
-            <div class="panel panel-default commentary panel-body">
-                 {{ idea.commentary }}
-            </div>
+
         </div>
         <div class="col-lg-3 button-box">    
               <a class="compare"  target="_blank" href="{{ path('innolcl_backbundle_compare', {'ideaid': idea.id }) }}">Comparer</a>
 
         </div>
     </div>
+    {% endif %}
 </div>
 

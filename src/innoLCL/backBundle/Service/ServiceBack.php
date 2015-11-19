@@ -66,8 +66,8 @@ class ServiceBack {
      
      public function canUserEditThisIdea($role,$ideastatut,$ideavalidated) {
          if($role == "ROLE_MODERATEUR" && $ideastatut != "notmoderated") { return false;}
-         if($role == "ROLE_LECTEUR"  && ($ideastatut == "notmoderated" || $ideavalidated)) { return false;} //Peux voir toute les idées, il n'affiche pas de formulaire
-         if($role == "ROLE_VALIDATEUR" && ($ideastatut == "notmoderated" || $ideavalidated)) { return false;}
+         if($role == "ROLE_LECTEUR" && 1 == 0) { return false;} //TO DO a corriger ne devrait pas pouvoir accèder à des idées dont il n'y a pas de review pour la version actuelle
+         if($role == "ROLE_VALIDATEUR" && 1 == 0) { return false;} //TO DO a corriger ne devrait pas pouvoir accèder à des idées dont il n'y a pas de review pour la version actuelle
          if($role == "ROLE_SELECTIONNEUR" && $ideavalidated == false) { return false;}
          return true;
      }

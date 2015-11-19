@@ -2,7 +2,7 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 5, ../../../../../../../../lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 5, ../../../../../../../../../../var/lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -24,45 +24,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../../../lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../../../../var/lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../../../lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../../../../var/lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../../../lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../../../../var/lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../../../lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../../../../var/lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../../../lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../../../../var/lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../../../lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../../../../../../var/lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../../../lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../../../../../var/lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../../../lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../../../../../var/lib/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
@@ -253,7 +253,7 @@ body {
 }
 
 /* line 11, ../../../../../../../Compass_back/sass/_main.scss */
-.section-all {
+.section-all, .section-notmoderated {
   background-color: #1c7cb8;
 }
 
@@ -443,14 +443,13 @@ body {
 /* line 147, ../../../../../../../Compass_back/sass/_main.scss */
 .rework {
   display: inline-block;
-  width: 1em;
-  height: 1em;
+  padding: 0 0.5em;
   background: #fbc914;
   margin: 0 auto;
   border-radius: 5px;
 }
 
-/* line 156, ../../../../../../../Compass_back/sass/_main.scss */
+/* line 155, ../../../../../../../Compass_back/sass/_main.scss */
 .pagination_block {
   display: inline-block;
   float: right;
@@ -462,7 +461,7 @@ body {
   border-right: none;
 }
 
-/* line 166, ../../../../../../../Compass_back/sass/_main.scss */
+/* line 165, ../../../../../../../Compass_back/sass/_main.scss */
 .pagination__item {
   display: block;
   float: left;
@@ -473,14 +472,29 @@ body {
   width: 2em;
   line-height: 2em;
 }
-/* line 176, ../../../../../../../Compass_back/sass/_main.scss */
+/* line 175, ../../../../../../../Compass_back/sass/_main.scss */
 .pagination__item_current {
   background: #1c7cb8;
   color: #f7f7f7;
 }
-/* line 180, ../../../../../../../Compass_back/sass/_main.scss */
+/* line 179, ../../../../../../../Compass_back/sass/_main.scss */
 .pagination__item a {
   display: block;
+}
+
+/* line 184, ../../../../../../../Compass_back/sass/_main.scss */
+.pastreview .row {
+  margin: 0;
+}
+
+/* line 187, ../../../../../../../Compass_back/sass/_main.scss */
+.pastreview .button-box.panel-footer {
+  height: auto;
+  margin: 0;
+}
+/* line 190, ../../../../../../../Compass_back/sass/_main.scss */
+.pastreview .button-box.panel-footer span.icone-validation {
+  margin: 0 auto;
 }
 
 /* line 3, ../../../../../../../Compass_back/sass/_form.scss */
@@ -637,7 +651,7 @@ div.box-icone-validation {
   background-position: 0px 0px;
 }
 /* line 133, ../../../../../../../Compass_back/sass/_form.scss */
-.button-box span.icone-validation.maybe:hover, .button-box span.icone-validation.maybe.choisi {
+.button-box span.icone-validation.maybe.js-icone-validation:hover, .button-box span.icone-validation.maybe.choisi {
   background-position: 0px 45px;
 }
 /* line 137, ../../../../../../../Compass_back/sass/_form.scss */
@@ -645,7 +659,7 @@ div.box-icone-validation {
   background-position: 98px 0px;
 }
 /* line 139, ../../../../../../../Compass_back/sass/_form.scss */
-.button-box span.icone-validation.valid:hover, .button-box span.icone-validation.valid.choisi {
+.button-box span.icone-validation.valid.js-icone-validation:hover, .button-box span.icone-validation.valid.choisi {
   background-position: 98px 45px;
 }
 /* line 143, ../../../../../../../Compass_back/sass/_form.scss */
@@ -653,12 +667,12 @@ div.box-icone-validation {
   background-position: 47px 0px;
 }
 /* line 145, ../../../../../../../Compass_back/sass/_form.scss */
-.button-box span.icone-validation.refus:hover, .button-box span.icone-validation.refus.choisi {
+.button-box span.icone-validation.refus.js-icone-validation:hover, .button-box span.icone-validation.refus.choisi {
   background-position: 47px 45px;
 }
 
 /* line 150, ../../../../../../../Compass_back/sass/_form.scss */
-#form_statuts {
+#form_statuts, #form_avis {
   display: none;
 }
 
@@ -672,6 +686,15 @@ div.box-icone-validation {
 /* line 159, ../../../../../../../Compass_back/sass/_form.scss */
 .panel-body-big {
   min-height: 150px;
+}
+
+/* line 163, ../../../../../../../Compass_back/sass/_form.scss */
+.hide-form .form-button {
+  display: none;
+}
+/* line 166, ../../../../../../../Compass_back/sass/_form.scss */
+.hide-form input {
+  display: none;
 }
 
 /*

@@ -212,4 +212,147 @@ class IdeaRepository extends \Doctrine\ORM\EntityRepository
         
         return $query->getQuery()->getResult();
     }
+    
+    /**
+    * retourne la liste des idées non validés (validateur), dont la version n'est pas modéré ou dont la version est modéré dans sa version actuelle par un user précis et avec un statut précis
+    */
+    public function getModerateurListIdea($user = false, $ModerateurReviewStatus = false,$page = 1) {
+		//base idea non validé.
+		$qb = $this->createQueryBuilder('a')
+					->join('a.author', 'user')
+					->where('a.validated = 0');
+		
+		if($user != false) {
+			//ajoute les reviews pour les tester
+			$qb->leftjoin('a.reviews', 'review');
+			
+			if($ModerateurReviewStatus == false) {
+				//Subquery : recupère les IDs des idées ayant une review actuelle par ce modérateur
+				$subqb = $this->createQueryBuilder('i')
+							  ->select('i.id')
+							  ->join('i.reviews', 'review')
+							  ->where('i.validated = 0')
+							  ->andWhere('review.versionIdea = i.version')
+							  ->andWhere('review.moderateur = :user')
+							  ->setParameter('user', $user);
+				$subresults = $subqb->getQuery()->getResult();	
+				//$notArray = array_column($subresults, "id");
+				$notArray = array_map(function($element){return $element['id'];}, $subresults);
+				
+				
+				//Supprime les idées ayant une review actuelle par ce modérateur			
+				if(count($notArray)) {
+					$qb->andWhere($qb->expr()->notIn('a.id', $notArray));
+				}
+				// prends les idées sans reviews ou avec une review de ce modérateur mais sur une version antérieure
+				$qb->andWhere('review.moderateur IS NULL OR review.moderateur != :user')
+						->setParameter('user', $user);
+			}
+			else {
+				//prends les idées avec une review de ce modérateur pour la version actuelle de l'idée et dont l'avis est de type Moderateur status
+			$qb->andWhere('review.moderateur = :user AND review.versionIdea = a.version AND review.avis = :ModerateurReviewStatus')
+						->setParameter('user', $user)
+						->setParameter('ModerateurReviewStatus', $ModerateurReviewStatus);	
+			}
+		}
+		
+		//Gestion pagination
+		$limit = 15;		
+		$first = ($page - 1) * $limit;
+		if($page != 0) {
+        $qb->setFirstResult($first)
+           ->setMaxResults($limit); 
+        }
+		
+		return $qb->getQuery()->getResult();				
+	}
+    
+    /**
+    * Compte le nb idées non validés (validateur), dont la version n'est pas modéré ou dont la version est modéré dans sa version actuelle par un user précis et avec un statut précis
+    */
+    public function getModerateurListIdeaCount($user = false, $ModerateurReviewStatus = false) {
+		//base idea non validé.
+		$qb = $this->createQueryBuilder('a')
+					->select('COUNT(a)')
+					->join('a.author', 'user')
+					->where('a.validated = 0');
+		
+		if($user != false) {
+			//ajoute les reviews pour les tester
+			$qb->leftjoin('a.reviews', 'review');			
+			if($ModerateurReviewStatus == false) {
+				//Subquery : recupère les IDs des idées ayant une review actuelle par ce modérateur
+				$subqb = $this->createQueryBuilder('i')
+							  ->select('i.id')
+							  ->join('i.reviews', 'review')
+							  ->where('i.validated = 0')
+							  ->andWhere('review.versionIdea = i.version')
+							  ->andWhere('review.moderateur = :user')
+							  ->setParameter('user', $user);
+				$subresults = $subqb->getQuery()->getResult();	
+				$notArray = array_map(function($element){return $element['id'];}, $subresults);
+				
+				
+				//Supprime les idées ayant une review actuelle par ce modérateur			
+				if(count($notArray)) {
+					$qb->andWhere($qb->expr()->notIn('a.id', $notArray));
+				}
+				// prends les idées sans reviews ou avec une review de ce modérateur mais sur une version antérieure
+				$qb->andWhere('review.moderateur IS NULL OR review.moderateur != :user')
+						->setParameter('user', $user);
+			}
+			else {
+				//prends les idées avec une review de ce modérateur pour la version actuelle de l'idée et dont l'avis est de type Moderateur status
+			$qb->andWhere('review.moderateur = :user AND review.versionIdea = a.version AND review.avis = :ModerateurReviewStatus')
+						->setParameter('user', $user)
+						->setParameter('ModerateurReviewStatus', $ModerateurReviewStatus);	
+			}
+		}
+		return $qb->getQuery()->getSingleScalarResult();				
+	}
+	
+	/**
+    * retourne la liste des idées non validés (validateur), qui ont au moins un avis donné pour la version actuelle de l'idée
+    */
+    public function getLecteurValidateurListIdea($page = 1) {
+		//base idea non validé.
+		$qb = $this->createQueryBuilder('a')
+					->join('a.author', 'user')
+					->join('a.reviews', 'review')
+					->select('a')
+					->groupBy('a')
+					->where('a.validated = 0');
+
+				// prends les idées  avec une review modérateur sur cette version
+				$qb->andWhere('review.versionIdea = a.version');
+		
+		//Gestion pagination
+		$limit = 15;		
+		$first = ($page - 1) * $limit;
+		if($page != 0) {
+        $qb->setFirstResult($first)
+           ->setMaxResults($limit); 
+        }
+		
+		return $qb->getQuery()->getResult();				
+	}
+	
+	/**
+    * Compte le nb d'idées non validés (validateur), qui ont au moins un avis donné pour la version actuelle de l'idée
+    */
+    public function getLecteurValidateurListIdeaCount() {
+		//base idea non validé.
+		$qb = $this->createQueryBuilder('a')
+					->select('a.id')
+					->join('a.author', 'user')
+					->join('a.reviews', 'review')
+					->groupBy('a.id')
+					->where('a.validated = 0');
+
+				// prends les idées  avec une review modérateur sur cette version
+				$qb->andWhere('review.versionIdea = a.version');
+		
+		//le count a ce niveau et non dans le query sert a eviter les duplicats d'idée qui ne pourrait etre join avec un COUNT SQL (Si c'est possible, merci de me montrer la requete)
+		return count($qb->getQuery()->getResult());				
+	}
 }

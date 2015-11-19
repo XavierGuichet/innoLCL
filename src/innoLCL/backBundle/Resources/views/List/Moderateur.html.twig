@@ -7,17 +7,68 @@
                 <div class="container">
                     <div class="col-lg-3 col-md-6">
                         <div class="panel panel-blue">
-                            <div class="panel-heading text-center">
-                                    <div class="huge all"><span>{{ ideacount.notmoderated }}</span></div>
-                                    <p class="cat_name">Idées Proposées</p>
-                            </div>
+							<a href="{{ path('innolcl_moderateur_list_idea', {'statut': 'all'}) }}">
+								<div class="panel-heading text-center">
+										<div class="huge all">{{ ideacount.notmoderated }}</div>
+										<p class="cat_name">Idées en attente</p>
+								</div>
+								{% if currentview == 'all' %}
+									<div class="panel-footer text-center">
+										 <i class="glyphicon glyphicon-menu-down "></i>
+										<div class="clearfix"></div>
+									</div>
+								{% endif %}
+							</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-yellow">
+                            <a href="{{ path('innolcl_moderateur_list_idea', {'statut': 'maybe'}) }}">
+                                <div class="panel-heading text-center">
+                                        <div class="huge maybe">{{ ideacount.maybe }}</div>
+                                        <p class="cat_name">Peut-être</p>
+                                </div>
+                                {% if currentview == 'maybe' %}
                                 <div class="panel-footer text-center">
                                      <i class="glyphicon glyphicon-menu-down "></i>
                                     <div class="clearfix"></div>
                                 </div>
+                            {% endif %}
+                            </a>
                         </div>
                     </div>
-                    
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-green">
+                            <a href="{{ path('innolcl_moderateur_list_idea', {'statut': 'validated'}) }}">
+                                <div class="panel-heading text-center">
+                                        <div class="huge valid">{{ ideacount.validated }}</div>
+                                        <p class="cat_name">Validées</p>
+                                </div>
+                                {% if currentview == 'validated' %}
+                                <div class="panel-footer text-center">
+                                     <i class="glyphicon glyphicon-menu-down "></i>
+                                    <div class="clearfix"></div>
+                                </div>
+                                {% endif %}
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-red panel-primary">
+                            <a href="{{ path('innolcl_moderateur_list_idea', {'statut': 'refused'}) }}">
+                                <div class="panel-heading text-center">
+                                        <div class="huge refus">{{ ideacount.refused }}</div>
+                                        <p class="cat_name">Refusées</p>
+                                </div>
+                                {% if currentview == 'refused' %}
+                                <div class="panel-footer text-center">
+                                     <i class="glyphicon glyphicon-menu-down "></i>
+                                    <div class="clearfix"></div>
+                                </div>
+                                {% endif %}
+                            </a>
+                        </div>
+                    </div>
                 </div>
         </div>
 
@@ -28,14 +79,18 @@
             <div class="container">
                 <div class="col-lg-12 table-responsive">
                     <table class="table table-hover" id="idealist">
-                        <tr class="table-heading"><th>N°</th><th>Prénom</th><th>Nom</th><th>Cat</th><th>Idée</th><th>Descriptif</th><th>Contacter</th></tr>
+                        <tr class="table-heading"><th>N°</th><th>Prénom</th><th>Nom</th><th>Ver.</th><th>Idée</th><th>Descriptif</th><th>Contacter</th></tr>
                     {% for idea in idealist %}
                         <tr data-action="{{ path('innolcl_backbundle_get_idea', {'ideaid': idea.id }) }}" class="js-getidea">
                                 <td>{{ idea.id }}</td>
                                 <td>{{ idea.author.firstname }}</td>
                                 <td>{{ idea.author.lastname }}</td>
-                                <td>{{ idea.reworked ? '<span class="rework"></span>' }}</td>
-                                <td>{{ idea.title|length > 20 ? idea.title|slice(0, 20) ~ '...' : idea.title  }}</td>
+                                <td>
+									{% if idea.version > 1 %}
+										<span class="rework">{{idea.version}}</span>
+									{% endif %}                                
+                                </td>
+                                <td>({{idea.author.nbideaposted}}) {{ idea.title|length > 20 ? idea.title|slice(0, 20) ~ '...' : idea.title  }}</td>
                                 <td>{{ idea.description|length > 20 ? idea.description|slice(0, 20) ~ '...' : idea.description  }}</td>
                                <td><a href="mailto:{{ idea.author.email }}"><i  class="glyphicon glyphicon-envelope"></i></a></td>
                         </tr>
@@ -56,7 +111,7 @@
 								</li>
 								{% else %}
 								<li class="pagination__item">
-									<a href="{{ path('innolcl_moderateur_list_idea', {'page': i }) }}">
+									<a href="{{ path('innolcl_moderateur_list_idea', {'statut' : currentview, 'page': i }) }}">
 										{{ i }}
 									</a>
 								</li>

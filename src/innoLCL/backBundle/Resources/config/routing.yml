@@ -1,24 +1,25 @@
 #Moderateur 
 innolcl_moderateur_list_idea:
-    path:    /admin/moderateur/list/{page}
-    defaults: { _controller: innoLCLbackBundle:Moderateur:list, page: 1 }
+    path:    /admin/moderateur/list/{statut}/{page}
+    defaults: { _controller: innoLCLbackBundle:Moderateur:list, statut: all, page: 1 }
     requirements:
+        statut:  (all|maybe|refused|validated)+
         page:  \d+
     
 #Lecteur
 innolcl_lecteur_list_idea:
     path:    /admin/lecteur/list/{statut}/{page}
-    defaults: { _controller: innoLCLbackBundle:Lecteur:list, statut: maybe, page: 1 }
+    defaults: { _controller: innoLCLbackBundle:Lecteur:list, statut: all, page: 1 }
     requirements:
-        statut:  (maybe|refused|validated)+
+        statut:  (all|maybe|refused|validated)+
         page:  \d+
  
 #Validateur
 innolcl_validateur_list_idea:
     path:    /admin/validateur/list/{statut}/{page}
-    defaults: { _controller: innoLCLbackBundle:Validateur:list, statut: maybe, page: 1 }
+    defaults: { _controller: innoLCLbackBundle:Validateur:list, statut: all, page: 1 }
     requirements:
-        statut:  (maybe|refused|validated)+
+        statut: (all|maybe|refused|validated)+
         page:  \d+
 
 #Selectionneur

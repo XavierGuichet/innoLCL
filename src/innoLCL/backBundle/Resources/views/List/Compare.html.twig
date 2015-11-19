@@ -7,7 +7,7 @@
 {% block body %}
 
 
-        <div class="row main-section section-{{idea.statuts}}">
+        <div class="row main-section section-{{reviewstatus}}">
             <div class="container">
                 <div class="col-lg-12 table-responsive">
                     <table class="table table-hover" id="idealist">
@@ -15,7 +15,11 @@
                                  <th>{{ idea.id }}</th>
                                 <th>{{ idea.author.firstname }}</th>
                                 <th>{{ idea.author.lastname }}</th>
-                                <th>{{ idea.reworked }}</th>
+                                <th>
+									{% if idea.version > 1 %}
+										<span class="rework">{{idea.version}}</span>
+									{% endif %}                                
+                                </th>
                                 <th>{{ idea.title|length > 20 ? idea.title|slice(0, 20) ~ '...' : idea.title  }}</th>
                                 <th>{{ idea.description|length > 20 ? idea.description|slice(0, 20) ~ '...' : idea.description  }}</th>
                                 <th>{{ idea.author.email }}</th>

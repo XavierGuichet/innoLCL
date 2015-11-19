@@ -74,19 +74,65 @@
         </div>
     </div>
 
+	
+	<div class="row">
+		{% for review in PreviousReviews %}
+		<div class="col-lg-6 pastreview">
+			<div class="panel 
+			{% if review.avis == 'maybe' %}
+							panel-yellow
+						{% endif %}
+						{% if review.avis == 'validated' %}
+							panel-green
+						{% endif %}
+						{% if review.avis == 'refused' %}
+							panel-red
+			{% endif %}
+			">
+				<div class="panel-heading">
+						<h2>Avis donné lors de la version {{ review.versionIdea }}</h2>
+					</div>
+				<div class="row">
+					<div class="col-lg-2 button-box panel-footer">
+					
+					<div class="box-icone-validation">
+						{% if review.avis == 'maybe' %}
+							<span class="icone-validation maybe"></span>
+						{% endif %}
+						{% if review.avis == 'validated' %}
+							<span class="icone-validation valid"></span>
+						{% endif %}
+						{% if review.avis == 'refused' %}
+							<span class="icone-validation refus"></span>
+						{% endif %}
+					</div>
+				</div>
+				<div class="col-lg-10">
+					{{ review.commentaire }}
+				</div>
+				</div>
+			</div>
+		</div>
+        {% endfor %}
+    </div>
+	
+	
+
     <div class="row">
         <div class="col-lg-9">
             <label>Commentaire de pré-sélection</label>
-                {{ form_widget(form.commentary, {'attr': {'class': 'panel panel-default commentary panel-body'}}) }}
+                {{ form_widget(form.commentaire, {'attr': {'class': 'panel panel-default commentary panel-body'}}) }}
         </div>
-        <div class="col-lg-3 button-box">    
+        <div class="col-lg-3 button-box"> 
+			{% if currentview != "compare" %}   
               <a class="compare" target="_blank"  href="{{ path('innolcl_backbundle_compare', {'ideaid': idea.id }) }}">Comparer</a>
+             {% endif %}
               <div class="box-icone-validation">
                     <span class="icone-validation maybe js-icone-validation" data-val="maybe"></span>
                     <span class="icone-validation valid js-icone-validation" data-val="validated"></span>
                     <span class="icone-validation refus js-icone-validation" data-val="refused"></span>
               </div>
-                        {{ form_widget(form.statuts) }}
+                        {{ form_widget(form.avis) }}
         </div>
     </div>
         

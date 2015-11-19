@@ -41,11 +41,31 @@ function getAjax(url) {
         });    
 }
 
-       $("#idealist").on("click","span.icone-validation:not('.lecteur')", function() {
+function updateMenuCount(newCat) {
+var transform = new Array("all", "maybe", "valid", "refus");
+csscat = transform[newCat];
+CountToIncrement = $(".navidea .panel-heading .huge."+csscat).html();
+CountToIncrement++;
+$(".navidea .panel-heading .huge."+csscat).html(CountToIncrement);
+if($(".section-all").length) { decrement = $(".navidea .panel-heading .huge.all");}
+if($(".section-maybe").length) { decrement = $(".navidea .panel-heading .huge.maybe");}
+if($(".section-validated").length) { decrement = $(".navidea .panel-heading .huge.valid");}
+if($(".section-refused").length) { decrement = $(".navidea .panel-heading .huge.refus");}
+CountToDecrement = decrement.html();
+CountToDecrement--;
+decrement.html(CountToDecrement);
+}
+
+       $("#idealist").on("click","span.js-icone-validation:not('.lecteur')", function() {
             val_statut = $(this).attr("data-val");
-            $("span.icone-validation").removeClass("choisi");
+            $("span.icone-validation.js-icone-validation").removeClass("choisi");
             $(this).addClass("choisi");
-            $("#form_statuts").val(val_statut);
+            if($("#form_statuts").length) {
+				$("#form_statuts").val(val_statut);
+			}
+			if($("#form_avis").length) {
+				$("#form_avis").val(val_statut);
+			}
             $("#idealist").find("#form_save").trigger("click");
         });
 
@@ -66,12 +86,21 @@ function getAjax(url) {
         
         $("#idealist").on("submit","form", function(e) {
             if($(this).hasClass("js-validateur")) {
-                if($("#form_statuts").val() == "refused") {
-                    var motifdurefus = prompt("Merci de donner un motif au refus.", "");
-                    $("#form_refusalreason").val(motifdurefus);
+				
+				//Oblige à remplir le champ motif du refus en cas de refus
+                if($("#form_statuts").val() == "refused" && !$.trim($("#form_refusalreason").val())) {
+                    alert("Vous devez donner un motif au refus.");
+                    e.preventDefault();
+                    return;
                 }                
             }
-            
+            if($("#form_statuts").length) {
+				var newcat = $("#form_statuts")[0].selectedIndex;
+			}
+			if($("#form_avis").length) {
+				var newcat = $("#form_avis")[0].selectedIndex;
+			}
+			
             e.preventDefault();
             $.ajax({
             type: $(this).attr('method'),
@@ -83,7 +112,8 @@ function getAjax(url) {
                 if(data.error == 1) {
                     alert(data.message);
                     
-                }                
+                }         
+					updateMenuCount(newcat);
                     $("tr.trcontainer").remove();
                     $("tr.active").remove();
             }

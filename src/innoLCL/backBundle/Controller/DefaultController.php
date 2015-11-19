@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use innoLCL\bothIdeaBundle\Entity\Review;
 
 class DefaultController extends Controller
 {
@@ -64,10 +65,14 @@ class DefaultController extends Controller
         }
     }
     public function getIdeaAction($ideaid) {
-        $user = $this->get('security.context')->getToken()->getUser();
-        
-        $repositoryIdea = $this->getDoctrine()->getManager()->getRepository('innoLCL\bothIdeaBundle\Entity\Idea');
+		
+        $user = $this->get('security.context')->getToken()->getUser();        
+        $em = $this->getDoctrine()->getManager();
+        $repositoryIdea = $em->getRepository('innoLCL\bothIdeaBundle\Entity\Idea');
+        $repositoryReview = $em->getRepository('innoLCL\bothIdeaBundle\Entity\Review');
         $serviceBack = $this->container->get('inno_lc_lback.serviceBack');  
+        
+
         if(is_string($user)) { return new JsonResponse(array('error' => 'unauth'), 200);}
         $role = $serviceBack->getAdminRole($user->getRoles());
 
@@ -84,49 +89,66 @@ class DefaultController extends Controller
         
         switch($role) {
             case "ROLE_MODERATEUR" :
-                    $form = $this->createFormBuilder($idea)
-                    ->setAction($this->generateUrl('innolcl_bothIdea_handleModerateurForm',array("ideaid" => $ideaid)))
-                    ->add('commentary', 'textarea',array('label'  => 'Commentaire de présélection',
-                                                                                            'required' => false,
-                                                                                            'attr' => array('maxlength' => 255)))
-                    ->add('statuts', 'choice', array(
-                                'choices'  => array('notset' => 'notset', 'maybe' => 'Peut-etre', 'validated' => 'Valider', 'refused' => 'Refuser'),
-                                'required' => true,
-                    ))
-                    ->add('save', 'submit', array('label' => 'Enregistrer'))
-                    ->add('reset', 'reset', array('label' => 'Annuler'))
-                    ->getForm();
+					//Recupère les anciennes reviews
+					$previousReviewsList = $repositoryReview->getPreviousList($idea,$user);
+					
+					//Recupère l'actuelle review, s'il n'y en a pas, crée un object review vide
+					$currentReview = $repositoryReview->getCurrent($idea,$user);
+					if($currentReview === null) {
+						$currentReview = new Review();
+					}
+            
+                    $form = $this->createFormBuilder($currentReview)
+								->setAction($this->generateUrl('innolcl_bothIdea_handleModerateurForm',array("ideaid" => $ideaid,"review" => $currentReview)))
+								->add('commentaire', 'textarea',array('label'  => 'Commentaire de présélection',
+																										'required' => false,
+																										'attr' => array('maxlength' => 255)))
+								->add('avis', 'choice', array(
+											'choices'  => array('notset' => 'notset', 'maybe' => 'Peut-etre', 'validated' => 'Valider', 'refused' => 'Refuser'),
+											'required' => true,
+								))
+								->add('save', 'submit', array('label' => 'Enregistrer'))
+								->add('reset', 'reset', array('label' => 'Annuler'))
+								->getForm();
                     
                     $form_view = $this->render('innoLCLbothIdeaBundle:Form:moderateur.html.twig', array(
                     'form' => $form->createView(),
-                    'idea' => $idea
+                    'idea' => $idea,
+                    'currentview' => 'ajax',
+                    'PreviousReviews' => $previousReviewsList
                 ));
                 return new JsonResponse(array( 'message' => '','HTMLcontent' => $form_view->getContent()), 200);
             break;
             case "ROLE_LECTEUR" :
-                $view = $this->render('innoLCLbothIdeaBundle:Form:lecteur.html.twig', array('idea' => $idea));
+				$AllReviewsList = $repositoryReview->findBy(array('idea' => $idea),array('versionIdea' => 'asc'));
+                $view = $this->render('innoLCLbothIdeaBundle:Form:lecteur.html.twig', array('idea' => $idea,'currentview' => 'ajax','Reviews' => $AllReviewsList));
                 return new JsonResponse(array( 'message' => '','HTMLcontent' => $view->getContent()), 200);
             break;
             case "ROLE_VALIDATEUR" :
+				$AllReviewsList = $repositoryReview->findBy(array('idea' => $idea),array('versionIdea' => 'asc'));
                 $form = $this->createFormBuilder($idea)
                     ->setAction($this->generateUrl('innolcl_bothIdea_handleValidateurForm',array("ideaid" => $ideaid)))
                     ->add('statuts', 'choice', array(
                                 'choices'  => array('maybe' => 'Peut-etre', 'validated' => 'Valider', 'refused' => 'Refuser'),
                                 'required' => true,
                     ))
-                    ->add('refusalreason', 'hidden')
+                    ->add('refusalreason', 'textarea',array('required' => false))
                     ->add('save', 'submit', array('label' => 'Enregistrer'))
-                    ->add('reset', 'reset', array('label' => 'Annuler'))
                     ->getForm();
                     
                     $form_view = $this->render('innoLCLbothIdeaBundle:Form:validateur.html.twig', array(
                     'form' => $form->createView(),
-                    'idea' => $idea
+                    'idea' => $idea,
+                    'currentview' => 'ajax',
+                    'Reviews' => $AllReviewsList
                 ));
+                
+                
                  return new JsonResponse(array( 'message' => '','HTMLcontent' => $form_view->getContent()), 200);
             break;
             case "ROLE_SELECTIONNEUR" :
-                $view = $this->render('innoLCLbothIdeaBundle:Form:lecteur.html.twig', array('idea' => $idea));
+                $AllReviewsList = $repositoryReview->findBy(array('idea' => $idea),array('versionIdea' => 'asc'));
+                $view = $this->render('innoLCLbothIdeaBundle:Form:lecteur.html.twig', array('idea' => $idea,'currentview' => 'ajax','Reviews' => $AllReviewsList));
                 return new JsonResponse(array( 'message' => '','HTMLcontent' => $view->getContent()), 200);
             break;    
         }

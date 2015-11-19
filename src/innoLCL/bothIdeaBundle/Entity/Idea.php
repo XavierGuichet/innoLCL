@@ -26,7 +26,7 @@ class Idea
     $this->commentary = "";
     $this->statuts = "notmoderated";
     $this->validated = false;
-    $this->reworked = false;
+    $this->version = 1;
     $this->selected = false;
     }
     /**
@@ -70,7 +70,7 @@ class Idea
      *
      * @ORM\Column(name="refusalreason", type="text", nullable=true, length=200)
      * 
-     * @Assert\Length(max = 200, maxMessage = "Votre commentaire de refus doit faire moins de {{ limit }} caractères")
+     * @Assert\Length(min= 0, max = 200, maxMessage = "Votre commentaire de refus doit faire moins de {{ limit }} caractères")
      */
     private $refusalreason;
 
@@ -147,11 +147,11 @@ class Idea
     private $validated;
 
     /**
-     * @var boolean
+     * @var integer
      *
-     * @ORM\Column(name="reworked", type="boolean")
+     * @ORM\Column(name="version", type="integer")
      */
-    private $reworked;
+    private $version;
 
     /**
      * @var integer
@@ -160,7 +160,11 @@ class Idea
      */
     private $selected;
 
-
+    /**
+	 * @ORM\OneToMany(targetEntity="innoLCL\bothIdeaBundle\Entity\Review", mappedBy="idea")
+	 */
+	private $reviews;
+	
     /**
      * Get id
      *
@@ -436,30 +440,6 @@ class Idea
     }
 
     /**
-     * Set reworked
-     *
-     * @param boolean $reworked
-     *
-     * @return Idea
-     */
-    public function setReworked($reworked)
-    {
-        $this->reworked = $reworked;
-
-        return $this;
-    }
-
-    /**
-     * Get reworked
-     *
-     * @return boolean
-     */
-    public function getReworked()
-    {
-        return $this->reworked;
-    }
-
-    /**
      * Set selected
      *
      * @param boolean $selected
@@ -568,5 +548,63 @@ class Idea
     public function getRefusalreason()
     {
         return $this->refusalreason;
+    }
+
+    /**
+     * Set version
+     *
+     * @param integer $version
+     *
+     * @return Idea
+     */
+    public function setVersion($version)
+    {
+        $this->version = $version;
+
+        return $this;
+    }
+
+    /**
+     * Get version
+     *
+     * @return integer
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
+
+    /**
+     * Add review
+     *
+     * @param \innoLCL\bothIdeaBundle\Entity\Review $review
+     *
+     * @return Idea
+     */
+    public function addReview(\innoLCL\bothIdeaBundle\Entity\Review $review)
+    {
+        $this->reviews[] = $review;
+
+        return $this;
+    }
+
+    /**
+     * Remove review
+     *
+     * @param \innoLCL\bothIdeaBundle\Entity\Review $review
+     */
+    public function removeReview(\innoLCL\bothIdeaBundle\Entity\Review $review)
+    {
+        $this->reviews->removeElement($review);
+    }
+
+    /**
+     * Get reviews
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReviews()
+    {
+        return $this->reviews;
     }
 }

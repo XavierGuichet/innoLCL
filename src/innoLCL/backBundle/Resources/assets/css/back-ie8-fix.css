@@ -25,54 +25,66 @@
   display: none;
 }
 
-/* line 22, ../../../../../../../Compass_back/sass/back-ie8-fix.scss */
+/* line 21, ../../../../../../../Compass_back/sass/back-ie8-fix.scss */
+.col-lg-2 {
+  float: left;
+  width: 16.66%;
+}
+
+/* line 25, ../../../../../../../Compass_back/sass/back-ie8-fix.scss */
 .col-lg-3 {
   float: left;
   width: 25%;
 }
 
-/* line 26, ../../../../../../../Compass_back/sass/back-ie8-fix.scss */
+/* line 29, ../../../../../../../Compass_back/sass/back-ie8-fix.scss */
 .col-lg-4 {
   float: left;
   width: 33.33%;
 }
 
-/* line 30, ../../../../../../../Compass_back/sass/back-ie8-fix.scss */
+/* line 33, ../../../../../../../Compass_back/sass/back-ie8-fix.scss */
 .col-lg-6 {
   float: left;
   width: 50%;
 }
 
-/* line 34, ../../../../../../../Compass_back/sass/back-ie8-fix.scss */
+/* line 37, ../../../../../../../Compass_back/sass/back-ie8-fix.scss */
 .col-lg-9 {
   float: left;
   width: 75%;
 }
 
-/* line 38, ../../../../../../../Compass_back/sass/back-ie8-fix.scss */
+/* line 41, ../../../../../../../Compass_back/sass/back-ie8-fix.scss */
+.col-lg-10 {
+  float: left;
+  width: 83.33%;
+}
+
+/* line 45, ../../../../../../../Compass_back/sass/back-ie8-fix.scss */
 .col-lg-12 {
   float: left;
   width: 100%;
 }
 
-/* line 42, ../../../../../../../Compass_back/sass/back-ie8-fix.scss */
+/* line 49, ../../../../../../../Compass_back/sass/back-ie8-fix.scss */
 .form-slide textarea.commentary, .form-slide div.commentary {
   height: 150px;
 }
 
-/* line 45, ../../../../../../../Compass_back/sass/back-ie8-fix.scss */
+/* line 52, ../../../../../../../Compass_back/sass/back-ie8-fix.scss */
 .button-box a.compare {
   height: 58px;
   line-height: 58px;
 }
 
-/* line 49, ../../../../../../../Compass_back/sass/back-ie8-fix.scss */
+/* line 56, ../../../../../../../Compass_back/sass/back-ie8-fix.scss */
 .ie-admin-login {
   float: right !important;
   margin-right: 300px;
 }
 
-/* line 53, ../../../../../../../Compass_back/sass/back-ie8-fix.scss */
+/* line 60, ../../../../../../../Compass_back/sass/back-ie8-fix.scss */
 .admin-auth {
   min-height: 800px;
   width: 100%;
