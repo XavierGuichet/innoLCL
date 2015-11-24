@@ -56,7 +56,9 @@ class IdleSessionRedirection
 
                
                 $this->securityContext->setToken(null);
-                $this->session->getFlashBag()->set('info', 'Vous êtes déconnecté car vous êtes inactif depuis plus de 15 minutes.');
+                
+                $maxIdleTimeMinute = floor($this->maxIdleTime/60);
+                $this->session->getFlashBag()->set('info', 'Vous êtes déconnecté car vous êtes inactif depuis plus de '.$maxIdleTimeMinute.' minutes.');                
                 
                 $event->setResponse($response);
 
