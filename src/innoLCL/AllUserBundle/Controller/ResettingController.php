@@ -17,16 +17,16 @@ class ResettingController extends BaseController
      */
     public function requestAction()
     {
-		$request = $this->container->get('request');
-		if($request->isXmlHttpRequest()) {
-			$img_path = $this->container->get('templating.helper.assets')->getUrl("images/pwd_retrieve.png", null);
-			return new JsonResponse(
-				array("title" => "<img src='".$img_path."' alt='Récupération de mot de passe' />",
-					  "content" => $this->container->get('templating')->render('innoLCLAllUserBundle:Resetting:request_content.html.twig')));
-		}
-		else {
-			return $this->container->get('templating')->renderResponse('innoLCLAllUserBundle:Resetting:request.html.twig');
-		}
+        $request = $this->container->get('request');
+        if($request->isXmlHttpRequest()) {
+            $img_path = $this->container->get('templating.helper.assets')->getUrl("images/pwd_retrieve.png", null);
+            return new JsonResponse(
+                    array("title" => "<img src='".$img_path."' alt='Récupération de mot de passe' />",
+                              "content" => $this->container->get('templating')->render('innoLCLAllUserBundle:Resetting:request_content.html.twig')));
+        }
+        else {
+            return $this->container->get('templating')->renderResponse('innoLCLAllUserBundle:Resetting:request.html.twig');
+        }
     }
     
     /**
@@ -34,33 +34,33 @@ class ResettingController extends BaseController
      */
     public function sendEmailAction()
     {
-		$request = $this->container->get('request');
+        $request = $this->container->get('request');
         $username = $request->request->get('username');
         /** @var $user UserInterface */
         $user = $this->container->get('fos_user.user_manager')->findUserByUsernameOrEmail($username);
         
         if (null === $user) {
-			if($request->isXmlHttpRequest()) {
-				$img_path = $this->container->get('templating.helper.assets')->getUrl("images/pwd_retrieve.png", null);
-				return new JsonResponse(
-					array("title" => "<img src='".$img_path."' alt='Récupération de mot de passe' />",
-						  "content" => $this->container->get('templating')->render('innoLCLAllUserBundle:Resetting:request_content.html.twig', array('invalid_username' => $username))));
-			}
-			else {
-				return $this->container->get('templating')->renderResponse('innoLCLAllUserBundle:Resetting:request.html.twig');
-			}
+            if($request->isXmlHttpRequest()) {
+                $img_path = $this->container->get('templating.helper.assets')->getUrl("images/pwd_retrieve.png", null);
+                return new JsonResponse(
+                    array("title" => "<img src='".$img_path."' alt='Récupération de mot de passe' />",
+                              "content" => $this->container->get('templating')->render('innoLCLAllUserBundle:Resetting:request_content.html.twig', array('invalid_username' => $username))));
+            }
+            else {
+                return $this->container->get('templating')->renderResponse('innoLCLAllUserBundle:Resetting:request.html.twig');
+            }
         }
 
         if ($user->isPasswordRequestNonExpired($this->container->getParameter('fos_user.resetting.token_ttl'))) {
-			if($request->isXmlHttpRequest()) {
-				$img_path = $this->container->get('templating.helper.assets')->getUrl("images/pwd_already.png", null);
-				return new JsonResponse(
-					array("title" => "<img src='".$img_path."' alt='Demande déjà effectuée' />",
-						  "content" => $this->container->get('templating')->render('innoLCLAllUserBundle:Resetting:passwordAlreadyRequested_content.html.twig')));
-			}
-			else {
-				return $this->container->get('templating')->renderResponse('innoLCLAllUserBundle:Resetting:passwordAlreadyRequested.html.twig');
-			}
+            if($request->isXmlHttpRequest()) {
+                $img_path = $this->container->get('templating.helper.assets')->getUrl("images/pwd_already.png", null);
+                return new JsonResponse(
+                    array("title" => "<img src='".$img_path."' alt='Demande déjà effectuée' />",
+                              "content" => $this->container->get('templating')->render('innoLCLAllUserBundle:Resetting:passwordAlreadyRequested_content.html.twig')));
+            }
+            else {
+                return $this->container->get('templating')->renderResponse('innoLCLAllUserBundle:Resetting:passwordAlreadyRequested.html.twig');
+            }
         }
 
         if (null === $user->getConfirmationToken()) {
@@ -74,12 +74,12 @@ class ResettingController extends BaseController
         $user->setPasswordRequestedAt(new \DateTime());
         $this->container->get('fos_user.user_manager')->updateUser($user);
 
-		if($request->isXmlHttpRequest()) {
-				$img_path = $this->container->get('templating.helper.assets')->getUrl("images/pwd_success.png", null);
-				return new JsonResponse(
-					array("title" => "<img src='".$img_path."' alt='Récupération reussie' />",
-						  "content" => $this->container->get('templating')->render('innoLCLAllUserBundle:Resetting:checkEmail.html.twig')));
-			}
+        if($request->isXmlHttpRequest()) {
+            $img_path = $this->container->get('templating.helper.assets')->getUrl("images/pwd_success.png", null);
+            return new JsonResponse(
+                array("title" => "<img src='".$img_path."' alt='Récupération reussie' />",
+                          "content" => $this->container->get('templating')->render('innoLCLAllUserBundle:Resetting:checkEmail.html.twig')));
+        }
 		
 		
         return new RedirectResponse($this->container->get('router')->generate('fos_user_resetting_check_email'));
