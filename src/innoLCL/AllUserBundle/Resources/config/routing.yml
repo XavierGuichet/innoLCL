@@ -76,3 +76,10 @@ fos_admin_user_security_check:
 fos_admin_user_security_logout:
     path:  /admin/logout
     defaults: { _controller: innoLCLAllUserBundle:Adminlog:logout }
+    
+#mainteneur de session active ajax
+session_check:
+    path:  /session_check
+    defaults: { _controller: innoLCLAllUserBundle:Session:check }
+    requirements:
+        _method: POST

@@ -13,6 +13,7 @@ jQuery(document).ready( function($) {
     //Prepare la box de popin et celle de la video
     jQuery(document).foundation();
     Foundation.libs.reveal.settings.close_on_background_click = false;
+    Foundation.libs.reveal.settings.multiple_opened = false;
     $("body").on("click","div.reveal-modal-bg", function() {
         $('.reveal-modal').foundation('reveal', 'close');
     });
@@ -69,9 +70,13 @@ jQuery(document).ready( function($) {
                 $('html,body').animate({
                       scrollTop: $("#formIdea").offset().top
                     }, 1000);
-            }else{
-                alert(data);
-            }
+            }else {
+				if(typeof data.error !== 'undefined'){
+					$('#modal_empty .popup__title').html("Une erreur est survenue");
+					$('#modal_empty .popup__content').html(data.error.message);
+					$('#modal_empty').foundation('reveal', 'open');
+				}
+			}
         })
         .fail(function (jqXHR, textStatus, errorThrown) {
             $('#formIdea #form_save').show();
@@ -83,7 +88,9 @@ jQuery(document).ready( function($) {
                     }, 1000);
                 }
             }else{
-                alert('Erreur de soumission : '+errorThrown);
+				$('#modal_empty .popup__title').html("Une erreur est survenue");
+				$('#modal_empty .popup__content').html(errorThrown);
+				$('#modal_empty').foundation('reveal', 'open');
             }
         });
     });

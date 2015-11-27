@@ -1,4 +1,4 @@
-{# src/innoLCL/frontBundle/Resources/views/Default/index.html.twig #}
+{# src/innoLCL/frontBundle/Resources/views/Default/proposal.html.twig #}
 
 {% extends "innoLCLfrontBundle::layout.html.twig" %}
 
@@ -102,5 +102,13 @@
         </div>
         
         {{ render(controller("innoLCLfrontBundle:Video:createForm")) }}
+{% endblock %}
+
+{% block javascript %}
+	{% javascripts 
+			'@innoLCLfrontBundle/Resources/assets/js/sessionchecker.js'
+			 %}
+			<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
 {% endblock %}
 

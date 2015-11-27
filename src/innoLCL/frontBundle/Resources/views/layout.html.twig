@@ -61,14 +61,17 @@
             </div>
         </div>
     </footer>
-    {% javascripts 
-        '@innoLCLfrontBundle/Resources/assets/js/jquery-1.11.3.min.js'
-        '@innoLCLfrontBundle/Resources/assets/js/foundation.min.js'
-        '@innoLCLfrontBundle/Resources/assets/js/jquery.mousewheel.js'
-        '@innoLCLfrontBundle/Resources/assets/js/jquery.jscrollpane.min.js'
-        '@innoLCLfrontBundle/Resources/assets/js/front.js'
-         %}
-        <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
+		{% javascripts 
+			'@innoLCLfrontBundle/Resources/assets/js/jquery-1.11.3.min.js'
+			'@innoLCLfrontBundle/Resources/assets/js/foundation.min.js'
+			'@innoLCLfrontBundle/Resources/assets/js/jquery.mousewheel.js'
+			'@innoLCLfrontBundle/Resources/assets/js/jquery.jscrollpane.min.js'
+			'@innoLCLfrontBundle/Resources/assets/js/front.js'
+			 %}
+			<script src="{{ asset_url }}"></script>
+		{% endjavascripts %}
+	
+	{% block javascript %}	
+    {% endblock %}
     </body>
 </html>

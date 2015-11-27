@@ -7,6 +7,7 @@ use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Security\Core\SecurityContextInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
@@ -55,13 +56,16 @@ class IdleSessionRedirection
                     $response = new RedirectResponse($this->router->generate('innolcl_front_homepage'));
 
                
-                $this->securityContext->setToken(null);
-                
+                $this->securityContext->setToken(null);                
                 $maxIdleTimeMinute = floor($this->maxIdleTime/60);
-                $this->session->getFlashBag()->set('info', 'Vous êtes déconnecté car vous êtes inactif depuis plus de '.$maxIdleTimeMinute.' minutes.');                
+                $this->session->getFlashBag()->set('info', 'Vous êtes déconnecté car vous êtes inactif depuis plus de '.$maxIdleTimeMinute.' minutes.'); 
                 
+                $request = $event->getRequest();
+                if ($request->isXmlHttpRequest()) {
+					$response = new JsonResponse(array('error' => array('message' => 'Votre session a expirée. Vous devez vous reconnecter.')), 200);
+				}
+				              
                 $event->setResponse($response);
-
             }
         }
     }
