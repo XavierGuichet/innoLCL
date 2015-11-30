@@ -18,7 +18,8 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
-    cookie_secure: ~
+    # mettre cookie_secure: true uniquement si https dispo
+    cookie_secure: false
     cookie_httponly: true
 
     app_front_url: "http://localhost:8888"
