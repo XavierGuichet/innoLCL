@@ -17,7 +17,7 @@ class TaskResendMailCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('task:resendMailConfirm')
+            ->setName('task:resendMail')
             ->setDescription('Task command that send again confirm Mail')
         ;
     }
@@ -52,6 +52,20 @@ class TaskResendMailCommand extends ContainerAwareCommand
                     //$this->getContainer()->get('session')->set('fos_user_send_confirmation_email/email', $user->getEmail());
             //    }
             //}
+            
+            
+            // ré-envoi le mail de validation des idées
+            $ideas = $em->getRepository('innoLCL\bothIdeaBundle\Entity\Idea')->getListIdeaByStatut("validated",1,false,0);
+            echo count($ideas);
+            if($ideas){
+                foreach($ideas as $idea){
+                    $to = $idea->getAuthor()->getEmail();
+                    if (!$this->getContainer()->get('mail_to_user')->sendEmailValider($to)) {
+                        throw $this->createNotFoundException('Unable to send Idea-valider mail.');
+                    }
+                }
+            }
+            
             
             
         } catch (\Exception $e) {

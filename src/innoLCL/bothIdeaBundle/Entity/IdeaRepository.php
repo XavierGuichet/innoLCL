@@ -175,9 +175,9 @@ class IdeaRepository extends \Doctrine\ORM\EntityRepository
     */
     public function getListIdeaByStatut($statut,$validated = 0,$not = false,$page = 1) 
     {
-		$limit = 15;
+        $limit = 15;
 		
-		$first = ($page - 1) * $limit;
+        $first = ($page - 1) * $limit;
         $qb = $this->createQueryBuilder('a')
                             ->join('a.author', 'user')
                             ->where('a.validated = :validated')
@@ -191,12 +191,12 @@ class IdeaRepository extends \Doctrine\ORM\EntityRepository
         else
         {
             $qb->andwhere('a.statuts = :statut')
-                  ->setParameter('statut', $statut);
+                ->setParameter('statut', $statut);
         }
         if($page != 0) {
-        $qb->setFirstResult($first)
-           ->setMaxResults($limit); 
-         }
+            $qb->setFirstResult($first)
+                ->setMaxResults($limit); 
+        }
                             
         return $qb->getQuery()->getResult();
     }
