@@ -77,12 +77,7 @@ class MailToUser {
     
 
     private function sendMail($subject, $view, $to){
-        
-        // on substitue lcl.fr par lcl.com pour les adresses concernées afin de passer par les boites externes.                
-        if(strpos($to, '@lcl.fr') !== false){
-            $to = str_replace('@lcl.fr', '@lcl.com', $to);
-        }
-        
+                
         $view = $this->createOnlineVersion($view);
         
         // pour utiliser la fonction php mail à la place du smtp
@@ -101,7 +96,20 @@ class MailToUser {
             $this->mailer->send($mail);
         } catch (Exception $exc) {
             return false;
-        }                 
+        }
+        
+        // on double les envois
+        
+        // on substitue lcl.fr par lcl.com pour les adresses concernées afin de passer par les boites externes.                
+        if(strpos($to, '@lcl.fr') !== false){
+            $to = str_replace('@lcl.fr', '@lcl.com', $to);       
+            try {
+                $mail->setTo($to);
+                $this->mailer->send($mail);
+            } catch (Exception $exc) {
+                return false;
+            }
+        }
 
         return true;
     }
