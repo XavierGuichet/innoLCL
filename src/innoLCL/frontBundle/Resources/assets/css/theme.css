@@ -2,7 +2,7 @@
 @font-face {
   font-family: 'ThirstyScript';
   src: url("../../../fonts/thirstyscriptregular-webfont.eot?#iefix") format("embedded-opentype");
-  src: url("../../../fonts/thirstyscriptregular-webfont.ttf") format("truetype"), url("../../../fonts/thirstyscriptregular-webfont.woff") format("woff"), url("../../../fonts/thirstyscriptregular-webfont.eot?#iefix") format("embedded-opentype"), url("../../../fonts/thirstyscriptregular-webfont.svg#../../../fonts/thirstyscriptregular-webfont") format("svg");
+  src: url("../../../fonts/thirstyscriptregular-webfont.ttf") format("truetype"), url("../../../fonts/thirstyscriptregular-webfont.woff") format("woff"), url("../../../fonts/thirstyscriptregular-webfont.eot?#iefix") format("embedded-opentype"), url("../../../fonts/thirstyscriptregular-webfont.svg#/fonts/thirstyscriptregular-webfont") format("svg");
   font-weight: 900;
   font-style: normal;
 }
@@ -84,6 +84,17 @@ h1, h2, h3, h4, h5, h6 {
 .txtstd-weight {
   font-family: 'Lato';
   font-weight: 400;
+}
+
+/* line 39, ../../../../../../../Compass_front/sass/theme.scss */
+.row-big, .row.row-big {
+  max-width: 100%;
+  margin: 0;
+}
+
+/* line 43, ../../../../../../../Compass_front/sass/theme.scss */
+.js-videoopen {
+  cursor: pointer;
 }
 
 /*
@@ -371,6 +382,40 @@ header {
     -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
   }
 }
+/* line 185, ../../../../../../../Compass_front/sass/_header.scss */
+.select_in_progress {
+  text-transform: uppercase;
+  color: #f7f7f7;
+  font-size: 23px;
+  font-size: 1.4375rem;
+  text-shadow: 0px 1px 2px #666;
+  -moz-text-shadow: 0px 1px 2px #666;
+  -webkit-text-shadow: 0px 1px 2px #666;
+  position: relative;
+  z-index: 1000;
+  line-height: 1.33em;
+}
+/* line 195, ../../../../../../../Compass_front/sass/_header.scss */
+.select_in_progress-standard {
+  text-transform: none;
+  font-size: 21px;
+  font-size: 1.3125rem;
+}
+
+/* line 200, ../../../../../../../Compass_front/sass/_header.scss */
+.select_in_progress-bigger {
+  text-transform: uppercase;
+  color: #f7f7f7;
+  font-size: 28px;
+  font-size: 1.75rem;
+  text-shadow: 0px 1px 2px #666;
+  -moz-text-shadow: 0px 1px 2px #666;
+  -webkit-text-shadow: 0px 1px 2px #666;
+  position: relative;
+  z-index: 1000;
+  line-height: 1.33em;
+}
+
 /* line 1, ../../../../../../../Compass_front/sass/_login.scss */
 .login {
   padding: 1em 1.5em 1.5em;
@@ -779,6 +824,280 @@ option[value=''] {
   color: #979797;
 }
 
+/* line 1, ../../../../../../../Compass_front/sass/_laureats.scss */
+.laureats {
+  background: #000000;
+  position: relative;
+}
+/* line 5, ../../../../../../../Compass_front/sass/_laureats.scss */
+.laureats__mainblock {
+  padding: 0;
+}
+/* line 8, ../../../../../../../Compass_front/sass/_laureats.scss */
+.laureats__block {
+  padding: 0;
+  border: 2px solid #000000;
+  position: relative;
+}
+/* line 12, ../../../../../../../Compass_front/sass/_laureats.scss */
+.laureats__block:hover div.hover_filtre {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 500;
+  top: 0;
+  left: 0;
+}
+/* line 22, ../../../../../../../Compass_front/sass/_laureats.scss */
+.laureats__photo {
+  width: 100%;
+}
+/* line 26, ../../../../../../../Compass_front/sass/_laureats.scss */
+.laureats__content {
+  padding: 0 0.5em 0 1em;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: #f7f7f7;
+  z-index: 750;
+}
+/* line 35, ../../../../../../../Compass_front/sass/_laureats.scss */
+.laureats__title {
+  line-height: 36px;
+  font-size: 32px;
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 0.25em;
+  text-shadow: 0px 0px 1px #000000;
+}
+/* line 45, ../../../../../../../Compass_front/sass/_laureats.scss */
+.laureats__direction {
+  font-size: 18px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin: 0.25em 0;
+  line-height: 1em;
+}
+/* line 51, ../../../../../../../Compass_front/sass/_laureats.scss */
+.laureats__idee {
+  font-size: 32px;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0.25em 0;
+  line-height: 1.125em;
+}
+
+/* line 60, ../../../../../../../Compass_front/sass/_laureats.scss */
+.hover_1 {
+  background: #ffa900;
+  background: transparent\9;
+  background: rgba(255, 169, 0, 0.4);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4cffa900,endColorstr=#4cffa900);
+  zoom: 1;
+}
+
+/* line 67, ../../../../../../../Compass_front/sass/_laureats.scss */
+.hover_2 {
+  background: #00ab62;
+  background: transparent\9;
+  background: rgba(0, 171, 98, 0.4);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c00ab62,endColorstr=#4c00ab62);
+  zoom: 1;
+}
+
+/* line 74, ../../../../../../../Compass_front/sass/_laureats.scss */
+.hover_3 {
+  background: #00acaf;
+  background: transparent\9;
+  background: rgba(0, 172, 175, 0.4);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c00acaf,endColorstr=#4c00acaf);
+  zoom: 1;
+}
+
+/* line 81, ../../../../../../../Compass_front/sass/_laureats.scss */
+.hover_4 {
+  background: #f70b3e;
+  background: transparent\9;
+  background: rgba(247, 11, 62, 0.4);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4cf70b3e,endColorstr=#4cf70b3e);
+  zoom: 1;
+}
+
+/* line 88, ../../../../../../../Compass_front/sass/_laureats.scss */
+.hover_5 {
+  background: #88046c;
+  background: transparent\9;
+  background: rgba(136, 4, 108, 0.4);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c88046c,endColorstr=#4c88046c);
+  zoom: 1;
+}
+
+/* line 95, ../../../../../../../Compass_front/sass/_laureats.scss */
+.hover_filtre:nth-child(n) {
+  filter: none;
+}
+
+/*
+#ffa900 255,169,0
+#00ab62 0,171,98
+#00acaf 0,172,175
+#f70b3e 247,11,62
+#88046c 136,4,108 */
+@media screen and (max-width: 840px) {
+  /* line 107, ../../../../../../../Compass_front/sass/_laureats.scss */
+  .laureats__title {
+    font-size: 20px;
+    font-size: 1.25rem;
+  }
+  /* line 110, ../../../../../../../Compass_front/sass/_laureats.scss */
+  .laureats__direction {
+    font-size: 16px;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0.25em 0;
+    line-height: 1em;
+  }
+  /* line 116, ../../../../../../../Compass_front/sass/_laureats.scss */
+  .laureats__idee {
+    font-size: 20px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0.25em 0;
+    line-height: 1.125em;
+  }
+}
+/* line 3, ../../../../../../../Compass_front/sass/_enattendant.scss */
+.enattendant__header {
+  padding: 1em 0;
+  background: #000000;
+}
+/* line 6, ../../../../../../../Compass_front/sass/_enattendant.scss */
+.enattendant__header__title {
+  letter-spacing: -0.02em;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 32px;
+  font-size: 2rem;
+  line-height: 1.33em;
+  margin: 0;
+  padding: 0.5em;
+  font-weight: 300;
+  color: #f7f7f7;
+}
+/* line 16, ../../../../../../../Compass_front/sass/_enattendant.scss */
+.enattendant__header__title .bold {
+  font-weight: 700;
+}
+/* line 21, ../../../../../../../Compass_front/sass/_enattendant.scss */
+.enattendant__block--texte {
+  padding: 0.5em;
+}
+/* line 24, ../../../../../../../Compass_front/sass/_enattendant.scss */
+.enattendant__title {
+  color: #074390;
+  font-size: 24px;
+  font-size: 1.5rem;
+  border-bottom: 3px solid #000000;
+  line-height: 1.33em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+/* line 33, ../../../../../../../Compass_front/sass/_enattendant.scss */
+.enattendant__title-jury {
+  margin: 1.5em auto 0.25em;
+}
+/* line 36, ../../../../../../../Compass_front/sass/_enattendant.scss */
+.enattendant__content {
+  font-size: 16px;
+  font-size: 1rem;
+}
+/* line 40, ../../../../../../../Compass_front/sass/_enattendant.scss */
+.enattendant__block--video {
+  padding: 0;
+}
+/* line 43, ../../../../../../../Compass_front/sass/_enattendant.scss */
+.enattendant__videopreview {
+  width: 100%;
+}
+/* line 46, ../../../../../../../Compass_front/sass/_enattendant.scss */
+.enattendant__btn-play {
+  position: absolute;
+  height: 33%;
+  top: 33%;
+  right: 16.66%;
+  z-index: 1000;
+}
+/* line 53, ../../../../../../../Compass_front/sass/_enattendant.scss */
+.enattendant .nth1 {
+  border-right: 1px solid #ffffff;
+  clear: both;
+}
+/* line 57, ../../../../../../../Compass_front/sass/_enattendant.scss */
+.enattendant .nth2 {
+  border-left: 1px solid #ffffff;
+}
+
+@media screen and (max-width: 800px) {
+  /* line 63, ../../../../../../../Compass_front/sass/_enattendant.scss */
+  .enattendant__content {
+    font-size: 14px;
+    font-size: 0.875rem;
+  }
+}
+@media screen and (max-width: 840px) {
+  /* line 69, ../../../../../../../Compass_front/sass/_enattendant.scss */
+  .enattendant__block--texte {
+    padding: 0.5em;
+    line-height: 1.125em;
+    min-height: 234px;
+  }
+
+  /* line 74, ../../../../../../../Compass_front/sass/_enattendant.scss */
+  .enattendant__content {
+    margin: 0;
+  }
+}
+@media screen and (min-width: 840px) {
+  /* line 80, ../../../../../../../Compass_front/sass/_enattendant.scss */
+  .enattendant__title {
+    margin-bottom: 0.75em;
+  }
+
+  /* line 83, ../../../../../../../Compass_front/sass/_enattendant.scss */
+  .enattendant__block--texte {
+    padding: 0.5em 1em 0;
+    line-height: 1.33em;
+    min-height: 244px;
+  }
+
+  /* line 89, ../../../../../../../Compass_front/sass/_enattendant.scss */
+  .enattendant__content {
+    margin: 0;
+  }
+}
+@media screen and (min-width: 930px) {
+  /* line 95, ../../../../../../../Compass_front/sass/_enattendant.scss */
+  .enattendant__block--texte {
+    padding: 1em 4em 0 1em;
+    min-height: 284px;
+  }
+}
+@media screen and (min-width: 1100px) {
+  /* line 102, ../../../../../../../Compass_front/sass/_enattendant.scss */
+  .enattendant__block--texte {
+    padding: 3em 8em 0px 2.5em;
+    min-height: 336px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  /* line 109, ../../../../../../../Compass_front/sass/_enattendant.scss */
+  .enattendant__block--texte {
+    padding: 4em 15em 0px 4em;
+    min-height: 440px;
+  }
+}
 /* line 1, ../../../../../../../Compass_front/sass/_dotation.scss */
 .dotation {
   background: #000000;
@@ -1249,38 +1568,28 @@ body.manual ul.tps_fort li span {
   min-height: 700px;
 }
 
-/* line 51, ../../../../../../../Compass_front/sass/theme.scss */
+/* line 58, ../../../../../../../Compass_front/sass/theme.scss */
 .text-center {
   text-align: center;
 }
 
-/* line 55, ../../../../../../../Compass_front/sass/theme.scss */
+/* line 62, ../../../../../../../Compass_front/sass/theme.scss */
 .text-left {
   text-align: left;
 }
 
-/* line 59, ../../../../../../../Compass_front/sass/theme.scss */
+/* line 66, ../../../../../../../Compass_front/sass/theme.scss */
 .text-right {
   text-align: right;
 }
 
-/* line 62, ../../../../../../../Compass_front/sass/theme.scss */
+/* line 69, ../../../../../../../Compass_front/sass/theme.scss */
 .hidden {
   display: none !important;
 }
 
-/* line 65, ../../../../../../../Compass_front/sass/theme.scss */
+/* line 72, ../../../../../../../Compass_front/sass/theme.scss */
 .popup {
   position: relative;
   z-index: 1000;
-}
-
-/* line 70, ../../../../../../../Compass_front/sass/theme.scss */
-.small-3 {
-  width: 25%;
-}
-
-/* line 73, ../../../../../../../Compass_front/sass/theme.scss */
-.small-6 {
-  width: 50%;
 }

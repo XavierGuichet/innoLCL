@@ -1,29 +1,201 @@
-header{
-    background-position-y: top;
-}
-
-body.proposal .entete-generale {
-    padding-bottom: 20px;
-}
-
 /* line 1, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-1 {
+  width: 8.33%;
+}
+
+/* line 2, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-2 {
+  width: 16.66%;
+}
+
+/* line 3, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-3 {
+  width: 25%;
+}
+
+/* line 4, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-4 {
+  width: 33.33%;
+}
+
+/* line 5, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-5 {
+  width: 41.66%;
+}
+
+/* line 6, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-6 {
+  width: 50%;
+}
+
+/* line 7, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-7 {
+  width: 58.33%;
+}
+
+/* line 8, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-8 {
+  width: 66.66%;
+}
+
+/* line 9, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-9 {
+  width: 75%;
+}
+
+/* line 10, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-10 {
+  width: 83.33%;
+}
+
+/* line 11, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-11 {
+  width: 91.66%;
+}
+
+/* line 12, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-12 {
+  width: 100%;
+}
+
+/* line 14, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-push-1 {
+  left: 8.33%;
+}
+
+/* line 15, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-push-2 {
+  left: 16.66%;
+}
+
+/* line 16, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-push-3 {
+  left: 25%;
+}
+
+/* line 17, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-push-4 {
+  left: 33.33%;
+}
+
+/* line 18, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-push-5 {
+  left: 41.66%;
+}
+
+/* line 19, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-push-6 {
+  left: 50%;
+}
+
+/* line 20, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-push-7 {
+  left: 58.33%;
+}
+
+/* line 21, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-push-8 {
+  left: 66.66%;
+}
+
+/* line 22, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-push-9 {
+  left: 75%;
+}
+
+/* line 23, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-push-10 {
+  left: 83.33%;
+}
+
+/* line 24, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-push-11 {
+  left: 91.66%;
+}
+
+/* line 25, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-push-12 {
+  left: 100%;
+}
+
+/* line 27, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-offset-1 {
+  margin-left: 8.33%;
+}
+
+/* line 28, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-offset-2 {
+  margin-left: 16.66%;
+}
+
+/* line 29, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-offset-3 {
+  margin-left: 25%;
+}
+
+/* line 30, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-offset-4 {
+  margin-left: 33.33%;
+}
+
+/* line 31, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-offset-5 {
+  margin-left: 41.66%;
+}
+
+/* line 32, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-offset-6 {
+  margin-left: 50%;
+}
+
+/* line 33, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-offset-7 {
+  margin-left: 58.33%;
+}
+
+/* line 34, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-offset-8 {
+  margin-left: 66.66%;
+}
+
+/* line 35, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-offset-9 {
+  margin-left: 75%;
+}
+
+/* line 36, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-offset-10 {
+  margin-left: 83.33%;
+}
+
+/* line 37, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-offset-11 {
+  margin-left: 91.66%;
+}
+
+/* line 38, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+.small-offset-12 {
+  margin-left: 100%;
+}
+
+/* line 41, ../../../../../../../Compass_front/sass/ie8-fix.scss */
 .dotation__ten, .dotation__more {
   padding-bottom: 25%;
 }
 
-/* line 5, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+/* line 45, ../../../../../../../Compass_front/sass/ie8-fix.scss */
 .dotation__ten p.title, .dotation__more p.title {
   margin-top: 0.5em;
   margin-bottom: 0.25em;
 }
 
-/* line 9, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+/* line 49, ../../../../../../../Compass_front/sass/ie8-fix.scss */
 .dotation__more p.title {
   margin-top: 1.5em;
   font-size: 36px;
 }
 
-/* line 13, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+/* line 53, ../../../../../../../Compass_front/sass/ie8-fix.scss */
 #player_flash-container {
   position: absolute;
   top: 0;
@@ -32,43 +204,43 @@ body.proposal .entete-generale {
   width: 100%;
 }
 
-/* line 20, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+/* line 60, ../../../../../../../Compass_front/sass/ie8-fix.scss */
 .title--subline {
   font-size: 36px;
   font-size: 1em;
 }
 
-/* line 24, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+/* line 64, ../../../../../../../Compass_front/sass/ie8-fix.scss */
 #videoflash {
   height: 100%;
   width: 100%;
 }
 
-/* line 28, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+/* line 68, ../../../../../../../Compass_front/sass/ie8-fix.scss */
 .reveal-modal.suggestidea {
   margin: 50px 10%;
   width: 80%;
   padding: 0 10px;
 }
 
-/* line 33, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+/* line 73, ../../../../../../../Compass_front/sass/ie8-fix.scss */
 #modal_empty {
   margin: 50px 10%;
   width: 80%;
   padding: 0 10px;
 }
 
-/* line 38, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+/* line 78, ../../../../../../../Compass_front/sass/ie8-fix.scss */
 .suggestidea__submit {
   margin: 16px auto;
 }
 
-/* line 41, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+/* line 81, ../../../../../../../Compass_front/sass/ie8-fix.scss */
 .modalform__submit {
   margin: 16px auto;
 }
 
-/* line 44, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+/* line 84, ../../../../../../../Compass_front/sass/ie8-fix.scss */
 .close-reveal-modal {
   font-size: 36px;
   position: absolute;
@@ -76,45 +248,45 @@ body.proposal .entete-generale {
   right: 10px;
 }
 
-/* line 50, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+/* line 90, ../../../../../../../Compass_front/sass/ie8-fix.scss */
 .register__input--mail {
   width: 674px;
 }
 
-/* line 53, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+/* line 93, ../../../../../../../Compass_front/sass/ie8-fix.scss */
 .ie-small-10-fix {
   width: 80%;
   margin: 0 10%;
 }
 
-/* line 57, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+/* line 97, ../../../../../../../Compass_front/sass/ie8-fix.scss */
 div.popup__footer {
   margin-left: -10px;
   margin-bottom: 16px;
 }
 
-/* line 61, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+/* line 101, ../../../../../../../Compass_front/sass/ie8-fix.scss */
 #formRegisterConfirmed {
   top: 150px;
 }
 
-/* line 64, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+/* line 104, ../../../../../../../Compass_front/sass/ie8-fix.scss */
 .reveal-modal-bg {
   background: url("../../../images/modalbg.png") repeat transparent;
 }
 
-/* line 67, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+/* line 107, ../../../../../../../Compass_front/sass/ie8-fix.scss */
 .row {
   max-width: 960px;
 }
 
-/* line 70, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+/* line 110, ../../../../../../../Compass_front/sass/ie8-fix.scss */
 body.mentions .navbar .col-md-4, body.reset_pwd .navbar .col-md-4, body.reglement .navbar .col-md-4, body.manual .navbar .col-md-4, body.reset_pwd .navContent .col-md-4, body.mentions .navContent .col-md-4, body.reglement .navContent .col-md-4, body.manual .navContent .col-md-4 {
   height: 75px;
   background: #15388C;
 }
 
-/* line 74, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+/* line 114, ../../../../../../../Compass_front/sass/ie8-fix.scss */
 body.mentions .navContent .col-md-4.text-center img, body.reset_pwd .navContent .col-md-4.text-center img, body.reglement .navContent .col-md-4.text-center img, body.manual .navContent .col-md-4.text-center img {
   margin-left: -125px;
   left: 50%;
@@ -122,7 +294,7 @@ body.mentions .navContent .col-md-4.text-center img, body.reset_pwd .navContent 
   top: 3px;
 }
 
-/* line 82, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+/* line 122, ../../../../../../../Compass_front/sass/ie8-fix.scss */
 label.iedisplay {
   display: inline-block !important;
   width: 300px;
@@ -131,7 +303,7 @@ label.iedisplay {
   text-align: center;
 }
 
-/* line 90, ../../../../../../../Compass_front/sass/ie8-fix.scss */
+/* line 130, ../../../../../../../Compass_front/sass/ie8-fix.scss */
 div.login input.login__input, div.login input.login__connect {
   width: 100%;
 }

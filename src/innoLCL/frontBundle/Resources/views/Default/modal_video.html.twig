@@ -1,0 +1,13 @@
+<div id="emptyVideoModal" class="reveal-modal full" data-reveal aria-labelledby="videoModalTitle" aria-hidden="true" role="dialog">
+	<video width="320" height="240" id="js-empty-video">
+		<source src="" type="video/mp4">
+		<object id="js-empty-video-flash" type="application/x-shockwave-flash" data="{{asset('/video/flashfox.swf')}}" width="90%" height="90%">
+				<param name="movie" value="{{asset('/video/flashfox.swf')}}" />
+				<param name="allowFullScreen" value="true" />
+				<param name="wmode" value="transparent" />
+				<param name="flashVars" value="autoplay=true&amp;controls=true&amp;src=" />                            
+		</object>			
+	</video><br>
+
+	<a href="#fermer" class="btn-videomodal-close js-videoclose">FERMER</a>
+</div>

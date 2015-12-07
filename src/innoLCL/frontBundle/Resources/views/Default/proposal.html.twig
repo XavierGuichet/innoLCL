@@ -81,6 +81,8 @@
         {% if idealist is not empty %}
             {{ include("innoLCLfrontBundle:Default:idealist.html.twig")}}
         {% endif %}
+        
+        {% set dotationtitledisplay = 1 %}
         {{ include("innoLCLfrontBundle:Default:dotation.html.twig")}}
         {% if displayForm %}
             {{ render(controller("innoLCLbothIdeaBundle:Form:createFrontForm",

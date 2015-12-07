@@ -26,3 +26,8 @@ parameters:
     online_mail_dir: /online/mail/
 
     server_name: localhost_dev
+    
+    phase.phase2: '12/08/2015 00:00:01'
+    phase.phase3: '12/15/2015 00:00:01'
+    phase.phase4: '01/12/2016 00:00:01'
+    phase.phase5: '01/26/2016 00:00:01'

@@ -95,6 +95,11 @@ jQuery(document).ready( function($) {
         });
     });
     
+    //Gestion trigger video lot2
+    $('.js-videoopen').on('click', function(event) { openvideoplayer(event, $(this)) });
+    $('.js-videoclose').on('click', function(event) { closevideoplayer(event, $(this)) });
+    
+    
     // gestion longueur des textarea
     // pour les 200 caractères
     //gestionLimiteTextareaCaracteres();
@@ -281,39 +286,9 @@ function gestionLimiteTextareaMots(){
     
 }
 
-
 function activateRegisterForm(){
     //Trigger register form pour slide        /!\ Retour au step 1 à rajouter en cas d'erreur de validation par le client.
     $(".js-register-next").click( function(e) {
-        
-       
-       /*
-       if($("#fos_user_registration_form_firstname").val() ==''){
-           $("#fos_user_registration_form_firstname").focus();
-           return false;
-       }
-       if($("#fos_user_registration_form_lastname").val() ==''){
-           $("#fos_user_registration_form_lastname").focus();
-           return false;
-       }
-       if($("#fos_user_registration_form_email").val() ==''){
-           $("#fos_user_registration_form_email").focus();
-           return false;
-       }
-       if($("#fos_user_registration_form_plainPassword_first").val() ==''){
-           $("#fos_user_registration_form_plainPassword_first").focus();
-           return false;
-       }
-       if($("#fos_user_registration_form_plainPassword_second").val() ==''){
-           $("#fos_user_registration_form_plainPassword_second").focus();
-           return false;
-       }
-        */
-        /*var $theForm = $(this).closest('form');
-        $theForm[0].checkValidity();*/
-        /*if (( typeof($theForm[0].checkValidity) == "function" ) && !$theForm[0].checkValidity()) {
-            return;
-        }*/
         
         $('.showErrors').each(function(){ $(this).addClass('hidden');});
         
@@ -473,3 +448,32 @@ function modalajax(event, t) {
 		
 }
 
+function openvideoplayer(event, t) {
+	videopath = t.attr("data-video");	
+	if(videopath != "") {
+		$('#emptyVideoModal source').attr('src',videopath);
+		$('#emptyVideoModal').foundation('reveal', 'open');
+		$('#emptyVideoModal').css('top','0px');
+		
+		if((is_explorer)&&($('html').hasClass('lt-ie10'))){    
+			flashvideohtml = '<object id="js-empty-video-flash" type="application/x-shockwave-flash" data="/video/flashfox.swf" width="90%" height="90%"><param name="movie" value="/video/flashfox.swf" /><param name="allowFullScreen" value="true" /><param name="wmode" value="transparent" /><param name="flashVars" value="autoplay=true&amp;controls=true&amp;src='+videopath+'" /></object>';
+			$('#js-empty-video-flash').replaceWith(flashvideohtml);
+        }
+		else {    
+			document.getElementById('js-empty-video').load();
+			document.getElementById('js-empty-video').play();
+        }
+	}
+	
+}
+
+function closevideoplayer(event, t) { 
+        event.preventDefault();
+        if((is_explorer)&&($('html').hasClass('lt-ie10'))){
+            $('#emptyVideoModal').foundation('reveal', 'close');
+        }else{
+            document.getElementById('js-empty-video').pause();
+            document.getElementById('js-empty-video').currentTime = 0;
+            $('#emptyVideoModal').foundation('reveal', 'close');
+        }
+}

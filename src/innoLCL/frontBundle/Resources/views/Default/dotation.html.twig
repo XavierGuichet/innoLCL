@@ -1,8 +1,10 @@
 <div class="dotation clearfix">
+	{% if dotationtitledisplay %}
     <h2 class="title">Proposez votre idée la plus innovante, <br/>
     {% image '@innoLCLfrontBundle/Resources/assets/images/try-to-win.png' %}
                             <img src="{{ asset_url }}"  alt="Et tentez de gagner" class="entete-generale__logo" />
                         {% endimage %}</h2>
+    {% endif %}
     <div>
         <div class="dotation__first">
                 <div class="small-6 columns">
