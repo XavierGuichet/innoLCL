@@ -51,7 +51,7 @@ class AfterLogoutRedirection implements LogoutSuccessHandlerInterface
 				// Get list of roles for current user
 				$roles = $user->getRoles();
 				//Si admin retourne a l'auth admin
-				if (in_array('ROLE_MODERATEUR', $roles, true) || in_array('ROLE_VALIDATEUR', $roles, true) || in_array('ROLE_LECTEUR', $roles, true) || in_array('ROLE_SELECTIONNEUR', $roles, true))
+				if (in_array('ROLE_MODERATEUR', $roles, true) || in_array('ROLE_VALIDATEUR', $roles, true) || in_array('ROLE_LECTEUR', $roles, true) || in_array('ROLE_SELECTIONNEUR', $roles, true) || in_array('ROLE_STATS', $roles, true))
 				{
 					$response = new RedirectResponse($this->router->generate('fos_admin_user_security_login'));
 				}
