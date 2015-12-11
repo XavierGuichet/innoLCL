@@ -8,6 +8,8 @@ if ((is_chrome)&&(is_safari)) {is_safari=false;}
 if ((is_chrome)&&(is_opera)) {is_chrome=false;}
 
 var timeOutId;
+var timeOutVideo;
+var videoname;
 
 jQuery(document).ready( function($) {
     //Prepare la box de popin et celle de la video
@@ -448,12 +450,43 @@ function modalajax(event, t) {
 		
 }
 
+function getvideoname(path) {
+	videoname2 = path.split(/[\/\.]/);
+	return videoname2[videoname2.length - 2];
+}
+
+function videoIncrement(videoname) {
+$.ajax({
+            type: "POST",
+            url: "/videoincrement/"+videoname
+        })
+        .done(function (data) {
+            if (typeof data.message !== 'undefined') {
+
+            }
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            if (typeof jqXHR.responseJSON !== 'undefined') {
+                if (jqXHR.responseJSON.hasOwnProperty('message')) {
+
+                }
+            } 
+            else {
+
+            }
+        });
+}
+
 function openvideoplayer(event, t) {
-	videopath = t.attr("data-video");	
+	videopath = t.attr("data-video");
 	if(videopath != "") {
 		$('#emptyVideoModal source').attr('src',videopath);
 		$('#emptyVideoModal').foundation('reveal', 'open');
 		$('#emptyVideoModal').css('top','0px');
+		
+		videoname = getvideoname(videopath);
+		timeOutVideo = setTimeout(function(){videoIncrement(videoname);}, 5*1000);
+		
 		
 		if((is_explorer)&&($('html').hasClass('lt-ie10'))){    
 			flashvideohtml = '<object id="js-empty-video-flash" type="application/x-shockwave-flash" data="/video/flashfox.swf" width="90%" height="90%"><param name="movie" value="/video/flashfox.swf" /><param name="allowFullScreen" value="true" /><param name="wmode" value="transparent" /><param name="flashVars" value="autoplay=true&amp;controls=true&amp;src='+videopath+'" /></object>';
@@ -469,6 +502,7 @@ function openvideoplayer(event, t) {
 
 function closevideoplayer(event, t) { 
         event.preventDefault();
+        clearTimeout(timeOutVideo);
         if((is_explorer)&&($('html').hasClass('lt-ie10'))){
             $('#emptyVideoModal').foundation('reveal', 'close');
         }else{

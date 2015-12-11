@@ -28,7 +28,12 @@ innolcl_selectionneur_list_idea:
     defaults: { _controller: innoLCLbackBundle:Selectionneur:list, page: 1 }
     requirements:
         ideaid:  \d+
-        
+   
+#statistique     
+innolcl_stats_list_video:
+    path:    /admin/stats/video
+    defaults: { _controller: innoLCLbackBundle:Statistique:video}
+
 #Comparateur d'idée
 innolcl_backbundle_compare:
     path: /admin/compare/{ideaid}

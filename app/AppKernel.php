@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new innoLCL\bothIdeaBundle\innoLCLbothIdeaBundle(),
             new innoLCL\backBundle\innoLCLbackBundle(),
             new innoLCL\AllUserBundle\innoLCLAllUserBundle(),
+            new innoLCL\StatBundle\innoLCLStatBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

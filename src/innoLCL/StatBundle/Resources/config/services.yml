@@ -1,0 +1,4 @@
+services:
+    inno_lcl_stat.video:
+        class: innoLCL\StatBundle\Services\Video
+

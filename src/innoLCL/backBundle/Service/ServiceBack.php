@@ -36,6 +36,7 @@ class ServiceBack {
         if(in_array("ROLE_LECTEUR",$roles)) { return "ROLE_LECTEUR";}
         if(in_array("ROLE_VALIDATEUR",$roles)) { return "ROLE_VALIDATEUR";}
         if(in_array("ROLE_SELECTIONNEUR",$roles)) { return "ROLE_SELECTIONNEUR";}
+        if(in_array("ROLE_STATS",$roles)) { return "ROLE_STATS";}
     }
     
     public function canRoleViewThisList($viewstatuts,$userAdminRole) {

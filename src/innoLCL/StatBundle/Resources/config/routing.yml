@@ -1,0 +1,3 @@
+inno_lcl_stat_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: innoLCLStatBundle:Default:index }

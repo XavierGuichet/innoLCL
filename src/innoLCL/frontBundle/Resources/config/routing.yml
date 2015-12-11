@@ -41,6 +41,10 @@ innolcl_front_landing_getnewideaform:
     defaults: { _controller: innoLCLfrontBundle:Default:getnewideaform }
     methods:  [POST]
     
+#incremente le compteur Video
+innolcl_front_videoincrement:
+    path:    /videoincrement/{name}
+    defaults: { _controller: innoLCLfrontBundle:Video:incrementStatCounter }
     
     
     

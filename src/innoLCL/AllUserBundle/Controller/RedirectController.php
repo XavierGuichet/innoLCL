@@ -38,6 +38,9 @@ class RedirectController extends Controller
          if($userAdminRole == "ROLE_SELECTIONNEUR") {
             $route ='innolcl_selectionneur_list_idea';
         }
+         if($userAdminRole == "ROLE_STATS") {
+            $route ='innolcl_stats_list_video';
+        }
         
         $router = $this->container->get('router')->generate($route);
         $response = new RedirectResponse($router);
