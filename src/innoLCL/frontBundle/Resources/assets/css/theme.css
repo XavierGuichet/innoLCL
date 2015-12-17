@@ -2,7 +2,7 @@
 @font-face {
   font-family: 'ThirstyScript';
   src: url("../../../fonts/thirstyscriptregular-webfont.eot?#iefix") format("embedded-opentype");
-  src: url("../../../fonts/thirstyscriptregular-webfont.ttf") format("truetype"), url("../../../fonts/thirstyscriptregular-webfont.woff") format("woff"), url("../../../fonts/thirstyscriptregular-webfont.eot?#iefix") format("embedded-opentype"), url("../../../fonts/thirstyscriptregular-webfont.svg#/fonts/thirstyscriptregular-webfont") format("svg");
+  src: url("../../../fonts/thirstyscriptregular-webfont.ttf") format("truetype"), url("../../../fonts/thirstyscriptregular-webfont.woff") format("woff"), url("../../../fonts/thirstyscriptregular-webfont.eot?#iefix") format("embedded-opentype"), url("../../../fonts/thirstyscriptregular-webfont.svg#../../../fonts/thirstyscriptregular-webfont") format("svg");
   font-weight: 900;
   font-style: normal;
 }
@@ -878,17 +878,19 @@ option[value=''] {
   font-weight: 700;
   margin: 0.25em 0;
   line-height: 1em;
+  display: none;
 }
-/* line 51, ../../../../../../../Compass_front/sass/_laureats.scss */
+/* line 52, ../../../../../../../Compass_front/sass/_laureats.scss */
 .laureats__idee {
-  font-size: 32px;
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 24px;
+  font-size: 1.5rem;
+  font-weight: 400;
   margin: 0.25em 0;
   line-height: 1.125em;
+  text-shadow: 0px 0px 1px #aaaaaa;
 }
 
-/* line 60, ../../../../../../../Compass_front/sass/_laureats.scss */
+/* line 62, ../../../../../../../Compass_front/sass/_laureats.scss */
 .hover_1 {
   background: #ffa900;
   background: transparent\9;
@@ -897,7 +899,7 @@ option[value=''] {
   zoom: 1;
 }
 
-/* line 67, ../../../../../../../Compass_front/sass/_laureats.scss */
+/* line 69, ../../../../../../../Compass_front/sass/_laureats.scss */
 .hover_2 {
   background: #00ab62;
   background: transparent\9;
@@ -906,7 +908,7 @@ option[value=''] {
   zoom: 1;
 }
 
-/* line 74, ../../../../../../../Compass_front/sass/_laureats.scss */
+/* line 76, ../../../../../../../Compass_front/sass/_laureats.scss */
 .hover_3 {
   background: #00acaf;
   background: transparent\9;
@@ -915,7 +917,7 @@ option[value=''] {
   zoom: 1;
 }
 
-/* line 81, ../../../../../../../Compass_front/sass/_laureats.scss */
+/* line 83, ../../../../../../../Compass_front/sass/_laureats.scss */
 .hover_4 {
   background: #f70b3e;
   background: transparent\9;
@@ -924,7 +926,7 @@ option[value=''] {
   zoom: 1;
 }
 
-/* line 88, ../../../../../../../Compass_front/sass/_laureats.scss */
+/* line 90, ../../../../../../../Compass_front/sass/_laureats.scss */
 .hover_5 {
   background: #88046c;
   background: transparent\9;
@@ -933,7 +935,7 @@ option[value=''] {
   zoom: 1;
 }
 
-/* line 95, ../../../../../../../Compass_front/sass/_laureats.scss */
+/* line 97, ../../../../../../../Compass_front/sass/_laureats.scss */
 .hover_filtre:nth-child(n) {
   filter: none;
 }
@@ -944,13 +946,18 @@ option[value=''] {
 #00acaf 0,172,175
 #f70b3e 247,11,62
 #88046c 136,4,108 */
-@media screen and (max-width: 840px) {
-  /* line 107, ../../../../../../../Compass_front/sass/_laureats.scss */
+@media screen and (max-width: 1020px) {
+  /* line 109, ../../../../../../../Compass_front/sass/_laureats.scss */
+  .laureats__content {
+    padding: 0 0.25em 0 1em;
+  }
+  /* line 113, ../../../../../../../Compass_front/sass/_laureats.scss */
   .laureats__title {
     font-size: 20px;
     font-size: 1.25rem;
+    line-height: 1.3em;
   }
-  /* line 110, ../../../../../../../Compass_front/sass/_laureats.scss */
+  /* line 117, ../../../../../../../Compass_front/sass/_laureats.scss */
   .laureats__direction {
     font-size: 16px;
     font-size: 1rem;
@@ -958,13 +965,13 @@ option[value=''] {
     margin: 0.25em 0;
     line-height: 1em;
   }
-  /* line 116, ../../../../../../../Compass_front/sass/_laureats.scss */
+  /* line 123, ../../../../../../../Compass_front/sass/_laureats.scss */
   .laureats__idee {
-    font-size: 20px;
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-size: 18px;
+    font-size: 1.125rem;
+    font-weight: 400;
     margin: 0.25em 0;
-    line-height: 1.125em;
+    line-height: 1.1em;
   }
 }
 /* line 3, ../../../../../../../Compass_front/sass/_enattendant.scss */
