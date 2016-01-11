@@ -101,7 +101,7 @@ fos_user:
         mailer: fos_user.mailer.twig_swift
     registration:
         confirmation:
-            enabled: true
+            enabled: false
             template: email/confirmation.email.twig
             from_email:
                 address:        inscription@challengedelinnovation-10ans.lcl.fr
