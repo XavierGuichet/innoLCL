@@ -1,0 +1,69 @@
+{# src/innoLCL/frontBundle/Resources/views/Default/resuls.html.twig #} {% extends "innoLCLfrontBundle::layout.html.twig" %} {% block body %}
+<header class="phase5 winner">
+    <div class="winner__top">
+        <div class="row winner__entete">
+            <div class="small-2 columns">
+                {% image '@innoLCLfrontBundle/Resources/assets/images/logo_LCL.png' %}
+                <img src="{{ asset_url }}" alt="Challenge de l'innovation LCL" /> {% endimage %}
+            </div>
+            <div class="small-8 columns">
+                <h1 class="title">
+                    {% image '@innoLCLfrontBundle/Resources/assets/images/partipez.png' %}
+                        <img src="{{ asset_url }}" alt="Participez au" class="" />
+                    {% endimage %}
+                    <br/> challenge de l'innovation LCL</h1>
+            </div>
+            <div class="small-2 columns">
+            </div>
+        </div>
+        <div class="row winner__info">
+            <div class="small-12 columns">
+                <div class="row text-center">
+                    {% image '@innoLCLfrontBundle/Resources/assets/images/felicitations.png' %}
+                        <img src="{{ asset_url }}" alt="Félicitations à notre grand gagnant" class="" />
+                    {% endimage %}
+                </div>
+                <div class="row">
+                    <div class="small-8 small-centered columns">
+                        <div class="winner-container">
+                        <div class="first-prize">
+                            <img src="{{ asset('/images/laureats/prix/1_prix.png') }}" alt="" class="prix"/>
+                        </div>
+                            <img src="{{ asset('/images/laureats/seizeneuvieme/' ~ IdeaLaureats[0].slugNomAuthor|lower ~ '.jpg') }}" alt="" class="small-12" />
+                            <div class="winner__playbtn">
+                                <img src="{{ asset('/images/big-play.png') }}" alt="" class="js-videoopen" data-video="{{asset('video/idealaureat/' ~ IdeaLaureats[0].slugNomAuthor|lower ~ '.mp4')}}" data-videosize="auto" data-videocontrols="true">
+                            </div>
+                        </div>
+
+                        <h2 class="winner__title">
+                            <span class="winner__nb-votes">{{ IdeaLaureats[0].nbVotes }} Votes</span>
+                            {{ IdeaLaureats[0].prenomAuthor }}
+                            <img src="{{ asset('/images/laureats/nom/' ~ IdeaLaureats[0].slugNomAuthor|lower ~ '.png') }}" alt="" /><br/>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="winner__bottom">
+        <div class="row winner_sub">
+            <div class="row text-center">
+                {% image '@innoLCLfrontBundle/Resources/assets/images/resultats.png' %}
+                    <img src="{{ asset_url }}" alt="lauréats" class="" />
+                {% endimage %}
+            </div>
+            <div class="row text-center">
+                <p class="select_in_progress-bigger">Merci à tous de vos nombreuses participations</p>
+            </div>
+            <div class="row text-center">
+                {% image '@innoLCLfrontBundle/Resources/assets/images/souris_picto.png' %}
+                    <img src="{{ asset_url }}" alt="Challenge de l'innovation LCL" />
+                {% endimage %}
+            </div>
+        </div>
+    </div>
+</header>
+
+{{ include("innoLCLfrontBundle:Default:results-content.html.twig") }}
+{{ include("innoLCLfrontBundle:Default:results-makingof.html.twig") }}
+{% endblock %}

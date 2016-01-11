@@ -18,7 +18,7 @@ class Video {
   public function videoExist($name)
   {
 	$fs = new Filesystem();
-	return $fs->exists('./video/'.$name.'.mp4');	
+	return ($fs->exists('./video/'.$name.'.mp4') || $fs->exists('./video/idealaureat/'.$name.'.mp4'));	
   }
 
 }

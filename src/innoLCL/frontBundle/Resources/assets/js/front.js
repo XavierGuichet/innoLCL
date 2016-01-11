@@ -109,7 +109,7 @@ jQuery(document).ready( function($) {
     gestionLimiteTextareaMots();
     
     if($('#js-video').length>0){
-        var v = document.getElementById('js-video'); // /!\ A généré une erreur sur une page.
+        var v = document.getElementById('js-video');
         v.onended = function() { //event de fin de lecture de la vidéo
             appelAjaxFinVideo();            
         };
@@ -171,8 +171,36 @@ jQuery(document).ready( function($) {
                             $(this).val(''); }
             });
         });
-    }	
-    
+    }
+
+    $("div.js-like").click( function() {
+        if($(this).hasClass('todayvote')) { return true;}
+        var method,url,serializeData, jaugeinner,currentlike, smallplay;
+        currentlike = $(this);
+        smallplay = currentlike.parents('.laureats__block').find('.playbtn')
+        jaugeinner = $(this).siblings(".jauge").children('.jauge__inner');
+        method = "POST";
+		url = $(this).attr("data-link");
+		serializeData = "";
+        $.ajax({
+                 type: method,
+                 url: url,
+                 data: serializeData
+        })
+        .done(function (data) {
+			$('#modal_empty .popup__title').html(data.title);
+			$('#modal_empty .popup__content').html(data.content);
+            $('#modal_empty').foundation('reveal', 'open');
+            jaugeinner.css("border-right","5px solid #F7F7F7")
+            currentlike.addClass("todayvote");
+            $("div.js-like:not(.todayvote)").remove();
+            smallplay.addClass("constanthover");
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+
+        });
+    });
+
 });
 
 function appelAjaxFinVideo() {
@@ -478,17 +506,40 @@ $.ajax({
 }
 
 function openvideoplayer(event, t) {
+    videosize = "full";
+    videocontrols = "false";
 	videopath = t.attr("data-video");
+
+    //defini la class gérant la taille du conteneur video, par défaut full(screen)
+    if(t.attr("data-videosize") != undefined) {
+        videosize = t.attr("data-videosize");
+    }
+    if(!((is_explorer)&&($('html').hasClass('lt-ie10')))){
+        $('#emptyVideoModal').removeClass("full");
+        $('#emptyVideoModal').addClass(videosize);
+    }
+
+    //defini l'affichage des controls, par défaut Non
+    if(t.attr("data-videocontrols") != undefined) {
+        videocontrols = t.attr("data-videocontrols");
+    }
+    if(videocontrols == "true") {
+        $('#emptyVideoModal').find('video').attr("controls",videocontrols);
+    }
+    else {
+        $('#emptyVideoModal').find('video').removeAttr("controls");
+    }
+
 	if(videopath != "") {
 		$('#emptyVideoModal source').attr('src',videopath);
 		$('#emptyVideoModal').foundation('reveal', 'open');
 		$('#emptyVideoModal').css('top','0px');
-		
+
 		videoname = getvideoname(videopath);
 		timeOutVideo = setTimeout(function(){videoIncrement(videoname);}, 5*1000);
-		
-		
-		if((is_explorer)&&($('html').hasClass('lt-ie10'))){    
+
+
+		if((is_explorer)&&($('html').hasClass('lt-ie10'))){
 			flashvideohtml = '<object id="js-empty-video-flash" type="application/x-shockwave-flash" data="/video/flashfox.swf" width="90%" height="90%"><param name="movie" value="/video/flashfox.swf" /><param name="allowFullScreen" value="true" /><param name="wmode" value="transparent" /><param name="flashVars" value="autoplay=true&amp;controls=true&amp;src='+videopath+'" /></object>';
 			$('#js-empty-video-flash').replaceWith(flashvideohtml);
         }

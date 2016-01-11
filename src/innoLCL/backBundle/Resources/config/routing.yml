@@ -33,6 +33,10 @@ innolcl_selectionneur_list_idea:
 innolcl_stats_list_video:
     path:    /admin/stats/video
     defaults: { _controller: innoLCLbackBundle:Statistique:video}
+#statistique
+innolcl_stats_list_laureats:
+    path:    /admin/stats/laureats
+    defaults: { _controller: innoLCLbackBundle:Statistique:laureats}
 
 #Comparateur d'idée
 innolcl_backbundle_compare:

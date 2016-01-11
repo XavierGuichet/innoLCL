@@ -1,0 +1,70 @@
+{# src/innoLCL/backBundle/Resources/views/Statistiques/Video.html.twig #}
+
+{% extends "innoLCLbackBundle::layout.html.twig" %}
+
+{% block menu %}
+        <div class="row navidea">
+                <div class="container">
+                    <div class="col-lg-3 col-md-6 col-lg-offset-3">
+                        <div class="panel panel-blue">
+							<a href="{{ path('innolcl_stats_list_video') }}">
+								<div class="panel-heading text-center">
+										<p class="cat_name">Vidéos</p>
+								</div>
+								{% if currentview == 'video' %}
+									<div class="panel-footer text-center">
+										 <i class="glyphicon glyphicon-menu-down "></i>
+										<div class="clearfix"></div>
+									</div>
+								{% endif %}
+							</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-yellow">
+                            <a href="{{ path('innolcl_stats_list_laureats') }}">
+                                <div class="panel-heading text-center">
+                                        <p class="cat_name">Laureats</p>
+                                </div>
+                                {% if currentview == 'laureats' %}
+                                <div class="panel-footer text-center">
+                                     <i class="glyphicon glyphicon-menu-down "></i>
+                                    <div class="clearfix"></div>
+                                </div>
+                            {% endif %}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+{% endblock %}
+
+{% block body %}
+        <div class="row main-section section-{{currentview}}">
+            <div class="container">
+
+                    {% for blockvideo in videoslist %}
+                    <div class="col-lg-12 table-responsive">
+                    <table class="table table-hover" id="idealist">
+                        <tr><th colspan="3">{{ blockvideo.titre }}</th></tr>
+                        <tr class="panel-heading"><th>Nom vidéo</th><th>Nombre de vue</th><th>% de vue</th></tr>
+                        {% for video in blockvideo.videos %}
+                        <tr>
+							<td>{{ video.videoformattedname }}</td>
+							<td>{{ video.counter }}</td>
+							<td>{{ video.pourcent }}</td>
+                        </tr>
+                        {% endfor %}
+                        <tr>
+							<td>Total</td>
+							<td>{{ blockvideo.totalview }}</td>
+							<td>100 %</td>
+						</tr>
+                    </table>
+                    </div>
+                    {% endfor %}
+
+            </div>
+        </div>
+{% endblock %}

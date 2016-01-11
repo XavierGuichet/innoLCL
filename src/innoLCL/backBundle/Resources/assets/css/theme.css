@@ -69,36 +69,36 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 @font-face {
   font-family: "Glyphicons Halflings";
-  src: url("../../fonts/glyphicons-halflings-regular.eot");
-  src: url("../../fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("../../fonts/glyphicons-halflings-regular.woff") format("woff"), url("../../fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../../fonts/glyphicons-halflings-regular.svg#../../fonts/glyphicons-halflings-regular") format("svg");
+  src: url("/fonts/glyphicons-halflings-regular.eot");
+  src: url("/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("/fonts/glyphicons-halflings-regular.woff") format("woff"), url("/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("/fonts/glyphicons-halflings-regular.svg#/fonts/glyphicons-halflings-regular") format("svg");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: 'Lato-Regular';
-  src: url("../../fonts/Lato-Light.eot");
-  src: url("../../fonts/Lato-Light.ttf") format("truetype"), url("../../fonts/Lato-Light.woff") format("woff"), url("../../fonts/Lato-Light.eot?#iefix") format("embedded-opentype"), url("../../fonts/Lato-Light.svg#../../fonts/Lato-Light") format("svg");
+  src: url("/fonts/Lato-Light.eot");
+  src: url("/fonts/Lato-Light.ttf") format("truetype"), url("/fonts/Lato-Light.woff") format("woff"), url("/fonts/Lato-Light.eot?#iefix") format("embedded-opentype"), url("/fonts/Lato-Light.svg#/fonts/Lato-Light") format("svg");
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
   font-family: 'Lato-Regular';
-  src: url("../../fonts/Lato-Regular.eot");
-  src: url("../../fonts/Lato-Regular.ttf") format("truetype"), url("../../fonts/Lato-Regular.woff") format("woff"), url("../../fonts/Lato-Regular.eot?#iefix") format("embedded-opentype"), url("../../fonts/Lato-Regular.svg#../../fonts/Lato-Regular") format("svg");
+  src: url("/fonts/Lato-Regular.eot");
+  src: url("/fonts/Lato-Regular.ttf") format("truetype"), url("/fonts/Lato-Regular.woff") format("woff"), url("/fonts/Lato-Regular.eot?#iefix") format("embedded-opentype"), url("/fonts/Lato-Regular.svg#/fonts/Lato-Regular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'Lato-Regular';
-  src: url("../../fonts/Lato-Bold.eot");
-  src: url("../../fonts/Lato-Bold.ttf") format("truetype"), url("../../fonts/Lato-Bold.woff") format("woff"), url("../../fonts/Lato-Bold.eot?#iefix") format("embedded-opentype"), url("../../fonts/Lato-Bold.svg#../../fonts/Lato-Bold") format("svg");
+  src: url("/fonts/Lato-Bold.eot");
+  src: url("/fonts/Lato-Bold.ttf") format("truetype"), url("/fonts/Lato-Bold.woff") format("woff"), url("/fonts/Lato-Bold.eot?#iefix") format("embedded-opentype"), url("/fonts/Lato-Bold.svg#/fonts/Lato-Bold") format("svg");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
   font-family: 'Lato-Regular';
-  src: url("../../fonts/Lato-Black.eot");
-  src: url("../../fonts/Lato-Black.ttf") format("truetype"), url("../../fonts/Lato-Black.woff") format("woff"), url("../../fonts/Lato-Black.eot?#iefix") format("embedded-opentype"), url("../../fonts/Lato-Black.svg#../../fonts/Lato-Black") format("svg");
+  src: url("/fonts/Lato-Black.eot");
+  src: url("/fonts/Lato-Black.ttf") format("truetype"), url("/fonts/Lato-Black.woff") format("woff"), url("/fonts/Lato-Black.eot?#iefix") format("embedded-opentype"), url("/fonts/Lato-Black.svg#/fonts/Lato-Black") format("svg");
   font-weight: 900;
   font-style: normal;
 }
@@ -207,22 +207,22 @@ span.nav_challenge {
 }
 /* line 42, ../../../../../../../Compass_back/sass/_navidea.scss */
 .panel-heading .huge.all {
-  background-image: url("../../images/picto-admin-blanc.png");
+  background-image: url("/images/picto-admin-blanc.png");
   color: #1c7cb8;
 }
 /* line 46, ../../../../../../../Compass_back/sass/_navidea.scss */
 .panel-heading .huge.maybe {
-  background-image: url("../../images/picto-admin-blanc.png");
+  background-image: url("/images/picto-admin-blanc.png");
   color: #fbc914;
 }
 /* line 50, ../../../../../../../Compass_back/sass/_navidea.scss */
 .panel-heading .huge.valid {
-  background-image: url("../../images/picto-admin-blanc.png");
+  background-image: url("/images/picto-admin-blanc.png");
   color: #4bb85d;
 }
 /* line 54, ../../../../../../../Compass_back/sass/_navidea.scss */
 .panel-heading .huge.refus {
-  background-image: url("../../images/picto-admin-blanc.png");
+  background-image: url("/images/picto-admin-blanc.png");
   color: #e3564d;
 }
 /* line 59, ../../../../../../../Compass_back/sass/_navidea.scss */
@@ -253,12 +253,12 @@ body {
 }
 
 /* line 11, ../../../../../../../Compass_back/sass/_main.scss */
-.section-all, .section-notmoderated {
+.section-all, .section-notmoderated, .section-video {
   background-color: #1c7cb8;
 }
 
 /* line 15, ../../../../../../../Compass_back/sass/_main.scss */
-.section-maybe {
+.section-maybe, .section-laureats {
   background-color: #fbc914;
 }
 
@@ -400,7 +400,7 @@ body {
 
 /* line 115, ../../../../../../../Compass_back/sass/_main.scss */
 .selecteur {
-  background: url("../../images/selected.png");
+  background: url("/images/selected.png");
   width: 80px;
   height: 38px;
   background-position: 0 38px;
@@ -495,6 +495,11 @@ body {
 /* line 190, ../../../../../../../Compass_back/sass/_main.scss */
 .pastreview .button-box.panel-footer span.icone-validation {
   margin: 0 auto;
+}
+
+/* line 194, ../../../../../../../Compass_back/sass/_main.scss */
+th {
+  font-weight: bold;
 }
 
 /* line 3, ../../../../../../../Compass_back/sass/_form.scss */
@@ -644,7 +649,7 @@ div.box-icone-validation {
   width: 48px;
   height: 45px;
   margin: 0 1em;
-  background: url("../../images/icone-validation-admin.png");
+  background: url("/images/icone-validation-admin.png");
 }
 /* line 131, ../../../../../../../Compass_back/sass/_form.scss */
 .button-box span.icone-validation.maybe {
@@ -703,7 +708,7 @@ div.box-icone-validation {
 * #################### */
 /* line 5, ../../../../../../../Compass_back/sass/_adminlog.scss */
 .admin-auth {
-  background-image: url("../../images/fond-splash-bo.jpg");
+  background-image: url("/images/fond-splash-bo.jpg");
   width: 100vw;
   height: 100vh;
   background-size: cover;

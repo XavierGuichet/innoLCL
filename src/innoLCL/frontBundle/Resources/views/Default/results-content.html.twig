@@ -1,0 +1,33 @@
+<div class="row row-big laureats">
+    <div class="columns laureats__mainblock small-12">
+        {% for IdeaLaureat in IdeaLaureats %}
+            {% if loop.index < 6 %}
+                {% set hover= loop.index %}
+            {% else %}
+                {% set hover= loop.index - 5 %}
+            {% endif %}
+            {% if not loop.first %}
+                <div class="columns laureats__block small-4">
+                    <img src="{{ asset('/images/laureats/small/' ~ IdeaLaureat.slugNomAuthor|lower ~ '.jpg') }}" alt="" class="laureats__photo" />
+                    <div class="hover_filtre hover_{{ hover }}">
+                        <p class="laureats__idee">
+                            <span class="valigneur"></span>
+                            <span class="idea__title"><img src="{{ asset('/images/laureats/prix/' ~ loop.index ~ '_prix.png') }}" alt="" class="prix_onhover"/>{{ IdeaLaureat.titre }}</span>
+                        </p>
+                    </div>
+                    <div class="laureats__content">
+                        <img src="{{ asset('/images/laureats/prix/' ~ loop.index ~ '_prix.png') }}" alt="" class="prix"/>
+                        <h2 class="laureats__title">
+                            {{ IdeaLaureat.prenomAuthor }}
+                            <img src="{{ asset('/images/laureats/nom/' ~ IdeaLaureat.slugNomAuthor|lower ~ '.png') }}" alt="" />
+                        </h2>
+                        <p class="laureats__nb-votes">{{ IdeaLaureat.nbVotes }} Votes</p>
+                    </div>
+                    <div class="playbtn">
+                        <img src="{{ asset('/images/small-play.png') }}" alt="" class="small-play  js-videoopen" data-video="{{asset('video/idealaureat/' ~ IdeaLaureat.slugNomAuthor|lower ~ '.mp4')}}" data-videosize="auto" data-videocontrols="true">
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>

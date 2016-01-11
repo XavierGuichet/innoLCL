@@ -1,0 +1,86 @@
+<div class="row row-big laureats">
+  <div class="columns laureats__mainblock small-12">
+    {% for IdeaLaureat in IdeaLaureats %}
+      {% if loop.index < 6 %}
+        {% set hover= loop.index %}
+      {% else %}
+        {% set hover= loop.index - 5 %}
+      {% endif %}
+      {% if loop.first and IdeaLaureat.nbVotes> 0 %}
+        <div class="columns laureats__block small-12">
+            <img src="{{ asset('/images/laureats/big/' ~ IdeaLaureat.slugNomAuthor|lower ~ '.jpg') }}" alt="" class="laureats__photo" />
+            <div class="hover_filtre hover_{{ hover }}">
+              <p class="laureats__idee">
+                <span class="valigneur"></span>
+                <span>{{ IdeaLaureat.titre }}</span>
+              </p>
+            </div>
+            <div class="laureats__content">
+              <h2 class="laureats__title">
+                {{ IdeaLaureat.prenomAuthor }}
+                <img src="{{ asset('/images/laureats/nom/' ~ IdeaLaureat.slugNomAuthor|lower ~ '.png') }}" alt="" />
+              </h2>
+              <div class="jauge_like row">
+                <div class="small-12 columns">
+                  <div class="jauge small-6 medium-8 large-10 columns">
+                    <div class="jauge__inner" style="width: {{ IdeaLaureat.pourcVotes }}%">
+                    </div>
+                  </div>
+                  {% if todayvote == 0 %}
+                      <div class="like js-like" data-link="{{path('inno_lcl_stat_votefor', {'idealaureatid': IdeaLaureat.id}) }}" ></div>
+                  {% elseif todayvote == IdeaLaureat.id %}
+                      <div class="like js-like todayvote" data-link="{{path('inno_lcl_stat_votefor', {'idealaureatid': IdeaLaureat.id}) }}" ></div>
+                  {% endif %}
+
+                </div>
+              </div>
+            </div>
+            {% if todayvote == IdeaLaureat.id %}
+                <div class="playbtn constanthover">
+            {% else %}
+                <div class="playbtn">
+            {% endif %}
+              <img src="{{ asset('/images/small-play.png') }}" alt="" class="small-play  js-videoopen" data-video="{{asset('video/idealaureat/' ~ IdeaLaureat.slugNomAuthor|lower ~ '.mp4')}}" data-videosize="auto" data-videocontrols="true">
+            </div>
+        </div>
+        {% else %}
+        <div class="columns laureats__block small-4">
+          <img src="{{ asset('/images/laureats/small/' ~ IdeaLaureat.slugNomAuthor|lower ~ '.jpg') }}" alt="" class="laureats__photo" />
+          <div class="hover_filtre hover_{{ hover }}">
+            <p class="laureats__idee">
+              <span class="valigneur"></span>
+              <span>{{ IdeaLaureat.titre }}</span>
+            </p>
+          </div>
+          <div class="laureats__content">
+            <h2 class="laureats__title">
+              {{ IdeaLaureat.prenomAuthor }}
+              <img src="{{ asset('/images/laureats/nom/' ~ IdeaLaureat.slugNomAuthor|lower ~ '.png') }}" alt="" />
+            </h2>
+            <div class="jauge_like row">
+              <div class="small-12 columns">
+                <div class="jauge small-6 medium-8 large-10 columns">
+                  <div class="jauge__inner" style="width: {{ IdeaLaureat.pourcVotes }}%">
+                  </div>
+                </div>
+                {% if todayvote == 0 %}
+                    <div class="like js-like" data-link="{{path('inno_lcl_stat_votefor', {'idealaureatid': IdeaLaureat.id}) }}" ></div>
+                {% elseif todayvote == IdeaLaureat.id %}
+                    <div class="like js-like todayvote" data-link="{{path('inno_lcl_stat_votefor', {'idealaureatid': IdeaLaureat.id}) }}" ></div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          {% if todayvote == IdeaLaureat.id %}
+              <div class="playbtn constanthover">
+          {% else %}
+              <div class="playbtn">
+          {% endif %}
+            <img src="{{ asset('/images/small-play.png') }}" alt="" class="small-play  js-videoopen" data-video="{{asset('video/idealaureat/' ~ IdeaLaureat.slugNomAuthor|lower ~ '.mp4')}}" data-videosize="auto" data-videocontrols="true">
+          </div>
+
+        </div>
+        {% endif %}
+      {% endfor %}
+  </div>
+</div>

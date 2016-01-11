@@ -14,45 +14,39 @@ class DefaultController extends Controller
 {
     public function indexAction(Request $request) // /accueil
     {
-        $securityContext = $this->get('security.context');
-		$currentTime = time();
-		$phase2Time = strtotime($this->container->getParameter('phase.phase2'));
-		$phase3Time = strtotime($this->container->getParameter('phase.phase3'));
-		$phase4Time = strtotime($this->container->getParameter('phase.phase4'));
-		$phase5Time = strtotime($this->container->getParameter('phase.phase5'));
-        
-        if($currentTime < $phase2Time) { //PHASE 1
-			if ($securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
-				$route = $this->container->get('router')->generate('innolcl_front_landing_proposal');
-				return new RedirectResponse($route);
-			}
-			else {
-				return $this->render('innoLCLfrontBundle:Default:index.html.twig');
-			}
-		}
-		elseif($currentTime < $phase3Time) { //PHASE 2
-			$route = $this->container->get('router')->generate('innolcl_front_landing_selection');
-		}
-		elseif($currentTime < $phase4Time) { //PHASE 3
-			$route = $this->container->get('router')->generate('innolcl_front_landing_laureat');
-		}
-		elseif($currentTime >= $phase5Time) { //PHASE 4
-			/*if ($securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
-				$route = $this->container->get('router')->generate('innolcl_front_landing_vote');
-			}
-			else {
-				return $this->render('innoLCLfrontBundle:Default:index.html.twig');
-			}*/
-		}
-		else { //PHASE 5
-			//$route = $this->container->get('router')->generate('innolcl_front_landing_results');
-		}
-        
-        if(isset($route)) {
-			return new RedirectResponse($route);
-		}
-        
-        return $this->render('innoLCLfrontBundle:Default:index.html.twig');
+      $securityContext = $this->get('security.context');
+  		$currentTime = time();
+  		$phase2Time = strtotime($this->container->getParameter('phase.phase2'));
+  		$phase3Time = strtotime($this->container->getParameter('phase.phase3'));
+  		$phase4Time = strtotime($this->container->getParameter('phase.phase4'));
+  		$phase5Time = strtotime($this->container->getParameter('phase.phase5'));
+
+      if($currentTime < $phase2Time) { //PHASE 1
+  			if($securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+  				$route = $this->container->get('router')->generate('innolcl_front_landing_proposal');
+  				return new RedirectResponse($route);
+  			}
+  		}
+  		elseif($currentTime < $phase3Time) { //PHASE 2
+  			$route = $this->container->get('router')->generate('innolcl_front_landing_selection');
+  		}
+  		elseif($currentTime < $phase4Time) { //PHASE 3
+  			$route = $this->container->get('router')->generate('innolcl_front_landing_laureat');
+  		}
+  		elseif($currentTime <= $phase5Time) { //PHASE 4
+  			if ($securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+  				$route = $this->container->get('router')->generate('innolcl_front_landing_vote');
+  			}
+  		}
+  		else { //PHASE 5
+  			$route = $this->container->get('router')->generate('innolcl_front_landing_results');
+  		}
+
+      if(isset($route)) {
+			  return new RedirectResponse($route);
+		  }
+
+      return $this->render('innoLCLfrontBundle:Default:index.html.twig');
     }
     
     /**
@@ -77,11 +71,11 @@ class DefaultController extends Controller
     
     public function proposalAction(Request $request) // phase 1
     {
-		/*$currentTime = time();
-		$phase2Time = strtotime($this->container->getParameter('phase.phase2'));
-		if($currentTime > $phase2Time) {
-			return $this->indexAction($request);
-		}*/
+        $currentTime = time();
+        $phase2Time = strtotime($this->container->getParameter('phase.phase2'));
+        if($currentTime > $phase2Time) {
+            return $this->indexAction($request);
+        }
         return $this->homeConnected($request, false);
     }
     
@@ -91,13 +85,13 @@ class DefaultController extends Controller
         
         $user = $this->get('security.context')->getToken()->getUser();
         $userId = $user->getId();
-                
-        $twig = array('authorid' => "$userId",
-                              'displayCTA' => 0,
-                              'displayForm' => 0,
-                              'FormIdeaID' => 0,
-                              'idealist' => array()); //valeur par défault pour twig
-               
+
+        $twig = array('authorid' => $userId,
+                      'displayCTA' => 0,
+                      'displayForm' => 0,
+                      'FormIdeaID' => 0,
+                      'idealist' => array()); //valeur par défault pour twig
+
          $twig['urladmin'] = $this->get('router')->generate('innolcl_moderateur_list_idea',array('page' => 1));
         
         
@@ -159,11 +153,60 @@ class DefaultController extends Controller
     
     public function voteAction(Request $request) // phase 4
     {
-         //return $this->render('innoLCLfrontBundle:Default:index.html.twig');
+        //redirige vers l'accueil si non connecté
+        $securityContext = $this->get('security.context');
+        if(!($securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED'))) {
+            $route = $this->container->get('router')->generate('innolcl_front_landing_proposal');
+            return new RedirectResponse($route);
+        }
+
+        //redirige vers l'accueil si date hors phase
+        $currentTime = time();
+        $phase4Time = strtotime($this->container->getParameter('phase.phase4'));
+        $phase5Time = strtotime($this->container->getParameter('phase.phase5'));
+        if(!($currentTime > $phase4Time && $currentTime < $phase5Time)) {
+            $route = $this->container->get('router')->generate('innolcl_front_landing_proposal');
+            return new RedirectResponse($route);
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $repoIdeaLaureat = $em->getRepository('innoLCL\bothIdeaBundle\Entity\IdeaLaureat');
+        $repoVote = $em->getRepository('innoLCL\StatBundle\Entity\Votes');
+        $user = $securityContext->getToken()->getUser();
+
+
+        $twig['IdeaLaureats'] = $repoIdeaLaureat->findBy(array(),
+                                                        array('nbVotes' => 'DESC',
+                                                        'prenomAuthor' => 'ASC'));
+
+        $lastVote = $repoVote->findLastVoteByUser($user);
+        //Si déjà voté pour cet user et vote date d'aujourd'hui
+        if($lastVote && strtotime(date("Y-m-d")) == $lastVote->getDateVote()->getTimestamp()) {
+            $twig['todayvote'] = $lastVote->getIdeaLaureat()->getId();
+        }
+        else {
+            $twig['todayvote'] = 0;
+        }
+
+        return $this->render('innoLCLfrontBundle:Default:phase4.html.twig',$twig);
     }
     
     public function  resultsAction(Request $request) // phase 5
     {
-         //return $this->render('innoLCLfrontBundle:Default:index.html.twig');
+        //Renvoi si date ne correspond pas à la phase
+        $phase5Time = strtotime($this->container->getParameter('phase.phase5'));
+        if(!(time() > $phase5Time)) {
+            $route = $this->container->get('router')->generate('innolcl_front_landing_proposal');
+            return new RedirectResponse($route);
+        }
+
+        //Recuperation de la liste des idées par Nb de votes descendant
+        $em = $this->getDoctrine()->getManager();
+        $repoIdeaLaureat = $em->getRepository('innoLCL\bothIdeaBundle\Entity\IdeaLaureat');
+        $twig['IdeaLaureats'] = $repoIdeaLaureat->findBy(array(),
+                                                        array('nbVotes' => 'DESC',
+                                                        'prenomAuthor' => 'ASC'));
+
+        return $this->render('innoLCLfrontBundle:Default:results.html.twig',$twig);
     }
 }

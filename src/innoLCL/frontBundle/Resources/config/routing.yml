@@ -19,16 +19,16 @@ innolcl_front_landing_laureat:
     defaults: { _controller: innoLCLfrontBundle:Default:laureat }
     
 #landing phase 4
-#innolcl_front_landing_vote:
-#    path:     /votes
-#    defaults: { _controller: innoLCLfrontBundle:Default:vote }    
-    
-#landing phase 5
-#innolcl_front_landing_results:
-#    path:     /results
-#    defaults: { _controller: innoLCLfrontBundle:Default:results }
+innolcl_front_landing_vote:
+    path:     /votes
+    defaults: { _controller: innoLCLfrontBundle:Default:vote }
 
-    
+#landing phase 5
+innolcl_front_landing_results:
+    path:     /results
+    defaults: { _controller: innoLCLfrontBundle:Default:results }
+
+
 #soumission js set video as seen
 innolcl_frontbundle_videohandleFormAction:
     path:     /videoseen

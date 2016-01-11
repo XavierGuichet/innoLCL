@@ -1,0 +1,75 @@
+{# src/innoLCL/frontBundle/Resources/views/Default/phase4.html.twig #}
+{% extends "innoLCLfrontBundle::layout.html.twig" %}
+{% block body %}
+  <header>
+    <div class="row">
+      <div class="entete-generale entete-vote">
+      <div class="login__topbar">
+          {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+              <span class="login__user">Bonjour, {{ app.user.firstname|slice(0, 1)  }}. {{ app.user.lastname }}</span>
+              <a href="{{ path('fos_user_security_logout') }}" class="login__logout">
+                  Se déconnecter
+              </a>
+          {% else %}
+              <a href="{{ path('fos_user_security_login') }}">
+                  {{ 'layout.login'|trans({}, 'FOSUserBundle') }}
+                  </a>
+          {% endif %}
+      </div>
+        <div class="row">
+          <div class="small-2 columns">
+            {% image '@innoLCLfrontBundle/Resources/assets/images/logo_LCL.png' %}
+            <img src="{{ asset_url }}" alt="Challenge de l'innovation LCL" />
+            {% endimage %}
+          </div>
+          <div class="small-8 columns">
+            <h1 class="title">
+              {% image '@innoLCLfrontBundle/Resources/assets/images/partipez.png' %}
+              <img src="{{ asset_url }}" alt="Participez au" class="" />
+              {% endimage %}
+              <br/> challenge de l'innovation LCL</h1>
+          </div>
+          <div class="small-2 columns">
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-12 columns">
+            <div class="row text-center">
+              {% image '@innoLCLfrontBundle/Resources/assets/images/les10.png' %}
+              <img src="{{ asset_url }}" alt="les 10" class="entete-generale__logo levitate" />
+              {% endimage %}
+            </div>
+            <div class="row text-center">
+              {% image '@innoLCLfrontBundle/Resources/assets/images/idees.png' %}
+              <img src="{{ asset_url }}" alt="lauréats" class="entete-generale__logo" />
+              {% endimage %}
+            </div>
+            <div class="row text-center">
+              <p class="select_in_progress-bigger">sélectionnées sont :</p>
+            </div>
+            <div class="row text-center">
+              {% image '@innoLCLfrontBundle/Resources/assets/images/souris_picto.png' %}
+              <img src="{{ asset_url }}" alt="Challenge de l'innovation LCL" />
+              {% endimage %}
+            </div>
+          </div>
+          <div class="small-3 columns"></div>
+          {% image '@innoLCLfrontBundle/Resources/assets/images/les10-shadow.png' %}
+          <img src="{{ asset_url }}" alt="Challenge de l'innovation LCL" class="entete-generale__ombre shadow" />
+          {% endimage %}
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="entete-sub-small">
+    <h2 class="title">Votez chaque jour pour votre idée préférée !</h2>
+  </div>
+
+
+  {{ include("innoLCLfrontBundle:Default:Phase4-content.html.twig") }}
+  <div class="black">
+    <h2 class="title">N'hésitez pas à voter.<br/>Un tirage au sort récompensera 100 d'entre vous !</h2>
+  </div>
+  {% set dotationtitledisplay = 0 %}
+  {{ include("innoLCLfrontBundle:Default:dotation.html.twig") }}
+{% endblock %}

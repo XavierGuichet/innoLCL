@@ -1,3 +1,6 @@
-inno_lcl_stat_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: innoLCLStatBundle:Default:index }
+inno_lcl_stat_votefor:
+    path: /vote/{idealaureatid}
+    defaults: { _controller: innoLCLStatBundle:VoteIdea:vote }
+    methods: [POST]
+    requirements:
+            ideaid: \d+
