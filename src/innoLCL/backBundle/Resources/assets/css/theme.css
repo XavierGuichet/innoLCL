@@ -207,22 +207,22 @@ span.nav_challenge {
 }
 /* line 42, ../../../../../../../Compass_back/sass/_navidea.scss */
 .panel-heading .huge.all {
-  background-image: url("/images/picto-admin-blanc.png");
+  background-image: url("../../../images/picto-admin-blanc.png");
   color: #1c7cb8;
 }
 /* line 46, ../../../../../../../Compass_back/sass/_navidea.scss */
 .panel-heading .huge.maybe {
-  background-image: url("/images/picto-admin-blanc.png");
+  background-image: url("../../../images/picto-admin-blanc.png");
   color: #fbc914;
 }
 /* line 50, ../../../../../../../Compass_back/sass/_navidea.scss */
 .panel-heading .huge.valid {
-  background-image: url("/images/picto-admin-blanc.png");
+  background-image: url("../../../images/picto-admin-blanc.png");
   color: #4bb85d;
 }
 /* line 54, ../../../../../../../Compass_back/sass/_navidea.scss */
 .panel-heading .huge.refus {
-  background-image: url("/images/picto-admin-blanc.png");
+  background-image: url("../../../images/picto-admin-blanc.png");
   color: #e3564d;
 }
 /* line 59, ../../../../../../../Compass_back/sass/_navidea.scss */
@@ -400,7 +400,7 @@ body {
 
 /* line 115, ../../../../../../../Compass_back/sass/_main.scss */
 .selecteur {
-  background: url("/images/selected.png");
+  background: url("../../../images/selected.png");
   width: 80px;
   height: 38px;
   background-position: 0 38px;
@@ -649,7 +649,7 @@ div.box-icone-validation {
   width: 48px;
   height: 45px;
   margin: 0 1em;
-  background: url("/images/icone-validation-admin.png");
+  background: url("../../../images/icone-validation-admin.png");
 }
 /* line 131, ../../../../../../../Compass_back/sass/_form.scss */
 .button-box span.icone-validation.maybe {
@@ -708,7 +708,7 @@ div.box-icone-validation {
 * #################### */
 /* line 5, ../../../../../../../Compass_back/sass/_adminlog.scss */
 .admin-auth {
-  background-image: url("/images/fond-splash-bo.jpg");
+  background-image: url("../../../images/fond-splash-bo.jpg");
   width: 100vw;
   height: 100vh;
   background-size: cover;

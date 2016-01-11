@@ -290,7 +290,7 @@ div.popup__footer {
 
 /* line 107, ../../../../../../../Compass_front/sass/ie8-fix.scss */
 .reveal-modal-bg {
-  background: url("/images/modalbg.png") repeat transparent;
+  background: url("../../../images/modalbg.png") repeat transparent;
 }
 
 /* line 110, ../../../../../../../Compass_front/sass/ie8-fix.scss */
