@@ -100,6 +100,15 @@ jQuery(document).ready( function($) {
     //Gestion trigger video lot2
     $('.js-videoopen').on('click', function(event) { openvideoplayer(event, $(this)) });
     $('.js-videoclose').on('click', function(event) { closevideoplayer(event, $(this)) });
+    $('#emptyVideoModal').on('closed.fndtn.reveal', function () {
+        if((is_explorer)&&($('html').hasClass('lt-ie10'))){
+
+        }else{
+            document.getElementById('js-empty-video').pause();
+            document.getElementById('js-empty-video').currentTime = 0;
+        }
+    });
+    
     
     
     // gestion longueur des textarea
@@ -530,35 +539,29 @@ function openvideoplayer(event, t) {
         $('#emptyVideoModal').find('video').removeAttr("controls");
     }
 
-	if(videopath != "") {
-		$('#emptyVideoModal source').attr('src',videopath);
-		$('#emptyVideoModal').foundation('reveal', 'open');
-		$('#emptyVideoModal').css('top','0px');
+    if(videopath != "") {
+        $('#emptyVideoModal source').attr('src',videopath);
+        $('#emptyVideoModal').foundation('reveal', 'open');
+        $('#emptyVideoModal').css('top','0px');
 
-		videoname = getvideoname(videopath);
-		timeOutVideo = setTimeout(function(){videoIncrement(videoname);}, 5*1000);
+        videoname = getvideoname(videopath);
+        timeOutVideo = setTimeout(function(){videoIncrement(videoname);}, 5*1000);
 
 
-		if((is_explorer)&&($('html').hasClass('lt-ie10'))){
-			flashvideohtml = '<object id="js-empty-video-flash" type="application/x-shockwave-flash" data="/video/flashfox.swf" width="90%" height="90%"><param name="movie" value="/video/flashfox.swf" /><param name="allowFullScreen" value="true" /><param name="wmode" value="transparent" /><param name="flashVars" value="autoplay=true&amp;controls=true&amp;src='+videopath+'" /></object>';
-			$('#js-empty-video-flash').replaceWith(flashvideohtml);
+        if((is_explorer)&&($('html').hasClass('lt-ie10'))){
+            flashvideohtml = '<object id="js-empty-video-flash" type="application/x-shockwave-flash" data="/video/flashfox.swf" width="90%" height="90%"><param name="movie" value="/video/flashfox.swf" /><param name="allowFullScreen" value="true" /><param name="wmode" value="transparent" /><param name="flashVars" value="autoplay=true&amp;controls=true&amp;src='+videopath+'" /></object>';
+            $('#js-empty-video-flash').replaceWith(flashvideohtml);
         }
-		else {    
-			document.getElementById('js-empty-video').load();
-			document.getElementById('js-empty-video').play();
+        else {    
+            document.getElementById('js-empty-video').load();
+            document.getElementById('js-empty-video').play();
         }
-	}
+    }
 	
 }
 
 function closevideoplayer(event, t) { 
         event.preventDefault();
         clearTimeout(timeOutVideo);
-        if((is_explorer)&&($('html').hasClass('lt-ie10'))){
-            $('#emptyVideoModal').foundation('reveal', 'close');
-        }else{
-            document.getElementById('js-empty-video').pause();
-            document.getElementById('js-empty-video').currentTime = 0;
-            $('#emptyVideoModal').foundation('reveal', 'close');
-        }
+        $('#emptyVideoModal').foundation('reveal', 'close');        
 }
