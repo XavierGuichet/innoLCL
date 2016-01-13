@@ -48,7 +48,7 @@ class DefaultController extends Controller
 
       return $this->render('innoLCLfrontBundle:Default:index.html.twig');
     }
-    
+
     /**
      * Tell the user his account is now confirmed
      */
@@ -68,7 +68,7 @@ class DefaultController extends Controller
             return new RedirectResponse($route);
         }
     }
-    
+
     public function proposalAction(Request $request) // phase 1
     {
         $currentTime = time();
@@ -78,11 +78,11 @@ class DefaultController extends Controller
         }
         return $this->homeConnected($request, false);
     }
-    
+
     private function homeConnected(Request $request, $registerConfirmed)
     {
         $repositoryIdea = $this->getDoctrine()->getManager()->getRepository('innoLCL\bothIdeaBundle\Entity\Idea');
-        
+
         $user = $this->get('security.context')->getToken()->getUser();
         $userId = $user->getId();
 
@@ -93,15 +93,15 @@ class DefaultController extends Controller
                       'idealist' => array()); //valeur par défault pour twig
 
          $twig['urladmin'] = $this->get('router')->generate('innolcl_moderateur_list_idea',array('page' => 1));
-        
-        
+
+
         //Verification du role => admin ejecté ou limité ? Si les admin ne peuvent pas participer ? ou alors incapacité d'afficher le CTA
-        
+
         if($repositoryIdea->getCountIdeaOfUser($userId) > 0) //Si l'user déjà des idées => affiche la liste d'idée
         {
             $twig['idealist'] = $repositoryIdea->findBy(array('author' => $userId),array('postedon' => 'desc'));
         }
-        
+
         //Defini si le CTA et le formulaire sera affiché / disponible
         if($user->getVideoseenon() != null)
         {
@@ -112,46 +112,46 @@ class DefaultController extends Controller
                 $twig['displayCTA'] = 1;
                 $twig['FormIdeaID'] = 0;
             }
-            else 
+            else
             {
                 $twig['displayCTA'] = 0;
                 $twig['FormIdeaID'] = $repositoryIdea->getLastIdeaIdOfUser($userId);
             }
         }
-        
+
         $twig['registerConfirmed'] = $registerConfirmed;
-        
+
           return $this->render('innoLCLfrontBundle:Default:proposal.html.twig',$twig);
     }
-    
-    
-    
-    
+
+
+
+
     public function SelectionAction(Request $request) // phase 2
     {
 		$currentTime = time();
 		$phase2Time = strtotime($this->container->getParameter('phase.phase2'));
 		$phase3Time = strtotime($this->container->getParameter('phase.phase3'));
-		if(!($currentTime > $phase2Time && $currentTime < $phase3Time)) {			
+		if(!($currentTime > $phase2Time && $currentTime < $phase3Time)) {
 			$route = $this->container->get('router')->generate('innolcl_front_landing_proposal');
 			return new RedirectResponse($route);
 		}
          return $this->render('innoLCLfrontBundle:Default:selection.html.twig');
     }
-    
+
     public function laureatAction(Request $request) // phase 3
     {
 		$currentTime = time();
 		$phase3Time = strtotime($this->container->getParameter('phase.phase3'));
 		$phase4Time = strtotime($this->container->getParameter('phase.phase4'));
-		if(!($currentTime > $phase3Time && $currentTime < $phase4Time)) {			
+		if(!($currentTime > $phase3Time && $currentTime < $phase4Time)) {
 			$route = $this->container->get('router')->generate('innolcl_front_landing_proposal');
 			return new RedirectResponse($route);
 		}
          return $this->render('innoLCLfrontBundle:Default:laureats.html.twig');
     }
-    
-    public function voteAction(Request $request) // phase 4
+
+    public function voteAction(Request $request, \DateTime $dateCurrent = null) // phase 4
     {
         //redirige vers l'accueil si non connecté
         $securityContext = $this->get('security.context');
@@ -174,10 +174,29 @@ class DefaultController extends Controller
         $repoVote = $em->getRepository('innoLCL\StatBundle\Entity\Votes');
         $user = $securityContext->getToken()->getUser();
 
+        $unorderedIdeaLaureats = $repoIdeaLaureat->findBy(array(),
+                                                        array('nomAuthor' => 'ASC'));
+        //Recupère le DateTime initial pour test si non défini la set à la date voulu, (en prod jeudi 14/01/2016 à 9:00)
+        $dateInitialVoteOrder = \DateTime::createFromFormat("Y-m-d H:i:s", "2016-01-14 09:00:00");
+        if(!$dateCurrent) { $dateCurrent = new \DateTime();}
 
-        $twig['IdeaLaureats'] = $repoIdeaLaureat->findBy(array(),
-                                                        array('nbVotes' => 'DESC',
-                                                        'prenomAuthor' => 'ASC'));
+        //DateTime diff renvoi les jours sans prendre en compte les heures. Pour ne pas modifier les datetime pour s'adapter, on calcule içi le nombre de tranche complete de 24h
+        //permet aussi les valeurs negatives, pour afficher correctement la veille et le matin de la release avant 9h00
+        $timeElapsed = $dateCurrent->getTimestamp() - $dateInitialVoteOrder->getTimestamp();
+        $completeDayElapsed = (int) floor($timeElapsed/86400);
+
+        //Calcul du nb de dimanche dans l'intervalle de temps
+        $nbDimanche = intval($completeDayElapsed / 7) + ($dateInitialVoteOrder->format('N') + $completeDayElapsed % 7 >= 7);
+
+        //Suppression des dimanche et ajustement de l'offset à la taille du tableau
+        $offsetSplit = ($completeDayElapsed-$nbDimanche) % count($unorderedIdeaLaureats);
+
+        //Découpe la liste en deux et la reconstruit dans l'ordre voulu
+        $debutOrderedIdeaLaureats = array_slice($unorderedIdeaLaureats, $offsetSplit);
+        $finOrderedIdeaLaureats = array_slice($unorderedIdeaLaureats, 0, $offsetSplit);
+        $orderedIdeaLaureats = array_merge($debutOrderedIdeaLaureats,$finOrderedIdeaLaureats);
+
+        $twig['IdeaLaureats'] = $orderedIdeaLaureats;
 
         $lastVote = $repoVote->findLastVoteByUser($user);
         //Si déjà voté pour cet user et vote date d'aujourd'hui
@@ -190,7 +209,12 @@ class DefaultController extends Controller
 
         return $this->render('innoLCLfrontBundle:Default:phase4.html.twig',$twig);
     }
-    
+
+    public function votetesteurAction(Request $request, $Y,$M,$d,$h,$m,$s) {
+        $dateInitialVoteOrder = \DateTime::createFromFormat("Y-m-d H:i:s", $Y.'-'.$M.'-'.$d.' '.$h.':'.$m.':'.$s);
+        return $this->voteAction($request, $dateInitialVoteOrder);
+    }
+
     public function  resultsAction(Request $request) // phase 5
     {
         //Renvoi si date ne correspond pas à la phase
